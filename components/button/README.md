@@ -7,7 +7,7 @@
 
 ## Examples
 
-[CodePen](https://codepen.io/sogyeokdong/embed/preview/GRyZVXZ?default-tab=html%2Cresult&theme-id=light, "Otter: button > type"){:target="_blank"}
+[CodePen](https://codepen.io/sogyeokdong/embed/preview/GRyZVXZ?default-tab=html%2Cresult&theme-id=light, "Otter: button > type")
 
 ### Type
 
