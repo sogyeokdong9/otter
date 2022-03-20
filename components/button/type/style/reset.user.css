@@ -1,0 +1,32 @@
+button {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+button:not([disabled]):hover {
+  text-decoration: none;
+}
+
+button:not([disabled]):active, button:not([disabled]):focus {
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+}
+
+button[disabled] > * {
+  pointer-events: none;
+}
+/*# sourceMappingURL=reset.user.css.map */

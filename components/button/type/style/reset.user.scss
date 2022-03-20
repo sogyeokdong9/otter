@@ -1,0 +1,31 @@
+button {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+
+  &:not([disabled]) {
+    &:hover {
+      text-decoration: none;
+    }
+
+    &:active, &:focus {
+      outline: 0;
+      box-shadow: none;
+    }
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+
+    > * {
+      pointer-events: none;
+    }
+  }
+}

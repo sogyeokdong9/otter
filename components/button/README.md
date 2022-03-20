@@ -2,7 +2,7 @@
 
 ## Structure
 
-- button
+- button(`otter-btn` [`otter-btn-primary`[, `otter-btn-dangerous`[, ...`otter-btn-loading`]]]) 
   - text
 
 ## Examples
