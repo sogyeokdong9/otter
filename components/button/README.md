@@ -7,11 +7,7 @@
 
 ## Examples
 
-<iframe height="300" style="width: 100%;" scrolling="no" title="Otter: button &gt; type" src="https://codepen.io/sogyeokdong/embed/preview/GRyZVXZ?default-tab=html%2Cresult&theme-id=light" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href="https://codepen.io/sogyeokdong/pen/GRyZVXZ">
-  Otter: button &gt; type</a> by sogyeokdong9 (<a href="https://codepen.io/sogyeokdong">@sogyeokdong</a>)
-  on <a href="https://codepen.io">CodePen</a>.
-</iframe>
+[CodePen](https://codepen.io/sogyeokdong/embed/preview/GRyZVXZ?default-tab=html%2Cresult&theme-id=light, "Otter: button > type"){:target="_blank"}
 
 ### Type
 
