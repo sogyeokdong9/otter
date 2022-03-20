@@ -13,22 +13,45 @@
 
 ```html
 <button type="button" class="otter-btn">
-  <span>Button</span>
+	<span>Button</span>
 </button>
 <button type="button" class="otter-btn otter-btn-default">
-  <span>Default Button</span>
+	<span>Default Button</span>
 </button>
 <button type="button" class="otter-btn otter-btn-primary">
-  <span>Primary Button</span>
+	<span>Primary Button</span>
 </button>
 <button type="button" class="otter-btn otter-btn-dashed">
-  <span>Dashed Button</span>
+	<span>Dashed Button</span>
 </button>
 <button type="button" class="otter-btn otter-btn-text">
-  <span>Text Button</span>
+	<span>Text Button</span>
 </button>
 <button type="button" class="otter-btn otter-btn-link">
-  <span>Link Button</span>
+	<span>Link Button</span>
+</button>
+```
+
+### disabled
+
+```html
+<button type="button" class="otter-btn" disabled>
+	<span>Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-default" disabled>
+	<span>Default Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-primary" disabled>
+	<span>Primary Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-dashed" disabled>
+	<span>Dashed Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-text" disabled>
+	<span>Text Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-link" disabled>
+	<span>Link Button</span>
 </button>
 ```
 
@@ -69,26 +92,6 @@
 </button>
 <button type="button" class="otter-btn otter-btn-link otter-btn-background-ghost">
   <span>Link</span>
-</button>
-```
-
-### disabled
-
-```html
-<button type="button" class="otter-btn otter-btn-primary" disabled>
-  <span>Primary(disabled)</span>
-</button>
-<button type="button" class="otter-btn otter-btn-default" disabled>
-  <span>Default(disabled)</span>
-</button>
-<button type="button" class="otter-btn otter-btn-dashed" disabled>
-  <span>Dashed(disabled)</span>
-</button>
-<button type="button" class="otter-btn otter-btn-text" disabled>
-  <span>Text(disabled)</span>
-</button>
-<button type="button" class="otter-btn otter-btn-link" disabled>
-  <span>Link(disabled)</span>
 </button>
 ```
 
