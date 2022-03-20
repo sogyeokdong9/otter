@@ -63,31 +63,37 @@
   }
   &:hover>a:only-child,
   &:focus>a:only-child {
-    @extend %otter-btn-a-child-shared;
+    @extend %otter-btn-a-child;
   }
   &:hover>a:only-child:after,
   &:focus>a:only-child:after {
-    @extend %otter-btn-a-child-after-shared;
+    @extend %otter-btn-a-child-after;
   }
   &+& {
     margin-left: var(--otter-btn-spacing);
-  }  
+  }
 }
 
-.otter-btn-default {
-  border-style: solid;
-  border-color: var(--otter-btn-default-border);
-  background: var(--otter-btn-default-bg);
-  box-shadow: 0 2px 0 var(--otter-btn-default-box-shadow);
-  color: var(--otter-btn-default);
+$btns-data: (
+  default: solid,
+  primary: solid,
+  dashed: dashed,
+  text: none,
+  link: none
+);
+
+@each $btn, $border in $btns-data {
+  .otter-btn-#{$btn} {
+    border-style: #{$border};
+    border-color: var(--otter-btn-#{$btn}-border);
+    background: var(--otter-btn-#{$btn}-bg);
+    box-shadow: 0 2px 0 var(--ootter-btn-#{$btn}-box-shadow);
+    color: var(--otter-btn-#{$btn});
+  }
 }
 
 .otter-btn-primary {
-  border-style: solid;
-  border-color: var(--otter-btn-primary-border);
-  background: var(--otter-btn-primary-bg);
-  box-shadow: 0 2px 0 var(--otter-btn-primary-box-shadow);
-  color: var(--otter-btn-primary);
+  // @each문울 통하여 자동생성
   &:hover,
   &:focus {
     border-color: var(--otter-primary-color-hover);
@@ -96,20 +102,16 @@
   }
   &:hover>a:only-child,
   &:focus>a:only-child {
-    @extend %otter-btn-a-child-shared;
+    @extend %otter-btn-a-child;
   }
   &:hover>a:only-child:after,
   &:focus>a:only-child:after {
-    @extend %otter-btn-a-child-after-shared;
+    @extend %otter-btn-a-child-after;
   }
 }
 
 .otter-btn-dashed {
-  border-style: dashed;
-  border-color: var(--otter-btn-dashed-border);
-  background: var(--otter-btn-dashed-bg);
-  box-shadow: 0 2px 0 var(--otter-btn-dashed-box-shadow);
-  color: var(--otter-btn-dashed);
+  // @each문울 통하여 자동생성
   &:hover,
   &:focus {
     border-color: var(--otter-primary-color-hover);
@@ -118,20 +120,16 @@
   }
   &:hover>a:only-child,
   &:focus>a:only-child {
-    @extend %otter-btn-a-child-shared;
+    @extend %otter-btn-a-child;
   }
   &:hover>a:only-child:after,
   &:focus>a:only-child:after {
-    @extend %otter-btn-a-child-after-shared;
+    @extend %otter-btn-a-child-after;
   }
 }
 
 .otter-btn-text {
-  border-style: none;
-  border-color: var(--otter-btn-text-border);
-  background: var(--otter-btn-text-bg);
-  box-shadow: 0 2px 0 var(--otter-btn-text-box-shadow);
-  color: var(--otter-btn-text);
+  // @each문울 통하여 자동생성
   &:hover,
   &:focus {
     border-color: var(--otter-btn-text-border);
@@ -140,20 +138,16 @@
   }
   &:hover>a:only-child,
   &:focus>a:only-child {
-    @extend %otter-btn-a-child-shared;
+    @extend %otter-btn-a-child;
   }
   &:hover>a:only-child:after,
   &:focus>a:only-child:after {
-    @extend %otter-btn-a-child-after-shared;
+    @extend %otter-btn-a-child-after;
   }
 }
 
 .otter-btn-link {
-  border-style: none;
-  border-color: var(--otter-btn-link-border);
-  background: var(--otter-btn-link-bg);
-  box-shadow: 0 2px 0 var(--otter-btn-link-box-shadow);
-  color: var(--otter-btn-link);
+  // @each문울 통하여 자동생성
   &:hover,
   &:focus {
     border-color: var(--otter-primary-color-hover);
@@ -162,11 +156,11 @@
   }
   &:hover>a:only-child,
   &:focus>a:only-child {
-    @extend %otter-btn-a-child-shared;
+    @extend %otter-btn-a-child;
   }
   &:hover>a:only-child:after,
   &:focus>a:only-child:after {
-    @extend %otter-btn-a-child-after-shared;
+    @extend %otter-btn-a-child-after;
   }
 }
 
@@ -174,91 +168,91 @@
 .otter-btn[disabled]:hover,
 .otter-btn[disabled]:focus,
 .otter-btn[disabled]:active {
-  @extend %disabled-default-style-shared;
+  @extend %otter-btn-disabled-filled;
 }
 .otter-btn[disabled]>a:only-child,
 .otter-btn[disabled]:hover>a:only-child,
 .otter-btn[disabled]:focus>a:only-child,
 .otter-btn[disabled]:active>a:only-child {
-  @extend %otter-btn-a-child-shared;
+  @extend %otter-btn-a-child;
 }
 .otter-btn[disabled]>a:only-child:after,
 .otter-btn[disabled]:hover>a:only-child:after,
 .otter-btn[disabled]:focus>a:only-child:after,
 .otter-btn[disabled]:active>a:only-child:after {
-  @extend %otter-btn-a-child-after-shared;
+  @extend %otter-btn-a-child-after;
 }
 .otter-btn-primary[disabled],
 .otter-btn-primary[disabled]:hover,
 .otter-btn-primary[disabled]:focus,
 .otter-btn-primary[disabled]:active {
-  @extend %disabled-default-style-shared;
+  @extend %otter-btn-disabled-filled;
 }
 .otter-btn-primary[disabled]>a:only-child,
 .otter-btn-primary[disabled]:hover>a:only-child,
 .otter-btn-primary[disabled]:focus>a:only-child,
 .otter-btn-primary[disabled]:active>a:only-child {
-  @extend %otter-btn-a-child-shared;
+  @extend %otter-btn-a-child;
 }
 .otter-btn-primary[disabled]>a:only-child:after,
 .otter-btn-primary[disabled]:hover>a:only-child:after,
 .otter-btn-primary[disabled]:focus>a:only-child:after,
 .otter-btn-primary[disabled]:active>a:only-child:after {
-  @extend %otter-btn-a-child-after-shared;
+  @extend %otter-btn-a-child-after;
 }
 .otter-btn-dashed[disabled],
 .otter-btn-dashed[disabled]:hover,
 .otter-btn-dashed[disabled]:focus,
 .otter-btn-dashed[disabled]:active {
-  @extend %disabled-default-style-shared;
+  @extend %otter-btn-disabled-filled;
 }
 .otter-btn-dashed[disabled]>a:only-child,
 .otter-btn-dashed[disabled]:hover>a:only-child,
 .otter-btn-dashed[disabled]:focus>a:only-child,
 .otter-btn-dashed[disabled]:active>a:only-child {
-  @extend %otter-btn-a-child-shared;
+  @extend %otter-btn-a-child;
 }
 .otter-btn-dashed[disabled]>a:only-child:after,
 .otter-btn-dashed[disabled]:hover>a:only-child:after,
 .otter-btn-dashed[disabled]:focus>a:only-child:after,
 .otter-btn-dashed[disabled]:active>a:only-child:after {
-  @extend %otter-btn-a-child-after-shared;
+  @extend %otter-btn-a-child-after;
 }
 .otter-btn-text[disabled],
 .otter-btn-text[disabled]:hover,
 .otter-btn-text[disabled]:focus,
 .otter-btn-text[disabled]:active {
-  @extend %disabled-text-style-shared;
+  @extend %otter-btn-disabled-unfilled;
 }
 .otter-btn-text[disabled]>a:only-child,
 .otter-btn-text[disabled]:hover>a:only-child,
 .otter-btn-text[disabled]:focus>a:only-child,
 .otter-btn-text[disabled]:active>a:only-child {
-  @extend %otter-btn-a-child-shared;
+  @extend %otter-btn-a-child;
 }
 .otter-btn-text[disabled]>a:only-child:after,
 .otter-btn-text[disabled]:hover>a:only-child:after,
 .otter-btn-text[disabled]:focus>a:only-child:after,
 .otter-btn-text[disabled]:active>a:only-child:after {
-  @extend %otter-btn-a-child-after-shared;
+  @extend %otter-btn-a-child-after;
 }
 .otter-btn-link[disabled],
 .otter-btn-link[disabled]:hover,
 .otter-btn-link[disabled]:focus,
 .otter-btn-link[disabled]:active {
-  @extend %disabled-link-style-shared;
+  @extend %otter-btn-disabled-filled;
 }
 .otter-btn-link[disabled]>a:only-child,
 .otter-btn-link[disabled]:hover>a:only-child,
 .otter-btn-link[disabled]:focus>a:only-child,
 .otter-btn-link[disabled]:active>a:only-child {
-  @extend %otter-btn-a-child-shared;
+  @extend %otter-btn-a-child;
 }
 .otter-btn-link[disabled]>a:only-child:after,
 .otter-btn-link[disabled]:hover>a:only-child:after,
 .otter-btn-link[disabled]:focus>a:only-child:after,
 .otter-btn-link[disabled]:active>a:only-child:after {
-  @extend %otter-btn-a-child-after-shared;
+  @extend %otter-btn-a-child-after;
 }
 
 
@@ -268,26 +262,25 @@
 // - focus-whithin
 // - Chain Reaction
 
-/* This CSS will print because %disabled-default-style-shared is extended. */
-%disabled-default-style-shared {
+/* This CSS will print because %otter-btn-disabled-filled is extended. */
+%otter-btn-disabled-filled {
   border-color: var(--otter-btn-disabled-default-border);
   background: var(--otter-btn-disabled-default-bg);
   box-shadow: var(--otter-btn-disabled-default-box-shadow);
   color: var(--otter-btn-disabled-default);
   text-shadow: var(--otter-btn-disabled-default-text-shadow);
 }
-%disabled-link-style-shared,
-%disabled-text-style-shared {
+%otter-btn-disabled-unfilled {
 	border-color: var(--otter-btn-disabled-text-border);
   background: var(--otter-btn-disabled-text-bg);
 	box-shadow: var(--otter-btn-disabled-text-box-shadow);
 	color: var(--otter-btn-disabled-text);
 	text-shadow: var(--otter-btn-disabled-text-text-shadow);
 }
-%otter-btn-a-child-shared {
+%otter-btn-a-child {
 	color: currentcolor;
 }
-%otter-btn-a-child-after-shared {
+%otter-btn-a-child-after {
 	position: absolute;
 	inset: 0;
 	content: "";

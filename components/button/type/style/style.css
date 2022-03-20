@@ -71,8 +71,8 @@
   border-style: solid;
   border-color: var(--otter-btn-default-border);
   background: var(--otter-btn-default-bg);
-  -webkit-box-shadow: 0 2px 0 var(--otter-btn-default-box-shadow);
-          box-shadow: 0 2px 0 var(--otter-btn-default-box-shadow);
+  -webkit-box-shadow: 0 2px 0 var(--ootter-btn-default-box-shadow);
+          box-shadow: 0 2px 0 var(--ootter-btn-default-box-shadow);
   color: var(--otter-btn-default);
 }
 
@@ -80,9 +80,36 @@
   border-style: solid;
   border-color: var(--otter-btn-primary-border);
   background: var(--otter-btn-primary-bg);
-  -webkit-box-shadow: 0 2px 0 var(--otter-btn-primary-box-shadow);
-          box-shadow: 0 2px 0 var(--otter-btn-primary-box-shadow);
+  -webkit-box-shadow: 0 2px 0 var(--ootter-btn-primary-box-shadow);
+          box-shadow: 0 2px 0 var(--ootter-btn-primary-box-shadow);
   color: var(--otter-btn-primary);
+}
+
+.otter-btn-dashed {
+  border-style: dashed;
+  border-color: var(--otter-btn-dashed-border);
+  background: var(--otter-btn-dashed-bg);
+  -webkit-box-shadow: 0 2px 0 var(--ootter-btn-dashed-box-shadow);
+          box-shadow: 0 2px 0 var(--ootter-btn-dashed-box-shadow);
+  color: var(--otter-btn-dashed);
+}
+
+.otter-btn-text {
+  border-style: none;
+  border-color: var(--otter-btn-text-border);
+  background: var(--otter-btn-text-bg);
+  -webkit-box-shadow: 0 2px 0 var(--ootter-btn-text-box-shadow);
+          box-shadow: 0 2px 0 var(--ootter-btn-text-box-shadow);
+  color: var(--otter-btn-text);
+}
+
+.otter-btn-link {
+  border-style: none;
+  border-color: var(--otter-btn-link-border);
+  background: var(--otter-btn-link-bg);
+  -webkit-box-shadow: 0 2px 0 var(--ootter-btn-link-box-shadow);
+          box-shadow: 0 2px 0 var(--ootter-btn-link-box-shadow);
+  color: var(--otter-btn-link);
 }
 
 .otter-btn-primary:hover, .otter-btn-primary:focus {
@@ -91,28 +118,10 @@
   color: var(--otter-btn-primary);
 }
 
-.otter-btn-dashed {
-  border-style: dashed;
-  border-color: var(--otter-btn-dashed-border);
-  background: var(--otter-btn-dashed-bg);
-  -webkit-box-shadow: 0 2px 0 var(--otter-btn-dashed-box-shadow);
-          box-shadow: 0 2px 0 var(--otter-btn-dashed-box-shadow);
-  color: var(--otter-btn-dashed);
-}
-
 .otter-btn-dashed:hover, .otter-btn-dashed:focus {
   border-color: var(--otter-primary-color-hover);
   background: var(--otter-btn-dashed-bg);
   color: var(--otter-primary-color-hover);
-}
-
-.otter-btn-text {
-  border-style: none;
-  border-color: var(--otter-btn-text-border);
-  background: var(--otter-btn-text-bg);
-  -webkit-box-shadow: 0 2px 0 var(--otter-btn-text-box-shadow);
-          box-shadow: 0 2px 0 var(--otter-btn-text-box-shadow);
-  color: var(--otter-btn-text);
 }
 
 .otter-btn-text:hover, .otter-btn-text:focus {
@@ -121,22 +130,13 @@
   color: var(--otter-btn-text);
 }
 
-.otter-btn-link {
-  border-style: none;
-  border-color: var(--otter-btn-link-border);
-  background: var(--otter-btn-link-bg);
-  -webkit-box-shadow: 0 2px 0 var(--otter-btn-link-box-shadow);
-          box-shadow: 0 2px 0 var(--otter-btn-link-box-shadow);
-  color: var(--otter-btn-link);
-}
-
 .otter-btn-link:hover, .otter-btn-link:focus {
   border-color: var(--otter-primary-color-hover);
   background: var(--otter-btn-link-bg);
   color: var(--otter-primary-color-hover);
 }
 
-/* This CSS will print because %disabled-default-style-shared is extended. */
+/* This CSS will print because %otter-btn-disabled-filled is extended. */
 .otter-btn[disabled],
 .otter-btn[disabled]:hover,
 .otter-btn[disabled]:focus,
@@ -146,7 +146,10 @@
 .otter-btn-primary[disabled]:active, .otter-btn-dashed[disabled],
 .otter-btn-dashed[disabled]:hover,
 .otter-btn-dashed[disabled]:focus,
-.otter-btn-dashed[disabled]:active {
+.otter-btn-dashed[disabled]:active, .otter-btn-link[disabled],
+.otter-btn-link[disabled]:hover,
+.otter-btn-link[disabled]:focus,
+.otter-btn-link[disabled]:active {
   border-color: var(--otter-btn-disabled-default-border);
   background: var(--otter-btn-disabled-default-bg);
   -webkit-box-shadow: var(--otter-btn-disabled-default-box-shadow);
@@ -155,10 +158,6 @@
   text-shadow: var(--otter-btn-disabled-default-text-shadow);
 }
 
-.otter-btn-link[disabled],
-.otter-btn-link[disabled]:hover,
-.otter-btn-link[disabled]:focus,
-.otter-btn-link[disabled]:active,
 .otter-btn-text[disabled],
 .otter-btn-text[disabled]:hover,
 .otter-btn-text[disabled]:focus,
