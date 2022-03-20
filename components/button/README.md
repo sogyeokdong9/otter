@@ -7,14 +7,24 @@
 
 ## Examples
 
+<p class="codepen" data-height="300" data-theme-id="light" data-default-tab="html,result" data-slug-hash="GRyZVXZ" data-preview="true" data-user="sogyeokdong" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/sogyeokdong/pen/GRyZVXZ">
+  Untitled</a> by sogyeokdong9 (<a href="https://codepen.io/sogyeokdong">@sogyeokdong</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
 ### Type
 
 ```html
-<button type="button" class="otter-btn otter-btn-primary">
-  <span>Primary Button</span>
+<button type="button" class="otter-btn">
+  <span>Button</span>
 </button>
 <button type="button" class="otter-btn otter-btn-default">
   <span>Default Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-primary">
+  <span>Primary Button</span>
 </button>
 <button type="button" class="otter-btn otter-btn-dashed">
   <span>Dashed Button</span>
