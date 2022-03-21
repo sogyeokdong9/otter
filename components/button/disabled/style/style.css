@@ -194,26 +194,26 @@
   color: var(--otter-btn-dangerous-hover);
 }
 
-.otter-btn-primary.otter-btn-dangerous {
-  background-color: var(--otter-btn-dangerous);
-  border-color: var(--otter-btn-dangerous);
-  color: #ffffff;
-}
-
-.otter-btn-primary.otter-btn-dangerous:hover, .otter-btn-primary.otter-btn-dangerous:focus {
-  border-color: var(--otter-btn-dangerous-hover);
-  background: var(--otter-btn-dangerous-hover);
-  color: #ffffff;
-}
-
-.otter-btn-dashed.otter-btn-dangerous {
-  border-style: dashed;
+.otter-btn.otter-btn-dangerous {
   text-shadow: none;
   -webkit-box-shadow: rgba(0, 0, 0, 0.02);
           box-shadow: rgba(0, 0, 0, 0.02);
 }
 
-.otter-btn.otter-btn-dangerous {
+.otter-btn-primary.otter-btn-dangerous {
+  background-color: var(--otter-btn-dangerous);
+  border-color: var(--otter-btn-dangerous);
+  color: var(--otter-white);
+}
+
+.otter-btn-primary.otter-btn-dangerous:hover, .otter-btn-primary.otter-btn-dangerous:focus {
+  border-color: var(--otter-btn-dangerous-hover);
+  background: var(--otter-btn-dangerous-hover);
+  color: var(--otter-white);
+}
+
+.otter-btn-dashed.otter-btn-dangerous {
+  border-style: dashed;
   text-shadow: none;
   -webkit-box-shadow: rgba(0, 0, 0, 0.02);
           box-shadow: rgba(0, 0, 0, 0.02);
@@ -237,17 +237,7 @@
           box-shadow: none;
 }
 
-/* This CSS will print because %otter-btn-disabled-filled is extended. */
-.otter-btn[disabled],
-.otter-btn[disabled]:hover,
-.otter-btn[disabled]:focus,
-.otter-btn[disabled]:active, .otter-btn-primary[disabled],
-.otter-btn-primary[disabled]:hover,
-.otter-btn-primary[disabled]:focus,
-.otter-btn-primary[disabled]:active, .otter-btn-dashed[disabled],
-.otter-btn-dashed[disabled]:hover,
-.otter-btn-dashed[disabled]:focus,
-.otter-btn-dashed[disabled]:active {
+button[class="otter-btn"][disabled], button[class="otter-btn"][disabled]:hover, button[class="otter-btn"][disabled]:focus, button[class="otter-btn"][disabled]:active, button[class="otter-btn otter-btn-default"][disabled], button[class="otter-btn otter-btn-default"][disabled]:hover, button[class="otter-btn otter-btn-default"][disabled]:focus, button[class="otter-btn otter-btn-default"][disabled]:active, button[class$="-dashed"][disabled], button[class$="-dashed"][disabled]:hover, button[class$="-dashed"][disabled]:focus, button[class$="-dashed"][disabled]:active, button[class$="-primary"][disabled], button[class$="-primary"][disabled]:hover, button[class$="-primary"][disabled]:focus, button[class$="-primary"][disabled]:active, button[class$="-dangerous"][disabled], button[class$="-dangerous"][disabled]:hover, button[class$="-dangerous"][disabled]:focus, button[class$="-dangerous"][disabled]:active {
   border-color: var(--otter-btn-disabled-default-border);
   background: var(--otter-btn-disabled-default-bg);
   -webkit-box-shadow: var(--otter-btn-disabled-default-box-shadow);
@@ -256,13 +246,7 @@
   text-shadow: var(--otter-btn-disabled-default-text-shadow);
 }
 
-.otter-btn-text[disabled],
-.otter-btn-text[disabled]:hover,
-.otter-btn-text[disabled]:focus,
-.otter-btn-text[disabled]:active, .otter-btn-link[disabled],
-.otter-btn-link[disabled]:hover,
-.otter-btn-link[disabled]:focus,
-.otter-btn-link[disabled]:active {
+button[class$="-text"][disabled], button[class$="-text"][disabled]:hover, button[class$="-text"][disabled]:focus, button[class$="-text"][disabled]:active, button[class$="-link"][disabled], button[class$="-link"][disabled]:hover, button[class$="-link"][disabled]:focus, button[class$="-link"][disabled]:active {
   border-color: var(--otter-btn-disabled-link-border);
   background: var(--otter-btn-disabled-link-bg);
   -webkit-box-shadow: var(--otter-btn-disabled-link-box-shadow);
@@ -278,22 +262,7 @@
 .otter-btn-dashed:focus > a:only-child, .otter-btn-text:hover > a:only-child,
 .otter-btn-text:focus > a:only-child, .otter-btn-link:hover > a:only-child,
 .otter-btn-link:focus > a:only-child, .otter-btn-dangerous:hover > a:only-child,
-.otter-btn-dangerous:focus > a:only-child, .otter-btn[disabled] > a:only-child,
-.otter-btn[disabled]:hover > a:only-child,
-.otter-btn[disabled]:focus > a:only-child,
-.otter-btn[disabled]:active > a:only-child, .otter-btn-primary[disabled] > a:only-child,
-.otter-btn-primary[disabled]:hover > a:only-child,
-.otter-btn-primary[disabled]:focus > a:only-child,
-.otter-btn-primary[disabled]:active > a:only-child, .otter-btn-dashed[disabled] > a:only-child,
-.otter-btn-dashed[disabled]:hover > a:only-child,
-.otter-btn-dashed[disabled]:focus > a:only-child,
-.otter-btn-dashed[disabled]:active > a:only-child, .otter-btn-text[disabled] > a:only-child,
-.otter-btn-text[disabled]:hover > a:only-child,
-.otter-btn-text[disabled]:focus > a:only-child,
-.otter-btn-text[disabled]:active > a:only-child, .otter-btn-link[disabled] > a:only-child,
-.otter-btn-link[disabled]:hover > a:only-child,
-.otter-btn-link[disabled]:focus > a:only-child,
-.otter-btn-link[disabled]:active > a:only-child {
+.otter-btn-dangerous:focus > a:only-child, button[class*="otter-btn"][disabled] > a:only-child, button[class*="otter-btn"][disabled]:hover > a:only-child, button[class*="otter-btn"][disabled]:focus > a:only-child, button[class*="otter-btn"][disabled]:active > a:only-child {
   color: currentcolor;
 }
 
@@ -304,22 +273,7 @@
 .otter-btn-dashed:focus > a:only-child:after, .otter-btn-text:hover > a:only-child:after,
 .otter-btn-text:focus > a:only-child:after, .otter-btn-link:hover > a:only-child:after,
 .otter-btn-link:focus > a:only-child:after, .otter-btn-dangerous:hover > a:only-child:after,
-.otter-btn-dangerous:focus > a:only-child:after, .otter-btn[disabled] > a:only-child:after,
-.otter-btn[disabled]:hover > a:only-child:after,
-.otter-btn[disabled]:focus > a:only-child:after,
-.otter-btn[disabled]:active > a:only-child:after, .otter-btn-primary[disabled] > a:only-child:after,
-.otter-btn-primary[disabled]:hover > a:only-child:after,
-.otter-btn-primary[disabled]:focus > a:only-child:after,
-.otter-btn-primary[disabled]:active > a:only-child:after, .otter-btn-dashed[disabled] > a:only-child:after,
-.otter-btn-dashed[disabled]:hover > a:only-child:after,
-.otter-btn-dashed[disabled]:focus > a:only-child:after,
-.otter-btn-dashed[disabled]:active > a:only-child:after, .otter-btn-text[disabled] > a:only-child:after,
-.otter-btn-text[disabled]:hover > a:only-child:after,
-.otter-btn-text[disabled]:focus > a:only-child:after,
-.otter-btn-text[disabled]:active > a:only-child:after, .otter-btn-link[disabled] > a:only-child:after,
-.otter-btn-link[disabled]:hover > a:only-child:after,
-.otter-btn-link[disabled]:focus > a:only-child:after,
-.otter-btn-link[disabled]:active > a:only-child:after {
+.otter-btn-dangerous:focus > a:only-child:after, button[class*="otter-btn"][disabled] > a:only-child:after, button[class*="otter-btn"][disabled]:hover > a:only-child:after, button[class*="otter-btn"][disabled]:focus > a:only-child:after, button[class*="otter-btn"][disabled]:active > a:only-child:after {
   position: absolute;
   inset: 0;
   content: "";
