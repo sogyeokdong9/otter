@@ -1,81 +1,5 @@
 @charset 'utf-8';
-
-:root {
-  --otter-black: rgba(0. 0, 0, 1);
-  --otter-white: rgba(255, 255, 255, 1);
-  --otter-transparent: rgba(0. 0, 0, 0);
-	--otter-primary-color: rgba(24, 144, 255, 1);
-  --otter-primary-color-hover: rgba(64, 169, 255, 1);
-  --otter-primary-color-active: rgba(9, 109, 217, 1);
-  --otter-primary-color-outline: rgba(24, 144, 255, .2);
-  --otter-btn-spacing: 8px;
-  --otter-btn-dangerous: rgba(255, 77, 79, 1);
-  --otter-btn-dangerous-hover: rgba(255, 120, 117, 1);
-  --otter-btn-dangerous-bg: var(--otter-white);
-  --otter-btn-dangerous-bg-hover: var(--otter-white);
-  --otter-btn-dangerous-border: rgba(255, 77, 79, 1);
-  --otter-btn-dangerous-border-hover: rgba(255, 120, 117, 1);
-  --otter-btn-dangerous-box-shadow: rgba(0, 0, 0, 0.05);
-  --otter-btn-dangerous-text-shadow: rgb(0, 0, 0, 0.12);
-  --otter-btn-primary: var(--otter-white);
-  --otter-btn-primary-hover: var(--otter-white);
-  --otter-btn-primary-bg: var(--otter-primary-color);
-  --otter-btn-primary-bg-hover: var(--otter-primary-color-hover);
-  --otter-btn-primary-border: rgba(24, 144, 255, 1);
-  --otter-btn-primary-border-hover: rgba(24, 144, 255, 1);
-  --otter-btn-primary-box-shadow: rgba(0, 0, 0, 0.05);
-  --otter-btn-primary-text-shadow: rgba(0, 0, 0, 0.12);
-  --otter-btn-default: rgba(0, 0, 0, 0.85);
-  --otter-btn-default-hover: var(--otter-primary-color-hover);
-  --otter-btn-default-bg: var(--otter-white);
-  --otter-btn-default-bg-hover: var(--otter-white);
-  --otter-btn-default-border: rgba(217, 217, 217, 1);
-  --otter-btn-default-border-hover: var(--otter-primary-color-hover);
-  --otter-btn-default-box-shadow: rgba(0, 0, 0, 0.02);
-  --otter-btn-default-text-shadow: none;
-  --otter-btn-dashed: rgba(0, 0, 0, 0.85);
-  --otter-btn-dashed-hover: var(--otter-primary-color-hover);
-  --otter-btn-dashed-bg: var(--otter-white);
-  --otter-btn-dashed-bg-hover: var(--otter-white);
-  --otter-btn-dashed-border: rgba(217, 217, 217, 1);
-  --otter-btn-dashed-border-hover: var(--otter-primary-color-hover);
-  --otter-btn-dashed-box-shadow: rgba(0, 0, 0, 0.02);
-  --otter-btn-dashed-text-shadow: none;
-  --otter-btn-text: rgba(0, 0, 0, 0.85);
-  --otter-btn-text-hover: var(--otter-primary-color-hover);
-  --otter-btn-text-bg: var(--otter-transparent);
-  --otter-btn-text-bg-hover: rgba(0, 0, 0, 0.018);
-  --otter-btn-text-border: var(--otter-transparent);
-  --otter-btn-text-border-hover: var(--otter-transparent);
-  --otter-btn-text-box-shadow: none;
-  --otter-btn-text-text-shadow: none;
-  --otter-btn-link: rgba(24, 144, 255, 1)  ;
-  --otter-btn-link-hover: rgba(24, 144, 255, 1)  ;
-  --otter-btn-link-bg: var(--otter-transparent);
-  --otter-btn-link-bg-hover: var(--otter-transparent);
-  --otter-btn-link-border: var(--otter-transparent);
-  --otter-btn-link-border-hover: var(--otter-transparent);
-  --otter-btn-link-box-shadow: none;
-  --otter-btn-link-text-shadow: none;
-  --otter-btn-disabled-default: rgba(0, 0, 0, 0.25);
-  --otter-btn-disabled-default-hover: rgba(0, 0, 0, 0.25);
-  --otter-btn-disabled-default-bg: rgba(245, 245, 245, 1);
-  --otter-btn-disabled-default-bg-hover: rgba(245, 245, 245, 1);
-  --otter-btn-disabled-default-border:rgba(217, 217, 217, 1);
-  --otter-btn-disabled-default-border-hover:rgba(217, 217, 217, 1);
-  --otter-btn-disabled-default-box-shadow: none;
-  --otter-btn-disabled-default-text-shadow: none;
-  --otter-btn-disabled-text: rgba(0, 0, 0, 0.25);
-  --otter-btn-disabled-text-bg: 0 0;
-  --otter-btn-disabled-text-border: var(--otter-transparent);
-  --otter-btn-disabled-text-box-shadow: none;
-  --otter-btn-disabled-text-text-shadow: none;
-  --otter-btn-disabled-link: rgba(0, 0, 0, 0.25);
-  --otter-btn-disabled-link-bg: var(--otter-transparent);
-  --otter-btn-disabled-link-border: var(--otter-transparent);
-  --otter-btn-disabled-link-box-shadow: none;
-  --otter-btn-disabled-link-text-shadow: none;
-}
+@import 'color';
 
 $btns-data: (
   otter-btn: solid,
@@ -186,6 +110,7 @@ $btns-data: (
     &:hover,
     &:focus {
       background: rgba(0, 0, 0, 0.018);
+      // background: var(--otter-transparent);
     }
   }
 }
@@ -198,12 +123,16 @@ $btns-data: (
 }
 
 // disabled
-button[class="otter-btn"], button[class="otter-btn otter-btn-default"], button[class$="-dashed"], button[class$="-primary"], button[class$="-dangerous"] {
+button[class="otter-btn"], button[class="otter-btn otter-btn-default"], button[class$="-dashed"], button[class$="-primary"], button[class$="-dangerous"],
+button[class$="-lg"], button[class$="-sm"] {
   &[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
     @extend %otter-btn-disabled-filled;
   } 
 }
-button[class$="-text"], button[class$="-link"] {
+button[class$="-text"], button[class$="-link"],
+button[class*="-text otter-btn-dangerous"], button[class*="-link otter-btn-dangerous"],
+button[class*="-text otter-btn-lg"], button[class*="-link otter-btn-lg"],
+button[class*="-text otter-btn-sm"], button[class*="-link otter-btn-sm"] {
   &[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
     @extend %otter-btn-disabled-unfilled;
   } 
@@ -242,4 +171,21 @@ button[class*="otter-btn"] {
 	inset: 0;
 	content: "";
 	background: 0 0;
+}
+
+// size
+
+.otter-btn {
+  &-lg {
+    height: 40px;
+    padding: 6.4px 15px;
+    font-size: 16px;
+    border-radius: 2px
+  }
+  &-sm {
+    height: 24px;
+    padding: 0 7px;
+    font-size: 14px;
+    border-radius: 2px
+  }
 }
