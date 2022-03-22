@@ -1,0 +1,191 @@
+@charset 'utf-8';
+@import 'color';
+
+$btns-data: (
+  otter-btn: solid,
+  default: solid,
+  primary: solid,
+  dashed: dashed,
+  text: none,
+  link: none,
+  dangerous: solid,
+);
+
+// @each문울 통하여 자동생성
+// otter-btn, otter-btn-default, otter-btn-primary, otter-btn-dashed,  otter-btn-text
+// otter-btn-link, otter-btn-dangerous
+@each $btn, $border in $btns-data {
+  @if $btn == otter-btn {
+    .otter-btn {
+      height: 32px;
+      padding: 4px 15px;
+      border: 1px solid transparent;
+      border-color: var(--otter-btn-default-border);
+      border-radius: 2px;
+      background: var(--otter-btn-default-bg);
+      background-image: none;
+      box-shadow: 0 2px 0 var(--otter-btn-default-box-shadow);
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5715;
+      color: var(--otter-btn-default);
+      transition: all .3s cubic-bezier(0.22, 0.68, 0, 1);
+      &:hover,
+      &:focus {
+        border-color: var(--otter-primary-color-hover);
+        background: var(--otter-btn-default-bg);
+        color: var(--otter-primary-color-hover);
+        text-decoration: none;
+      }
+      &:hover>a:only-child,
+      &:focus>a:only-child {
+        @extend %otter-btn-a-child;
+      }
+      &:hover>a:only-child:after,
+      &:focus>a:only-child:after {
+        @extend %otter-btn-a-child-after;
+      }
+      & + & {
+        margin-left: var(--otter-btn-spacing);
+      }
+    }
+  } @else {
+    .otter-btn-#{$btn} {
+      border-style: #{$border};
+      border-color: var(--otter-btn-#{$btn}-border);
+      background: var(--otter-btn-#{$btn}-bg);
+      box-shadow: 0 2px 0 var(--otter-btn-#{$btn}-box-shadow);
+      color: var(--otter-btn-#{$btn});
+      &:hover,
+      &:focus {
+        border-color: var(--otter-btn-#{$btn}-border-hover);
+        background: var(--otter-btn-#{$btn}-bg-hover);
+        color: var(--otter-btn-#{$btn}-hover);
+      }
+      &:hover>a:only-child,
+      &:focus>a:only-child {
+        @extend %otter-btn-a-child;
+      }
+      &:hover>a:only-child:after,
+      &:focus>a:only-child:after {
+        @extend %otter-btn-a-child-after;
+      }
+    }
+  }
+}
+
+// @each문 자동생성 이후 후처리
+.otter-btn {
+  &.otter-btn-dangerous {
+    // border: solid;
+    text-shadow: none;
+    box-shadow: rgba(0, 0, 0, 0.02);
+  }
+}
+.otter-btn-primary {
+  &.otter-btn-dangerous {
+    background-color: var(--otter-btn-dangerous);
+    border-color: var(--otter-btn-dangerous);
+    color: var(--otter-white);
+    &:hover,
+    &:focus {
+      border-color: var(--otter-btn-dangerous-hover);
+      background: var(--otter-btn-dangerous-hover);
+      color: var(--otter-white);
+    }
+  }
+}
+.otter-btn-dashed {
+  &.otter-btn-dangerous {
+    border-style: dashed;
+    text-shadow: none;
+    box-shadow: rgba(0, 0, 0, 0.02);
+  }
+}
+.otter-btn-text {
+  &.otter-btn-dangerous {
+    border: none;
+    text-shadow: none;
+    box-shadow: none;
+    &:hover,
+    &:focus {
+      background: rgba(0, 0, 0, 0.018);
+      // background: var(--otter-transparent);
+    }
+  }
+}
+.otter-btn-link {
+  &.otter-btn-dangerous {
+    border: none;
+    text-shadow: none;
+    box-shadow: none;
+  }
+}
+
+// disabled
+button[class="otter-btn"], button[class="otter-btn otter-btn-default"], button[class$="-dashed"], button[class$="-primary"], button[class$="-dangerous"],
+button[class$="-lg"], button[class$="-sm"] {
+  &[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
+    @extend %otter-btn-disabled-filled;
+  } 
+}
+button[class$="-text"], button[class$="-link"],
+button[class*="-text otter-btn-dangerous"], button[class*="-link otter-btn-dangerous"],
+button[class*="-text otter-btn-lg"], button[class*="-link otter-btn-lg"],
+button[class*="-text otter-btn-sm"], button[class*="-link otter-btn-sm"] {
+  &[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
+    @extend %otter-btn-disabled-unfilled;
+  } 
+}
+button[class*="otter-btn"] {
+  &[disabled]>a:only-child, &[disabled]:hover>a:only-child, &[disabled]:focus>a:only-child, &[disabled]:active>a:only-child {
+    @extend %otter-btn-a-child;
+  } 
+}
+button[class*="otter-btn"] {
+  &[disabled]>a:only-child:after, &[disabled]:hover>a:only-child:after, &[disabled]:focus>a:only-child:after, &[disabled]:active>a:only-child:after {
+    @extend %otter-btn-a-child-after;
+  } 
+}
+
+// @extend
+%otter-btn-disabled-filled {
+  border-color: var(--otter-btn-disabled-default-border);
+  background: var(--otter-btn-disabled-default-bg);
+  box-shadow: var(--otter-btn-disabled-default-box-shadow);
+  color: var(--otter-btn-disabled-default);
+  text-shadow: var(--otter-btn-disabled-default-text-shadow);
+}
+%otter-btn-disabled-unfilled {
+	border-color: var(--otter-btn-disabled-link-border);
+  background: var(--otter-btn-disabled-link-bg);
+	box-shadow: var(--otter-btn-disabled-link-box-shadow);
+	color: var(--otter-btn-disabled-link);
+	text-shadow: var(--otter-btn-disabled-link-text-shadow);
+}
+%otter-btn-a-child {
+	color: currentcolor;
+}
+%otter-btn-a-child-after {
+	position: absolute;
+	inset: 0;
+	content: "";
+	background: 0 0;
+}
+
+// size
+
+.otter-btn {
+  &-lg {
+    height: 40px;
+    padding: 6.4px 15px;
+    font-size: 16px;
+    border-radius: 2px
+  }
+  &-sm {
+    height: 24px;
+    padding: 0 7px;
+    font-size: 14px;
+    border-radius: 2px
+  }
+}
