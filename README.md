@@ -15,18 +15,25 @@ To trigger an operation.
 
 *5 Types of button*
 
-- Primary button
-- Default button
-- Dashed button
-- Text Button
-- Link button
+- [X] Primary button 😊
+- [X] Default button 🙃
+- [X] Dashed button 🤪
+- [X] Text Button 🤨
+- [X] Link button 😎
 
 *and 4 other properties additionally.*
 
-- `danger`
-- `ghost`
-- `disabled`
-- `loading`
+- [X] `danger`😡
+- [ ] `ghost`👻
+- [X] `disabled`🥶
+- [ ] `loading`🤩
+
+*3 Sizes of button*
+
+- [X] `large` 🙄
+- [X] `[dafault]` 😦
+- [X] `small` 🥱
+
 
 ### Icons
 
