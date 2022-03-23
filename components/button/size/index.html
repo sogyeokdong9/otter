@@ -7,32 +7,9 @@
 	<link rel="stylesheet" href="./style/reset.css">
 	<link rel="stylesheet" href="./style/reset.user.css">
 	<link rel="stylesheet" href="./style/style.css">
-	<title>Button Sizes</title>
-	<style>
-		.wrap { margin: 1em }
-	</style>
+	<title>Disabled Button</title>
 </head>
 <body>
-	<div class="wrap">
-		<button type="button" class="otter-btn otter-btn-lg">
-			<span>Button</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-default otter-btn-lg">
-			<span>Default Button</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-primary otter-btn-lg">
-			<span>Primary Button</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-dashed otter-btn-lg">
-			<span>Dashed Button</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-text otter-btn-lg">
-			<span>Text Button</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-link otter-btn-lg">
-			<span>Link Button</span>
-		</button>
-	</div>
 	<div class="wrap">
 		<button type="button" class="otter-btn">
 			<span>Button</span>
@@ -52,26 +29,41 @@
 		<button type="button" class="otter-btn otter-btn-link">
 			<span>Link Button</span>
 		</button>
+		<form action="">
+			<fieldset>
+			<legend>Please select the size of the button: </legend>
+			<div class="otter-radio-group otter-radio-group-outline">
+				<label class="otter-radio-wrapper" for="small">
+					<span class="otter-radio">
+						<input type="radio" class="otter-radio-input" id="small" name="btn-size" value="otter-btn-sm">
+						<span class="otter-radio-inner"></span>
+					</span>
+					<span>Small</span>
+				</label>
+				<label class="otter-radio-wrapper otter-radio-wrapper-checked" for="default">
+					<span class="otter-radio otter-radio-checked">
+						<input type="radio" class="otter-radio-input" id="default" name="btn-size" value="otter-btn-df" checked>
+						<span class="otter-radio-inner"></span>
+					</span>
+					<span>Default</span>
+				</label>
+				<label class="otter-radio-wrapper" for="large">
+					<span class="otter-radio">
+						<input type="radio" class="otter-radio-input" id="large" name="btn-size" value="otter-btn-lg">
+						<span class="otter-radio-inner"></span>
+					</span>
+					<span>Large</span>
+				</label>
+			</div>
+			<button type="submit" class="otter-btn otter-btn-primary otter-btn-sm">
+				<span>Submit</span>
+			</button>
+		</fieldset>
+		</form>
+		<ol class="event-log">
+			<li>otter-btn-md</li>
+		</ol>
 	</div>
-	<div class="wrap">
-		<button type="button" class="otter-btn otter-btn-sm">
-			<span>Button</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-default otter-btn-sm">
-			<span>Default Button</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-primary otter-btn-sm">
-			<span>Primary Button</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-dashed otter-btn-sm">
-			<span>Dashed Button</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-text otter-btn-sm">
-			<span>Text Button</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-link otter-btn-sm">
-			<span>Link Button</span>
-		</button>
-	</div>
+	<script src="./script/script.js"></script>
 </body>
 </html>

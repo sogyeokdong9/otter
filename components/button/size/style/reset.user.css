@@ -52,4 +52,33 @@ hr:after {
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+.wrap {
+  margin: 1em;
+}
+
+.wrap form {
+  margin: 1em 0;
+}
+
+.event-log {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.event-log li {
+  list-style-type: decimal-leading-zero;
+}
+
+.event-log::after {
+  content: "Event Log";
+  margin-left: -40px;
+}
 /*# sourceMappingURL=reset.user.css.map */
