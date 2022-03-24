@@ -2,6 +2,22 @@
   --otter-black: rgba(0. 0, 0, 1);
   --otter-white: rgba(255, 255, 255, 1);
   --otter-transparent: rgba(0. 0, 0, 0);
+  --otter-ftbck-title: rgba(0, 0, 0, 0.85);
+  --otter-ftbck-primary-text: rgba(0, 0, 0, 0.65);
+  --otter-ftbck-secondary-text: rgba(0, 0, 0, 0.45);
+  --otter-ftbck-disable: rgba(0, 0, 0, 0.25);
+  --otter-ftbck-border: rgba(0, 0, 0, 0.15);
+  --otter-ftbck-dividers: rgba(0, 0, 0, 0.06);
+  --otter-ftbck-background: rgba(0, 0, 0, 0.04);
+  --otter-ftbck-table-header: rgba(0, 0, 0, 0.02);
+  --otter-ftwht-title: rgba(255, 255, 255, 0.85);
+  --otter-ftwht-primary-text: rgba(255, 255, 255, 0.65);
+  --otter-ftwht-secondary-text: rgba(255, 255, 255, 0.45);
+  --otter-ftwht-disable: rgba(255, 255, 255, 0.30);
+  --otter-ftwht-border: rgba(255, 255, 255, 0.20);
+  --otter-ftwht-dividers: rgba(255, 255, 255, 0.12);
+  --otter-ftwht-background: rgba(255, 255, 255, 0.08);
+  --otter-ftwht-table-header: rgba(255, 255, 255, 0.04);
   --otter-primary-color: rgba(24, 144, 255, 1);
   --otter-primary-color-hover: rgba(64, 169, 255, 1);
   --otter-primary-color-active: rgba(9, 109, 217, 1);
@@ -237,7 +253,11 @@
           box-shadow: none;
 }
 
-button[class="otter-btn"][disabled], button[class="otter-btn"][disabled]:hover, button[class="otter-btn"][disabled]:focus, button[class="otter-btn"][disabled]:active, button[class="otter-btn otter-btn-default"][disabled], button[class="otter-btn otter-btn-default"][disabled]:hover, button[class="otter-btn otter-btn-default"][disabled]:focus, button[class="otter-btn otter-btn-default"][disabled]:active, button[class$="-dashed"][disabled], button[class$="-dashed"][disabled]:hover, button[class$="-dashed"][disabled]:focus, button[class$="-dashed"][disabled]:active, button[class$="-primary"][disabled], button[class$="-primary"][disabled]:hover, button[class$="-primary"][disabled]:focus, button[class$="-primary"][disabled]:active, button[class$="-dangerous"][disabled], button[class$="-dangerous"][disabled]:hover, button[class$="-dangerous"][disabled]:focus, button[class$="-dangerous"][disabled]:active {
+button[class="otter-btn"][disabled], button[class="otter-btn"][disabled]:hover, button[class="otter-btn"][disabled]:focus, button[class="otter-btn"][disabled]:active, button[class="otter-btn otter-btn-default"][disabled], button[class="otter-btn otter-btn-default"][disabled]:hover, button[class="otter-btn otter-btn-default"][disabled]:focus, button[class="otter-btn otter-btn-default"][disabled]:active, button[class$="-dashed"][disabled], button[class$="-dashed"][disabled]:hover, button[class$="-dashed"][disabled]:focus, button[class$="-dashed"][disabled]:active, button[class$="-primary"][disabled], button[class$="-primary"][disabled]:hover, button[class$="-primary"][disabled]:focus, button[class$="-primary"][disabled]:active, button[class$="-dangerous"][disabled], button[class$="-dangerous"][disabled]:hover, button[class$="-dangerous"][disabled]:focus, button[class$="-dangerous"][disabled]:active,
+button[class$="-lg"][disabled],
+button[class$="-lg"][disabled]:hover,
+button[class$="-lg"][disabled]:focus,
+button[class$="-lg"][disabled]:active, button[class$="-sm"][disabled], button[class$="-sm"][disabled]:hover, button[class$="-sm"][disabled]:focus, button[class$="-sm"][disabled]:active {
   border-color: var(--otter-btn-disabled-default-border);
   background: var(--otter-btn-disabled-default-bg);
   -webkit-box-shadow: var(--otter-btn-disabled-default-box-shadow);
@@ -246,7 +266,19 @@ button[class="otter-btn"][disabled], button[class="otter-btn"][disabled]:hover, 
   text-shadow: var(--otter-btn-disabled-default-text-shadow);
 }
 
-button[class$="-text"][disabled], button[class$="-text"][disabled]:hover, button[class$="-text"][disabled]:focus, button[class$="-text"][disabled]:active, button[class$="-link"][disabled], button[class$="-link"][disabled]:hover, button[class$="-link"][disabled]:focus, button[class$="-link"][disabled]:active {
+button[class$="-text"][disabled], button[class$="-text"][disabled]:hover, button[class$="-text"][disabled]:focus, button[class$="-text"][disabled]:active, button[class$="-link"][disabled], button[class$="-link"][disabled]:hover, button[class$="-link"][disabled]:focus, button[class$="-link"][disabled]:active,
+button[class*="-text otter-btn-dangerous"][disabled],
+button[class*="-text otter-btn-dangerous"][disabled]:hover,
+button[class*="-text otter-btn-dangerous"][disabled]:focus,
+button[class*="-text otter-btn-dangerous"][disabled]:active, button[class*="-link otter-btn-dangerous"][disabled], button[class*="-link otter-btn-dangerous"][disabled]:hover, button[class*="-link otter-btn-dangerous"][disabled]:focus, button[class*="-link otter-btn-dangerous"][disabled]:active,
+button[class*="-text otter-btn-lg"][disabled],
+button[class*="-text otter-btn-lg"][disabled]:hover,
+button[class*="-text otter-btn-lg"][disabled]:focus,
+button[class*="-text otter-btn-lg"][disabled]:active, button[class*="-link otter-btn-lg"][disabled], button[class*="-link otter-btn-lg"][disabled]:hover, button[class*="-link otter-btn-lg"][disabled]:focus, button[class*="-link otter-btn-lg"][disabled]:active,
+button[class*="-text otter-btn-sm"][disabled],
+button[class*="-text otter-btn-sm"][disabled]:hover,
+button[class*="-text otter-btn-sm"][disabled]:focus,
+button[class*="-text otter-btn-sm"][disabled]:active, button[class*="-link otter-btn-sm"][disabled], button[class*="-link otter-btn-sm"][disabled]:hover, button[class*="-link otter-btn-sm"][disabled]:focus, button[class*="-link otter-btn-sm"][disabled]:active {
   border-color: var(--otter-btn-disabled-link-border);
   background: var(--otter-btn-disabled-link-bg);
   -webkit-box-shadow: var(--otter-btn-disabled-link-box-shadow);
@@ -278,5 +310,19 @@ button[class$="-text"][disabled], button[class$="-text"][disabled]:hover, button
   inset: 0;
   content: "";
   background: 0 0;
+}
+
+.otter-btn-lg {
+  height: 40px;
+  padding: 6.4px 15px;
+  font-size: 16px;
+  border-radius: 2px;
+}
+
+.otter-btn-sm {
+  height: 24px;
+  padding: 0 7px;
+  font-size: 14px;
+  border-radius: 2px;
 }
 /*# sourceMappingURL=style.css.map */

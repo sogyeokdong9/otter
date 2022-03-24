@@ -54,3 +54,12 @@ hr:after {
   -moz-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+.wrap { margin: 1em; }
+.wrap form { margin: 1em 0; }
+.event-log { display: flex; flex-direction: column-reverse; flex-wrap: wrap; }
+.event-log li { list-style-type: decimal-leading-zero; }
+.event-log::after {
+  content: "Event Log";
+  margin-left: -40px;
+}
