@@ -22,7 +22,6 @@
   --otter-primary-color-hover: rgba(64, 169, 255, 1);
   --otter-primary-color-active: rgba(9, 109, 217, 1);
   --otter-primary-color-outline: rgba(24, 144, 255, .2);
-  --otter-btn-spacing: 8px;
   --otter-btn-dangerous: rgba(255, 77, 79, 1);
   --otter-btn-dangerous-hover: rgba(255, 120, 117, 1);
   --otter-btn-dangerous-bg: var(--otter-white);
@@ -114,10 +113,6 @@
   background: var(--otter-btn-default-bg);
   color: var(--otter-primary-color-hover);
   text-decoration: none;
-}
-
-.otter-btn + .otter-btn {
-  margin-left: var(--otter-btn-spacing);
 }
 
 .otter-btn-default {
@@ -257,7 +252,11 @@ button[class="otter-btn"][disabled], button[class="otter-btn"][disabled]:hover, 
 button[class$="-lg"][disabled],
 button[class$="-lg"][disabled]:hover,
 button[class$="-lg"][disabled]:focus,
-button[class$="-lg"][disabled]:active, button[class$="-sm"][disabled], button[class$="-sm"][disabled]:hover, button[class$="-sm"][disabled]:focus, button[class$="-sm"][disabled]:active {
+button[class$="-lg"][disabled]:active, button[class$="-sm"][disabled], button[class$="-sm"][disabled]:hover, button[class$="-sm"][disabled]:focus, button[class$="-sm"][disabled]:active,
+button[class$="-block"][disabled],
+button[class$="-block"][disabled]:hover,
+button[class$="-block"][disabled]:focus,
+button[class$="-block"][disabled]:active {
   border-color: var(--otter-btn-disabled-default-border);
   background: var(--otter-btn-disabled-default-bg);
   -webkit-box-shadow: var(--otter-btn-disabled-default-box-shadow);
@@ -278,7 +277,11 @@ button[class*="-text otter-btn-lg"][disabled]:active, button[class*="-link otter
 button[class*="-text otter-btn-sm"][disabled],
 button[class*="-text otter-btn-sm"][disabled]:hover,
 button[class*="-text otter-btn-sm"][disabled]:focus,
-button[class*="-text otter-btn-sm"][disabled]:active, button[class*="-link otter-btn-sm"][disabled], button[class*="-link otter-btn-sm"][disabled]:hover, button[class*="-link otter-btn-sm"][disabled]:focus, button[class*="-link otter-btn-sm"][disabled]:active {
+button[class*="-text otter-btn-sm"][disabled]:active, button[class*="-link otter-btn-sm"][disabled], button[class*="-link otter-btn-sm"][disabled]:hover, button[class*="-link otter-btn-sm"][disabled]:focus, button[class*="-link otter-btn-sm"][disabled]:active,
+button[class*="-text otter-btn-block"][disabled],
+button[class*="-text otter-btn-block"][disabled]:hover,
+button[class*="-text otter-btn-block"][disabled]:focus,
+button[class*="-text otter-btn-block"][disabled]:active, button[class*="-link otter-btn-block"][disabled], button[class*="-link otter-btn-block"][disabled]:hover, button[class*="-link otter-btn-block"][disabled]:focus, button[class*="-link otter-btn-block"][disabled]:active {
   border-color: var(--otter-btn-disabled-link-border);
   background: var(--otter-btn-disabled-link-bg);
   -webkit-box-shadow: var(--otter-btn-disabled-link-box-shadow);
@@ -324,5 +327,9 @@ button[class*="-text otter-btn-sm"][disabled]:active, button[class*="-link otter
   padding: 0 7px;
   font-size: 14px;
   border-radius: 2px;
+}
+
+.otter-btn.otter-btn-block {
+  width: 100%;
 }
 /*# sourceMappingURL=style.css.map */

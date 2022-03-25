@@ -61,6 +61,10 @@ hr:after {
   margin: 1em 0;
 }
 
+.wrap button {
+  margin-bottom: 1em;
+}
+
 .event-log {
   display: -webkit-box;
   display: -ms-flexbox;

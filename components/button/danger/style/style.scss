@@ -47,9 +47,6 @@ $btns-data: (
       &:focus>a:only-child:after {
         @extend %otter-btn-a-child-after;
       }
-      & + & {
-        margin-left: var(--otter-btn-spacing);
-      }
     }
   } @else {
     .otter-btn-#{$btn} {
@@ -126,7 +123,8 @@ $btns-data: (
 
 // disabled
 button[class="otter-btn"], button[class="otter-btn otter-btn-default"], button[class$="-dashed"], button[class$="-primary"], button[class$="-dangerous"],
-button[class$="-lg"], button[class$="-sm"] {
+button[class$="-lg"], button[class$="-sm"],
+button[class$="-block"] {
   &[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
     @extend %otter-btn-disabled-filled;
   } 
@@ -134,7 +132,8 @@ button[class$="-lg"], button[class$="-sm"] {
 button[class$="-text"], button[class$="-link"],
 button[class*="-text otter-btn-dangerous"], button[class*="-link otter-btn-dangerous"],
 button[class*="-text otter-btn-lg"], button[class*="-link otter-btn-lg"],
-button[class*="-text otter-btn-sm"], button[class*="-link otter-btn-sm"] {
+button[class*="-text otter-btn-sm"], button[class*="-link otter-btn-sm"],
+button[class*="-text otter-btn-block"], button[class*="-link otter-btn-block"] {
   &[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
     @extend %otter-btn-disabled-unfilled;
   } 
@@ -189,5 +188,13 @@ button[class*="otter-btn"] {
     padding: 0 7px;
     font-size: 14px;
     border-radius: 2px
+  }
+}
+
+// block
+
+.otter-btn {
+  &.otter-btn-block {
+    width: 100%;
   }
 }

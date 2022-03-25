@@ -57,6 +57,7 @@ hr:after {
 
 .wrap { margin: 1em; }
 .wrap form { margin: 1em 0; }
+.wrap button { margin-bottom: 1em; }
 .event-log { display: flex; flex-direction: column-reverse; flex-wrap: wrap; }
 .event-log li { list-style-type: decimal-leading-zero; }
 .event-log::after {
