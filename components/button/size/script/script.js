@@ -3,7 +3,6 @@
   'use strict';
   const cntnrElmnt = document.querySelector('.wrap');
   const form = cntnrElmnt.querySelector("form");
-  const btnElmn = cntnrElmnt.querySelectorAll('button[type="button"]');
   const radioLbls = cntnrElmnt.querySelectorAll('.otter-radio-wrapper');
   const chckBxLbls = cntnrElmnt.querySelector('.otter-checkbox-wrapper');
 
@@ -63,25 +62,29 @@
     const newCntnt = document.createTextNode( nowClsNm + ", " + timeStr + " 'Danger' style: " + toggleCheckBox() );
     newItmElmn.append(newCntnt);
     logElmnt.append(newItmElmn);
-    const countSbmt = logElmnt.querySelectorAll('li').length - 1;
-    const prevLogRec = logElmnt.querySelectorAll('li')[countSbmt - 1].outerText;
+    const COUNT_SUBMIT = logElmnt.querySelectorAll('li').length - 1;
+    const prevLogRec = logElmnt.querySelectorAll('li')[COUNT_SUBMIT - 1].outerText;
     const prvClsNm = prevLogRec.split(',', 2)[0];
+    return [prvClsNm, nowClsNm];
   }
 
   function getCurrentBtnClassName() {
-    let result = '';
+    'use strict';
+    let result;
     const chckdElmn = form.querySelector('input[name="btn-size"]:checked');
     const chckdVal = chckdElmn.value;
     return result = chckdVal;
+
   }
   
   form.addEventListener('submit', function(event) {
     'use strict';
-    submitLog();
+    const btnElmn = cntnrElmnt.querySelectorAll('button[type="button"]');
+    const [preClass, nowClass] = submitLog();
     for (let i = 0; i < btnElmn.length; i++) {
       const element = btnElmn[i];
-      element.classList.remove('otter-btn-sm', 'otter-btn-df', 'otter-btn-lg');
-      element.classList.add(getCurrentBtnClassName());
+      element.classList.remove(preClass);
+      element.classList.add(nowClass);
       if (toggleCheckBox()) {
         element.classList.remove('otter-btn-dangerous');
         element.classList.add('otter-btn-dangerous');  
