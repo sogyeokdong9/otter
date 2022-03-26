@@ -4,13 +4,21 @@
   const cntnrElmnt = document.querySelector('.wrap');
   const form = cntnrElmnt.querySelector("form");
   const radioLbls = cntnrElmnt.querySelectorAll('.otter-radio-wrapper');
-  const chckBxLbls = cntnrElmnt.querySelector('.otter-checkbox-wrapper');
+  const chckBxLbls = cntnrElmnt.querySelectorAll('.otter-checkbox-wrapper');
+  const btnElmn = cntnrElmnt.querySelectorAll('button[type="button"]');
 
   for (let i = 0; i < radioLbls.length; i++) {
     const element = radioLbls[i];
     element.addEventListener("click", function() {
       unchckAll();
       addCheck(i);
+    })
+  }
+
+  for (let i = 0; i < chckBxLbls.length; i++) {
+    const element = chckBxLbls[i];
+    element.addEventListener("click", function() {
+      toggleCheckBox();
     })
   }
 
@@ -31,25 +39,29 @@
     element.firstElementChild.classList.add('otter-radio-checked');
     element.firstElementChild.children[0].setAttribute('checked', 'checked');
   }
-
-  chckBxLbls.addEventListener("click", toggleCheckBox);
   
   function toggleCheckBox() {
     'use strict';
-    const isChecked = chckBxLbls.querySelector('.otter-checkbox input[type="checkbox"]').checked;
-    const spanElmn = chckBxLbls.querySelector('.otter-checkbox');
-    const checkElmn = spanElmn.querySelector('.otter-checkbox-input');
-    let result; 
-    if(isChecked) {
-      spanElmn.classList.toggle('otter-checkbox-checked');
-      checkElmn.toggleAttribute('checked');
-      result = isChecked;
-    } else {
-      spanElmn.classList.remove('otter-checkbox-checked');
-      checkElmn.removeAttribute('checked');
-      result = isChecked;
+    for (let i = 0; i < chckBxLbls.length; i++) {
+      const element = chckBxLbls[i];
+      const isChecked = element.querySelector('.otter-checkbox input[type="checkbox"]').checked;
+      const spanElmn = element.querySelector('.otter-checkbox');
+      const checkElmn = spanElmn.querySelector('.otter-checkbox-input');
+      if(isChecked) {
+        spanElmn.classList.toggle('otter-checkbox-checked');
+        checkElmn.toggleAttribute('checked');
+      } else {
+        spanElmn.classList.remove('otter-checkbox-checked');
+        checkElmn.removeAttribute('checked');
+      } 
     }
-    return result;
+  }
+
+  function isCheckedCheckbox(id) {
+    'use strict';
+    let result;
+    const isChecked = document.getElementById(id).checked;
+    return result = isChecked;
   }
 
   function submitLog() {
@@ -59,7 +71,11 @@
     const timeStr = time.toLocaleTimeString();
     const nowClsNm = getCurrentBtnClassName();
     const newItmElmn = document.createElement('li');
-    const newCntnt = document.createTextNode( nowClsNm + ", " + timeStr + " 'Danger' style: " + toggleCheckBox() );
+    const newCntnt = document.createTextNode( nowClsNm + ", "
+                                               + timeStr + ", Danger: "
+                                               + isCheckedCheckbox('danger') + ", Disabled: " 
+                                               + isCheckedCheckbox('disabled') + ", Block: " 
+                                               + isCheckedCheckbox('block'));
     newItmElmn.append(newCntnt);
     logElmnt.append(newItmElmn);
     const COUNT_SUBMIT = logElmnt.querySelectorAll('li').length - 1;
@@ -74,22 +90,31 @@
     const chckdElmn = form.querySelector('input[name="btn-size"]:checked');
     const chckdVal = chckdElmn.value;
     return result = chckdVal;
-
   }
   
   form.addEventListener('submit', function(event) {
     'use strict';
-    const btnElmn = cntnrElmnt.querySelectorAll('button[type="button"]');
     const [preClass, nowClass] = submitLog();
     for (let i = 0; i < btnElmn.length; i++) {
       const element = btnElmn[i];
       element.classList.remove(preClass);
-      element.classList.add(nowClass);
-      if (toggleCheckBox()) {
-        element.classList.remove('otter-btn-dangerous');
+      if (nowClass !== 'otter-btn-df') {
+        element.classList.add(nowClass);
+      }
+      if (isCheckedCheckbox('danger')) {
         element.classList.add('otter-btn-dangerous');  
       } else {
         element.classList.remove('otter-btn-dangerous');
+      }
+      if (isCheckedCheckbox('block')) {
+        element.classList.add('otter-btn-block');  
+      } else {
+        element.classList.remove('otter-btn-block');
+      }
+      if (isCheckedCheckbox('disabled')) {
+        element.setAttribute('disabled', 'disabled');
+      } else {
+        element.removeAttribute('disabled');
       }
     }
     event.preventDefault();
