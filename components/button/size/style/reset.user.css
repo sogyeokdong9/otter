@@ -1,4 +1,31 @@
 @charset "UTF-8";
+a, area, button, [role='button'], input:not([type='range']), label, select, summary, textarea {
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+}
+
+input, button, select, optgroup, textarea {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+button, input {
+  overflow: visible;
+}
+
+input[type='radio'], input[type='checkbox'] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+}
+
 button {
   position: relative;
   display: inline-block;
