@@ -1,4 +1,25 @@
-@charset 'utf-8';
+@charset "utf-8";
+
+a, area, button, [role='button'], input:not([type='range']), label, select, summary, textarea {
+  touch-action: manipulation;
+}
+input, button, select, optgroup, textarea {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+button, input {
+  overflow: visible;
+}
+input[type='radio'], input[type='checkbox'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+input[type="radio"] {
+  cursor: pointer;
+}
 
 button {
   position: relative;
@@ -11,21 +32,17 @@ button {
   -ms-user-select: none;
   user-select: none;
   cursor: pointer;
-
   &:not([disabled]) {
     &:hover {
       text-decoration: none;
     }
-
     &:active, &:focus {
       outline: 0;
       box-shadow: none;
     }
   }
-
   &[disabled] {
     cursor: not-allowed;
-
     > * {
       pointer-events: none;
     }

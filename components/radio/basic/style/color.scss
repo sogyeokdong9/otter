@@ -1,4 +1,4 @@
-@charset 'utf-8';
+@charset "utf-8";
 
 :root {
   --otter-black: rgba(0. 0, 0, 1);
@@ -23,15 +23,15 @@
 	--otter-ftwht-background: rgba(255, 255, 255, 0.08);	
 	--otter-ftwht-table-header: rgba(255, 255, 255, 0.04);	
 
-  --otter-button-radio-border: rgba(217, 217, 217, 1);
-  --otter-radio-border-box-shadow: rgba(230, 247, 255, 1);
-
 	--otter-primary-color: rgba(24, 144, 255, 1);
   --otter-primary-color-hover: rgba(64, 169, 255, 1);
   --otter-primary-color-active: rgba(9, 109, 217, 1);
   --otter-primary-color-outline: rgba(24, 144, 255, 0.20);
 
-  --otter-radio-primary: rgba(24, 144, 255, 1);
+  --otter-button-radio-border: rgba(217, 217, 217, 1);
+  --otter-radio-border-box-shadow: rgba(230, 247, 255, 1);
+
+  --otter-radio-primary: var(--otter-primary-color);
 
   --otter-btn-primary: var(--otter-white);
   --otter-btn-primary-hover: var(--otter-white);
