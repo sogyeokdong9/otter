@@ -1,4 +1,4 @@
-@charset 'utf-8';
+@charset "utf-8";
 
 :root {
   --otter-black: rgba(0. 0, 0, 1);
@@ -27,6 +27,19 @@
   --otter-primary-color-hover: rgba(64, 169, 255, 1);
   --otter-primary-color-active: rgba(9, 109, 217, 1);
   --otter-primary-color-outline: rgba(24, 144, 255, 0.20);
+
+  --otter-radio-title: var(--otter-ftbck-title);
+  --otter-radio-border: rgba(217, 217, 217, 1);
+  --otter-radio-border-hover: var(--otter-primary-color);
+  --otter-radio-checked-border: var(--otter-primary-color);
+  --otter-radio-border-box-shadow: rgba(230, 247, 255, 1);
+  --otter-radio-bg: var(--otter-white);
+  --otter-radio-bg-after: var(--otter-primary-color);
+  
+  --otter-radio-disabled-bg: rgba(245, 245, 245, 1);
+  --otter-radio-disabled-bg-after: rgba(0, 0, 0, 0.2);
+  --otter-radio-disabled-span: var(--otter-ftbck-disable);
+  --otter-radio-disabled-border: var(--otter-radio-border);
 
   --otter-btn-primary: var(--otter-white);
   --otter-btn-primary-hover: var(--otter-white);
@@ -57,7 +70,7 @@
 
   --otter-btn-dashed: var(--otter-ftbck-title);
   --otter-btn-dashed-hover: var(--otter-primary-color-hover);
-  --otter-btn-dashed-border: var(--otter-btn-default-border);
+  --otter-btn-dashed-border: rgba(217, 217, 217, 1);
   --otter-btn-dashed-border-hover: var(--otter-primary-color-hover);
   --otter-btn-dashed-bg: var(--otter-white);
   --otter-btn-dashed-bg-hover: var(--otter-white);
@@ -87,7 +100,7 @@
   --otter-btn-disabled-default-border: var(--otter-btn-default-border);
   --otter-btn-disabled-default-border-hover: var(--otter-btn-default-border);
   --otter-btn-disabled-default-bg: rgba(245, 245, 245, 1);
-  --otter-btn-disabled-default-bg-hover: var(--otter-btn-disabled-default-bg);
+  --otter-btn-disabled-default-bg-hover: rgba(245, 245, 245, 1);
   --otter-btn-disabled-default-box-shadow: none;
   --otter-btn-disabled-default-text-shadow: none;
 
