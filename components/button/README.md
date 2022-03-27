@@ -32,7 +32,30 @@
 </button>
 ```
 
-### disabled
+### Size
+
+```html
+<button type="button" class="otter-btn otter-btn-lg">
+	<span>Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-default otter-btn-lg">
+	<span>Default Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-primary otter-btn-lg">
+	<span>Primary Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-dashed otter-btn-lg">
+	<span>Dashed Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-text otter-btn-lg">
+	<span>Text Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-link otter-btn-lg">
+	<span>Link Button</span>
+</button>
+```
+
+### Disabled
 
 ```html
 <button type="button" class="otter-btn" disabled>
@@ -55,7 +78,7 @@
 </button>
 ```
 
-### danger
+### Danger
 
 ```html
 <button type="button" class="otter-btn otter-btn-primary otter-btn-dangerous">
@@ -72,6 +95,29 @@
 </button>
 <button type="button" class="otter-btn otter-btn-link otter-btn-dangerous">
   <span>Link</span>
+</button>
+```
+
+### Block
+
+```html
+<button type="button" class="otter-btn otter-btn-block">
+	<span>Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-default otter-btn-block">
+	<span>Default Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-primary otter-btn-block">
+	<span>Primary Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-dashed otter-btn-block">
+	<span>Dashed Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-text otter-btn-block">
+	<span>Text Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-link otter-btn-block">
+	<span>Link Button</span>
 </button>
 ```
 
