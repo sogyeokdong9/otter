@@ -9,11 +9,11 @@ button(`otter-btn` [`otter-btn-primary`[, `otter-btn-dangerous`[, ...`otter-btn-
 
 ## Examples
 
-- [CodePen: Otter: button > type](https://codepen.io/sogyeokdong/pen/GRyZVXZ, "Otter: button > type")
-- [CodePen: Otter: button > size](https://codepen.io/sogyeokdong/pen/gOowGJG, "Otter: button > size")
-- [CodePen: Otter: button > disabled](https://codepen.io/sogyeokdong/pen/yLpJgMN, "Otter: button > disabled")
-- [CodePen: Otter: button > danger](https://codepen.io/sogyeokdong/pen/qBpNvWq, "Otter: button > danger")
-- [CodePen: Otter: button > block](https://codepen.io/sogyeokdong/pen/GRymRYr, "Otter: button > block")
+- [CodePen: Otter: button > type](https://codepen.io/sogyeokdong/pen/GRyZVXZ "Otter: button > type")
+- [CodePen: Otter: button > size](https://codepen.io/sogyeokdong/pen/gOowGJG "Otter: button > size")
+- [CodePen: Otter: button > disabled](https://codepen.io/sogyeokdong/pen/yLpJgMN "Otter: button > disabled")
+- [CodePen: Otter: button > danger](https://codepen.io/sogyeokdong/pen/qBpNvWq "Otter: button > danger")
+- [CodePen: Otter: button > block](https://codepen.io/sogyeokdong/pen/GRymRYr "Otter: button > block")
 
 ### Type
 
