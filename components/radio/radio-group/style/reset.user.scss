@@ -1,0 +1,81 @@
+@charset "utf-8";
+
+a, area, button, [role='button'], input:not([type='range']), label, select, summary, textarea {
+  touch-action: manipulation;
+}
+input, button, select, optgroup, textarea {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+button, input {
+  overflow: visible;
+}
+input[type='radio'], input[type='checkbox'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+input[type="radio"] {
+  cursor: pointer;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  &:not([disabled]) {
+    &:hover {
+      text-decoration: none;
+    }
+    &:active, &:focus {
+      outline: 0;
+      box-shadow: none;
+    }
+  }
+  &[disabled] {
+    cursor: not-allowed;
+    > * {
+      pointer-events: none;
+    }
+  }
+}
+
+hr {
+  height: 53px;
+  border: none;
+  background: #f0f0f0;
+  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='30' height='30' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(217, 0%, 100%, 1)'/><path d='M0 10h20z'  transform='translate(5,0)' stroke-width='0.5' stroke='hsla(4, 0%, 82%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,-16)' fill='url(%23a)'/></svg>");
+  text-align: center;
+}
+hr:after {
+  content: '§';
+  display: inline-block;
+  position: relative;
+  top:10px;
+  left:-20px;
+  padding: 0 10px;
+  background: #f0f0f0;
+  font-size: 18px;
+  color: #bbb;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.wrap { margin: 1em; }
+.wrap form { margin: 1em 0; }
+.event-log { display: flex; flex-direction: column-reverse; flex-wrap: wrap; }
+.event-log li { list-style-type: decimal-leading-zero; }
+.event-log::after {
+  content: "Event Log";
+  margin-left: -40px;
+}
