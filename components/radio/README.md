@@ -3,12 +3,12 @@
 ## Structure
 
 ```html
-<label class="otter-radio-wrapper" for="basic-radio">
+<label class="otter-radio-wrapper" for="item">
   <span class="otter-radio">
-    <input type="radio" class="otter-radio-input" id="basic-radio" name="basic-radio" value="basic-radio">
+    <input type="radio" class="otter-radio-input" id="item" name="item" value="item">
     <span class="otter-radio-inner"></span>
   </span>
-  <span>Basic Radio</span>
+  <span>item</span>
 </label>
 ```
 
@@ -19,6 +19,7 @@
 - [CodePen: Otter: Radio > basic](https://codepen.io/sogyeokdong/pen/jOYmOXK "Otter: Radio > basic")
 - [CodePen: Otter: Radio > disabled](https://codepen.io/sogyeokdong/pen/wvpdvOp "Otter: Radio > disabled")
 - [CodePen: Otter: Radio > radio-group](https://codepen.io/sogyeokdong/pen/ZEvKENP "Otter: Radio > radio-group")
+- [CodePen: Otter: Radio > vertical-radio-group](https://codepen.io/sogyeokdong/pen/popPOVm "Otter: Radio > vertical-radio-group")
 
 ### Basic
 
