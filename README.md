@@ -23,18 +23,27 @@ To trigger an operation.
 
 *and 4 other properties additionally.*
 
-- [X] `danger`😡
-- [ ] `ghost`👻
-- [X] `disabled`🥶
-- [ ] `loading`🤩
+- [X] `Danger`😡
+- [ ] `Ghost`👻
+- [X] `Disabled`🥶
+- [ ] `Loading`🤩
 
 *3 Sizes of button*
 
-- [X] `large` 🙄
-- [X] `[dafault]` 😦
-- [X] `small` 🥱
+- [X] `Large` 🙄
+- [X] `[Default]` 😦
+- [X] `Small` 🥱
 
 
 ### Icons
 
 ### Typography
+
+## Data Entry
+
+### Radio
+
+- [X] Basic
+- [X] Disabled
+- [X] Radio Group
+- [X] Vertical Radio Group
