@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./style/reset.css">
+	<link rel="stylesheet" href="./style/reset.user.css">
+	<link rel="stylesheet" href="./style/color.css">
+  <link rel="stylesheet" href="./style/space.css">
+  <link rel="stylesheet" href="./style/input.css">
+	<link rel="stylesheet" href="./style/radio.css">
+	<link rel="stylesheet" href="./style/style.css">
+	<title>Vertical Radio Group</title>
+</head>
+<body>
+	<div class="wrap">
+    <div class="otter-radio-group otter-radio-group-outline">
+      <div class="otter-space otter-space-vertical otter-space-vertical-gap-8">
+        <div class="otter-space-item">
+          <label class="otter-radio-wrapper otter-radio-wrapper-checked" for="a">
+            <span class="otter-radio otter-radio-checked">
+              <input type="radio" class="otter-radio-input" id="a" name="choice" value="a" checked>
+              <span class="otter-radio-inner"></span>
+            </span>
+            <span>A</span>
+          </label>
+        </div>
+        <div class="otter-space-item">
+          <label class="otter-radio-wrapper" for="b">
+            <span class="otter-radio">
+              <input type="radio" class="otter-radio-input" id="b" name="choice" value="b">
+              <span class="otter-radio-inner"></span>
+            </span>
+            <span>B</span>
+          </label>
+        </div>
+        <div class="otter-space-item">
+          <label class="otter-radio-wrapper" for="c">
+            <span class="otter-radio">
+              <input type="radio" class="otter-radio-input" id="c" name="choice" value="c">
+              <span class="otter-radio-inner"></span>
+            </span>
+            <span>C</span>
+          </label>
+        </div>
+        <div class="otter-space-item">
+          <label class="otter-radio-wrapper" for="more">
+            <span class="otter-radio">
+              <input type="radio" class="otter-radio-input" id="more" name="choice" value="more">
+              <span class="otter-radio-inner"></span>
+            </span>
+            <span>
+              More...
+              <span class="others-wrapper">
+                <label class="a11y-hidden" for="others">others</label>
+                <input class="otter-input" id="others" name="others"  type="text" value="">
+              </span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+	</div>
+<script src="./script/script.js"></script>
+</body>
+</html>
