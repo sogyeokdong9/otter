@@ -150,7 +150,7 @@ span.otter-radio + * {
   border-color: var(--otter-radio-disabled-border) !important;
 }
 .otter-radio-disabled .otter-radio-inner::after {
-  background-color: var(--otter-radio-disabled-background);
+  background-color: var(--otter-radio-disabled-checked-inner-after-background);
 }
 .otter-radio-disabled + span {
   color: var(--otter-radio-disabled);
