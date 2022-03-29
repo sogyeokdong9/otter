@@ -6,7 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="./style/reset.css">
 	<link rel="stylesheet" href="./style/reset.user.css">
+	<link rel="stylesheet" href="./style/space.css">
 	<link rel="stylesheet" href="./style/color.css">
+	<link rel="stylesheet" href="./style/radio.css">
 	<link rel="stylesheet" href="./style/button.css">
 	<link rel="stylesheet" href="./style/style.css">
 	<title>Size Button</title>
@@ -35,54 +37,64 @@
 			<fieldset>
 			<legend>Set the button.: </legend>
 			<div class="otter-radio-group otter-radio-group-outline">
-				<label class="otter-radio-wrapper" for="small">
-					<span class="otter-radio">
-						<input type="radio" class="otter-radio-input" id="small" name="btn-size" value="otter-btn-sm">
-						<span class="otter-radio-inner"></span>
-					</span>
-					<span>Small</span>
-				</label>
-				<label class="otter-radio-wrapper otter-radio-wrapper-checked" for="default">
-					<span class="otter-radio otter-radio-checked">
-						<input type="radio" class="otter-radio-input" id="default" name="btn-size" value="otter-btn-df" checked>
-						<span class="otter-radio-inner"></span>
-					</span>
-					<span>Default</span>
-				</label>
-				<label class="otter-radio-wrapper" for="large">
-					<span class="otter-radio">
-						<input type="radio" class="otter-radio-input" id="large" name="btn-size" value="otter-btn-lg">
-						<span class="otter-radio-inner"></span>
-					</span>
-					<span>Large</span>
-				</label>
+				<div class="otter-space otter-space-vertical otter-space-vertical-gap-8">
+					<div class="otter-space-item">
+						<label class="otter-radio-wrapper" for="small">
+							<span class="otter-radio">
+								<input type="radio" class="otter-radio-input" id="small" name="btn-size" value="otter-btn-sm">
+								<span class="otter-radio-inner"></span>
+							</span>
+							<span>Small</span>
+						</label>
+					</div>
+					<div class="otter-space-item">
+						<label class="otter-radio-wrapper otter-radio-wrapper-checked" for="default">
+							<span class="otter-radio otter-radio-checked">
+								<input type="radio" class="otter-radio-input" id="default" name="btn-size" value="otter-btn-df" checked>
+								<span class="otter-radio-inner"></span>
+							</span>
+							<span>Default</span>
+						</label>
+					</div>
+					<div class="otter-space-item">
+						<label class="otter-radio-wrapper" for="large">
+							<span class="otter-radio">
+								<input type="radio" class="otter-radio-input" id="large" name="btn-size" value="otter-btn-lg">
+								<span class="otter-radio-inner"></span>
+							</span>
+							<span>Large</span>
+						</label>
+					</div>
+				</div>
 			</div>
-			<div>
-				<label class="otter-checkbox-wrapper" for="danger">
-					<span class="otter-checkbox">
-						<input type="checkbox" class="otter-checkbox-input" id="danger" name="danger" value="danger">
-						<span class="otter-checkbox-inner"></span>
-					</span>
-					<span>Change to 'Danger'.</span>
-				</label>
-			</div>
-			<div>
-				<label class="otter-checkbox-wrapper" for="disabled">
-					<span class="otter-checkbox">
-						<input type="checkbox" class="otter-checkbox-input" id="disabled" name="disabled" value="disabled">
-						<span class="otter-checkbox-inner"></span>
-					</span>
-					<span>Change to 'Disabled'.</span>
-				</label>
-			</div>
-			<div>
-				<label class="otter-checkbox-wrapper" for="block">
-					<span class="otter-checkbox">
-						<input type="checkbox" class="otter-checkbox-input" id="block" name="block" value="block">
-						<span class="otter-checkbox-inner"></span>
-					</span>
-					<span>Change to 'Block'.</span>
-				</label>
+			<div class="otter-space otter-space-vertical otter-space-vertical-gap-8">
+				<div class="otter-space-item">
+					<label class="otter-checkbox-wrapper" for="danger">
+						<span class="otter-checkbox">
+							<input type="checkbox" class="otter-checkbox-input" id="danger" name="danger" value="danger">
+							<span class="otter-checkbox-inner"></span>
+						</span>
+						<span>Change button style to 'Danger'.</span>
+					</label>
+				</div>
+				<div class="otter-space-item">
+					<label class="otter-checkbox-wrapper" for="disabled">
+						<span class="otter-checkbox">
+							<input type="checkbox" class="otter-checkbox-input" id="disabled" name="disabled" value="disabled">
+							<span class="otter-checkbox-inner"></span>
+						</span>
+						<span>Change button style to 'Disabled'.</span>
+					</label>
+				</div>
+				<div class="otter-space-item">
+					<label class="otter-checkbox-wrapper" for="block">
+						<span class="otter-checkbox">
+							<input type="checkbox" class="otter-checkbox-input" id="block" name="block" value="block">
+							<span class="otter-checkbox-inner"></span>
+						</span>
+						<span>Change button style to 'Block'.</span>
+					</label>
+				</div>
 			</div>
 			<button type="submit" class="otter-btn otter-btn-primary otter-btn-sm">
 				<span>Submit</span>

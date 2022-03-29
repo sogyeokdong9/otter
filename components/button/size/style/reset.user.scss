@@ -71,6 +71,25 @@ hr:after {
   transform: rotate(45deg);
 }
 
+.a11y-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+.clearfix::before {
+  display: table;
+  content: '';
+}
+.clearfix::after {
+  display: table;
+  clear: both;
+  content: '';
+}
+
 .wrap { margin: 1em; }
 .wrap form { margin: 1em 0; }
 .event-log { display: flex; flex-direction: column-reverse; flex-wrap: wrap; }

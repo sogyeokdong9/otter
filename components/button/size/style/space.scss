@@ -1,0 +1,63 @@
+@charset 'utf-8';
+
+.otter-space {
+  display: inline-flex;
+  &-vertical {
+    flex-direction: column;
+    &-gap-8 {
+      gap: 8px;
+    }
+    &-gap-16 {
+      gap: 16px;
+    }
+    &-gap-24 {
+      gap: 24px;
+    }
+  }
+  &-horizontal {
+    flex-direction: row;
+  }
+  &-item:empty {
+    display: none;
+  }
+  &-rtl {
+    direction: rtl;
+  }
+}
+.otter-space-align {
+  &-center {
+    align-items: center;
+  }
+  &-flex-start {
+    align-items: flex-start;
+  }
+  &-flex-end {
+    align-items: flex-end;
+  }
+  &-baseline {
+    align-items: baseline;
+  }
+  &-stretch {
+    align-items: stretch;
+  }
+}
+.otter-space-justify {
+  &-center {
+    justify-content: center;
+  }
+  &-flex-start {
+    justify-content: flex-start;
+  }
+  &-flex-end {
+    justify-content: flex-end;
+  }
+  &-space-between {
+    justify-content: space-between;
+  }
+  &-space-around {
+    justify-content: space-around;
+  }
+  &-space-evenly {
+    justify-content: space-evenly;
+  }
+}
