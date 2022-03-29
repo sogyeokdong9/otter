@@ -1,37 +1,60 @@
+/* This CSS will print because '%code-name' is extended. */
 .otter-input {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-variant: tabular-nums;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   list-style: none;
+}
+
+.otter-input {
+  font-size: 14px;
+  font-variant: tabular-nums;
   -webkit-font-feature-settings: 'tnum';
           font-feature-settings: 'tnum';
+  line-height: 1.5715;
+  color: var(--otter-input);
+}
+
+.otter-input[disabled],
+.otter-input-disabled {
+  border-color: var(--otter-input-disabled-border);
+  background-color: var(--otter-input-disabled-background);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: var(--otter-input-disabled);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.otter-input[disabled]:hover,
+.otter-input-disabled:hover {
+  border-right-width: 1px;
+  border-color: var(--otter-input-disabled-hover-border);
+}
+
+.otter-input {
   position: relative;
   display: inline-block;
   width: 100%;
   min-width: 0;
   padding: 4px 11px;
-  color: rgba(0, 0, 0, 0.85);
-  font-size: 14px;
-  line-height: 1.5715;
-  background-color: #fff;
+  border: 1px solid var(--otter-input-border);
+  background-color: var(--otter-input-background);
   background-image: none;
-  border: 1px solid #d9d9d9;
-  border-radius: 2px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   /* stylelint-disable-next-line selector-no-vendor-prefix */
 }
 
 .otter-input:-ms-input-placeholder {
-  color: #bfbfbf;
+  color: var(--otter-input-placeholder);
   -ms-user-select: none;
   user-select: none;
 }
 
 .otter-input::-webkit-input-placeholder {
-  color: #bfbfbf;
+  color: var(--otter-input-placeholder);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -39,7 +62,7 @@
 }
 
 .otter-input::-ms-input-placeholder {
-  color: #bfbfbf;
+  color: var(--otter-input-placeholder);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -47,28 +70,20 @@
 }
 
 .otter-input::placeholder {
-  color: #bfbfbf;
+  color: var(--otter-input-placeholder);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
-.otter-input:-moz-placeholder-shown {
-  text-overflow: ellipsis;
-}
-
-.otter-input:-ms-input-placeholder {
-  text-overflow: ellipsis;
-}
-
-.otter-input:placeholder-shown {
+.otter-input:-moz-placeholder-shown, .otter-input:-ms-input-placeholder, .otter-input:placeholder-shown {
   text-overflow: ellipsis;
 }
 
 .otter-input:hover {
-  border-color: #40a9ff;
   border-right-width: 1px;
+  border-color: var(--otter-input-hover-border);
 }
 
 .otter-input-rtl .otter-input:hover {
@@ -78,10 +93,10 @@
 
 .otter-input:focus,
 .otter-input-focused {
-  border-color: #40a9ff;
-  -webkit-box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
-          box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
   border-right-width: 1px;
+  border-color: var(--otter-input-focus-border);
+  -webkit-box-shadow: 0 0 0 2px var(--otter-input-focus-box-shadow);
+          box-shadow: 0 0 0 2px var(--otter-input-focus-box-shadow);
   outline: 0;
 }
 
@@ -91,44 +106,14 @@
   border-left-width: 1px !important;
 }
 
-.otter-input-disabled {
-  color: rgba(0, 0, 0, 0.25);
-  background-color: #f5f5f5;
-  border-color: #d9d9d9;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  cursor: not-allowed;
-  opacity: 1;
-}
-
-.otter-input-disabled:hover {
-  border-color: #d9d9d9;
-  border-right-width: 1px;
-}
-
-.otter-input[disabled] {
-  color: rgba(0, 0, 0, 0.25);
-  background-color: #f5f5f5;
-  border-color: #d9d9d9;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  cursor: not-allowed;
-  opacity: 1;
-}
-
-.otter-input[disabled]:hover {
-  border-color: #d9d9d9;
-  border-right-width: 1px;
-}
-
 .otter-input-borderless,
 .otter-input-borderless:hover,
 .otter-input-borderless:focus,
 .otter-input-borderless-focused,
 .otter-input-borderless-disabled,
 .otter-input-borderless[disabled] {
-  background-color: transparent;
   border: none;
+  background-color: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
 }

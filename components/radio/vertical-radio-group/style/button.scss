@@ -1,0 +1,202 @@
+@charset 'utf-8';
+
+$btns-data: (
+  otter-btn: solid,
+  default: solid,
+  primary: solid,
+  dashed: dashed,
+  text: none,
+  link: none,
+  dangerous: solid,
+);
+
+// @each문울 통하여 자동생성
+// otter-btn, otter-btn-default, otter-btn-primary, otter-btn-dashed,  otter-btn-text
+// otter-btn-link, otter-btn-dangerous
+@each $btn, $border in $btns-data {
+  @if $btn == otter-btn {
+    .otter-btn {
+      height: 32px;
+      padding: 4px 15px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      background-image: none;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.5715;
+      transition: all .3s cubic-bezier(0.22, 0.68, 0, 1);
+      border-color: var(--otter-btn-default-border);
+      background-color: var(--otter-btn-default-background);
+      box-shadow: 0 2px 0 var(--otter-btn-default-box-shadow);
+      color: var(--otter-btn-default);
+      text-shadow: var(--otter-btn-default-text-shadow);
+      &:hover,
+      &:focus {
+        border-color: var(--otter-btn-default-hover-border);
+        background-color: var(--otter-btn-default-hover-background);
+        box-shadow: var(--otter-btn-default-hover-box-shadow);
+        color: var(--otter-btn-default-hover);
+        text-shadow: var(--otter-btn-default-hover-text-shadow);
+        text-decoration: none;
+      }
+      &:active {
+        border-color: var(--otter-btn-default-active-border);
+        background-color: var(--otter-btn-default-active-background);
+        box-shadow: 0 2px 0 var(--otter-btn-default-active-box-shadow);
+        color: var(--otter-btn-default-active);
+        text-shadow: 0 2px 0 var(--otter-btn-default-active-text-shadow);
+      }
+      &:hover>a:only-child,
+      &:focus>a:only-child {
+        @extend %otter-btn-a-child;
+      }
+      &:hover>a:only-child:after,
+      &:focus>a:only-child:after {
+        @extend %otter-btn-a-child-after;
+      }
+    }
+  } @else {
+    .otter-btn-#{$btn} {
+      border-style: #{$border};
+      border-color: var(--otter-btn-#{$btn}-border);
+      background-color: var(--otter-btn-#{$btn}-background);
+      box-shadow: 0 2px 0 var(--otter-btn-#{$btn}-box-shadow);
+      color: var(--otter-btn-#{$btn});
+      text-shadow: 0 2px 0 var(--otter-btn-#{$btn}-text-shadow);
+      &:hover,
+      &:focus {
+        border-color: var(--otter-btn-#{$btn}-hover-border);
+        background-color: var(--otter-btn-#{$btn}-hover-background);
+        box-shadow: 0 2px 0 var(--otter-btn-#{$btn}-hover-box-shadow);
+        color: var(--otter-btn-#{$btn}-hover);
+        text-shadow: 0 2px 0 var(--otter-btn-#{$btn}-hover-text-shadow);
+      }
+      &:active {
+        border-color: var(--otter-btn-#{$btn}-active-border);
+        background-color: var(--otter-btn-#{$btn}-active-background);
+        box-shadow: 0 2px 0 var(--otter-btn-#{$btn}-active-box-shadow);
+        color: var(--otter-btn-#{$btn}-active);
+        text-shadow: 0 2px 0 var(--otter-btn-#{$btn}-active-text-shadow);
+      }
+      &:hover>a:only-child,
+      &:focus>a:only-child {
+        @extend %otter-btn-a-child;
+      }
+      &:hover>a:only-child:after,
+      &:focus>a:only-child:after {
+        @extend %otter-btn-a-child-after;
+      }
+    }
+  }
+}
+
+// @each문 자동생성 이후 후처리
+.otter-btn-primary {
+  &.otter-btn-dangerous {
+    background-color: var(--otter-btn-dangerous-primary-background);
+    color: var(--otter-btn-dangerous-primary);
+    &:hover,
+    &:focus {
+      border-color: var(--otter-btn-dangerous-primary-hover-border);
+      background-color: var(--otter-btn-dangerous-primary-hover-background);
+    }
+  }
+}
+.otter-btn-dashed {
+  &.otter-btn-dangerous {
+    border-style: dashed;
+    box-shadow: var(--otter-btn-dangerous-dashed-box-shadow);
+  }
+}
+.otter-btn-text {
+  &.otter-btn-dangerous {
+    border: var(--otter-btn-dangerous-text-border);
+    box-shadow: var(--otter-btn-dangerous-text-border);
+    &:hover,
+    &:focus {
+      background-color: var(--otter-btn-dangerous-text-hover-background);
+    }
+  }
+}
+.otter-btn-link {
+  &.otter-btn-dangerous {
+    border: var(--otter-btn-dangerous-link-border);
+    box-shadow: var(--otter-btn-dangerous-link-border);
+  }
+}
+
+// disabled
+button[class="otter-btn"], button[class="otter-btn otter-btn-default"], button[class$="-dashed"], button[class$="-primary"], button[class$="-dangerous"],
+button[class$="-lg"], button[class$="-sm"],
+button[class$="-block"] {
+  &[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
+    @extend %otter-btn-disabled-filled;
+  } 
+}
+button[class$="-text"], button[class$="-link"],
+button[class*="-text otter-btn-dangerous"], button[class*="-link otter-btn-dangerous"],
+button[class*="-text otter-btn-lg"], button[class*="-link otter-btn-lg"],
+button[class*="-text otter-btn-sm"], button[class*="-link otter-btn-sm"],
+button[class*="-text otter-btn-block"], button[class*="-link otter-btn-block"] {
+  &[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
+    @extend %otter-btn-disabled-unfilled;
+  } 
+}
+button[class*="otter-btn"] {
+  &[disabled]>a:only-child, &[disabled]:hover>a:only-child, &[disabled]:focus>a:only-child, &[disabled]:active>a:only-child {
+    @extend %otter-btn-a-child;
+  } 
+}
+button[class*="otter-btn"] {
+  &[disabled]>a:only-child:after, &[disabled]:hover>a:only-child:after, &[disabled]:focus>a:only-child:after, &[disabled]:active>a:only-child:after {
+    @extend %otter-btn-a-child-after;
+  } 
+}
+
+// @extend
+%otter-btn-disabled-filled {
+  border-color: var(--otter-btn-disabled-default-border);
+  background: var(--otter-btn-disabled-default-background);
+  box-shadow: var(--otter-btn-disabled-default-box-shadow);
+  color: var(--otter-btn-disabled-default);
+  text-shadow: var(--otter-btn-disabled-default-text-shadow);
+}
+%otter-btn-disabled-unfilled {
+	border-color: var(--otter-btn-disabled-text-border);
+  background: var(--otter-btn-disabled-text-background);
+	box-shadow: var(--otter-btn-disabled-text-box-shadow);
+	color: var(--otter-btn-disabled-text);
+	text-shadow: var(--otter-btn-disabled-text-text-shadow);
+}
+%otter-btn-a-child {
+	color: currentcolor;
+}
+%otter-btn-a-child-after {
+	position: absolute;
+	inset: 0;
+	content: "";
+	background: 0 0;
+}
+
+// size
+.otter-btn {
+  &-lg {
+    height: 40px;
+    padding: 6.4px 15px;
+    border-radius: 2px;
+    font-size: 16px;
+  }
+  &-sm {
+    height: 24px;
+    padding: 0 7px;
+    border-radius: 2px;
+    font-size: 14px;
+  }
+}
+
+// block
+.otter-btn {
+  &.otter-btn-block {
+    width: 100%;
+  }
+}

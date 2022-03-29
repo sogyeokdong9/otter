@@ -13,7 +13,7 @@
   -webkit-font-feature-settings: 'tnum';
           font-feature-settings: 'tnum';
   line-height: 1.5715;
-  color: var(--otter-radio-title);
+  color: var(--otter-radio);
 }
 
 .otter-radio-wrapper, .otter-radio, .otter-radio-input, .otter-radio-inner {
@@ -99,7 +99,7 @@ span.otter-radio + * {
   border-style: solid;
   border-color: var(--otter-radio-border);
   border-radius: 50%;
-  background-color: var(--otter-radio-bg);
+  background-color: var(--otter-radio-background);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -117,7 +117,7 @@ span.otter-radio + * {
   border-left: 0;
   border-radius: 16px;
   content: ' ';
-  background-color: var(--otter-radio-bg-after);
+  background-color: var(--otter-radio-active-inner-after-background);
   -webkit-transform: scale(0);
           transform: scale(0);
   -webkit-transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
@@ -148,14 +148,14 @@ span.otter-radio + * {
 }
 
 .otter-radio-input:focus + .otter-radio-inner {
-  -webkit-box-shadow: 0 0 0 3px var(--otter-radio-border-box-shadow);
-          box-shadow: 0 0 0 3px var(--otter-radio-border-box-shadow);
+  -webkit-box-shadow: 0 0 0 3px var(--otter-radio-focus-box-shadow);
+          box-shadow: 0 0 0 3px var(--otter-radio-focus-box-shadow);
 }
 
 .otter-radio-wrapper:hover .otter-radio,
 .otter-radio:hover .otter-radio-inner,
 .otter-radio-input:focus + .otter-radio-inner {
-  border-color: var(--otter-radio-border-hover);
+  border-color: var(--otter-radio-hover-border);
 }
 
 .otter-radio-disabled .otter-radio-inner, .otter-radio-disabled .otter-radio-input,
@@ -164,16 +164,16 @@ span.otter-radio + * {
 }
 
 .otter-radio-disabled .otter-radio-inner {
-  background-color: var(--otter-radio-disabled-bg);
+  background-color: var(--otter-radio-disabled-background);
   border-color: var(--otter-radio-disabled-border) !important;
 }
 
 .otter-radio-disabled .otter-radio-inner::after {
-  background-color: var(--otter-radio-disabled-bg-after);
+  background-color: var(--otter-radio-disabled-background);
 }
 
 .otter-radio-disabled + span {
-  color: var(--otter-radio-disabled-span);
+  color: var(--otter-radio-disabled);
 }
 
 @-webkit-keyframes antRadioEffect {
