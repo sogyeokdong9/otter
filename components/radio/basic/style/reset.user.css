@@ -80,6 +80,16 @@ hr:after {
   transform: rotate(45deg);
 }
 
+.a11y-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  -webkit-clip-path: polygon(0 0, 0 0, 0 0);
+          clip-path: polygon(0 0, 0 0, 0 0);
+}
+
 .wrap {
   margin: 1em;
 }
