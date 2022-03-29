@@ -19,22 +19,32 @@ $btns-data: (
       height: 32px;
       padding: 4px 15px;
       border: 1px solid transparent;
-      border-color: var(--otter-btn-default-border);
       border-radius: 2px;
-      background: var(--otter-btn-default-bg);
       background-image: none;
-      box-shadow: 0 2px 0 var(--otter-btn-default-box-shadow);
       font-weight: 400;
       font-size: 14px;
       line-height: 1.5715;
-      color: var(--otter-btn-default);
       transition: all .3s cubic-bezier(0.22, 0.68, 0, 1);
+      border-color: var(--otter-btn-default-border);
+      background-color: var(--otter-btn-default-background);
+      box-shadow: 0 2px 0 var(--otter-btn-default-box-shadow);
+      color: var(--otter-btn-default);
+      text-shadow: var(--otter-btn-default-text-shadow);
       &:hover,
       &:focus {
-        border-color: var(--otter-primary-color-hover);
-        background: var(--otter-btn-default-bg);
-        color: var(--otter-primary-color-hover);
+        border-color: var(--otter-btn-default-hover-border);
+        background-color: var(--otter-btn-default-hover-background);
+        box-shadow: var(--otter-btn-default-hover-box-shadow);
+        color: var(--otter-btn-default-hover);
+        text-shadow: var(--otter-btn-default-hover-text-shadow);
         text-decoration: none;
+      }
+      &:active {
+        border-color: var(--otter-btn-default-active-border);
+        background-color: var(--otter-btn-default-active-background);
+        box-shadow: 0 2px 0 var(--otter-btn-default-active-box-shadow);
+        color: var(--otter-btn-default-active);
+        text-shadow: 0 2px 0 var(--otter-btn-default-active-text-shadow);
       }
       &:hover>a:only-child,
       &:focus>a:only-child {
@@ -49,14 +59,24 @@ $btns-data: (
     .otter-btn-#{$btn} {
       border-style: #{$border};
       border-color: var(--otter-btn-#{$btn}-border);
-      background: var(--otter-btn-#{$btn}-bg);
+      background-color: var(--otter-btn-#{$btn}-background);
       box-shadow: 0 2px 0 var(--otter-btn-#{$btn}-box-shadow);
       color: var(--otter-btn-#{$btn});
+      text-shadow: 0 2px 0 var(--otter-btn-#{$btn}-text-shadow);
       &:hover,
       &:focus {
-        border-color: var(--otter-btn-#{$btn}-border-hover);
-        background: var(--otter-btn-#{$btn}-bg-hover);
+        border-color: var(--otter-btn-#{$btn}-hover-border);
+        background-color: var(--otter-btn-#{$btn}-hover-background);
+        box-shadow: 0 2px 0 var(--otter-btn-#{$btn}-hover-box-shadow);
         color: var(--otter-btn-#{$btn}-hover);
+        text-shadow: 0 2px 0 var(--otter-btn-#{$btn}-hover-text-shadow);
+      }
+      &:active {
+        border-color: var(--otter-btn-#{$btn}-active-border);
+        background-color: var(--otter-btn-#{$btn}-active-background);
+        box-shadow: 0 2px 0 var(--otter-btn-#{$btn}-active-box-shadow);
+        color: var(--otter-btn-#{$btn}-active);
+        text-shadow: 0 2px 0 var(--otter-btn-#{$btn}-active-text-shadow);
       }
       &:hover>a:only-child,
       &:focus>a:only-child {
@@ -71,49 +91,37 @@ $btns-data: (
 }
 
 // @each문 자동생성 이후 후처리
-.otter-btn {
-  &.otter-btn-dangerous {
-    // border: solid;
-    box-shadow: var(--otter-btn-default-box-shadow);
-    text-shadow: none;
-  }
-}
 .otter-btn-primary {
   &.otter-btn-dangerous {
-    border-color: var(--otter-btn-dangerous);
-    background-color: var(--otter-btn-dangerous);
-    color: var(--otter-white);
+    background-color: var(--otter-btn-dangerous-primary-background);
+    color: var(--otter-btn-dangerous-primary);
     &:hover,
     &:focus {
-      border-color: var(--otter-btn-dangerous-hover);
-      background: var(--otter-btn-dangerous-hover);
-      color: var(--otter-white);
+      border-color: var(--otter-btn-dangerous-primary-hover-border);
+      background-color: var(--otter-btn-dangerous-primary-hover-background);
     }
   }
 }
 .otter-btn-dashed {
   &.otter-btn-dangerous {
     border-style: dashed;
-    box-shadow: var(--otter-btn-default-box-shadow);
-    text-shadow: none;
+    box-shadow: var(--otter-btn-dangerous-dashed-box-shadow);
   }
 }
 .otter-btn-text {
   &.otter-btn-dangerous {
-    border: none;
-    box-shadow: none;
-    text-shadow: none;
+    border: var(--otter-btn-dangerous-text-border);
+    box-shadow: var(--otter-btn-dangerous-text-border);
     &:hover,
     &:focus {
-      background: var(--otter-btn-text-bg-hover);
+      background-color: var(--otter-btn-dangerous-text-hover-background);
     }
   }
 }
 .otter-btn-link {
   &.otter-btn-dangerous {
-    border: none;
-    box-shadow: none;
-    text-shadow: none;
+    border: var(--otter-btn-dangerous-link-border);
+    box-shadow: var(--otter-btn-dangerous-link-border);
   }
 }
 
@@ -148,17 +156,17 @@ button[class*="otter-btn"] {
 // @extend
 %otter-btn-disabled-filled {
   border-color: var(--otter-btn-disabled-default-border);
-  background: var(--otter-btn-disabled-default-bg);
+  background: var(--otter-btn-disabled-default-background);
   box-shadow: var(--otter-btn-disabled-default-box-shadow);
   color: var(--otter-btn-disabled-default);
   text-shadow: var(--otter-btn-disabled-default-text-shadow);
 }
 %otter-btn-disabled-unfilled {
-	border-color: var(--otter-btn-disabled-link-border);
-  background: var(--otter-btn-disabled-link-bg);
-	box-shadow: var(--otter-btn-disabled-link-box-shadow);
-	color: var(--otter-btn-disabled-link);
-	text-shadow: var(--otter-btn-disabled-link-text-shadow);
+	border-color: var(--otter-btn-disabled-text-border);
+  background: var(--otter-btn-disabled-text-background);
+	box-shadow: var(--otter-btn-disabled-text-box-shadow);
+	color: var(--otter-btn-disabled-text);
+	text-shadow: var(--otter-btn-disabled-text-text-shadow);
 }
 %otter-btn-a-child {
 	color: currentcolor;
