@@ -24,16 +24,23 @@
     })
   }
 
-  // function isChecked(id) {
-  //   'use strict';
-  //   let result;
-  //   const isChecked = document.getElementById(id).checked;
-  //   return result = isChecked;
-  // }
+  function isChecked(id) {
+    'use strict';
+    let result;
+    const isChecked = document.getElementById(id).checked;
+    return result = isChecked;
+  }
 
   otherInp.addEventListener('keyup', function(e) {
-    const others = document.getElementById('others').value;
-    return console.log(others);
+    if( isChecked('more') ) {
+      if (window.event.keyCode == 13) {
+        const others = document.getElementById('others').value;
+        return alert(others);
+      }
+    } else {
+      alert("Check the 'more' radio button first.");
+      return false;
+    }
   })
 
   const allEqual = arr => arr.every( v => v === arr[0] );
@@ -59,5 +66,4 @@
       console.log(element);
     }
   }
-
 })();
