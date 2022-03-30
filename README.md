@@ -11,6 +11,8 @@
 
 ### Button
 
+[/components/button](https://github.com/sogyeokdong9/otter/tree/main/components/button, "Path")
+
 To trigger an operation.
 
 *5 Types of button*
@@ -24,7 +26,7 @@ To trigger an operation.
 *and 4 other properties additionally.*
 
 - [X] `Danger`😡
-- [ ] `Ghost`👻
+- [ ] `Ghost`👻(~ing)
 - [X] `Disabled`🥶
 - [ ] `Loading`🤩
 
@@ -43,7 +45,10 @@ To trigger an operation.
 
 ### Radio
 
+[/components/radio](https://github.com/sogyeokdong9/otter/tree/main/components/button, "Path")
+
 - [X] Basic
 - [X] Disabled
 - [X] Radio Group
 - [X] Vertical Radio Group
+- [ ] Radio Group - Optoinal
