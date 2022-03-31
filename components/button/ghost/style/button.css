@@ -1,0 +1,575 @@
+.otter-btn {
+  height: 32px;
+  padding: 4px 15px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  background-image: none;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5715;
+  -webkit-transition: all 0.3s cubic-bezier(0.22, 0.68, 0, 1);
+  transition: all 0.3s cubic-bezier(0.22, 0.68, 0, 1);
+  border-color: var(--otter-btn-default-border);
+  background-color: var(--otter-btn-default-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-default-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-default-box-shadow);
+  color: var(--otter-btn-default);
+  text-shadow: var(--otter-btn-default-text-shadow);
+}
+
+.otter-btn:hover, .otter-btn:focus {
+  border-color: var(--otter-btn-default-hover-border);
+  background-color: var(--otter-btn-default-hover-background);
+  -webkit-box-shadow: var(--otter-btn-default-hover-box-shadow);
+          box-shadow: var(--otter-btn-default-hover-box-shadow);
+  color: var(--otter-btn-default-hover);
+  text-shadow: var(--otter-btn-default-hover-text-shadow);
+  text-decoration: none;
+}
+
+.otter-btn:active {
+  border-color: var(--otter-btn-default-active-border);
+  background-color: var(--otter-btn-default-active-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-default-active-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-default-active-box-shadow);
+  color: var(--otter-btn-default-active);
+  text-shadow: 0 2px 0 var(--otter-btn-default-active-text-shadow);
+}
+
+.otter-btn-default {
+  border-style: solid;
+  border-color: var(--otter-btn-default-border);
+  background-color: var(--otter-btn-default-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-default-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-default-box-shadow);
+  color: var(--otter-btn-default);
+  text-shadow: 0 2px 0 var(--otter-btn-default-text-shadow);
+}
+
+.otter-btn-default:hover, .otter-btn-default:focus {
+  border-color: var(--otter-btn-default-hover-border);
+  background-color: var(--otter-btn-default-hover-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-default-hover-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-default-hover-box-shadow);
+  color: var(--otter-btn-default-hover);
+  text-shadow: 0 2px 0 var(--otter-btn-default-hover-text-shadow);
+}
+
+.otter-btn-default:active {
+  border-color: var(--otter-btn-default-active-border);
+  background-color: var(--otter-btn-default-active-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-default-active-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-default-active-box-shadow);
+  color: var(--otter-btn-default-active);
+  text-shadow: 0 2px 0 var(--otter-btn-default-active-text-shadow);
+}
+
+.otter-btn-primary {
+  border-style: solid;
+  border-color: var(--otter-btn-primary-border);
+  background-color: var(--otter-btn-primary-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-primary-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-primary-box-shadow);
+  color: var(--otter-btn-primary);
+  text-shadow: 0 2px 0 var(--otter-btn-primary-text-shadow);
+}
+
+.otter-btn-primary:hover, .otter-btn-primary:focus {
+  border-color: var(--otter-btn-primary-hover-border);
+  background-color: var(--otter-btn-primary-hover-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-primary-hover-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-primary-hover-box-shadow);
+  color: var(--otter-btn-primary-hover);
+  text-shadow: 0 2px 0 var(--otter-btn-primary-hover-text-shadow);
+}
+
+.otter-btn-primary:active {
+  border-color: var(--otter-btn-primary-active-border);
+  background-color: var(--otter-btn-primary-active-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-primary-active-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-primary-active-box-shadow);
+  color: var(--otter-btn-primary-active);
+  text-shadow: 0 2px 0 var(--otter-btn-primary-active-text-shadow);
+}
+
+.otter-btn-dashed {
+  border-style: dashed;
+  border-color: var(--otter-btn-dashed-border);
+  background-color: var(--otter-btn-dashed-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-dashed-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-dashed-box-shadow);
+  color: var(--otter-btn-dashed);
+  text-shadow: 0 2px 0 var(--otter-btn-dashed-text-shadow);
+}
+
+.otter-btn-dashed:hover, .otter-btn-dashed:focus {
+  border-color: var(--otter-btn-dashed-hover-border);
+  background-color: var(--otter-btn-dashed-hover-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-dashed-hover-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-dashed-hover-box-shadow);
+  color: var(--otter-btn-dashed-hover);
+  text-shadow: 0 2px 0 var(--otter-btn-dashed-hover-text-shadow);
+}
+
+.otter-btn-dashed:active {
+  border-color: var(--otter-btn-dashed-active-border);
+  background-color: var(--otter-btn-dashed-active-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-dashed-active-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-dashed-active-box-shadow);
+  color: var(--otter-btn-dashed-active);
+  text-shadow: 0 2px 0 var(--otter-btn-dashed-active-text-shadow);
+}
+
+.otter-btn-text {
+  border-style: none;
+  border-color: var(--otter-btn-text-border);
+  background-color: var(--otter-btn-text-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-text-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-text-box-shadow);
+  color: var(--otter-btn-text);
+  text-shadow: 0 2px 0 var(--otter-btn-text-text-shadow);
+}
+
+.otter-btn-text:hover, .otter-btn-text:focus {
+  border-color: var(--otter-btn-text-hover-border);
+  background-color: var(--otter-btn-text-hover-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-text-hover-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-text-hover-box-shadow);
+  color: var(--otter-btn-text-hover);
+  text-shadow: 0 2px 0 var(--otter-btn-text-hover-text-shadow);
+}
+
+.otter-btn-text:active {
+  border-color: var(--otter-btn-text-active-border);
+  background-color: var(--otter-btn-text-active-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-text-active-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-text-active-box-shadow);
+  color: var(--otter-btn-text-active);
+  text-shadow: 0 2px 0 var(--otter-btn-text-active-text-shadow);
+}
+
+.otter-btn-link {
+  border-style: none;
+  border-color: var(--otter-btn-link-border);
+  background-color: var(--otter-btn-link-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-link-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-link-box-shadow);
+  color: var(--otter-btn-link);
+  text-shadow: 0 2px 0 var(--otter-btn-link-text-shadow);
+}
+
+.otter-btn-link:hover, .otter-btn-link:focus {
+  border-color: var(--otter-btn-link-hover-border);
+  background-color: var(--otter-btn-link-hover-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-link-hover-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-link-hover-box-shadow);
+  color: var(--otter-btn-link-hover);
+  text-shadow: 0 2px 0 var(--otter-btn-link-hover-text-shadow);
+}
+
+.otter-btn-link:active {
+  border-color: var(--otter-btn-link-active-border);
+  background-color: var(--otter-btn-link-active-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-link-active-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-link-active-box-shadow);
+  color: var(--otter-btn-link-active);
+  text-shadow: 0 2px 0 var(--otter-btn-link-active-text-shadow);
+}
+
+.otter-btn-dangerous {
+  border-style: solid;
+  border-color: var(--otter-btn-dangerous-border);
+  background-color: var(--otter-btn-dangerous-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-dangerous-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-dangerous-box-shadow);
+  color: var(--otter-btn-dangerous);
+  text-shadow: 0 2px 0 var(--otter-btn-dangerous-text-shadow);
+}
+
+.otter-btn-dangerous:hover, .otter-btn-dangerous:focus {
+  border-color: var(--otter-btn-dangerous-hover-border);
+  background-color: var(--otter-btn-dangerous-hover-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-dangerous-hover-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-dangerous-hover-box-shadow);
+  color: var(--otter-btn-dangerous-hover);
+  text-shadow: 0 2px 0 var(--otter-btn-dangerous-hover-text-shadow);
+}
+
+.otter-btn-dangerous:active {
+  border-color: var(--otter-btn-dangerous-active-border);
+  background-color: var(--otter-btn-dangerous-active-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-dangerous-active-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-dangerous-active-box-shadow);
+  color: var(--otter-btn-dangerous-active);
+  text-shadow: 0 2px 0 var(--otter-btn-dangerous-active-text-shadow);
+}
+
+.otter-btn-background-ghost {
+  border-style: solid;
+  border-color: var(--otter-btn-background-ghost-border);
+  background-color: var(--otter-btn-background-ghost-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-background-ghost-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-background-ghost-box-shadow);
+  color: var(--otter-btn-background-ghost);
+  text-shadow: 0 2px 0 var(--otter-btn-background-ghost-text-shadow);
+}
+
+.otter-btn-background-ghost:hover, .otter-btn-background-ghost:focus {
+  border-color: var(--otter-btn-background-ghost-hover-border);
+  background-color: var(--otter-btn-background-ghost-hover-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-background-ghost-hover-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-background-ghost-hover-box-shadow);
+  color: var(--otter-btn-background-ghost-hover);
+  text-shadow: 0 2px 0 var(--otter-btn-background-ghost-hover-text-shadow);
+}
+
+.otter-btn-background-ghost:active {
+  border-color: var(--otter-btn-background-ghost-active-border);
+  background-color: var(--otter-btn-background-ghost-active-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-background-ghost-active-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-background-ghost-active-box-shadow);
+  color: var(--otter-btn-background-ghost-active);
+  text-shadow: 0 2px 0 var(--otter-btn-background-ghost-active-text-shadow);
+}
+
+button[class*="otter-btn-link"], button[class*="otter-btn-text"] {
+  border: none;
+}
+
+button[class*="otter-btn-dashed"] {
+  border-style: dashed;
+}
+
+button:not(.otter-btn-background-ghost):not(.otter-btn-dangerous):not([disabled]) {
+  content: normal;
+}
+
+button[class*="otter-btn-background-ghost"][class*="otter-btn-dangerous"]:not([disabled]).otter-btn-primary {
+  color: var(--otter-btn-dangerous);
+  border-color: var(--otter-btn-dangerous-border);
+}
+
+button[class*="otter-btn-background-ghost"][class*="otter-btn-dangerous"]:not([disabled]).otter-btn-link {
+  color: var(--otter-btn-dangerous);
+}
+
+button[class*="otter-btn-background-ghost"]:not(.otter-btn-dangerous):not([disabled]).otter-btn-primary {
+  color: var(--otter-btn-ghost-active);
+  border-color: var(--otter-btn-ghost-active-border);
+}
+
+button[class*="otter-btn-background-ghost"]:not(.otter-btn-dangerous):not([disabled]).otter-btn-link {
+  color: var(--otter-btn-ghost-active);
+}
+
+.otter-btn-lg {
+  height: 40px;
+  padding: 6.4px 15px;
+  border-radius: 2px;
+  font-size: 16px;
+}
+
+.otter-btn-sm {
+  height: 24px;
+  padding: 0 7px;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+.otter-btn.otter-btn-block {
+  width: 100%;
+}
+
+.ghost-container {
+  padding: 1em 0;
+  background: #24292f;
+}
+
+button[disabled] {
+  border-color: var(--otter-btn-disabled-reset-border);
+  background-color: var(--otter-btn-disabled-reset-background);
+  color: var(--otter-btn-disabled-reset);
+}
+
+.otter-btn-background-ghost.otter-btn-primary > a:only-child,
+.otter-btn-background-ghost.otter-btn-primary:hover > a:only-child,
+.otter-btn-background-ghost.otter-btn-primary:focus > a:only-child,
+.otter-btn-background-ghost.otter-btn-primary:active > a:only-child,
+.otter-btn-background-ghost.otter-btn-primary[disabled] > a:only-child,
+.otter-btn-background-ghost.otter-btn-primary[disabled]:hover > a:only-child,
+.otter-btn-background-ghost.otter-btn-primary[disabled]:focus > a:only-child,
+.otter-btn-background-ghost.otter-btn-primary[disabled]:active > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous:hover > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous:focus > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous:active > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled] > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled]:hover > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled]:focus > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled]:active > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link:hover > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link:focus > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link:active > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled] > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled]:hover > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled]:focus > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled]:active > a:only-child,
+.otter-btn:hover > a:only-child,
+.otter-btn:focus > a:only-child,
+.otter-btn-default:hover > a:only-child,
+.otter-btn-default:focus > a:only-child,
+.otter-btn-primary:hover > a:only-child,
+.otter-btn-primary:focus > a:only-child,
+.otter-btn-dashed:hover > a:only-child,
+.otter-btn-dashed:focus > a:only-child,
+.otter-btn-text:hover > a:only-child,
+.otter-btn-text:focus > a:only-child,
+.otter-btn-link:hover > a:only-child,
+.otter-btn-link:focus > a:only-child,
+.otter-btn-dangerous:hover > a:only-child,
+.otter-btn-dangerous:focus > a:only-child,
+.otter-btn-background-ghost:hover > a:only-child,
+.otter-btn-background-ghost:focus > a:only-child,
+button[class*="otter-btn"][disabled] > a:only-child,
+button[class*="otter-btn"][disabled]:hover > a:only-child,
+button[class*="otter-btn"][disabled]:focus > a:only-child,
+button[class*="otter-btn"][disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.otter-btn:hover > a:only-child:after,
+.otter-btn:focus > a:only-child:after, .otter-btn-default:hover > a:only-child:after else,
+.otter-btn-default:focus > a:only-child:after else, .otter-btn-primary:hover > a:only-child:after else,
+.otter-btn-primary:focus > a:only-child:after else, .otter-btn-dashed:hover > a:only-child:after else,
+.otter-btn-dashed:focus > a:only-child:after else, .otter-btn-text:hover > a:only-child:after else,
+.otter-btn-text:focus > a:only-child:after else, .otter-btn-link:hover > a:only-child:after else,
+.otter-btn-link:focus > a:only-child:after else, .otter-btn-dangerous:hover > a:only-child:after else,
+.otter-btn-dangerous:focus > a:only-child:after else, .otter-btn-background-ghost:hover > a:only-child:after else,
+.otter-btn-background-ghost:focus > a:only-child:after else, button[class*="otter-btn"][disabled] > a:only-child:after, button[class*="otter-btn"][disabled]:hover > a:only-child:after, button[class*="otter-btn"][disabled]:focus > a:only-child:after, button[class*="otter-btn"][disabled]:active > a:only-child:after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: 0 0;
+}
+
+.otter-btn-background-ghost:hover > a:only-child:after,
+.otter-btn-background-ghost:focus > a:only-child:after, .otter-btn-background-ghost.otter-btn-primary > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-primary:hover > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-primary:focus > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-primary:active > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-primary[disabled] > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-primary[disabled]:hover > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-primary[disabled]:focus > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-primary[disabled]:active > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous:hover > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous:focus > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous:active > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled] > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled]:hover > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled]:focus > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled]:active > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link:hover > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link:focus > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link:active > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled] > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled]:hover > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled]:focus > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled]:active > a:only-child::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  background: transparent;
+}
+
+button.otter-btn-primary:not(.otter-btn-background-ghost)[class*="otter-btn-dangerous"]:not([disabled]) {
+  border-style: solid;
+  border-color: var(--otter-btn-orizin-dangerous-border);
+  background-color: var(--otter-btn-orizin-dangerous-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-box-shadow);
+  color: var(--otter-btn-orizin-dangerous);
+  text-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-text-shadow);
+}
+
+button.otter-btn-primary:hover:not(.otter-btn-background-ghost)[class*="otter-btn-dangerous"]:not([disabled]), button.otter-btn-primary:focus:not(.otter-btn-background-ghost)[class*="otter-btn-dangerous"]:not([disabled]) {
+  border-color: var(--otter-btn-orizin-dangerous-hover-border);
+  background-color: var(--otter-btn-orizin-dangerous-hover-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-hover-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-hover-box-shadow);
+  color: var(--otter-btn-orizin-dangerous-hover);
+  text-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-hover-text-shadow);
+}
+
+button.otter-btn-primary:active:not(.otter-btn-background-ghost)[class*="otter-btn-dangerous"]:not([disabled]) {
+  border-color: var(--otter-btn-orizin-dangerous-active-border);
+  background-color: var(--otter-btn-orizin-dangerous-active-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-active-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-active-box-shadow);
+  color: var(--otter-btn-orizin-dangerous-active);
+  text-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-active-text-shadow);
+}
+
+button[class*="otter-btn-background-ghost"][class*="otter-btn-dangerous"]:not([disabled]) {
+  border-color: var(--otter-btn-ghost-dangerous-border);
+  background-color: var(--otter-btn-ghost-dangerous-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-box-shadow);
+  color: var(--otter-btn-ghost-dangerous);
+  text-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-text-shadow);
+}
+
+button:hover[class*="otter-btn-background-ghost"][class*="otter-btn-dangerous"]:not([disabled]), button:focus[class*="otter-btn-background-ghost"][class*="otter-btn-dangerous"]:not([disabled]) {
+  border-color: var(--otter-btn-ghost-dangerous-hover-border);
+  background-color: var(--otter-btn-ghost-dangerous-hover-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-hover-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-hover-box-shadow);
+  color: var(--otter-btn-ghost-dangerous-hover);
+  text-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-hover-text-shadow);
+}
+
+button:active[class*="otter-btn-background-ghost"][class*="otter-btn-dangerous"]:not([disabled]) {
+  border-color: var(--otter-btn-ghost-dangerous-active-border);
+  background-color: var(--otter-btn-ghost-dangerous-active-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-active-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-active-box-shadow);
+  color: var(--otter-btn-ghost-dangerous-active);
+  text-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-active-text-shadow);
+}
+
+button[class*="otter-btn-background-ghost"]:not(.otter-btn-dangerous):not([disabled]) {
+  border-color: var(--otter-btn-ghost-border);
+  background-color: var(--otter-btn-ghost-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-ghost-box-shadow);
+  color: var(--otter-btn-ghost);
+  text-shadow: 0 2px 0 var(--otter-btn-ghost-text-shadow);
+}
+
+button:hover[class*="otter-btn-background-ghost"]:not(.otter-btn-dangerous):not([disabled]), button:focus[class*="otter-btn-background-ghost"]:not(.otter-btn-dangerous):not([disabled]) {
+  border-color: var(--otter-btn-ghost-hover-border);
+  background-color: var(--otter-btn-ghost-hover-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-hover-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-ghost-hover-box-shadow);
+  color: var(--otter-btn-ghost-hover);
+  text-shadow: 0 2px 0 var(--otter-btn-ghost-hover-text-shadow);
+}
+
+button:active[class*="otter-btn-background-ghost"]:not(.otter-btn-dangerous):not([disabled]) {
+  border-color: var(--otter-btn-ghost-active-border);
+  background-color: var(--otter-btn-ghost-active-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-active-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-ghost-active-box-shadow);
+  color: var(--otter-btn-ghost-active);
+  text-shadow: 0 2px 0 var(--otter-btn-ghost-active-text-shadow);
+}
+
+button[class="otter-btn"][disabled], button[class="otter-btn"][disabled]:hover, button[class="otter-btn"][disabled]:focus, button[class="otter-btn"][disabled]:active, button[class="otter-btn otter-btn-default"][disabled], button[class="otter-btn otter-btn-default"][disabled]:hover, button[class="otter-btn otter-btn-default"][disabled]:focus, button[class="otter-btn otter-btn-default"][disabled]:active,
+button[class="otter-btn otter-btn-background-ghost"][disabled],
+button[class="otter-btn otter-btn-background-ghost"][disabled]:hover,
+button[class="otter-btn otter-btn-background-ghost"][disabled]:focus,
+button[class="otter-btn otter-btn-background-ghost"][disabled]:active, button[class="otter-btn otter-btn-background-ghost otter-btn-default"][disabled], button[class="otter-btn otter-btn-background-ghost otter-btn-default"][disabled]:hover, button[class="otter-btn otter-btn-background-ghost otter-btn-default"][disabled]:focus, button[class="otter-btn otter-btn-background-ghost otter-btn-default"][disabled]:active,
+button[class$="-dashed"][disabled],
+button[class$="-dashed"][disabled]:hover,
+button[class$="-dashed"][disabled]:focus,
+button[class$="-dashed"][disabled]:active, button[class$="-primary"][disabled], button[class$="-primary"][disabled]:hover, button[class$="-primary"][disabled]:focus, button[class$="-primary"][disabled]:active, button[class$="-dangerous"][disabled], button[class$="-dangerous"][disabled]:hover, button[class$="-dangerous"][disabled]:focus, button[class$="-dangerous"][disabled]:active,
+button[class$="-lg"][disabled],
+button[class$="-lg"][disabled]:hover,
+button[class$="-lg"][disabled]:focus,
+button[class$="-lg"][disabled]:active, button[class$="-sm"][disabled], button[class$="-sm"][disabled]:hover, button[class$="-sm"][disabled]:focus, button[class$="-sm"][disabled]:active,
+button[class$="-block"][disabled],
+button[class$="-block"][disabled]:hover,
+button[class$="-block"][disabled]:focus,
+button[class$="-block"][disabled]:active {
+  border-color: var(--otter-btn-disabled-default-border);
+  background: var(--otter-btn-disabled-default-background);
+  -webkit-box-shadow: var(--otter-btn-disabled-default-box-shadow);
+          box-shadow: var(--otter-btn-disabled-default-box-shadow);
+  color: var(--otter-btn-disabled-default);
+  text-shadow: var(--otter-btn-disabled-default-text-shadow);
+}
+
+button[class*="otter-btn-background-ghost"][disabled], button[class*="otter-btn-background-ghost"][disabled]:hover, button[class*="otter-btn-background-ghost"][disabled]:focus, button[class*="otter-btn-background-ghost"][disabled]:active {
+  border-color: var(--otter-btn-background-ghost-disabled-default-border);
+  background: var(--otter-btn-background-ghost-disabled-default-background);
+  -webkit-box-shadow: var(--otter-btn-background-ghost-disabled-default-box-shadow);
+          box-shadow: var(--otter-btn-background-ghost-disabled-default-box-shadow);
+  color: var(--otter-btn-background-ghost-disabled-default);
+  text-shadow: var(--otter-btn-background-ghost-disabled-default-text-shadow);
+}
+
+button[class$="-text"][disabled], button[class$="-text"][disabled]:hover, button[class$="-text"][disabled]:focus, button[class$="-text"][disabled]:active, button[class$="-link"][disabled], button[class$="-link"][disabled]:hover, button[class$="-link"][disabled]:focus, button[class$="-link"][disabled]:active,
+button[class*="-text otter-btn-dangerous"][disabled],
+button[class*="-text otter-btn-dangerous"][disabled]:hover,
+button[class*="-text otter-btn-dangerous"][disabled]:focus,
+button[class*="-text otter-btn-dangerous"][disabled]:active, button[class*="-link otter-btn-dangerous"][disabled], button[class*="-link otter-btn-dangerous"][disabled]:hover, button[class*="-link otter-btn-dangerous"][disabled]:focus, button[class*="-link otter-btn-dangerous"][disabled]:active,
+button[class*="-text otter-btn-lg"][disabled],
+button[class*="-text otter-btn-lg"][disabled]:hover,
+button[class*="-text otter-btn-lg"][disabled]:focus,
+button[class*="-text otter-btn-lg"][disabled]:active, button[class*="-link otter-btn-lg"][disabled], button[class*="-link otter-btn-lg"][disabled]:hover, button[class*="-link otter-btn-lg"][disabled]:focus, button[class*="-link otter-btn-lg"][disabled]:active,
+button[class*="-text otter-btn-sm"][disabled],
+button[class*="-text otter-btn-sm"][disabled]:hover,
+button[class*="-text otter-btn-sm"][disabled]:focus,
+button[class*="-text otter-btn-sm"][disabled]:active, button[class*="-link otter-btn-sm"][disabled], button[class*="-link otter-btn-sm"][disabled]:hover, button[class*="-link otter-btn-sm"][disabled]:focus, button[class*="-link otter-btn-sm"][disabled]:active,
+button[class*="-text otter-btn-block"][disabled],
+button[class*="-text otter-btn-block"][disabled]:hover,
+button[class*="-text otter-btn-block"][disabled]:focus,
+button[class*="-text otter-btn-block"][disabled]:active, button[class*="-link otter-btn-block"][disabled], button[class*="-link otter-btn-block"][disabled]:hover, button[class*="-link otter-btn-block"][disabled]:focus, button[class*="-link otter-btn-block"][disabled]:active {
+  border-color: var(--otter-btn-disabled-text-border);
+  background: var(--otter-btn-disabled-text-background);
+  -webkit-box-shadow: var(--otter-btn-disabled-text-box-shadow);
+          box-shadow: var(--otter-btn-disabled-text-box-shadow);
+  color: var(--otter-btn-disabled-text);
+  text-shadow: var(--otter-btn-disabled-text-text-shadow);
+}
+
+button[class*="-ghost otter-btn-lg otter-btn-text"][disabled], button[class*="-ghost otter-btn-lg otter-btn-text"][disabled]:hover, button[class*="-ghost otter-btn-lg otter-btn-text"][disabled]:focus, button[class*="-ghost otter-btn-lg otter-btn-text"][disabled]:active,
+button[class*="-ghost otter-btn-lg otter-btn-link"][disabled],
+button[class*="-ghost otter-btn-lg otter-btn-link"][disabled]:hover,
+button[class*="-ghost otter-btn-lg otter-btn-link"][disabled]:focus,
+button[class*="-ghost otter-btn-lg otter-btn-link"][disabled]:active,
+button[class*="-ghost otter-btn-sm otter-btn-text"][disabled],
+button[class*="-ghost otter-btn-sm otter-btn-text"][disabled]:hover,
+button[class*="-ghost otter-btn-sm otter-btn-text"][disabled]:focus,
+button[class*="-ghost otter-btn-sm otter-btn-text"][disabled]:active,
+button[class*="-ghost otter-btn-sm otter-btn-link"][disabled],
+button[class*="-ghost otter-btn-sm otter-btn-link"][disabled]:hover,
+button[class*="-ghost otter-btn-sm otter-btn-link"][disabled]:focus,
+button[class*="-ghost otter-btn-sm otter-btn-link"][disabled]:active,
+button[class*="-ghost otter-btn-text otter-btn-lg"][disabled],
+button[class*="-ghost otter-btn-text otter-btn-lg"][disabled]:hover,
+button[class*="-ghost otter-btn-text otter-btn-lg"][disabled]:focus,
+button[class*="-ghost otter-btn-text otter-btn-lg"][disabled]:active,
+button[class*="-ghost otter-btn-link otter-btn-lg"][disabled],
+button[class*="-ghost otter-btn-link otter-btn-lg"][disabled]:hover,
+button[class*="-ghost otter-btn-link otter-btn-lg"][disabled]:focus,
+button[class*="-ghost otter-btn-link otter-btn-lg"][disabled]:active,
+button[class*="-ghost otter-btn-text"][disabled],
+button[class*="-ghost otter-btn-text"][disabled]:hover,
+button[class*="-ghost otter-btn-text"][disabled]:focus,
+button[class*="-ghost otter-btn-text"][disabled]:active,
+button[class*="-ghost otter-btn-link"][disabled],
+button[class*="-ghost otter-btn-link"][disabled]:hover,
+button[class*="-ghost otter-btn-link"][disabled]:focus,
+button[class*="-ghost otter-btn-link"][disabled]:active,
+button[class*="-ghost otter-btn-text otter-btn-sm"][disabled],
+button[class*="-ghost otter-btn-text otter-btn-sm"][disabled]:hover,
+button[class*="-ghost otter-btn-text otter-btn-sm"][disabled]:focus,
+button[class*="-ghost otter-btn-text otter-btn-sm"][disabled]:active,
+button[class*="-ghost otter-btn-link otter-btn-sm"][disabled],
+button[class*="-ghost otter-btn-link otter-btn-sm"][disabled]:hover,
+button[class*="-ghost otter-btn-link otter-btn-sm"][disabled]:focus,
+button[class*="-ghost otter-btn-link otter-btn-sm"][disabled]:active {
+  border-color: var(--otter-btn-background-ghost-disabled-text-border);
+  background: var(--otter-btn-background-ghost-disabled-text-background);
+  -webkit-box-shadow: var(--otter-btn-background-ghost-disabled-text-box-shadow);
+          box-shadow: var(--otter-btn-background-ghost-disabled-text-box-shadow);
+  color: var(--otter-btn-background-ghost-disabled-text);
+  text-shadow: var(--otter-btn-background-ghost-disabled-text-text-shadow);
+}
+/*# sourceMappingURL=button.css.map */
