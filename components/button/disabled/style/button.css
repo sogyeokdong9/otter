@@ -204,39 +204,280 @@
   text-shadow: 0 2px 0 var(--otter-btn-dangerous-active-text-shadow);
 }
 
-.otter-btn-primary.otter-btn-dangerous {
-  background-color: var(--otter-btn-dangerous-primary-background);
-  color: var(--otter-btn-dangerous-primary);
+.otter-btn-background-ghost {
+  border-style: solid;
+  border-color: var(--otter-btn-background-ghost-border);
+  background-color: var(--otter-btn-background-ghost-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-background-ghost-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-background-ghost-box-shadow);
+  color: var(--otter-btn-background-ghost);
+  text-shadow: 0 2px 0 var(--otter-btn-background-ghost-text-shadow);
 }
 
-.otter-btn-primary.otter-btn-dangerous:hover, .otter-btn-primary.otter-btn-dangerous:focus {
-  border-color: var(--otter-btn-dangerous-primary-hover-border);
-  background-color: var(--otter-btn-dangerous-primary-hover-background);
+.otter-btn-background-ghost:hover, .otter-btn-background-ghost:focus {
+  border-color: var(--otter-btn-background-ghost-hover-border);
+  background-color: var(--otter-btn-background-ghost-hover-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-background-ghost-hover-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-background-ghost-hover-box-shadow);
+  color: var(--otter-btn-background-ghost-hover);
+  text-shadow: 0 2px 0 var(--otter-btn-background-ghost-hover-text-shadow);
 }
 
-.otter-btn-dashed.otter-btn-dangerous {
+.otter-btn-background-ghost:active {
+  border-color: var(--otter-btn-background-ghost-active-border);
+  background-color: var(--otter-btn-background-ghost-active-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-background-ghost-active-box-shadow);
+          box-shadow: 0 2px 0 var(--otter-btn-background-ghost-active-box-shadow);
+  color: var(--otter-btn-background-ghost-active);
+  text-shadow: 0 2px 0 var(--otter-btn-background-ghost-active-text-shadow);
+}
+
+button[class*="otter-btn-link"], button[class*="otter-btn-text"] {
+  border: none;
+}
+
+button[class*="otter-btn-dashed"] {
   border-style: dashed;
-  -webkit-box-shadow: var(--otter-btn-dangerous-dashed-box-shadow);
-          box-shadow: var(--otter-btn-dangerous-dashed-box-shadow);
 }
 
-.otter-btn-text.otter-btn-dangerous {
-  border: var(--otter-btn-dangerous-text-border);
-  -webkit-box-shadow: var(--otter-btn-dangerous-text-border);
-          box-shadow: var(--otter-btn-dangerous-text-border);
+button:not(.otter-btn-background-ghost):not(.otter-btn-dangerous):not([disabled]) {
+  content: normal;
 }
 
-.otter-btn-text.otter-btn-dangerous:hover, .otter-btn-text.otter-btn-dangerous:focus {
-  background-color: var(--otter-btn-dangerous-text-hover-background);
+button[class*="otter-btn-background-ghost"][class*="otter-btn-dangerous"]:not([disabled]).otter-btn-primary {
+  color: var(--otter-btn-dangerous);
+  border-color: var(--otter-btn-dangerous-border);
 }
 
-.otter-btn-link.otter-btn-dangerous {
-  border: var(--otter-btn-dangerous-link-border);
-  -webkit-box-shadow: var(--otter-btn-dangerous-link-border);
-          box-shadow: var(--otter-btn-dangerous-link-border);
+button[class*="otter-btn-background-ghost"][class*="otter-btn-dangerous"]:not([disabled]).otter-btn-link {
+  color: var(--otter-btn-dangerous);
 }
 
-button[class="otter-btn"][disabled], button[class="otter-btn"][disabled]:hover, button[class="otter-btn"][disabled]:focus, button[class="otter-btn"][disabled]:active, button[class="otter-btn otter-btn-default"][disabled], button[class="otter-btn otter-btn-default"][disabled]:hover, button[class="otter-btn otter-btn-default"][disabled]:focus, button[class="otter-btn otter-btn-default"][disabled]:active, button[class$="-dashed"][disabled], button[class$="-dashed"][disabled]:hover, button[class$="-dashed"][disabled]:focus, button[class$="-dashed"][disabled]:active, button[class$="-primary"][disabled], button[class$="-primary"][disabled]:hover, button[class$="-primary"][disabled]:focus, button[class$="-primary"][disabled]:active, button[class$="-dangerous"][disabled], button[class$="-dangerous"][disabled]:hover, button[class$="-dangerous"][disabled]:focus, button[class$="-dangerous"][disabled]:active,
+button[class*="otter-btn-background-ghost"]:not(.otter-btn-dangerous):not([disabled]).otter-btn-primary {
+  color: var(--otter-btn-ghost-active);
+  border-color: var(--otter-btn-ghost-active-border);
+}
+
+button[class*="otter-btn-background-ghost"]:not(.otter-btn-dangerous):not([disabled]).otter-btn-link {
+  color: var(--otter-btn-ghost-active);
+}
+
+.otter-btn-lg {
+  height: 40px;
+  padding: 6.4px 15px;
+  border-radius: 2px;
+  font-size: 16px;
+}
+
+.otter-btn-sm {
+  height: 24px;
+  padding: 0 7px;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+.otter-btn.otter-btn-block {
+  width: 100%;
+}
+
+.ghost-container {
+  padding: 1em 0;
+  background: #24292f;
+}
+
+button[disabled] {
+  border-color: var(--otter-btn-disabled-reset-border);
+  background-color: var(--otter-btn-disabled-reset-background);
+  color: var(--otter-btn-disabled-reset);
+}
+
+.otter-btn-background-ghost.otter-btn-primary > a:only-child,
+.otter-btn-background-ghost.otter-btn-primary:hover > a:only-child,
+.otter-btn-background-ghost.otter-btn-primary:focus > a:only-child,
+.otter-btn-background-ghost.otter-btn-primary:active > a:only-child,
+.otter-btn-background-ghost.otter-btn-primary[disabled] > a:only-child,
+.otter-btn-background-ghost.otter-btn-primary[disabled]:hover > a:only-child,
+.otter-btn-background-ghost.otter-btn-primary[disabled]:focus > a:only-child,
+.otter-btn-background-ghost.otter-btn-primary[disabled]:active > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous:hover > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous:focus > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous:active > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled] > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled]:hover > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled]:focus > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled]:active > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link:hover > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link:focus > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link:active > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled] > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled]:hover > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled]:focus > a:only-child,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled]:active > a:only-child,
+.otter-btn:hover > a:only-child,
+.otter-btn:focus > a:only-child,
+.otter-btn-default:hover > a:only-child,
+.otter-btn-default:focus > a:only-child,
+.otter-btn-primary:hover > a:only-child,
+.otter-btn-primary:focus > a:only-child,
+.otter-btn-dashed:hover > a:only-child,
+.otter-btn-dashed:focus > a:only-child,
+.otter-btn-text:hover > a:only-child,
+.otter-btn-text:focus > a:only-child,
+.otter-btn-link:hover > a:only-child,
+.otter-btn-link:focus > a:only-child,
+.otter-btn-dangerous:hover > a:only-child,
+.otter-btn-dangerous:focus > a:only-child,
+.otter-btn-background-ghost:hover > a:only-child,
+.otter-btn-background-ghost:focus > a:only-child,
+button[class*="otter-btn"][disabled] > a:only-child,
+button[class*="otter-btn"][disabled]:hover > a:only-child,
+button[class*="otter-btn"][disabled]:focus > a:only-child,
+button[class*="otter-btn"][disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.otter-btn:hover > a:only-child:after,
+.otter-btn:focus > a:only-child:after, .otter-btn-default:hover > a:only-child:after else,
+.otter-btn-default:focus > a:only-child:after else, .otter-btn-primary:hover > a:only-child:after else,
+.otter-btn-primary:focus > a:only-child:after else, .otter-btn-dashed:hover > a:only-child:after else,
+.otter-btn-dashed:focus > a:only-child:after else, .otter-btn-text:hover > a:only-child:after else,
+.otter-btn-text:focus > a:only-child:after else, .otter-btn-link:hover > a:only-child:after else,
+.otter-btn-link:focus > a:only-child:after else, .otter-btn-dangerous:hover > a:only-child:after else,
+.otter-btn-dangerous:focus > a:only-child:after else, .otter-btn-background-ghost:hover > a:only-child:after else,
+.otter-btn-background-ghost:focus > a:only-child:after else, button[class*="otter-btn"][disabled] > a:only-child:after, button[class*="otter-btn"][disabled]:hover > a:only-child:after, button[class*="otter-btn"][disabled]:focus > a:only-child:after, button[class*="otter-btn"][disabled]:active > a:only-child:after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: 0 0;
+}
+
+.otter-btn-background-ghost:hover > a:only-child:after,
+.otter-btn-background-ghost:focus > a:only-child:after, .otter-btn-background-ghost.otter-btn-primary > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-primary:hover > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-primary:focus > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-primary:active > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-primary[disabled] > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-primary[disabled]:hover > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-primary[disabled]:focus > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-primary[disabled]:active > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous:hover > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous:focus > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous:active > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled] > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled]:hover > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled]:focus > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous[disabled]:active > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link:hover > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link:focus > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link:active > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled] > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled]:hover > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled]:focus > a:only-child::after,
+.otter-btn-background-ghost.otter-btn-dangerous.otter-btn-link[disabled]:active > a:only-child::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  background: transparent;
+}
+
+button.otter-btn-primary:not(.otter-btn-background-ghost)[class*="otter-btn-dangerous"]:not([disabled]) {
+  border-style: solid;
+  border-color: var(--otter-btn-orizin-dangerous-border);
+  background-color: var(--otter-btn-orizin-dangerous-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-box-shadow);
+  color: var(--otter-btn-orizin-dangerous);
+  text-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-text-shadow);
+}
+
+button.otter-btn-primary:hover:not(.otter-btn-background-ghost)[class*="otter-btn-dangerous"]:not([disabled]), button.otter-btn-primary:focus:not(.otter-btn-background-ghost)[class*="otter-btn-dangerous"]:not([disabled]) {
+  border-color: var(--otter-btn-orizin-dangerous-hover-border);
+  background-color: var(--otter-btn-orizin-dangerous-hover-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-hover-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-hover-box-shadow);
+  color: var(--otter-btn-orizin-dangerous-hover);
+  text-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-hover-text-shadow);
+}
+
+button.otter-btn-primary:active:not(.otter-btn-background-ghost)[class*="otter-btn-dangerous"]:not([disabled]) {
+  border-color: var(--otter-btn-orizin-dangerous-active-border);
+  background-color: var(--otter-btn-orizin-dangerous-active-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-active-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-active-box-shadow);
+  color: var(--otter-btn-orizin-dangerous-active);
+  text-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-active-text-shadow);
+}
+
+button[class*="otter-btn-background-ghost"][class*="otter-btn-dangerous"]:not([disabled]) {
+  border-color: var(--otter-btn-ghost-dangerous-border);
+  background-color: var(--otter-btn-ghost-dangerous-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-box-shadow);
+  color: var(--otter-btn-ghost-dangerous);
+  text-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-text-shadow);
+}
+
+button:hover[class*="otter-btn-background-ghost"][class*="otter-btn-dangerous"]:not([disabled]), button:focus[class*="otter-btn-background-ghost"][class*="otter-btn-dangerous"]:not([disabled]) {
+  border-color: var(--otter-btn-ghost-dangerous-hover-border);
+  background-color: var(--otter-btn-ghost-dangerous-hover-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-hover-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-hover-box-shadow);
+  color: var(--otter-btn-ghost-dangerous-hover);
+  text-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-hover-text-shadow);
+}
+
+button:active[class*="otter-btn-background-ghost"][class*="otter-btn-dangerous"]:not([disabled]) {
+  border-color: var(--otter-btn-ghost-dangerous-active-border);
+  background-color: var(--otter-btn-ghost-dangerous-active-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-active-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-active-box-shadow);
+  color: var(--otter-btn-ghost-dangerous-active);
+  text-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-active-text-shadow);
+}
+
+button[class*="otter-btn-background-ghost"]:not(.otter-btn-dangerous):not([disabled]) {
+  border-color: var(--otter-btn-ghost-border);
+  background-color: var(--otter-btn-ghost-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-ghost-box-shadow);
+  color: var(--otter-btn-ghost);
+  text-shadow: 0 2px 0 var(--otter-btn-ghost-text-shadow);
+}
+
+button:hover[class*="otter-btn-background-ghost"]:not(.otter-btn-dangerous):not([disabled]), button:focus[class*="otter-btn-background-ghost"]:not(.otter-btn-dangerous):not([disabled]) {
+  border-color: var(--otter-btn-ghost-hover-border);
+  background-color: var(--otter-btn-ghost-hover-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-hover-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-ghost-hover-box-shadow);
+  color: var(--otter-btn-ghost-hover);
+  text-shadow: 0 2px 0 var(--otter-btn-ghost-hover-text-shadow);
+}
+
+button:active[class*="otter-btn-background-ghost"]:not(.otter-btn-dangerous):not([disabled]) {
+  border-color: var(--otter-btn-ghost-active-border);
+  background-color: var(--otter-btn-ghost-active-background);
+  -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-active-box-shadow);
+  box-shadow: 0 2px 0 var(--otter-btn-ghost-active-box-shadow);
+  color: var(--otter-btn-ghost-active);
+  text-shadow: 0 2px 0 var(--otter-btn-ghost-active-text-shadow);
+}
+
+button[class="otter-btn"][disabled], button[class="otter-btn"][disabled]:hover, button[class="otter-btn"][disabled]:focus, button[class="otter-btn"][disabled]:active, button[class="otter-btn otter-btn-default"][disabled], button[class="otter-btn otter-btn-default"][disabled]:hover, button[class="otter-btn otter-btn-default"][disabled]:focus, button[class="otter-btn otter-btn-default"][disabled]:active,
+button[class="otter-btn otter-btn-background-ghost"][disabled],
+button[class="otter-btn otter-btn-background-ghost"][disabled]:hover,
+button[class="otter-btn otter-btn-background-ghost"][disabled]:focus,
+button[class="otter-btn otter-btn-background-ghost"][disabled]:active, button[class="otter-btn otter-btn-background-ghost otter-btn-default"][disabled], button[class="otter-btn otter-btn-background-ghost otter-btn-default"][disabled]:hover, button[class="otter-btn otter-btn-background-ghost otter-btn-default"][disabled]:focus, button[class="otter-btn otter-btn-background-ghost otter-btn-default"][disabled]:active,
+button[class$="-dashed"][disabled],
+button[class$="-dashed"][disabled]:hover,
+button[class$="-dashed"][disabled]:focus,
+button[class$="-dashed"][disabled]:active, button[class$="-primary"][disabled], button[class$="-primary"][disabled]:hover, button[class$="-primary"][disabled]:focus, button[class$="-primary"][disabled]:active, button[class$="-dangerous"][disabled], button[class$="-dangerous"][disabled]:hover, button[class$="-dangerous"][disabled]:focus, button[class$="-dangerous"][disabled]:active,
 button[class$="-lg"][disabled],
 button[class$="-lg"][disabled]:hover,
 button[class$="-lg"][disabled]:focus,
@@ -251,6 +492,15 @@ button[class$="-block"][disabled]:active {
           box-shadow: var(--otter-btn-disabled-default-box-shadow);
   color: var(--otter-btn-disabled-default);
   text-shadow: var(--otter-btn-disabled-default-text-shadow);
+}
+
+button[class*="otter-btn-background-ghost"][disabled], button[class*="otter-btn-background-ghost"][disabled]:hover, button[class*="otter-btn-background-ghost"][disabled]:focus, button[class*="otter-btn-background-ghost"][disabled]:active {
+  border-color: var(--otter-btn-background-ghost-disabled-default-border);
+  background: var(--otter-btn-background-ghost-disabled-default-background);
+  -webkit-box-shadow: var(--otter-btn-background-ghost-disabled-default-box-shadow);
+          box-shadow: var(--otter-btn-background-ghost-disabled-default-box-shadow);
+  color: var(--otter-btn-background-ghost-disabled-default);
+  text-shadow: var(--otter-btn-background-ghost-disabled-default-text-shadow);
 }
 
 button[class$="-text"][disabled], button[class$="-text"][disabled]:hover, button[class$="-text"][disabled]:focus, button[class$="-text"][disabled]:active, button[class$="-link"][disabled], button[class$="-link"][disabled]:hover, button[class$="-link"][disabled]:focus, button[class$="-link"][disabled]:active,
@@ -278,46 +528,48 @@ button[class*="-text otter-btn-block"][disabled]:active, button[class*="-link ot
   text-shadow: var(--otter-btn-disabled-text-text-shadow);
 }
 
-.otter-btn:hover > a:only-child,
-.otter-btn:focus > a:only-child, .otter-btn-default:hover > a:only-child,
-.otter-btn-default:focus > a:only-child, .otter-btn-primary:hover > a:only-child,
-.otter-btn-primary:focus > a:only-child, .otter-btn-dashed:hover > a:only-child,
-.otter-btn-dashed:focus > a:only-child, .otter-btn-text:hover > a:only-child,
-.otter-btn-text:focus > a:only-child, .otter-btn-link:hover > a:only-child,
-.otter-btn-link:focus > a:only-child, .otter-btn-dangerous:hover > a:only-child,
-.otter-btn-dangerous:focus > a:only-child, button[class*="otter-btn"][disabled] > a:only-child, button[class*="otter-btn"][disabled]:hover > a:only-child, button[class*="otter-btn"][disabled]:focus > a:only-child, button[class*="otter-btn"][disabled]:active > a:only-child {
-  color: currentcolor;
-}
-
-.otter-btn:hover > a:only-child:after,
-.otter-btn:focus > a:only-child:after, .otter-btn-default:hover > a:only-child:after,
-.otter-btn-default:focus > a:only-child:after, .otter-btn-primary:hover > a:only-child:after,
-.otter-btn-primary:focus > a:only-child:after, .otter-btn-dashed:hover > a:only-child:after,
-.otter-btn-dashed:focus > a:only-child:after, .otter-btn-text:hover > a:only-child:after,
-.otter-btn-text:focus > a:only-child:after, .otter-btn-link:hover > a:only-child:after,
-.otter-btn-link:focus > a:only-child:after, .otter-btn-dangerous:hover > a:only-child:after,
-.otter-btn-dangerous:focus > a:only-child:after, button[class*="otter-btn"][disabled] > a:only-child:after, button[class*="otter-btn"][disabled]:hover > a:only-child:after, button[class*="otter-btn"][disabled]:focus > a:only-child:after, button[class*="otter-btn"][disabled]:active > a:only-child:after {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background: 0 0;
-}
-
-.otter-btn-lg {
-  height: 40px;
-  padding: 6.4px 15px;
-  border-radius: 2px;
-  font-size: 16px;
-}
-
-.otter-btn-sm {
-  height: 24px;
-  padding: 0 7px;
-  border-radius: 2px;
-  font-size: 14px;
-}
-
-.otter-btn.otter-btn-block {
-  width: 100%;
+button[class*="-ghost otter-btn-lg otter-btn-text"][disabled], button[class*="-ghost otter-btn-lg otter-btn-text"][disabled]:hover, button[class*="-ghost otter-btn-lg otter-btn-text"][disabled]:focus, button[class*="-ghost otter-btn-lg otter-btn-text"][disabled]:active,
+button[class*="-ghost otter-btn-lg otter-btn-link"][disabled],
+button[class*="-ghost otter-btn-lg otter-btn-link"][disabled]:hover,
+button[class*="-ghost otter-btn-lg otter-btn-link"][disabled]:focus,
+button[class*="-ghost otter-btn-lg otter-btn-link"][disabled]:active,
+button[class*="-ghost otter-btn-sm otter-btn-text"][disabled],
+button[class*="-ghost otter-btn-sm otter-btn-text"][disabled]:hover,
+button[class*="-ghost otter-btn-sm otter-btn-text"][disabled]:focus,
+button[class*="-ghost otter-btn-sm otter-btn-text"][disabled]:active,
+button[class*="-ghost otter-btn-sm otter-btn-link"][disabled],
+button[class*="-ghost otter-btn-sm otter-btn-link"][disabled]:hover,
+button[class*="-ghost otter-btn-sm otter-btn-link"][disabled]:focus,
+button[class*="-ghost otter-btn-sm otter-btn-link"][disabled]:active,
+button[class*="-ghost otter-btn-text otter-btn-lg"][disabled],
+button[class*="-ghost otter-btn-text otter-btn-lg"][disabled]:hover,
+button[class*="-ghost otter-btn-text otter-btn-lg"][disabled]:focus,
+button[class*="-ghost otter-btn-text otter-btn-lg"][disabled]:active,
+button[class*="-ghost otter-btn-link otter-btn-lg"][disabled],
+button[class*="-ghost otter-btn-link otter-btn-lg"][disabled]:hover,
+button[class*="-ghost otter-btn-link otter-btn-lg"][disabled]:focus,
+button[class*="-ghost otter-btn-link otter-btn-lg"][disabled]:active,
+button[class*="-ghost otter-btn-text"][disabled],
+button[class*="-ghost otter-btn-text"][disabled]:hover,
+button[class*="-ghost otter-btn-text"][disabled]:focus,
+button[class*="-ghost otter-btn-text"][disabled]:active,
+button[class*="-ghost otter-btn-link"][disabled],
+button[class*="-ghost otter-btn-link"][disabled]:hover,
+button[class*="-ghost otter-btn-link"][disabled]:focus,
+button[class*="-ghost otter-btn-link"][disabled]:active,
+button[class*="-ghost otter-btn-text otter-btn-sm"][disabled],
+button[class*="-ghost otter-btn-text otter-btn-sm"][disabled]:hover,
+button[class*="-ghost otter-btn-text otter-btn-sm"][disabled]:focus,
+button[class*="-ghost otter-btn-text otter-btn-sm"][disabled]:active,
+button[class*="-ghost otter-btn-link otter-btn-sm"][disabled],
+button[class*="-ghost otter-btn-link otter-btn-sm"][disabled]:hover,
+button[class*="-ghost otter-btn-link otter-btn-sm"][disabled]:focus,
+button[class*="-ghost otter-btn-link otter-btn-sm"][disabled]:active {
+  border-color: var(--otter-btn-background-ghost-disabled-text-border);
+  background: var(--otter-btn-background-ghost-disabled-text-background);
+  -webkit-box-shadow: var(--otter-btn-background-ghost-disabled-text-box-shadow);
+          box-shadow: var(--otter-btn-background-ghost-disabled-text-box-shadow);
+  color: var(--otter-btn-background-ghost-disabled-text);
+  text-shadow: var(--otter-btn-background-ghost-disabled-text-text-shadow);
 }
 /*# sourceMappingURL=button.css.map */

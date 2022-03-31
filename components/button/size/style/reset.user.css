@@ -90,17 +90,6 @@ hr:after {
           clip-path: polygon(0 0, 0 0, 0 0);
 }
 
-.clearfix::before {
-  display: table;
-  content: '';
-}
-
-.clearfix::after {
-  display: table;
-  clear: both;
-  content: '';
-}
-
 .wrap {
   margin: 1em;
 }

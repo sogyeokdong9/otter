@@ -80,16 +80,6 @@ hr:after {
   clip-path: polygon(0 0, 0 0, 0 0);
 }
 
-.clearfix::before {
-  display: table;
-  content: '';
-}
-.clearfix::after {
-  display: table;
-  clear: both;
-  content: '';
-}
-
 .wrap { margin: 1em; }
 .wrap form { margin: 1em 0; }
 .event-log { display: flex; flex-direction: column-reverse; flex-wrap: wrap; }
