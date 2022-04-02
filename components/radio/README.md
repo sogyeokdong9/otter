@@ -3,9 +3,9 @@
 ## Structure
 
 ```code
-label[for="item"](`otter-radio-wrapper)
+label(`otter-radio-wrapper)[for="item"]
   span(`otter-radio)
-    input[id="item" name="item" value="item"](`otter-radio-input)
+    input(`otter-radio-input)[id="item" name="item" value="item"]
     span(`otter-radio-inner)
   span{item}
 ```
