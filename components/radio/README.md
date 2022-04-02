@@ -2,17 +2,13 @@
 
 ## Structure
 
-```html
-<label class="otter-radio-wrapper" for="item">
-  <span class="otter-radio">
-    <input type="radio" class="otter-radio-input" id="item" name="item" value="item">
-    <span class="otter-radio-inner"></span>
-  </span>
-  <span>item</span>
-</label>
+```code
+label[for="item"](`otter-radio-wrapper)
+  span(`otter-radio)
+    input[id="item" name="item" value="item"](`otter-radio-input)
+    span(`otter-radio-inner)
+  span{item}
 ```
-
-
 
 ## Examples
 
