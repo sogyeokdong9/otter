@@ -166,19 +166,19 @@ $dropdowns-data: (
   light: light,
   black: black
 );
-@each $dropdown, $country in $dropdowns-data {
+@each $dropdown, $label in $dropdowns-data {
   .otter-dropdown-menu-#{$dropdown} {
-    background-color: var(--otter-dropdown-#{$country}-background);
+    background-color: var(--otter-dropdown-#{$label}-background);
     & .otter-dropdown-menu-item {
-      color: var(--otter-dropdown-#{$country}-item);
+      color: var(--otter-dropdown-#{$label}-item);
       &:hover {
-        background-color: var(--otter-dropdown-#{$country}-item-hover-background);
+        background-color: var(--otter-dropdown-#{$label}-item-hover-background);
       }
       &-disabled {
-        color: var(--otter-dropdown-#{$country}-disabled-item);
+        color: var(--otter-dropdown-#{$label}-disabled-item);
         &:hover{
-          color: var(--otter-dropdown-#{$country}-disabled-item-hover);
-          background-color: var(--otter-dropdown-#{$country}-disabled-item-hover-background);
+          color: var(--otter-dropdown-#{$label}-disabled-item-hover);
+          background-color: var(--otter-dropdown-#{$label}-disabled-item-hover-background);
         }
       }
     }
