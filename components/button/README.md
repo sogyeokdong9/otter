@@ -18,6 +18,8 @@ button(`otter-btn` [`otter-btn-primary`[, `otter-btn-dangerous`[, ...`otter-btn-
 
 ### Type
 
+Ther are `default`, `primary`, `dashed`, `text`, and `link` button in otter.
+
 ```html
 <button type="button" class="otter-btn">
   <span>Button</span>
@@ -40,6 +42,8 @@ button(`otter-btn` [`otter-btn-primary`[, `otter-btn-dangerous`[, ...`otter-btn-
 ```
 
 ### Size
+
+Ther are `sm`, `lg`, and `default` button in otter.
 
 ```html
 <button type="button" class="otter-btn otter-btn-lg">
@@ -64,6 +68,8 @@ button(`otter-btn` [`otter-btn-primary`[, `otter-btn-dangerous`[, ...`otter-btn-
 
 ### Disabled
 
+To mark a button as disabled, add the `disbled` property to the `button`.
+
 ```html
 <button type="button" class="otter-btn" disabled>
   <span>Button</span>
@@ -87,6 +93,8 @@ button(`otter-btn` [`otter-btn-primary`[, `otter-btn-dangerous`[, ...`otter-btn-
 
 ### Danger
 
+The `danger` is intended to attract attention.
+
 ```html
 <button type="button" class="otter-btn otter-btn-primary otter-btn-dangerous">
   <span>Primary</span>
@@ -106,6 +114,8 @@ button(`otter-btn` [`otter-btn-primary`[, `otter-btn-dangerous`[, ...`otter-btn-
 ```
 
 ### Block
+
+The `block` property will make the button fit to its parent width.
 
 ```html
 <button type="button" class="otter-btn otter-btn-block">
@@ -130,6 +140,8 @@ button(`otter-btn` [`otter-btn-primary`[, `otter-btn-dangerous`[, ...`otter-btn-
 
 ### ghost
 
+The `ghost` property will make button's background transparent, it is commonly used in colored background.
+
 ```html
 <div class="ghost-container">
   <div class="wrap">
@@ -152,30 +164,12 @@ button(`otter-btn` [`otter-btn-primary`[, `otter-btn-dangerous`[, ...`otter-btn-
       <span>Link Button</span>
     </button>
   </div>
-  <div class="wrap">
-    <button type="button" class="otter-btn otter-btn-background-ghost otter-btn-dangerous" disabled>
-      <span>Button</span>
-    </button>
-    <button type="button" class="otter-btn otter-btn-background-ghost otter-btn-default otter-btn-dangerous" disabled>
-      <span>Default Button</span>
-    </button>
-    <button type="button" class="otter-btn otter-btn-background-ghost otter-btn-primary otter-btn-dangerous" disabled>
-      <span>Primary Button</span>
-    </button>
-    <button type="button" class="otter-btn otter-btn-background-ghost otter-btn-dashed otter-btn-dangerous" disabled>
-      <span>Dashed Button</span>
-    </button>
-    <button type="button" class="otter-btn otter-btn-background-ghost otter-btn-text otter-btn-dangerous" disabled>
-      <span>Text Button</span>
-    </button>
-    <button type="button" class="otter-btn otter-btn-background-ghost otter-btn-link otter-btn-dangerous" disabled>
-      <span>Link Button</span>
-    </button>
-  </div>
 </div>
 ```
 
 ### loading
+
+A loading indicator can be added to a button by setting the `loading` property on the `button`.
 
 ```html
 <button type="button" class="otter-btn otter-btn-primary otter-btn-loading">
