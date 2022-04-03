@@ -4,14 +4,14 @@
 
 ## CSS Reset
 
-[A Modern CSS Reset](https://piccalil.li/blog/a-modern-css-reset/, "Andy Bell link")   
-[Github](https://github.com/hankchizljaw/modern-css-reset, "Github Repositories")
+[A Modern CSS Reset](https://piccalil.li/blog/a-modern-css-reset/ "Andy Bell link")   
+[Github](https://github.com/hankchizljaw/modern-css-reset "Github Repositories")
 
 ## Gerneral
 
 ### Button
 
-[/components/button](https://github.com/sogyeokdong9/otter/tree/main/components/button, "Path")
+[/components/button](https://github.com/sogyeokdong9/otter/tree/main/components/button "Path")
 
 To trigger an operation.
 
@@ -26,9 +26,9 @@ To trigger an operation.
 *and 4 other properties additionally.*
 
 - [X] `Danger`😡
-- [ ] `Ghost`👻(~ing)
+- [X] `Ghost`👻
 - [X] `Disabled`🥶
-- [ ] `Loading`🤩
+- [ ] `Loading`🤩 (~ing)
 
 *3 Sizes of button*
 
@@ -36,19 +36,31 @@ To trigger an operation.
 - [X] `[Default]` 😦
 - [X] `Small` 🥱
 
+<!-- ## Layout -->
 
-### Icons
+## Navigation
 
-### Typography
+### Dropdown
+
+[/components/dropdown](https://github.com/sogyeokdong9/otter/tree/main/components/dropdown "Path")
+- [X] Basic ⚓️
+- [ ] Placement
+- [ ] arrow
 
 ## Data Entry
 
 ### Radio
 
-[/components/radio](https://github.com/sogyeokdong9/otter/tree/main/components/button, "Path")
+[/components/radio](https://github.com/sogyeokdong9/otter/tree/main/components/button "Path")
 
 - [X] Basic
 - [X] Disabled
 - [X] Radio Group
 - [X] Vertical Radio Group
 - [ ] Radio Group - Optoinal
+
+<!-- ## Data Display -->
+
+<!-- ## Feedback -->
+
+<!-- ## Other -->
