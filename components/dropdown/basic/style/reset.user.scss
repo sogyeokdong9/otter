@@ -110,12 +110,45 @@ hr:after {
   clip-path: polygon(0 0, 0 0, 0 0);
 }
 
-.wrap { margin: 1em; }
-.wrap form { margin: 1em 0; }
-.event-log { display: flex; flex-direction: column-reverse; flex-wrap: wrap; }
-.event-log li { list-style-type: decimal-leading-zero; }
-.event-log::after {
-  content: "Event Log";
-  margin-left: -40px;
+.wrap { 
+  margin: 1em;
+  form {
+    margin: 1em 0;
+  }
 }
 
+.event-log {
+  display: flex; 
+  flex-direction: column-reverse; 
+  flex-wrap: wrap; 
+  counter-reset: count;
+  li {
+    counter-increment: count;
+    &::before {
+      content: "[" counter(count, decimal-leading-zero) "] == [" counter(count, lower-alpha) "]";
+      min-width: 100px;
+      color: var(--otter-ftbck-disable);
+    }
+  }
+  &::after {
+    content: "Event Log";
+    margin-left: -40px;
+  }
+}
+
+.log-item {
+  display: flex;
+  & .specified {
+    color: var(--otter-ftbck-primary-text);
+  }
+  & .log-time {
+    color: var(--otter-ftbck-disable);
+    min-width: 120px;
+  }
+  & .changed-class {
+    color: var(--otter-ftbck-secondary-text);
+  }
+  span {
+    min-width: 110px;
+  }
+}

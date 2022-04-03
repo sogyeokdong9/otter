@@ -143,14 +143,44 @@ hr:after {
           flex-direction: column-reverse;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  counter-reset: count;
 }
 
 .event-log li {
-  list-style-type: decimal-leading-zero;
+  counter-increment: count;
+}
+
+.event-log li::before {
+  content: "[" counter(count, decimal-leading-zero) "] == [" counter(count, lower-alpha) "]";
+  min-width: 100px;
+  color: var(--otter-ftbck-disable);
 }
 
 .event-log::after {
   content: "Event Log";
   margin-left: -40px;
+}
+
+.log-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.log-item .specified {
+  color: var(--otter-ftbck-primary-text);
+}
+
+.log-item .log-time {
+  color: var(--otter-ftbck-disable);
+  min-width: 120px;
+}
+
+.log-item .changed-class {
+  color: var(--otter-ftbck-secondary-text);
+}
+
+.log-item span {
+  min-width: 110px;
 }
 /*# sourceMappingURL=reset.user.css.map */
