@@ -22,6 +22,14 @@
     })
   }
 
+  function toStringTime() {
+    'use strict';
+    let result;
+    const time = new Date();
+    const timeStr = time.toLocaleTimeString();
+    return result = timeStr;
+  }
+
   function unchckAll() {
     'use strict';
     for (let i = 0; i < radioLbls.length; i++) {
@@ -65,22 +73,40 @@
   }
 
   function submitLog() {
-    'use strict'
+    'use strict';
     const logElmnt = cntnrElmnt.querySelector('.event-log');
-    const time = new Date();
-    const timeStr = time.toLocaleTimeString();
     const nowClsNm = getCurrentBtnClassName();
     const newItmElmn = document.createElement('li');
-    const newCntnt = document.createTextNode( nowClsNm + ", "
-                                               + timeStr + ", Danger: "
-                                               + isCheckedCheckbox('danger') + ", Disabled: " 
-                                               + isCheckedCheckbox('disabled') + ", Block: " 
-                                               + isCheckedCheckbox('block'));
-    newItmElmn.append(newCntnt);
+    const newItmSpn1 = document.createElement('span');
+    const newItmSpn2 = document.createElement('span');
+    const newItmSpn3 = document.createElement('span');
+    const newItmSpn4 = document.createElement('span');
+    const newItmSpn5 = document.createElement('span');
+    const newCntnt1 = document.createTextNode( nowClsNm );
+    const newCntnt2 = document.createTextNode( toStringTime() );
+    const newCntnt3 = document.createTextNode( "Danger: " + isCheckedCheckbox('danger') );
+    const newCntnt4 = document.createTextNode( "Disabled: " + isCheckedCheckbox('disabled') );
+    const newCntnt5 = document.createTextNode( "Block: " + isCheckedCheckbox('block') );
+    newItmElmn.classList.add('log-item');
+    newItmSpn1.classList.add('now-class');
+    newItmSpn2.classList.add('log-time');
+    newItmSpn3.classList.add('is-checked-danger');
+    newItmSpn4.classList.add('is-checked-disabled');
+    newItmSpn5.classList.add('is-checked-block');
+    newItmSpn1.append(newCntnt1);
+    newItmSpn2.append(newCntnt2);
+    newItmSpn3.append(newCntnt3);
+    newItmSpn4.append(newCntnt4);
+    newItmSpn5.append(newCntnt5);
+    newItmElmn.append(newItmSpn1);
+    newItmElmn.append(newItmSpn2);
+    newItmElmn.append(newItmSpn3);
+    newItmElmn.append(newItmSpn4);
+    newItmElmn.append(newItmSpn5);
     logElmnt.append(newItmElmn);
     const COUNT_SUBMIT = logElmnt.querySelectorAll('li').length - 1;
-    const prevLogRec = logElmnt.querySelectorAll('li')[COUNT_SUBMIT - 1].outerText;
-    const prvClsNm = prevLogRec.split(',', 2)[0];
+    const prevLogRec = logElmnt.querySelectorAll('li')[COUNT_SUBMIT - 1];
+    const prvClsNm = prevLogRec.firstElementChild.innerText;
     return [prvClsNm, nowClsNm];
   }
 

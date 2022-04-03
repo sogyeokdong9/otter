@@ -28,6 +28,46 @@
   --otter-primary-color-activeive: rgba(9, 109, 217, 1);
   --otter-primary-color-outline: rgba(24, 144, 255, 0.20);
 
+  // dropdown
+  --otter-dropdown-background: rgba(255, 255, 255, 1);
+  --otter-dropdown: rgba(0, 0, 0, 0.85);
+  --otter-dropdown-item: rgba(0, 0, 0, 0.85);
+  --otter-dropdown-item-background: rgba(255, 255, 255, 1);
+  --otter-dropdown-item-hover-background: rgba(245, 245, 245, 1);
+  --otter-dropdown-disabled-item: rgba(0, 0, 0, 0.25);
+  --otter-dropdown-disabled-item-hover: rgba(0, 0, 0, 0.25);
+  --otter-dropdown-disabled-item-hover-background: rgba(255, 255, 255, 1);
+  --otter-dropdown-specail-letter-down: rgba(24, 144, 255, 1);
+  --otter-dropdown-specail-letter-down-hover: rgba(64, 169, 255, 1);
+  // dropdown-light
+  --otter-dropdown-light-background: rgba(255, 255, 255, 1);
+  --otter-dropdown-light: rgba(0, 0, 0, 0.85);
+  --otter-dropdown-light-item: rgba(0, 0, 0, 0.85);
+  --otter-dropdown-light-item-background: rgba(255, 255, 255, 1);
+  --otter-dropdown-light-item-hover-background: rgba(245, 245, 245, 1);
+  --otter-dropdown-light-disabled-item: rgba(0, 0, 0, 0.25);
+  --otter-dropdown-light-disabled-item-hover: rgba(0, 0, 0, 0.25);
+  --otter-dropdown-light-disabled-item-hover-background: rgba(255, 255, 255, 1);
+  // dropdown-black
+  --otter-dropdown-black-background: rgba(0, 21, 41, 1);
+  --otter-dropdown-black: rgba(255, 255, 255, 0.65);
+  --otter-dropdown-black-item: rgba(255, 255, 255, 0.65);
+  --otter-dropdown-black-item-background: rgba(0, 21, 41, 1);
+  --otter-dropdown-black-item-hover-background: rgba(24, 144, 255, 1);
+  --otter-dropdown-black-disabled-item: rgba(255, 255, 255, 0.30);
+  --otter-dropdown-black-disabled-item-hover: rgba(255, 255, 255, 0.30);
+  --otter-dropdown-black-disabled-item-hover-background: rgba(0, 0, 0, 0.25);
+
+  // dropdown: danger
+  --otter-dropdown-item-danger: rgba(255, 77, 79, 1);
+  --otter-dropdown-item-danger-item: rgba(255, 77, 79, 1);
+  --otter-dropdown-item-danger-item-background: rgba(255, 255, 255, 1);
+  --otter-dropdown-item-danger-item-hover-background: rgba(255, 77, 79, 1);
+  --otter-dropdown-item-danger-hover: rgba(255, 255, 255, 1);
+
+
+
+
   // input[type="radio"]
   --otter-radio-border: rgba(217, 217, 217, 1);
   --otter-radio-background: rgba(255, 255, 255, 1);
