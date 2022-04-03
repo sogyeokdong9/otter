@@ -388,7 +388,6 @@ button[class*="otter-btn"][disabled]:active > a:only-child {
 }
 
 button.otter-btn-primary:not(.otter-btn-background-ghost)[class*="otter-btn-dangerous"]:not([disabled]) {
-  border-style: solid;
   border-color: var(--otter-btn-orizin-dangerous-border);
   background-color: var(--otter-btn-orizin-dangerous-background);
   -webkit-box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-box-shadow);
@@ -494,15 +493,6 @@ button[class$="-block"][disabled]:active {
   text-shadow: var(--otter-btn-disabled-default-text-shadow);
 }
 
-button[class*="otter-btn-background-ghost"][disabled], button[class*="otter-btn-background-ghost"][disabled]:hover, button[class*="otter-btn-background-ghost"][disabled]:focus, button[class*="otter-btn-background-ghost"][disabled]:active {
-  border-color: var(--otter-btn-background-ghost-disabled-default-border);
-  background: var(--otter-btn-background-ghost-disabled-default-background);
-  -webkit-box-shadow: var(--otter-btn-background-ghost-disabled-default-box-shadow);
-          box-shadow: var(--otter-btn-background-ghost-disabled-default-box-shadow);
-  color: var(--otter-btn-background-ghost-disabled-default);
-  text-shadow: var(--otter-btn-background-ghost-disabled-default-text-shadow);
-}
-
 button[class$="-text"][disabled], button[class$="-text"][disabled]:hover, button[class$="-text"][disabled]:focus, button[class$="-text"][disabled]:active, button[class$="-link"][disabled], button[class$="-link"][disabled]:hover, button[class$="-link"][disabled]:focus, button[class$="-link"][disabled]:active,
 button[class*="-text otter-btn-dangerous"][disabled],
 button[class*="-text otter-btn-dangerous"][disabled]:hover,
@@ -526,6 +516,15 @@ button[class*="-text otter-btn-block"][disabled]:active, button[class*="-link ot
           box-shadow: var(--otter-btn-disabled-text-box-shadow);
   color: var(--otter-btn-disabled-text);
   text-shadow: var(--otter-btn-disabled-text-text-shadow);
+}
+
+button[class*="otter-btn-background-ghost"][disabled], button[class*="otter-btn-background-ghost"][disabled]:hover, button[class*="otter-btn-background-ghost"][disabled]:focus, button[class*="otter-btn-background-ghost"][disabled]:active {
+  border-color: var(--otter-btn-background-ghost-disabled-default-border);
+  background: var(--otter-btn-background-ghost-disabled-default-background);
+  -webkit-box-shadow: var(--otter-btn-background-ghost-disabled-default-box-shadow);
+          box-shadow: var(--otter-btn-background-ghost-disabled-default-box-shadow);
+  color: var(--otter-btn-background-ghost-disabled-default);
+  text-shadow: var(--otter-btn-background-ghost-disabled-default-text-shadow);
 }
 
 button[class*="-ghost otter-btn-lg otter-btn-text"][disabled], button[class*="-ghost otter-btn-lg otter-btn-text"][disabled]:hover, button[class*="-ghost otter-btn-lg otter-btn-text"][disabled]:focus, button[class*="-ghost otter-btn-lg otter-btn-text"][disabled]:active,

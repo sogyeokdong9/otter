@@ -308,104 +308,51 @@ button[class*="otter-btn"] {
   content: '';
   background: transparent;
 }
-%otter-btn-orizin-dangerous {
-  border-style: solid;
-  border-color: var(--otter-btn-orizin-dangerous-border);
-  background-color: var(--otter-btn-orizin-dangerous-background);
-  -webkit-box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-box-shadow);
-  box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-box-shadow);
-  color: var(--otter-btn-orizin-dangerous);
-  text-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-text-shadow);
-  &:hover, &:focus {
-    border-color: var(--otter-btn-orizin-dangerous-hover-border);
-    background-color: var(--otter-btn-orizin-dangerous-hover-background);
-    -webkit-box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-hover-box-shadow);
-    box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-hover-box-shadow);
-    color: var(--otter-btn-orizin-dangerous-hover);
-    text-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-hover-text-shadow);
-  }
-  &:active {
-    border-color: var(--otter-btn-orizin-dangerous-active-border);
-    background-color: var(--otter-btn-orizin-dangerous-active-background);
-    -webkit-box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-active-box-shadow);
-    box-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-active-box-shadow);
-    color: var(--otter-btn-orizin-dangerous-active);
-    text-shadow: 0 2px 0 var(--otter-btn-orizin-dangerous-active-text-shadow);
-  }
-}
-%otter-btn-ghost-dangerous {
-  border-color: var(--otter-btn-ghost-dangerous-border);
-  background-color: var(--otter-btn-ghost-dangerous-background);
-  -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-box-shadow);
-  box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-box-shadow);
-  color: var(--otter-btn-ghost-dangerous);
-  text-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-text-shadow);
-  &:hover, &:focus {
-    border-color: var(--otter-btn-ghost-dangerous-hover-border);
-    background-color: var(--otter-btn-ghost-dangerous-hover-background);
-    -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-hover-box-shadow);
-    box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-hover-box-shadow);
-    color: var(--otter-btn-ghost-dangerous-hover);
-    text-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-hover-text-shadow);
-  }
-  &:active {
-    border-color: var(--otter-btn-ghost-dangerous-active-border);
-    background-color: var(--otter-btn-ghost-dangerous-active-background);
-    -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-active-box-shadow);
-    box-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-active-box-shadow);
-    color: var(--otter-btn-ghost-dangerous-active);
-    text-shadow: 0 2px 0 var(--otter-btn-ghost-dangerous-active-text-shadow);
+
+$ghostBtns-data: (
+  orizin-dangerous: orizin-dangerous,
+  ghost-dangerous: ghost-dangerous,
+  ghost: ghost
+);
+@each $ghostBtn, $label in $ghostBtns-data {
+  %otter-btn-#{$ghostBtn} {
+    border-color: var(--otter-btn-#{$label}-border);
+    background-color: var(--otter-btn-#{$label}-background);
+    -webkit-box-shadow: 0 2px 0 var(--otter-btn-#{$label}-box-shadow);
+    box-shadow: 0 2px 0 var(--otter-btn-#{$label}-box-shadow);
+    color: var(--otter-btn-#{$label});
+    text-shadow: 0 2px 0 var(--otter-btn-#{$label}-text-shadow);
+    &:hover, &:focus {
+      border-color: var(--otter-btn-#{$label}-hover-border);
+      background-color: var(--otter-btn-#{$label}-hover-background);
+      -webkit-box-shadow: 0 2px 0 var(--otter-btn-#{$label}-hover-box-shadow);
+      box-shadow: 0 2px 0 var(--otter-btn-#{$label}-hover-box-shadow);
+      color: var(--otter-btn-#{$label}-hover);
+      text-shadow: 0 2px 0 var(--otter-btn-#{$label}-hover-text-shadow);
+    }
+    &:active {
+      border-color: var(--otter-btn-#{$label}-active-border);
+      background-color: var(--otter-btn-#{$label}-active-background);
+      -webkit-box-shadow: 0 2px 0 var(--otter-btn-#{$label}-active-box-shadow);
+      box-shadow: 0 2px 0 var(--otter-btn-#{$label}-active-box-shadow);
+      color: var(--otter-btn-#{$label}-active);
+      text-shadow: 0 2px 0 var(--otter-btn-#{$label}-active-text-shadow);
+    }
   }
 }
-%otter-btn-ghost {
-  border-color: var(--otter-btn-ghost-border);
-  background-color: var(--otter-btn-ghost-background);
-  -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-box-shadow);
-  box-shadow: 0 2px 0 var(--otter-btn-ghost-box-shadow);
-  color: var(--otter-btn-ghost);
-  text-shadow: 0 2px 0 var(--otter-btn-ghost-text-shadow);
-  &:hover, &:focus {
-    border-color: var(--otter-btn-ghost-hover-border);
-    background-color: var(--otter-btn-ghost-hover-background);
-    -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-hover-box-shadow);
-    box-shadow: 0 2px 0 var(--otter-btn-ghost-hover-box-shadow);
-    color: var(--otter-btn-ghost-hover);
-    text-shadow: 0 2px 0 var(--otter-btn-ghost-hover-text-shadow);
+
+$disabledBtns-data: (
+  disabled-filled: disabled-default,
+  disabled-unfilled: disabled-text,
+  ghost-disabled-filled: background-ghost-disabled-default,
+  ghost-disabled-unfilled: background-ghost-disabled-text
+);
+@each $disabledBtn, $label in $disabledBtns-data {
+  %otter-btn-#{$disabledBtn} {
+    border-color: var(--otter-btn-#{$label}-border);
+    background: var(--otter-btn-#{$label}-background);
+    box-shadow: var(--otter-btn-#{$label}-box-shadow);
+    color: var(--otter-btn-#{$label});
+    text-shadow: var(--otter-btn-#{$label}-text-shadow);
   }
-  &:active {
-    border-color: var(--otter-btn-ghost-active-border);
-    background-color: var(--otter-btn-ghost-active-background);
-    -webkit-box-shadow: 0 2px 0 var(--otter-btn-ghost-active-box-shadow);
-    box-shadow: 0 2px 0 var(--otter-btn-ghost-active-box-shadow);
-    color: var(--otter-btn-ghost-active);
-    text-shadow: 0 2px 0 var(--otter-btn-ghost-active-text-shadow);
-  }
-}
-%otter-btn-disabled-filled {
-  border-color: var(--otter-btn-disabled-default-border);
-  background: var(--otter-btn-disabled-default-background);
-  box-shadow: var(--otter-btn-disabled-default-box-shadow);
-  color: var(--otter-btn-disabled-default);
-  text-shadow: var(--otter-btn-disabled-default-text-shadow);
-}
-%otter-btn-ghost-disabled-filled {
-  border-color: var(--otter-btn-background-ghost-disabled-default-border);
-  background: var(--otter-btn-background-ghost-disabled-default-background);
-  box-shadow: var(--otter-btn-background-ghost-disabled-default-box-shadow);
-  color: var(--otter-btn-background-ghost-disabled-default);
-  text-shadow: var(--otter-btn-background-ghost-disabled-default-text-shadow);
-}
-%otter-btn-disabled-unfilled {
-  border-color: var(--otter-btn-disabled-text-border);
-  background: var(--otter-btn-disabled-text-background);
-	box-shadow: var(--otter-btn-disabled-text-box-shadow);
-	color: var(--otter-btn-disabled-text);
-	text-shadow: var(--otter-btn-disabled-text-text-shadow);
-}
-%otter-btn-ghost-disabled-unfilled {
-	border-color: var(--otter-btn-background-ghost-disabled-text-border);
-  background: var(--otter-btn-background-ghost-disabled-text-background);
-	box-shadow: var(--otter-btn-background-ghost-disabled-text-box-shadow);
-	color: var(--otter-btn-background-ghost-disabled-text);
-	text-shadow: var(--otter-btn-background-ghost-disabled-text-text-shadow);
 }
