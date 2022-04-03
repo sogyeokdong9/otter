@@ -138,17 +138,20 @@ hr:after {
 
 .log-item {
   display: flex;
+  & .now-class,
   & .specified {
     color: var(--otter-ftbck-primary-text);
   }
   & .log-time {
     color: var(--otter-ftbck-disable);
-    min-width: 120px;
   }
+  & .is-checked-danger,
+  & .is-checked-disabled,
+  & .is-checked-block,
   & .changed-class {
     color: var(--otter-ftbck-secondary-text);
   }
   span {
-    min-width: 110px;
+    min-width: 120px;
   }
 }

@@ -167,20 +167,23 @@ hr:after {
   display: flex;
 }
 
+.log-item .now-class,
 .log-item .specified {
   color: var(--otter-ftbck-primary-text);
 }
 
 .log-item .log-time {
   color: var(--otter-ftbck-disable);
-  min-width: 120px;
 }
 
+.log-item .is-checked-danger,
+.log-item .is-checked-disabled,
+.log-item .is-checked-block,
 .log-item .changed-class {
   color: var(--otter-ftbck-secondary-text);
 }
 
 .log-item span {
-  min-width: 110px;
+  min-width: 120px;
 }
 /*# sourceMappingURL=reset.user.css.map */
