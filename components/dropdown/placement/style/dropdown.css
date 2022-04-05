@@ -1,0 +1,259 @@
+/* This CSS will print because '%code-name' is extended. */
+.otter-dropdown {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none;
+}
+
+.otter-dropdown {
+  font-size: 14px;
+  font-variant: tabular-nums;
+  -webkit-font-feature-settings: 'tnum';
+          font-feature-settings: 'tnum';
+  line-height: 1.5715;
+  color: var(--otter-dropdown);
+}
+
+.otter-dropdown-trigger .spacial-letter-down {
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  color: var(--otter-dropdown-specail-letter-down);
+  -webkit-transition: top 0.3s, -webkit-transform 0.3s;
+  transition: top 0.3s, -webkit-transform 0.3s;
+  transition: top 0.3s, transform 0.3s;
+  transition: top 0.3s, transform 0.3s, -webkit-transform 0.3s;
+}
+
+.otter-dropdown-trigger.otter-dropdown-open .spacial-letter-down {
+  position: relative;
+  top: -2px;
+  left: 0;
+  color: var(--otter-dropdown-specail-letter-down-hover);
+  -webkit-transform: rotate(0.5turn);
+  transform: rotate(0.5turn);
+}
+
+.otter-dropdown {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  display: block;
+  z-index: 1050;
+}
+
+.otter-dropdown:before {
+  position: absolute;
+  top: -4px;
+  right: 0;
+  bottom: -4px;
+  left: -7px;
+  z-index: -9999;
+  opacity: 0.0001;
+  content: ' ';
+}
+
+.otter-dropdown-hidden,
+.otter-dropdown-menu-hidden,
+.otter-dropdown-menu-submenu-hidden {
+  display: none;
+}
+
+.otter-dropdown-visible {
+  display: block;
+}
+
+.otter-dropdown-menu {
+  position: relative;
+  margin: 0;
+  padding: 4px 0;
+  list-style-type: none;
+  border-radius: 2px;
+  background-color: var(--otter-dropdown-background);
+  background-clip: padding-box;
+  -webkit-box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+          box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  outline: none;
+}
+
+.otter-dropdown-menu.otter-dropdown-menu-black {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.otter-dropdown-menu-item {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.otter-dropdown-menu-title-content {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+
+.otter-dropdown-menu-title-content > a {
+  color: inherit;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.otter-dropdown-menu-title-content > a:hover {
+  color: inherit;
+}
+
+.otter-dropdown-menu-title-content > a::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+}
+
+.otter-dropdown-menu-vertical {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.otter-dropdown-menu-horizontal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-right: 1em;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.otter-dropdown-menu-item {
+  clear: both;
+  margin: 0;
+  padding: 5px 12px;
+  color: var(--otter-dropdown-item);
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.otter-dropdown-menu-item:hover {
+  background-color: var(--otter-dropdown-item-hover-background);
+}
+
+.otter-dropdown-menu-item-disabled {
+  color: var(--otter-dropdown-disabled-item);
+  cursor: not-allowed;
+}
+
+.otter-dropdown-menu-item-disabled:hover {
+  color: var(--otter-dropdown-disabled-item-hover);
+  background-color: var(--otter-dropdown-disabled-item-hover-background);
+  cursor: not-allowed;
+}
+
+.otter-dropdown-menu-item-disabled a {
+  pointer-events: none;
+}
+
+.otter-dropdown-menu-title-content {
+  -webkit-box-flex: 1;
+      -ms-flex: auto;
+          flex: auto;
+}
+
+.otter-dropdown-menu-title-content > a {
+  color: inherit;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.otter-dropdown-menu-title-content > a:hover {
+  color: inherit;
+}
+
+.otter-dropdown-menu-title-content > a::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+}
+
+.otter-dropdown-menu-light {
+  background-color: var(--otter-dropdown-light-background);
+}
+
+.otter-dropdown-menu-light .otter-dropdown-menu-item {
+  color: var(--otter-dropdown-light-item);
+}
+
+.otter-dropdown-menu-light .otter-dropdown-menu-item:hover {
+  background-color: var(--otter-dropdown-light-item-hover-background);
+}
+
+.otter-dropdown-menu-light .otter-dropdown-menu-item-disabled {
+  color: var(--otter-dropdown-light-disabled-item);
+}
+
+.otter-dropdown-menu-light .otter-dropdown-menu-item-disabled:hover {
+  color: var(--otter-dropdown-light-disabled-item-hover);
+  background-color: var(--otter-dropdown-light-disabled-item-hover-background);
+}
+
+.otter-dropdown-menu-black {
+  background-color: var(--otter-dropdown-black-background);
+}
+
+.otter-dropdown-menu-black .otter-dropdown-menu-item {
+  color: var(--otter-dropdown-black-item);
+}
+
+.otter-dropdown-menu-black .otter-dropdown-menu-item:hover {
+  background-color: var(--otter-dropdown-black-item-hover-background);
+}
+
+.otter-dropdown-menu-black .otter-dropdown-menu-item-disabled {
+  color: var(--otter-dropdown-black-disabled-item);
+}
+
+.otter-dropdown-menu-black .otter-dropdown-menu-item-disabled:hover {
+  color: var(--otter-dropdown-black-disabled-item-hover);
+  background-color: var(--otter-dropdown-black-disabled-item-hover-background);
+}
+
+.otter-dropdown-menu-item.otter-dropdown-menu-item-danger {
+  color: var(--otter-dropdown-item-danger);
+}
+
+.otter-dropdown-menu-item.otter-dropdown-menu-item-danger:hover {
+  color: var(--otter-dropdown-item-danger-hover);
+  background-color: var(--otter-dropdown-item-danger-item-hover-background);
+}
+/*# sourceMappingURL=dropdown.css.map */
