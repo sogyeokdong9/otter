@@ -152,7 +152,7 @@ hr:after {
 
 .event-log li::before {
   content: "[" counter(count, decimal-leading-zero) "] == [" counter(count, lower-alpha) "]";
-  min-width: 100px;
+  min-width: 120px;
   padding-right: 20px;
   color: var(--otter-ftbck-disable);
 }
