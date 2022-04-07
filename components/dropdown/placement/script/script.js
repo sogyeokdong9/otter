@@ -32,9 +32,13 @@
       closeAllDrpdnMn(i);
     }
     const element = trgElmn[idx];
+    const hasAttrPlcmnt = element.hasAttribute('data-placement');
     const prefixPlcmnt = 'otter-dropdown-placement-';
-    const positionPlcmnt = element.getAttribute('data-placement');
+    const positionPlcmnt = (hasAttrPlcmnt) ? element.getAttribute('data-placement') : 'default'; //default
     const makePlcmntCls = prefixPlcmnt + positionPlcmnt;
+    if (!hasAttrPlcmnt) {
+      element.setAttribute('data-placement', 'default');
+    }
     element.lastChild.previousElementSibling.ariaExpanded = true;
     element.classList.replace('otter-dropdown-close', 'otter-dropdown-open');
     drpdnMn[idx].classList.add(makePlcmntCls);
@@ -97,6 +101,7 @@
         }
       }
     }
+    setPlacement('default', JUST_LEFT_AXIS);
     setPlacement('topLeft', JUST_LEFT_AXIS);
     setPlacement('top', JUST_CENTER_AXIS);
     setPlacement('topRight', JUST_RIGHT_AXIS);
@@ -134,7 +139,6 @@
     const eventLog = cntnrElmnt.querySelector('.event-log');
     logMsEvnt.push(getLog)
     console.log(logMsEvnt);
-    // if (getLog.length > 1) {
     const latestLog = eventLog.lastChild;
     let prvsDrpdnMn = (latestLog.previousSibling) ? latestLog.previousSibling : null;
     if (getLog.length > 1) {
