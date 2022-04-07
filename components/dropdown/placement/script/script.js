@@ -4,7 +4,7 @@
   const cntnrElmnt = document.querySelector('.wrap');
   const trgElmn = cntnrElmnt.querySelectorAll('.otter-dropdown-trigger');
   const drpdnMn = document.querySelectorAll('.otter-dropdown');
-
+  
   console.log(trgElmn);
 
   for (let i = 0; i < trgElmn.length; i++) {
@@ -24,6 +24,13 @@
       })
     }
   }
+
+  // createDrpdnMnTr(0, 3);
+  // createDrpdnMnFo(1, 4);
+  // createDrpdnMnTr(2, 3);
+  // createDrpdnMnFv(3, 5);
+  // createDrpdnMnFv(4, 5);
+  // createDrpdnMnFo(5, 4);
 
   function openDrpdnMn(idx) {
     'use strict';
@@ -206,4 +213,3 @@
     logElmnt.append(newItmElmn);
   }
 })();
-
