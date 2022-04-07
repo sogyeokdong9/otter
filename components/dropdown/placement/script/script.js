@@ -5,8 +5,6 @@
   const trgElmn = cntnrElmnt.querySelectorAll('.otter-dropdown-trigger');
   const drpdnMn = document.querySelectorAll('.otter-dropdown');
   
-  console.log(trgElmn);
-
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
     element.addEventListener('mouseenter', function() {
@@ -14,7 +12,9 @@
       openDrpdnMn(i);
       mouseEventLog('mouseenter')
       recordLog();
+      // console.log(document.body.scrollHeight); 
     })
+    // TODO: Get the previous mouseenter data, and close the previous dropdown menu.
     for (let i = 0; i < drpdnMn.length; i++) {
       const element = drpdnMn[i];
       element.addEventListener('mouseleave', function() {
@@ -25,15 +25,9 @@
     }
   }
 
-  // createDrpdnMnTr(0, 3);
-  // createDrpdnMnFo(1, 4);
-  // createDrpdnMnTr(2, 3);
-  // createDrpdnMnFv(3, 5);
-  // createDrpdnMnFv(4, 5);
-  // createDrpdnMnFo(5, 4);
-
   function openDrpdnMn(idx) {
     'use strict';
+    // TODO: Get the previous mouseenter data, and close the previous dropdown menu.
     for (let i = 0; i < drpdnMn.length; i++) {
       closeAllDrpdnMn(i);
     }
@@ -65,6 +59,11 @@
     setLctDrpdnMn('out', idx)
   }
 
+  // TODO: Gets the correct coordinates when resizing the window.
+  window.addEventListener('resize', function(){
+    console.log('resize event!');
+  });
+
   function setLctDrpdnMn(loc, idx) {
     'use strict';
     const element = trgElmn[idx];
@@ -77,11 +76,10 @@
     const ALIGN_BTM_AXIS = (trgElmn[idx].offsetTop + trgElmn[idx].offsetHeight);
     const ALIGN_TOP_AXIS = (ALIGN_BTM_AXIS - drpdnMn[idx].offsetHeight - trgElmn[idx].offsetHeight);
     const SCROLL_Y = Math.round(window.scrollY);
-
     function setPlacement( val, para ) {
       'use strict';
       const alignTopBasis = ( ALIGN_TOP_AXIS > 0 && ALIGN_TOP_AXIS > SCROLL_Y );
-      const alignBtmBasis = ( ALIGN_BTM_AXIS > 0 && ALIGN_BTM_AXIS > SCROLL_Y );
+      const alignBtmBasis = ( ALIGN_BTM_AXIS > 0 && ALIGN_BTM_AXIS > SCROLL_Y && (CLIENT_HEIGHT / 1.5) > trgElmn[idx].offsetTop + drpdnMn[idx].clientHeight - trgElmn[idx].offsetHeight );
       if (btnPlacement === val) {
         drpdnMn[idx].style.minWidth = (trgElmn[idx].offsetWidth) + 'px';
         drpdnMn[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : para + 'px';
@@ -95,10 +93,10 @@
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val1 + 'px';
           } else {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val2 + 'px';
-          } 
+          }
         }
       }
-    }  
+    }
     setPlacement('topLeft', JUST_LEFT_AXIS);
     setPlacement('top', JUST_CENTER_AXIS);
     setPlacement('topRight', JUST_RIGHT_AXIS);
@@ -131,32 +129,19 @@
   }
 
   function recordLog() {
-    const arrLog = [];
+    const logMsEvnt = [];
     const getLog = cntnrElmnt.querySelectorAll('.log-item');
-    arrLog.push(getLog);
-    
     const eventLog = cntnrElmnt.querySelector('.event-log');
+    logMsEvnt.push(getLog)
+    console.log(logMsEvnt);
+    // if (getLog.length > 1) {
+    const latestLog = eventLog.lastChild;
+    let prvsDrpdnMn = (latestLog.previousSibling) ? latestLog.previousSibling : null;
     if (getLog.length > 1) {
-      const latestLog = eventLog.lastChild;
-      const prelatestLog = latestLog.previousSibling;
-      let latestActvElmn = latestLog.childNodes[2].innerText;
-      let prelatestActvElmn = prelatestLog.childNodes[2].innerText;
-      // console.log(latestActvElmn, prelatestActvElmn);
-      return prelatestActvElmn;
+      let CURRENT_ACTIVE_ELEMENT = latestLog.childNodes[2].innerText;
+      let PREVIOUS_ELEMENT = (!prvsDrpdnMn) ? null : prvsDrpdnMn.childNodes[2].innerText;
+      console.log('CURRENT_ACTIVE_ELEMENT: ' + CURRENT_ACTIVE_ELEMENT, 'PREVIOUS_ELEMENT: ' + PREVIOUS_ELEMENT);
     }
-    // if (latestLog) {
-    //   prelatestLog = latestLog.previousSibling;
-    //   console.log(prelatestLog);
-    // }
-    // let latestActvElmn = latestLog.childNodes[2].innerText;
-    // console.log(getLog);
-    // console.log(latestActvElmn);
-    // console.log(latestLog);
-    // console.log(latestLog.childNodes[2].innerText);
-    // console.log(latestLog.innerText);
-    // console.log(arrLog);
-    // console.log(arrLog[arrLog.length - 1]);
-    // console.log('last log: ' + getLog[(getLog.length-1)]);
   }
 
   function mouseEventLog(mouseState) {
