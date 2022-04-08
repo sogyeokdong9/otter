@@ -4,7 +4,7 @@
   const cntnrElmnt = document.querySelector('.wrap');
   const trgElmn = cntnrElmnt.querySelectorAll('.otter-dropdown-trigger');
   const drpdnMn = document.querySelectorAll('.otter-dropdown');
-  
+
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
     element.addEventListener('mouseenter', function() {
@@ -12,7 +12,6 @@
       openDrpdnMn(i);
       mouseEventLog('mouseenter')
       recordLog();
-      // console.log(document.body.scrollHeight); 
     })
     // TODO: Get the previous mouseenter data, and close the previous dropdown menu.
     for (let i = 0; i < drpdnMn.length; i++) {
@@ -35,10 +34,8 @@
     const hasAttrPlcmnt = element.hasAttribute('data-placement');
     const prefixPlcmnt = 'otter-dropdown-placement-';
     const positionPlcmnt = (hasAttrPlcmnt) ? element.getAttribute('data-placement') : 'default'; //default
+    if (!hasAttrPlcmnt) { element.setAttribute('data-placement', 'default'); } //default
     const makePlcmntCls = prefixPlcmnt + positionPlcmnt;
-    if (!hasAttrPlcmnt) {
-      element.setAttribute('data-placement', 'default');
-    }
     element.lastChild.previousElementSibling.ariaExpanded = true;
     element.classList.replace('otter-dropdown-close', 'otter-dropdown-open');
     drpdnMn[idx].classList.add(makePlcmntCls);
@@ -63,9 +60,32 @@
     setLctDrpdnMn('out', idx)
   }
 
-  // TODO: Gets the correct coordinates when resizing the window.
   window.addEventListener('resize', function(){
+    'use strict';
     console.log('resize event!');
+    if( getActiveDrpdnMn() ) {
+      const JUST_LEFT_AXIS = (getActiveBtnElmn().offsetLeft);
+      const JUST_CENTER_AXIS = ((getActiveBtnElmn().offsetLeft) + ( (getActiveBtnElmn().offsetWidth) - getActiveDrpdnMn().offsetWidth) / 2);
+      const JUST_RIGHT_AXIS = ((getActiveBtnElmn().offsetLeft) + ( (getActiveBtnElmn().offsetWidth) - getActiveDrpdnMn().offsetWidth));
+
+      function defineBaseCoordinate(val) {
+        'use strict';
+        getActiveDrpdnMn().style.left = val + 'px';
+      } 
+      if ( getActiveDrpdnMn().classList.contains('otter-dropdown-placement-default') || 
+        getActiveDrpdnMn().classList.contains('otter-dropdown-placement-bottomLeft') || 
+        getActiveDrpdnMn().classList.contains('otter-dropdown-placement-topLeft') ) {
+        defineBaseCoordinate(JUST_LEFT_AXIS);
+      } else if ( getActiveDrpdnMn().classList.contains('otter-dropdown-placement-top') ||
+        getActiveDrpdnMn().classList.contains('otter-dropdown-placement-bottom') ) {
+        defineBaseCoordinate(JUST_CENTER_AXIS);
+      } else if ( getActiveDrpdnMn().classList.contains('otter-dropdown-placement-bottomRight') ||
+        getActiveDrpdnMn().classList.contains('otter-dropdown-placement-topRight' )) {
+        defineBaseCoordinate(JUST_RIGHT_AXIS);
+      } else {
+        defineBaseCoordinate(JUST_LEFT_AXIS);
+      }
+    }
   });
 
   function setLctDrpdnMn(loc, idx) {
@@ -138,16 +158,13 @@
     const getLog = cntnrElmnt.querySelectorAll('.log-item');
     const eventLog = cntnrElmnt.querySelector('.event-log');
     logMsEvnt.push(getLog)
-    console.log(logMsEvnt);
     const latestLog = eventLog.lastChild;
-    let prvsDrpdnMn = (latestLog.previousSibling) ? latestLog.previousSibling : null;
-    if (getLog.length > 1) {
-      let CURRENT_ACTIVE_ELEMENT = latestLog.childNodes[2].innerText;
-      let PREVIOUS_ELEMENT = (!prvsDrpdnMn) ? null : prvsDrpdnMn.childNodes[2].innerText;
-      console.log('CURRENT_ACTIVE_ELEMENT: ' + CURRENT_ACTIVE_ELEMENT, 'PREVIOUS_ELEMENT: ' + PREVIOUS_ELEMENT);
-    }
+    const CURRENT_ACTIVE_ELEMENT = latestLog.childNodes[2].innerText;
+    const PREVIOUS_ELEMENT = (getLog.length > 1) ? latestLog.previousSibling.childNodes[2].innerText : null;
+    return [CURRENT_ACTIVE_ELEMENT, PREVIOUS_ELEMENT];
   }
 
+  // TODO: Get the previous mouseenter data, and close the previous dropdown menu.
   function mouseEventLog(mouseState) {
     'use strict';
     const loadBtnItemText = getActiveBtnElmn().firstElementChild.innerText;
@@ -166,6 +183,7 @@
     const newItmSpn6 = document.createElement('span');
     const newItmSpn7 = document.createElement('span');
     const newItmSpn8 = document.createElement('span');
+    const newItmSpn9 = document.createElement('span');
     const newCntnt1 = document.createTextNode( mouseState );
     const newCntnt2 = document.createTextNode( toStringTime() );
     const newCntnt3 = document.createTextNode( loadBtnItemIdx );
@@ -174,6 +192,7 @@
     const newCntnt6 = document.createTextNode( loadBtnItemCls );
     const newCntnt7 = document.createTextNode( loadDrpdnMnItemIdx );
     const newCntnt8 = document.createTextNode( loadDrpdnMnItemText );
+    const newCntnt9 = document.createTextNode( 'previous dropdown menu' );
     newItmElmn.classList.add('log-item');
     newItmSpn1.classList.add('specified');
     newItmSpn2.classList.add('log-time');
@@ -183,6 +202,7 @@
     newItmSpn6.classList.add('trigger-cls');
     newItmSpn7.classList.add('dropdown-idx');
     newItmSpn8.classList.add('dropdown-txt');
+    newItmSpn9.classList.add('previous-idx');
     newItmSpn1.append(newCntnt1);
     newItmSpn2.append(newCntnt2);
     newItmSpn3.append(newCntnt3);
@@ -191,6 +211,7 @@
     newItmSpn6.append(newCntnt6);
     newItmSpn7.append(newCntnt7);
     newItmSpn8.append(newCntnt8);
+    newItmSpn9.append(newCntnt9);
     newItmElmn.append(newItmSpn1);
     newItmElmn.append(newItmSpn2);
     newItmElmn.append(newItmSpn3);
@@ -199,6 +220,7 @@
     newItmElmn.append(newItmSpn6);
     newItmElmn.append(newItmSpn7);
     newItmElmn.append(newItmSpn8);
+    newItmElmn.append(newItmSpn9);
     logElmnt.append(newItmElmn);
   }
 })();
