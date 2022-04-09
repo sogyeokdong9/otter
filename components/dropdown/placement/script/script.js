@@ -155,23 +155,38 @@
 
   function recordLog() {
     const logMsEvnt = [];
+    const logActElmArry = [];
+    const logPreElmArry = [];
     const getLog = cntnrElmnt.querySelectorAll('.log-item');
-    const eventLog = cntnrElmnt.querySelector('.event-log');
     logMsEvnt.push(getLog)
-    const latestLog = eventLog.lastChild;
-    const CURRENT_ACTIVE_ELEMENT = latestLog.childNodes[2].innerText;
-    const PREVIOUS_ELEMENT = (getLog.length > 1) ? latestLog.previousSibling.childNodes[2].innerText : null;
-    return [CURRENT_ACTIVE_ELEMENT, PREVIOUS_ELEMENT];
+    // const eventLog = cntnrElmnt.querySelector('.event-log');
+    // const latestLog = eventLog.lastChild;
+    // const CURRENT_ACTIVE_ELEMENT = latestLog.childNodes[2].innerText;
+    // const PREVIOUS_ELEMENT = (getLog.length > 1) ? latestLog.previousSibling.childNodes[2].innerText : null;
+    for (let i = 0; i < getLog.length; i++) {
+      const element = getLog[i];
+      logActElmArry.push(element.childNodes[2].outerText);
+    }
+    for (let i = 0; i < logActElmArry.length; i++) {
+      const element = logActElmArry[i];
+      logPreElmArry[i] = element;
+    }
+    logPreElmArry.unshift( null );
+    logPreElmArry.pop();
+    for (let i = 0; i < getLog.length; i++) {
+      const element = getLog[i];
+      element.lastChild.textContent = logPreElmArry[i];
+    }
+    // return [logActElmArry, logPreElmArry];
   }
 
-  // TODO: Get the previous mouseenter data, and close the previous dropdown menu.
   function mouseEventLog(mouseState) {
     'use strict';
     const loadBtnItemText = getActiveBtnElmn().firstElementChild.innerText;
     const loadBtnItemAttr = getActiveBtnElmn().getAttribute('data-placement');
     const loadBtnItemCls = getActiveBtnElmn().classList[4];
     const loadBtnItemIdx = getActiveBtnElmn().getAttribute('data-index-number');
-    const loadDrpdnMnItemText = getActiveDrpdnMn().innerText;
+    const loadDrpdnMnItemText = getActiveDrpdnMn().innerText.replace(/\n\r?/g, '/');
     const loadDrpdnMnItemIdx = getActiveDrpdnMn().getAttribute('data-index-number');
     const logElmnt = cntnrElmnt.querySelector('.event-log');
     const newItmElmn = document.createElement('li');
@@ -180,7 +195,7 @@
     const newItmSpn3 = document.createElement('span');
     const newItmSpn4 = document.createElement('span');
     const newItmSpn5 = document.createElement('span');
-    const newItmSpn6 = document.createElement('span');
+    // const newItmSpn6 = document.createElement('span');
     const newItmSpn7 = document.createElement('span');
     const newItmSpn8 = document.createElement('span');
     const newItmSpn9 = document.createElement('span');
@@ -189,17 +204,17 @@
     const newCntnt3 = document.createTextNode( loadBtnItemIdx );
     const newCntnt4 = document.createTextNode( loadBtnItemText );
     const newCntnt5 = document.createTextNode( loadBtnItemAttr );
-    const newCntnt6 = document.createTextNode( loadBtnItemCls );
+    // const newCntnt6 = document.createTextNode( loadBtnItemCls );
     const newCntnt7 = document.createTextNode( loadDrpdnMnItemIdx );
     const newCntnt8 = document.createTextNode( loadDrpdnMnItemText );
-    const newCntnt9 = document.createTextNode( 'previous dropdown menu' );
+    const newCntnt9 = document.createTextNode( 'Data is from recordLog()' );
     newItmElmn.classList.add('log-item');
     newItmSpn1.classList.add('specified');
     newItmSpn2.classList.add('log-time');
     newItmSpn3.classList.add('trigger-idx');
     newItmSpn4.classList.add('trigger-txt');
     newItmSpn5.classList.add('trigger-plc');
-    newItmSpn6.classList.add('trigger-cls');
+    // newItmSpn6.classList.add('trigger-cls');
     newItmSpn7.classList.add('dropdown-idx');
     newItmSpn8.classList.add('dropdown-txt');
     newItmSpn9.classList.add('previous-idx');
@@ -208,7 +223,7 @@
     newItmSpn3.append(newCntnt3);
     newItmSpn4.append(newCntnt4);
     newItmSpn5.append(newCntnt5);
-    newItmSpn6.append(newCntnt6);
+    // newItmSpn6.append(newCntnt6);
     newItmSpn7.append(newCntnt7);
     newItmSpn8.append(newCntnt8);
     newItmSpn9.append(newCntnt9);
@@ -217,7 +232,7 @@
     newItmElmn.append(newItmSpn3);
     newItmElmn.append(newItmSpn4);
     newItmElmn.append(newItmSpn5);
-    newItmElmn.append(newItmSpn6);
+    // newItmElmn.append(newItmSpn6);
     newItmElmn.append(newItmSpn7);
     newItmElmn.append(newItmSpn8);
     newItmElmn.append(newItmSpn9);

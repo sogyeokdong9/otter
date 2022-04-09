@@ -144,6 +144,7 @@ hr:after {
   & .specified {
     color: var(--otter-ftbck-primary-text);
   }
+  & .previous-idx,
   & .log-time {
     color: var(--otter-ftbck-disable);
     min-width: 150px;
@@ -161,7 +162,7 @@ hr:after {
     color: var(--otter-ftbck-secondary-text);
   }
   & .dropdown-txt {
-    min-width: 375px;
+    min-width: 385px;
   }
   & .dropdown-idx,
   & .trigger-idx {

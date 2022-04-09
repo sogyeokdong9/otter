@@ -175,6 +175,7 @@ hr:after {
   color: var(--otter-ftbck-primary-text);
 }
 
+.log-item .previous-idx,
 .log-item .log-time {
   color: var(--otter-ftbck-disable);
   min-width: 150px;
@@ -194,7 +195,7 @@ hr:after {
 }
 
 .log-item .dropdown-txt {
-  min-width: 375px;
+  min-width: 385px;
 }
 
 .log-item .dropdown-idx,
