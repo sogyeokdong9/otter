@@ -155,8 +155,6 @@
     const loadDrpdnMnItemText = getActiveDrpdnMn().innerText.replace(/\n\r?/g, '/');
     const loadDrpdnMnItemIdx = getActiveDrpdnMn().getAttribute('data-index-number');
     const logElmnt = cntnrElmnt.querySelector('.event-log');
-    // const groupOfItems = [ mouseState, toStringTime(), loadBtnItemIdx, loadBtnItemText, loadBtnItemAttr, loadBtnItemCls, loadDrpdnMnItemIdx, loadDrpdnMnItemText, 'Data is from recordLog()' ];
-    // const groupOfClass = [ 'specified', 'log-time', 'trigger-idx', 'trigger-txt', 'trigger-plc', 'trigger-cls', 'dropdown-idx', 'dropdown-txt', 'previous-idx' ];
     
     const makeHtmlElement = function (tagName, ...attr) {
       const element = document.createElement(tagName);
@@ -173,18 +171,18 @@
 
     const itemContainer = makeHtmlElement('li', { class: 'log-item' });
     const groopOfPairs = [ 
-      { key: 1, value: mouseState, class: 'specified' },
-      { key: 2, value: toStringTime(), class: 'log-time' },
-      { key: 3, value: loadBtnItemIdx, class: 'trigger-idx' },
-      { key: 4, value: loadBtnItemText, class: 'trigger-txt' },
-      { key: 5, value: loadBtnItemAttr, class: 'trigger-plc' },
-      { key: 6, value: loadBtnItemCls, class: 'trigger-cls' },
-      { key: 7, value: loadDrpdnMnItemIdx, class: 'dropdown-idx' },
-      { key: 8, value: loadDrpdnMnItemText, class: 'dropdown-txt' },
-      { key: 9, value: 'Data is from recordLog()', class: 'previous-idx' }
+      { id: 1, name: mouseState, class: 'specified' },
+      { id: 2, name: toStringTime(), class: 'log-time' },
+      { id: 3, name: loadBtnItemIdx, class: 'trigger-idx' },
+      { id: 4, name: loadBtnItemText, class: 'trigger-txt' },
+      { id: 5, name: loadBtnItemAttr, class: 'trigger-plc' },
+      { id: 6, name: loadBtnItemCls, class: 'trigger-cls' },
+      { id: 7, name: loadDrpdnMnItemIdx, class: 'dropdown-idx' },
+      { id: 8, name: loadDrpdnMnItemText, class: 'dropdown-txt' },
+      { id: 9, name: 'Data is from recordLog()', class: 'previous-idx' }
     ]
     const [item1, item2, item3, item4, item5, item6, item7, item8, item9] = groopOfPairs.map((item) =>
-      makeHtmlElement('span', { class: item.class }, { textContent: item.value })
+      makeHtmlElement('span', { class: item.class }, { textContent: item.name })
     );
     itemContainer.append(item1, item2, item3, item4, item5, item6, item7, item8, item9);
     logElmnt.append(itemContainer);
