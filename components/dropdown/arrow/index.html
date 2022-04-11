@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/reset.css">
+  <link rel="stylesheet" href="./style/reset.user.css">
+  <link rel="stylesheet" href="./style/color.css">
+  <link rel="stylesheet" href="./style/space.css">
+  <link rel="stylesheet" href="./style/button.css">
+  <link rel="stylesheet" href="./style/dropdown.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <title>Arrow Dropdown</title>
+</head>
+<body>
+  <div class="wrap">
+    <div style="padding: 160px 0">
+      <div class="otter-space otter-space-flex otter-space-vertical otter-space-align-center otter-space-vertical-gap-8">
+        <div class="otter-space-item">
+          <div class="otter-space otter-space-horizontal otter-space-align-center otter-space-horizontal-gap-8">
+            <div class="otter-space-item">
+              <button type="button" class="otter-btn otter-btn-default otter-dropdown-trigger otter-dropdown-link otter-dropdown-close" data-index-number="1">
+                <span>Dashboard</span>
+                <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of dropdown menus state that open or close" aria-expanded="false">&#8744;</span>
+              </button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" class="otter-btn otter-btn-default otter-dropdown-trigger otter-dropdown-link otter-dropdown-close" data-index-number="2" data-placement="bottom">
+                <span>Pull Request</span>
+                <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of dropdown menus state that open or close" aria-expanded="false">&#8744;</span>
+              </button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" class="otter-btn otter-btn-default otter-dropdown-trigger otter-dropdown-link otter-dropdown-close" data-index-number="3" data-placement="bottomRight">
+                <span>Issue</span>
+                <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of dropdown menus state that open or close" aria-expanded="false">&#8744;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="otter-space-item">
+          <div class="otter-space otter-space-horizontal otter-space-align-center otter-space-horizontal-gap-8">
+            <div class="otter-space-item">
+              <button type="button" class="otter-btn otter-btn-default otter-dropdown-trigger otter-dropdown-link otter-dropdown-close" data-index-number="4" data-placement="topLeft">
+                <span>Explore</span>
+                <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of dropdown menus state that open or close" aria-expanded="false">&#8744;</span>
+              </button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" class="otter-btn otter-btn-default otter-dropdown-trigger otter-dropdown-link otter-dropdown-close" data-index-number="5" data-placement="top">
+                <span>Overview</span>
+                <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of dropdown menus state that open or close" aria-expanded="false">&#8744;</span>
+              </button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" class="otter-btn otter-btn-default otter-dropdown-trigger otter-dropdown-link otter-dropdown-close" data-index-number="6" data-placement="topRight">
+                <span>Settings</span>
+                <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of dropdown menus state that open or close" aria-expanded="false">&#8744;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ol class="event-log">
+      <!-- <li>log</li> -->
+    </ol>
+  </div>
+  <!-- Dynamically generate data -->
+  <script src="./script/createDropdownMenu.js"></script>
+  <script src="./script/script.js"></script>
+</body>
+</html>
