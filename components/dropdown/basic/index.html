@@ -13,39 +13,16 @@
 </head>
 <body>
   <div class="wrap">
-    <a href="javascript:void(0)" role="button" class="otter-dropdown-trigger otter-dropdown-link otter-dropdown-close">
-      Hover me <span class="spacial-letter-down" focusable="false" role="img" aria-label="display of dropdown menus state that open or close" aria-expanded="false">&#8744;</span>
+    <a href="javascript:void(0)" role="button" class="otter-dropdown-trigger otter-dropdown-link otter-dropdown-close"  data-index-number="1" data-placement="bottomLeft">
+      <span>Hover me</span>
+      <span class="spacial-letter-down" focusable="false" role="img" aria-label="display of dropdown menus state that open or close" aria-expanded="false">&#8744;</span>
     </a>
 		<ol class="event-log">
 			<!-- <li>log</li> -->
 		</ol>
   </div>
-  <div style="position: absolute; top: 0; left: 0; width: 100%;">
-    <div class="otter-dropdown otter-dropdown-hidden">
-      <ul class="otter-dropdown-menu otter-dropdown-menu-root otter-dropdown-menu-vertical otter-dropdown-menu-light" role="menu" tabindex="0" data-menu-list="true">
-        <li class="otter-dropdown-menu-item" role="menuitem" tabindex="-1" data-menu-id="dropdown-menu-vertical-black-tmp_key-0">
-          <span class="otter-dropdown-menu-title-content">
-            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">1st menu item</a>
-          </span>
-        </li>
-        <li class="otter-dropdown-menu-item" role="menuitem" tabindex="-1" data-menu-id="dropdown-menu-vertical-black-tmp_key-1">
-          <span class="otter-dropdown-menu-title-content">
-            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">2st menu item</a>
-          </span>
-        </li>
-        <li class="otter-dropdown-menu-item otter-dropdown-menu-item-disabled" role="menuitem" tabindex="-1" data-menu-id="dropdown-menu-vertical-black-tmp_key-2">
-          <span class="otter-dropdown-menu-title-content">
-            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">3st menu item</a>
-          </span>
-        </li>
-        <li class="otter-dropdown-menu-item otter-dropdown-menu-item-danger" role="menuitem" tabindex="-1" data-menu-id="dropdown-menu-vertical-black-tmp_key-3">
-          <span class="otter-dropdown-menu-title-content">
-            <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">a Danger Item</a>
-          </span>
-        </li>
-      </ul>
-    </div>
-  </div> 
+  <!-- Dynamically generate data -->
+  <script src="./script/createDropdownMenu.js"></script>
   <script src="./script/script.js"></script>
 </body>
 </html>
