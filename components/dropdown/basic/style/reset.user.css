@@ -175,7 +175,7 @@ hr:after {
   color: var(--otter-ftbck-primary-text);
 }
 
-.log-item .previous-idx,
+.log-item .dropdown-arrow,
 .log-item .log-time {
   color: var(--otter-ftbck-disable);
   min-width: 150px;
@@ -198,9 +198,11 @@ hr:after {
   min-width: 385px;
 }
 
+.log-item .previous-idx,
 .log-item .dropdown-idx,
 .log-item .trigger-idx {
   min-width: 40px;
+  color: var(--otter-ftbck-disable);
   text-align: center;
 }
 

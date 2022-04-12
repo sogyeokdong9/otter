@@ -144,7 +144,7 @@ hr:after {
   & .specified {
     color: var(--otter-ftbck-primary-text);
   }
-  & .previous-idx,
+  & .dropdown-arrow,
   & .log-time {
     color: var(--otter-ftbck-disable);
     min-width: 150px;
@@ -164,9 +164,11 @@ hr:after {
   & .dropdown-txt {
     min-width: 385px;
   }
+  & .previous-idx,
   & .dropdown-idx,
   & .trigger-idx {
     min-width: 40px;
+    color: var(--otter-ftbck-disable);
     text-align: center;
   }
   span {
