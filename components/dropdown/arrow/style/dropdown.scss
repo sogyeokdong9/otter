@@ -108,12 +108,12 @@
 }
 .otter-dropdown-placement-top {
   > .otter-dropdown-arrow {
-    left: 50%;
+    left: calc(50% - 9px);
   }
 }
 .otter-dropdown-placement-bottom {
   > .otter-dropdown-arrow {
-    left: 50%;
+    left: calc(50% - 9px);
   }
 }
 .otter-dropdown-placement-topLeft,
