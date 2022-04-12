@@ -140,11 +140,9 @@ $dropdowns-data: (
 .otter-dropdown-placement-bottomRight {
   > .otter-dropdown-arrow-black,
   > .otter-dropdown-arrow-light {
-    right: calc(12px);
-    // right: calc(12px + 18px);
+    right: 12px;
   }
 }
-
 
 // divider
 .otter-dropdown-menu-item-divider,
@@ -154,6 +152,20 @@ $dropdowns-data: (
   overflow: hidden;
   line-height: 0;
   background-color: #f0f0f0;
+}
+
+
+.otter-dropdown-menu-horizontal {
+  .otter-dropdown-menu-item-divider,
+  .otter-dropdown-menu-submenu-title-divider {
+    width: 1px;
+    height: 32px;
+    margin: 0 4px;
+    overflow: hidden;
+    line-height: 32px;
+    background-color: #f0f0f0;
+  }
+
 }
 
 .otter-dropdown-menu-black {
@@ -215,7 +227,7 @@ $dropdowns-data: (
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-right: 1em;
+  // margin-right: 1em;
   padding-left: 5px;
   padding-right: 5px;
 }

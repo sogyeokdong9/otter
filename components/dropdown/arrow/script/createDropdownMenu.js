@@ -202,7 +202,7 @@
     container.style.top = '0';
     container.style.left = '0';
     container.style.width = '100%';
-    wrapper.classList.add('otter-dropdown', 'otter-dropdown-show-arrow-black', 'otter-dropdown-hidden');
+    wrapper.classList.add('otter-dropdown', 'otter-dropdown-show-arrow-light', 'otter-dropdown-hidden');
     wrapper.setAttribute('data-index-number', items[order].id);
     // otter-dropdown-show-arrow
     if ( (wrapper.classList.contains('otter-dropdown-show-arrow-light')) || (wrapper.classList.contains('otter-dropdown-show-arrow')) ) {
@@ -214,7 +214,7 @@
       arrowDiv.classList.add('otter-dropdown-arrow-black');
       wrapper.append(arrowDiv);
     }
-    itemContainer.classList.add('otter-dropdown-menu', 'otter-dropdown-menu-root', 'otter-dropdown-menu-horizontal', 'otter-dropdown-menu-black');
+    itemContainer.classList.add('otter-dropdown-menu', 'otter-dropdown-menu-root', 'otter-dropdown-menu-vertical', 'otter-dropdown-menu-light');
     itemContainer.setAttribute('role', 'menu');
     itemContainer.setAttribute('tabindex', 0);
     itemContainer.setAttribute('data-menu-list', true);
