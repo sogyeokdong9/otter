@@ -154,6 +154,20 @@ $dropdowns-data: (
   background-color: #f0f0f0;
 }
 
+
+.otter-dropdown-menu-horizontal {
+  .otter-dropdown-menu-item-divider,
+  .otter-dropdown-menu-submenu-title-divider {
+    width: 1px;
+    height: 32px;
+    margin: 0 4px;
+    overflow: hidden;
+    line-height: 32px;
+    background-color: #f0f0f0;
+  }
+
+}
+
 .otter-dropdown-menu-black {
   .otter-dropdown-menu-item-divider,
   .otter-dropdown-menu-submenu-title-divider {
