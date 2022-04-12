@@ -125,6 +125,15 @@
   right: 12px;
 }
 
+.otter-dropdown-menu-item-divider,
+.otter-dropdown-menu-submenu-title-divider {
+  height: 1px;
+  margin: 4px 0;
+  overflow: hidden;
+  line-height: 0;
+  background-color: #f0f0f0;
+}
+
 .otter-dropdown-menu {
   position: relative;
   margin: 0;
