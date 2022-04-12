@@ -189,31 +189,31 @@
       window[ 'menuId' + i ] = items[order].menu[i].id;
       window[ 'menuNm' + i ] = items[order].menu[i].name;
       window[ 'menuUrl' + i ] = items[order].menu[i].url;
-      // newItmElmn, newDiv, newUl
+      // container, wrapper, itemContainer
       window[ 'newLi' + i ] = document.createElement('li');
       window[ 'newSp' + i ] = document.createElement('span');
       window[ 'newA' + i ] = document.createElement('a');
       window[ 'newTx' + i ] = document.createTextNode( items[order].menu[i].name );
     }
-    const newItmElmn = document.createElement('div');
-    const newDiv = document.createElement('div');
-    const newUl = document.createElement('ul');
-    newItmElmn.style.position = 'absolute';
-    newItmElmn.style.top = '0';
-    newItmElmn.style.left = '0';
-    newItmElmn.style.width = '100%';
-    newDiv.classList.add('otter-dropdown', 'otter-dropdown-hidden');
-    newDiv.setAttribute('data-index-number', items[order].id);
-    newUl.classList.add('otter-dropdown-menu', 'otter-dropdown-menu-root', 'otter-dropdown-menu-vertical', 'otter-dropdown-menu-light');
-    newUl.setAttribute('role', 'menu');
-    newUl.setAttribute('tabindex', 0);
-    newUl.setAttribute('data-menu-list', true);
+    const container = document.createElement('div');
+    const wrapper = document.createElement('div');
+    const itemContainer = document.createElement('ul');
+    container.style.position = 'absolute';
+    container.style.top = '0';
+    container.style.left = '0';
+    container.style.width = '100%';
+    wrapper.classList.add('otter-dropdown', 'otter-dropdown-hidden');
+    wrapper.setAttribute('data-index-number', items[order].id);
+    itemContainer.classList.add('otter-dropdown-menu', 'otter-dropdown-menu-root', 'otter-dropdown-menu-vertical', 'otter-dropdown-menu-light');
+    itemContainer.setAttribute('role', 'menu');
+    itemContainer.setAttribute('tabindex', 0);
+    itemContainer.setAttribute('data-menu-list', true);
     for(let i = 0; i < count; i++) {
       setClassAttr( window[ 'newLi' + i ], window[ 'newSp' + i ], window[ 'newA' + i ], window[ 'menuId' + i ], window[ 'menuUrl' + i ] );
-      chainAppend( window[ 'newTx' + i ], window[ 'newA' + i ], window[ 'newSp' + i ], window[ 'newLi' + i ], newUl, newDiv );
+      chainAppend( window[ 'newTx' + i ], window[ 'newA' + i ], window[ 'newSp' + i ], window[ 'newLi' + i ], itemContainer, wrapper );
     }
-    newItmElmn.append(newDiv);
-    document.body.append(newItmElmn);
+    container.append(wrapper);
+    document.body.append(container);
   }
   createDrpdnMn(0, 3);
   createDrpdnMn(1, 4);
