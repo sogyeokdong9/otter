@@ -232,5 +232,3 @@
   createDrpdnMn(4, 5);
   createDrpdnMn(5, 4);
 })();
-
-{/* <div class="ant-dropdown-arrow"></div> */}
