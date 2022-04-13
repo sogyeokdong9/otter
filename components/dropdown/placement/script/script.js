@@ -73,7 +73,7 @@
     function setPlacement( val, para ) {
       'use strict';
       const alignTopBasis = ( ALIGN_TOP_AXIS > 0 && ALIGN_TOP_AXIS > SCROLL_Y );
-      const alignBtmBasis = ( ALIGN_BTM_AXIS > 0 && ALIGN_BTM_AXIS > SCROLL_Y && (CLIENT_HEIGHT / 1.5) > trgElmn[idx].offsetTop + drpdnMn[idx].clientHeight - trgElmn[idx].offsetHeight );
+      const alignBtmBasis = ( ALIGN_BTM_AXIS > 0 && ALIGN_BTM_AXIS > SCROLL_Y && (CLIENT_HEIGHT / 1.1) > trgElmn[idx].offsetTop + drpdnMn[idx].clientHeight - trgElmn[idx].offsetHeight );
       if (btnPlacement === val) {
         drpdnMn[idx].style.minWidth = (trgElmn[idx].offsetWidth) + 'px';
         drpdnMn[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : para + 'px';
@@ -85,8 +85,22 @@
         function defineAlignBasis(axis, val1, val2) {
           if(axis) {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val1 + 'px';
+            if ( 
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-light')) || 
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-black')) || 
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow')) ) {
+              drpdnMn[idx].firstChild.style.display = 'block';
+              drpdnMn[idx].lastChild.style.display = 'none';
+            }
           } else {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val2 + 'px';
+            if ( 
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-light')) || 
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-black')) || 
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow')) ) {
+              drpdnMn[idx].firstChild.style.display = 'none';
+              drpdnMn[idx].lastChild.style.display = 'block';  
+            }
           }
         }
       }
@@ -154,8 +168,8 @@
     const loadBtnItemIdx = getActiveBtnElmn().getAttribute('data-index-number');
     const loadDrpdnMnItemText = getActiveDrpdnMn().innerText.replace(/\n\r?/g, '/');
     const loadDrpdnMnItemIdx = getActiveDrpdnMn().getAttribute('data-index-number');
+    const loadDrpdnMnArrow = getActiveDrpdnMn().classList[1];
     const logElmnt = cntnrElmnt.querySelector('.event-log');
-    
     const makeHtmlElement = function (tagName, ...attr) {
       const element = document.createElement(tagName);
       for (let prop of attr) {
@@ -168,7 +182,6 @@
       }
       return element;
     };
-
     const itemContainer = makeHtmlElement('li', { class: 'log-item' });
     const groopOfPairs = [ 
       { id: 1, name: mouseState, class: 'specified' },
@@ -179,12 +192,13 @@
       { id: 6, name: loadBtnItemCls, class: 'trigger-cls' },
       { id: 7, name: loadDrpdnMnItemIdx, class: 'dropdown-idx' },
       { id: 8, name: loadDrpdnMnItemText, class: 'dropdown-txt' },
-      { id: 9, name: 'Data is from recordLog()', class: 'previous-idx' }
+      { id: 9, name: loadDrpdnMnArrow, class: 'dropdown-arrow' },
+      { id: 10, name: 'Data is from recordLog()', class: 'previous-idx' }
     ]
-    const [item1, item2, item3, item4, item5, item6, item7, item8, item9] = groopOfPairs.map((item) =>
+    const [item1, item2, item3, item4, item5, item6, item7, item8, item9, item10] = groopOfPairs.map((item) =>
       makeHtmlElement('span', { class: item.class }, { textContent: item.name })
     );
-    itemContainer.append(item1, item2, item3, item4, item5, item6, item7, item8, item9);
+    itemContainer.append(item1, item2, item3, item4, item5, item6, item7, item8, item9, item10);
     logElmnt.append(itemContainer);
   }
 
@@ -215,5 +229,4 @@
       }
     }
   });
-
 })();
