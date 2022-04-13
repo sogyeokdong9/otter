@@ -73,7 +73,7 @@
     function setPlacement( val, para ) {
       'use strict';
       const alignTopBasis = ( ALIGN_TOP_AXIS > 0 && ALIGN_TOP_AXIS > SCROLL_Y );
-      const alignBtmBasis = ( ALIGN_BTM_AXIS > 0 && ALIGN_BTM_AXIS > SCROLL_Y && (CLIENT_HEIGHT / 1.5) > trgElmn[idx].offsetTop + drpdnMn[idx].clientHeight - trgElmn[idx].offsetHeight );
+      const alignBtmBasis = ( ALIGN_BTM_AXIS > 0 && ALIGN_BTM_AXIS > SCROLL_Y && (CLIENT_HEIGHT / 1.1) > trgElmn[idx].offsetTop + drpdnMn[idx].clientHeight - trgElmn[idx].offsetHeight );
       if (btnPlacement === val) {
         drpdnMn[idx].style.minWidth = (trgElmn[idx].offsetWidth) + 'px';
         drpdnMn[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : para + 'px';
@@ -85,8 +85,12 @@
         function defineAlignBasis(axis, val1, val2) {
           if(axis) {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val1 + 'px';
+            drpdnMn[idx].firstChild.style.display = 'block';
+            drpdnMn[idx].lastChild.style.display = 'none';
           } else {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val2 + 'px';
+            drpdnMn[idx].firstChild.style.display = 'none';
+            drpdnMn[idx].lastChild.style.display = 'block';  
           }
         }
       }
