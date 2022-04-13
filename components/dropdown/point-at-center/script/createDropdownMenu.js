@@ -204,16 +204,7 @@
     container.style.width = '100%';
     wrapper.classList.add('otter-dropdown', 'otter-dropdown-show-arrow-light', 'otter-dropdown-hidden');
     wrapper.setAttribute('data-index-number', items[order].id);
-    // otter-dropdown-show-arrow
-    if ( (wrapper.classList.contains('otter-dropdown-show-arrow-light')) || (wrapper.classList.contains('otter-dropdown-show-arrow')) ) {
-      const arrowDiv = document.createElement('div');
-      arrowDiv.classList.add('otter-dropdown-arrow-light');
-      wrapper.append(arrowDiv);
-    } else if (wrapper.classList.contains('otter-dropdown-show-arrow-black')) {
-      const arrowDiv = document.createElement('div');
-      arrowDiv.classList.add('otter-dropdown-arrow-black');
-      wrapper.append(arrowDiv);
-    }
+    createArrow();
     itemContainer.classList.add('otter-dropdown-menu', 'otter-dropdown-menu-root', 'otter-dropdown-menu-vertical', 'otter-dropdown-menu-light');
     itemContainer.setAttribute('role', 'menu');
     itemContainer.setAttribute('tabindex', 0);
@@ -223,6 +214,18 @@
       chainAppend( window[ 'newTx' + i ], window[ 'newA' + i ], window[ 'newSp' + i ], window[ 'newLi' + i ], itemContainer, wrapper );
     }
     container.append(wrapper);
+    createArrow();
+    function createArrow() {
+      if ( (wrapper.classList.contains('otter-dropdown-show-arrow-light')) || (wrapper.classList.contains('otter-dropdown-show-arrow')) ) {
+        const arrowDiv = document.createElement('div');
+        arrowDiv.classList.add('otter-dropdown-arrow-light');
+        wrapper.append(arrowDiv);
+      } else if (wrapper.classList.contains('otter-dropdown-show-arrow-black')) {
+        const arrowDiv = document.createElement('div');
+        arrowDiv.classList.add('otter-dropdown-arrow-black');
+        wrapper.append(arrowDiv);
+      }
+    }
     document.body.append(container);
   }
   createDrpdnMn(0, 3);
