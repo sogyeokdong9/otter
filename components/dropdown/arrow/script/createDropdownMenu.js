@@ -204,7 +204,6 @@
     container.style.width = '100%';
     wrapper.classList.add('otter-dropdown', 'otter-dropdown-show-arrow-light', 'otter-dropdown-hidden');
     wrapper.setAttribute('data-index-number', items[order].id);
-    // otter-dropdown-show-arrow
     createArrow();
     itemContainer.classList.add('otter-dropdown-menu', 'otter-dropdown-menu-root', 'otter-dropdown-menu-vertical', 'otter-dropdown-menu-light');
     itemContainer.setAttribute('role', 'menu');
@@ -227,7 +226,6 @@
         wrapper.append(arrowDiv);
       }
     }
-
     document.body.append(container);
   }
   createDrpdnMn(0, 3);

@@ -85,12 +85,22 @@
         function defineAlignBasis(axis, val1, val2) {
           if(axis) {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val1 + 'px';
-            drpdnMn[idx].firstChild.style.display = 'block';
-            drpdnMn[idx].lastChild.style.display = 'none';
+            if ( 
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-light')) || 
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-black')) || 
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow')) ) {
+              drpdnMn[idx].firstChild.style.display = 'block';
+              drpdnMn[idx].lastChild.style.display = 'none';
+            }
           } else {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val2 + 'px';
-            drpdnMn[idx].firstChild.style.display = 'none';
-            drpdnMn[idx].lastChild.style.display = 'block';  
+            if ( 
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-light')) || 
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-black')) || 
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow')) ) {
+              drpdnMn[idx].firstChild.style.display = 'none';
+              drpdnMn[idx].lastChild.style.display = 'block';  
+            }
           }
         }
       }
@@ -160,7 +170,6 @@
     const loadDrpdnMnItemIdx = getActiveDrpdnMn().getAttribute('data-index-number');
     const loadDrpdnMnArrow = getActiveDrpdnMn().classList[1];
     const logElmnt = cntnrElmnt.querySelector('.event-log');
-    
     const makeHtmlElement = function (tagName, ...attr) {
       const element = document.createElement(tagName);
       for (let prop of attr) {
@@ -173,7 +182,6 @@
       }
       return element;
     };
-
     const itemContainer = makeHtmlElement('li', { class: 'log-item' });
     const groopOfPairs = [ 
       { id: 1, name: mouseState, class: 'specified' },
@@ -221,5 +229,4 @@
       }
     }
   });
-
 })();
