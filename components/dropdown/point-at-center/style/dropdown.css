@@ -112,14 +112,6 @@
   pointer-events: none;
 }
 
-#triangle {
-  background-color: #003BDE;
-  -webkit-clip-path: polygon(50% 0, 100% 100%, 0 100%);
-          clip-path: polygon(50% 0, 100% 100%, 0 100%);
-  width: 100px;
-  height: 100px;
-}
-
 .otter-dropdown-placement-top > .otter-dropdown-arrow-black,
 .otter-dropdown-placement-top > .otter-dropdown-arrow-light,
 .otter-dropdown-placement-topLeft > .otter-dropdown-arrow-black,

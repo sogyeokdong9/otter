@@ -96,13 +96,6 @@ $dropdowns-data: (
   }
 }
 
-#triangle {
-	background-color: #003BDE;
-	clip-path: polygon(50% 0, 100% 100%, 0 100%);
-	width: 100px;
-	height: 100px;
-}
-
 .otter-dropdown-placement-top,
 .otter-dropdown-placement-topLeft,
 .otter-dropdown-placement-topRight {
@@ -255,7 +248,6 @@ $dropdowns-data: (
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  // margin-right: 1em;
   padding-left: 5px;
   padding-right: 5px;
 }
