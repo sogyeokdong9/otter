@@ -40,7 +40,7 @@
     drpdnMn[idx].classList.replace("otter-dropdown-hidden", "otter-dropdown-visible");
     setLctDrpdnMn('in', idx);
   }
-  
+
   function isDrpdnMnOpen(bool, idx) {
     'use strict';
     if (bool) {
@@ -61,12 +61,13 @@
   function setLctDrpdnMn(loc, idx) {
     'use strict';
     const element = trgElmn[idx];
+    const isPointerAtCenter = element.getAttribute('data-pointer-at-center');
     const btnPlacement = element.dataset.placement;
     const CLIENT_WIDTH = (document.body.clientWidth);
     const CLIENT_HEIGHT = (document.body.clientHeight);
-    const JUST_LEFT_AXIS = (trgElmn[idx].offsetLeft);
+    const JUST_LEFT_AXIS = (trgElmn[idx].offsetLeft) + ( (isPointerAtCenter) ? (trgElmn[idx].offsetWidth / 2) : 0 );
     const JUST_CENTER_AXIS = ((trgElmn[idx].offsetLeft) + ( (trgElmn[idx].offsetWidth) - drpdnMn[idx].offsetWidth) / 2);
-    const JUST_RIGHT_AXIS = ((trgElmn[idx].offsetLeft) + ( (trgElmn[idx].offsetWidth) - drpdnMn[idx].offsetWidth));
+    const JUST_RIGHT_AXIS = ((trgElmn[idx].offsetLeft) + ( (trgElmn[idx].offsetWidth) - drpdnMn[idx].offsetWidth)) - ( (isPointerAtCenter) ? (trgElmn[idx].offsetWidth / 2) : 0 );
     const ALIGN_BTM_AXIS = (trgElmn[idx].offsetTop + trgElmn[idx].offsetHeight);
     const ALIGN_TOP_AXIS = (ALIGN_BTM_AXIS - drpdnMn[idx].offsetHeight - trgElmn[idx].offsetHeight);
     const SCROLL_Y = Math.round(window.scrollY);
@@ -85,21 +86,21 @@
         function defineAlignBasis(axis, val1, val2) {
           if(axis) {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val1 + 'px';
-            if ( 
-              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-light')) || 
-              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-black')) || 
+            if (
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-light')) ||
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-black')) ||
               (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow')) ) {
               drpdnMn[idx].firstChild.style.display = 'block';
               drpdnMn[idx].lastChild.style.display = 'none';
             }
           } else {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val2 + 'px';
-            if ( 
-              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-light')) || 
-              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-black')) || 
+            if (
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-light')) ||
+              (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow-black')) ||
               (drpdnMn[idx].classList.contains('otter-dropdown-show-arrow')) ) {
               drpdnMn[idx].firstChild.style.display = 'none';
-              drpdnMn[idx].lastChild.style.display = 'block';  
+              drpdnMn[idx].lastChild.style.display = 'block';
             }
           }
         }
@@ -129,7 +130,7 @@
     const activeElmn = cntnrElmnt.querySelector('.otter-dropdown-open');
     return isBtn = activeElmn;
   }
-  
+
   function getActiveDrpdnMn() {
     'use strict';
     let isDrpdnMn;
@@ -170,6 +171,7 @@
     const loadDrpdnMnItemIdx = getActiveDrpdnMn().getAttribute('data-index-number');
     const loadDrpdnMnArrow = getActiveDrpdnMn().classList[1];
     const logElmnt = cntnrElmnt.querySelector('.event-log');
+
     const makeHtmlElement = function (tagName, ...attr) {
       const element = document.createElement(tagName);
       for (let prop of attr) {
@@ -182,8 +184,9 @@
       }
       return element;
     };
+
     const itemContainer = makeHtmlElement('li', { class: 'log-item' });
-    const groopOfPairs = [ 
+    const groopOfPairs = [
       { id: 1, name: mouseState, class: 'specified' },
       { id: 2, name: toStringTime(), class: 'log-time' },
       { id: 3, name: loadBtnItemIdx, class: 'trigger-idx' },
@@ -206,16 +209,17 @@
     'use strict';
     console.log('resize event!');
     if( getActiveDrpdnMn() ) {
-      const JUST_LEFT_AXIS = (getActiveBtnElmn().offsetLeft);
+      const isPointerAtCenter = getActiveBtnElmn().getAttribute('data-pointer-at-center');
+      const JUST_LEFT_AXIS = (getActiveBtnElmn().offsetLeft) + ( (isPointerAtCenter) ? (getActiveBtnElmn().offsetWidth / 2) : 0 );
       const JUST_CENTER_AXIS = ((getActiveBtnElmn().offsetLeft) + ( (getActiveBtnElmn().offsetWidth) - getActiveDrpdnMn().offsetWidth) / 2);
-      const JUST_RIGHT_AXIS = ((getActiveBtnElmn().offsetLeft) + ( (getActiveBtnElmn().offsetWidth) - getActiveDrpdnMn().offsetWidth));
+      const JUST_RIGHT_AXIS = ((getActiveBtnElmn().offsetLeft) + ( (getActiveBtnElmn().offsetWidth) - getActiveDrpdnMn().offsetWidth)) - ( (isPointerAtCenter) ? (getActiveBtnElmn().offsetWidth / 2) : 0 );
 
       function defineBaseCoordinate(val) {
         'use strict';
         getActiveDrpdnMn().style.left = val + 'px';
-      } 
-      if ( getActiveDrpdnMn().classList.contains('otter-dropdown-placement-default') || 
-        getActiveDrpdnMn().classList.contains('otter-dropdown-placement-bottomLeft') || 
+      }
+      if ( getActiveDrpdnMn().classList.contains('otter-dropdown-placement-default') ||
+        getActiveDrpdnMn().classList.contains('otter-dropdown-placement-bottomLeft') ||
         getActiveDrpdnMn().classList.contains('otter-dropdown-placement-topLeft') ) {
         defineBaseCoordinate(JUST_LEFT_AXIS);
       } else if ( getActiveDrpdnMn().classList.contains('otter-dropdown-placement-top') ||
