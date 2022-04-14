@@ -159,7 +159,6 @@
       ]
     }
   ]
-
   function setClassAttr(elem1, elem2, elem3, menuId, menuLink) {
     'use strict';
     elem1.classList.add('otter-dropdown-menu-item');
@@ -172,7 +171,6 @@
     elem3.setAttribute('target', '_blank');
     elem3.setAttribute('rel', 'noopener noreferrer');
   }
-
   function chainAppend(val0, val1, val2, val3, val4, val5) {
     'use strict';
     val1.append(val0);
@@ -181,19 +179,18 @@
     val4.append(val3);
     val5.append(val4);
   }
-
   function createDrpdnMn(order,count) {
     'use strict';
     for(let i = 0; i < count; i++) {
-      window[ 'path' + i ] = items[order].menu[i];
-      window[ 'menuId' + i ] = items[order].menu[i].id;
-      window[ 'menuNm' + i ] = items[order].menu[i].name;
-      window[ 'menuUrl' + i ] = items[order].menu[i].url;
+      window['path' + i] = items[order].menu[i];
+      window['menuId' + i] = items[order].menu[i].id;
+      window['menuNm' + i] = items[order].menu[i].name;
+      window['menuUrl' + i] = items[order].menu[i].url;
       // container, wrapper, itemContainer
-      window[ 'newLi' + i ] = document.createElement('li');
-      window[ 'newSp' + i ] = document.createElement('span');
-      window[ 'newA' + i ] = document.createElement('a');
-      window[ 'newTx' + i ] = document.createTextNode( items[order].menu[i].name );
+      window['newLi' + i] = document.createElement('li');
+      window['newSp' + i] = document.createElement('span');
+      window['newA' + i] = document.createElement('a');
+      window['newTx' + i] = document.createTextNode(items[order].menu[i].name);
     }
     const container = document.createElement('div');
     const wrapper = document.createElement('div');
@@ -210,20 +207,22 @@
     itemContainer.setAttribute('tabindex', 0);
     itemContainer.setAttribute('data-menu-list', true);
     for(let i = 0; i < count; i++) {
-      setClassAttr( window[ 'newLi' + i ], window[ 'newSp' + i ], window[ 'newA' + i ], window[ 'menuId' + i ], window[ 'menuUrl' + i ] );
-      chainAppend( window[ 'newTx' + i ], window[ 'newA' + i ], window[ 'newSp' + i ], window[ 'newLi' + i ], itemContainer, wrapper );
+      setClassAttr(window['newLi' + i], window['newSp' + i], window['newA' + i], window['menuId' + i], window['menuUrl' + i]);
+      chainAppend(window['newTx' + i], window['newA' + i], window['newSp' + i], window['newLi' + i], itemContainer, wrapper);
     }
     container.append(wrapper);
     createArrow();
     function createArrow() {
-      if ( (wrapper.classList.contains('otter-dropdown-show-arrow-light')) || (wrapper.classList.contains('otter-dropdown-show-arrow')) ) {
-        const arrowDiv = document.createElement('div');
-        arrowDiv.classList.add('otter-dropdown-arrow-light');
-        wrapper.append(arrowDiv);
-      } else if (wrapper.classList.contains('otter-dropdown-show-arrow-black')) {
-        const arrowDiv = document.createElement('div');
-        arrowDiv.classList.add('otter-dropdown-arrow-black');
-        wrapper.append(arrowDiv);
+      'use strict';
+      createHtmlElement('div', 'otter-dropdown-arrow-light', 'otter-dropdown-show-arrow-light', 'otter-dropdown-show-arrow');
+      createHtmlElement('div', 'otter-dropdown-arrow-black', 'otter-dropdown-show-arrow-black');
+      function createHtmlElement(element, class1, param1, param2) {
+        'use strict';
+        if (wrapper.classList.contains(param1) || wrapper.classList.contains(param2)) {
+          const arrowDiv = document.createElement(element);
+          arrowDiv.classList.add(class1);
+          wrapper.append(arrowDiv);
+        }
       }
     }
     document.body.append(container);
