@@ -2,7 +2,7 @@
 (function () {
   'use strict';
   const cntnrElmnt = document.querySelector('.wrap');
-  const trgElmn = cntnrElmnt.querySelectorAll('.otter-dropdown-trigger');  
+  const trgElmn = cntnrElmnt.querySelectorAll('.otter-dropdown-trigger');
   const drpdnMn = document.querySelectorAll('.otter-dropdown');
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
@@ -35,6 +35,8 @@
     element.lastChild.previousElementSibling.ariaExpanded = true;
     element.classList.replace('otter-dropdown-close', 'otter-dropdown-open');
     drpdnMn[idx].classList.add(makePlcmntCls);
+    drpdnMn[idx].classList.add('otter-slide-up-in');
+    drpdnMn[idx].classList.replace("otter-slide-up-out", "otter-slide-up-in");
     drpdnMn[idx].classList.replace("otter-dropdown-hidden", "otter-dropdown-visible");
     setLctDrpdnMn('in', idx);
   }
@@ -47,6 +49,7 @@
     trgElmn[idx].lastChild.previousElementSibling.ariaExpanded = false;
     drpdnMn[idx].classList.replace("otter-dropdown-visible", "otter-dropdown-hidden");
     trgElmn[idx].classList.replace("otter-dropdown-open", "otter-dropdown-close");
+    drpdnMn[idx].classList.replace("otter-slide-up-in", "otter-slide-up-out");
     setLctDrpdnMn('out', idx)
   }
   function setLctDrpdnMn(loc, idx) {

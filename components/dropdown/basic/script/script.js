@@ -35,6 +35,8 @@
     element.lastChild.previousElementSibling.ariaExpanded = true;
     element.classList.replace('otter-dropdown-close', 'otter-dropdown-open');
     drpdnMn[idx].classList.add(makePlcmntCls);
+    drpdnMn[idx].classList.add('otter-slide-up-in');
+    drpdnMn[idx].classList.replace("otter-slide-up-out", "otter-slide-up-in");
     drpdnMn[idx].classList.replace("otter-dropdown-hidden", "otter-dropdown-visible");
     setLctDrpdnMn('in', idx);
   }
@@ -47,7 +49,8 @@
     trgElmn[idx].lastChild.previousElementSibling.ariaExpanded = false;
     drpdnMn[idx].classList.replace("otter-dropdown-visible", "otter-dropdown-hidden");
     trgElmn[idx].classList.replace("otter-dropdown-open", "otter-dropdown-close");
-    setLctDrpdnMn('out', idx)
+    drpdnMn[idx].classList.replace("otter-slide-up-in", "otter-slide-up-out");
+    setLctDrpdnMn('out', idx);
   }
   function setLctDrpdnMn(loc, idx) {
     'use strict';
