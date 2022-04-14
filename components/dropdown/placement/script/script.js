@@ -40,11 +40,7 @@
   }
   function isDrpdnMnOpen(bool, idx) {
     'use strict';
-    if (bool) {
-      openDrpdnMn(idx);
-    } else {
-      closeDrpdnMn(idx);
-    }
+    bool ? openDrpdnMn(idx) : closeDrpdnMn(idx);
   }
   function closeDrpdnMn(idx) {
     'use strict';
@@ -148,7 +144,6 @@
       element.lastChild.textContent = logPreElmArry[i];
     }
   }
-
   function mouseEventLog(mouseState) {
     'use strict';
     const loadBtnItemText = getActiveBtnElmn().firstElementChild.innerText;
