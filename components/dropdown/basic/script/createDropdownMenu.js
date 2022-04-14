@@ -49,16 +49,7 @@
       // { dataIndexNumber: items[order].id }
     );
     wrapper.setAttribute('data-index-number', items[order].id);
-    // otter-dropdown-show-arrow
-    if ( (wrapper.classList.contains('otter-dropdown-show-arrow-light')) || (wrapper.classList.contains('otter-dropdown-show-arrow')) ) {
-      const arrowDiv = document.createElement('div');
-      arrowDiv.classList.add('otter-dropdown-arrow-light');
-      wrapper.append(arrowDiv);
-    } else if (wrapper.classList.contains('otter-dropdown-show-arrow-black')) {
-      const arrowDiv = document.createElement('div');
-      arrowDiv.classList.add('otter-dropdown-arrow-black');
-      wrapper.append(arrowDiv);
-    }
+    createArrow();
     const itemContainer = makeHtmlElement(
       'ul', 
       { class: 'otter-dropdown-menu otter-dropdown-menu-root otter-dropdown-menu-vertical otter-dropdown-menu-light' },
@@ -143,6 +134,20 @@
     itemContainer.append(item3);
     wrapper.append(itemContainer);
     container.append(wrapper);
+    createArrow();
+    function createArrow() {
+      'use strict';
+      createHtmlElement('div', 'otter-dropdown-arrow-light', 'otter-dropdown-show-arrow-light', 'otter-dropdown-show-arrow');
+      createHtmlElement('div', 'otter-dropdown-arrow-black', 'otter-dropdown-show-arrow-black');
+      function createHtmlElement(element, class1, param1, param2) {
+        'use strict';
+        if (wrapper.classList.contains(param1) || wrapper.classList.contains(param2)) {
+          const arrowDiv = document.createElement(element);
+          arrowDiv.classList.add(class1);
+          wrapper.append(arrowDiv);
+        }
+      }
+    }
     document.querySelector('body').append(container);
   }
   createDrpdnMn(0, 3);

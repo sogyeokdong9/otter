@@ -52,19 +52,20 @@
   function setLctDrpdnMn(loc, idx) {
     'use strict';
     const element = trgElmn[idx];
+    const isPointerAtCenter = element.getAttribute('data-pointer-at-center');
     const btnPlacement = element.dataset.placement;
     const CLIENT_WIDTH = (document.body.clientWidth);
     const CLIENT_HEIGHT = (document.body.clientHeight);
-    const JUST_LEFT_AXIS = (trgElmn[idx].offsetLeft);
+    const JUST_LEFT_AXIS = (trgElmn[idx].offsetLeft) + ( (isPointerAtCenter) ? (trgElmn[idx].offsetWidth / 2) : 0 );
     const JUST_CENTER_AXIS = ((trgElmn[idx].offsetLeft) + ( (trgElmn[idx].offsetWidth) - drpdnMn[idx].offsetWidth) / 2);
-    const JUST_RIGHT_AXIS = ((trgElmn[idx].offsetLeft) + ( (trgElmn[idx].offsetWidth) - drpdnMn[idx].offsetWidth));
+    const JUST_RIGHT_AXIS = ((trgElmn[idx].offsetLeft) + ( (trgElmn[idx].offsetWidth) - drpdnMn[idx].offsetWidth)) - ( (isPointerAtCenter) ? (trgElmn[idx].offsetWidth / 2) : 0 );
     const ALIGN_BTM_AXIS = (trgElmn[idx].offsetTop + trgElmn[idx].offsetHeight);
     const ALIGN_TOP_AXIS = (ALIGN_BTM_AXIS - drpdnMn[idx].offsetHeight - trgElmn[idx].offsetHeight);
     const SCROLL_Y = Math.round(window.scrollY);
     function setPlacement( val, para ) {
       'use strict';
       const alignTopBasis = ( ALIGN_TOP_AXIS > 0 && ALIGN_TOP_AXIS > SCROLL_Y );
-      const alignBtmBasis = ( ALIGN_BTM_AXIS > 0 && ALIGN_BTM_AXIS > SCROLL_Y && (CLIENT_HEIGHT / 1.5) > trgElmn[idx].offsetTop + drpdnMn[idx].clientHeight - trgElmn[idx].offsetHeight );
+      const alignBtmBasis = ( ALIGN_BTM_AXIS > 0 && ALIGN_BTM_AXIS > SCROLL_Y && (CLIENT_HEIGHT / 1.1) > trgElmn[idx].offsetTop + drpdnMn[idx].clientHeight - trgElmn[idx].offsetHeight );
       if (btnPlacement === val) {
         drpdnMn[idx].style.minWidth = (trgElmn[idx].offsetWidth) + 'px';
         drpdnMn[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : para + 'px';
@@ -76,8 +77,20 @@
         function defineAlignBasis(axis, val1, val2) {
           if(axis) {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val1 + 'px';
+            displayContainsClass(drpdnMn[idx], 'block', 'none', 'otter-dropdown-show-arrow-light', 'otter-dropdown-show-arrow-black');
           } else {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val2 + 'px';
+            displayContainsClass(drpdnMn[idx], 'none', 'block', 'otter-dropdown-show-arrow-light', 'otter-dropdown-show-arrow-black');
+          }
+          function displayContainsClass(obj, val1, val2, class1, class2, class3 ) {
+            'use strict';
+            if (
+              (obj.classList.contains(class1)) ||
+              (obj.classList.contains(class2)) ||
+              (obj.classList.contains(class3)) ) {
+              obj.firstChild.style.display = val1;
+              obj.lastChild.style.display = val2;
+            }
           }
         }
       }
@@ -176,9 +189,10 @@
     'use strict';
     console.log('resize event!');
     if( getActiveDrpdnMn() ) {
-      const JUST_LEFT_AXIS = (getActiveBtnElmn().offsetLeft);
+      const isPointerAtCenter = getActiveBtnElmn().getAttribute('data-pointer-at-center');
+      const JUST_LEFT_AXIS = (getActiveBtnElmn().offsetLeft) + ( (isPointerAtCenter) ? (getActiveBtnElmn().offsetWidth / 2) : 0 );
       const JUST_CENTER_AXIS = ((getActiveBtnElmn().offsetLeft) + ( (getActiveBtnElmn().offsetWidth) - getActiveDrpdnMn().offsetWidth) / 2);
-      const JUST_RIGHT_AXIS = ((getActiveBtnElmn().offsetLeft) + ( (getActiveBtnElmn().offsetWidth) - getActiveDrpdnMn().offsetWidth));
+      const JUST_RIGHT_AXIS = ((getActiveBtnElmn().offsetLeft) + ( (getActiveBtnElmn().offsetWidth) - getActiveDrpdnMn().offsetWidth)) - ( (isPointerAtCenter) ? (getActiveBtnElmn().offsetWidth / 2) : 0 );
       function defineBaseCoordinate(val) {
         'use strict';
         getActiveDrpdnMn().style.left = val + 'px';
