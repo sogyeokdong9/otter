@@ -1,5 +1,4 @@
 'use strict';
-
 (function () {
   'use strict';
   const items = [
@@ -25,7 +24,6 @@
       ]
     }
   ]
-
   function createDrpdnMn(order,count) {
     'use strict';
     const makeHtmlElement = function (tagName, ...attr) {
@@ -40,19 +38,17 @@
       }
       return element;
     };
-
     const container = makeHtmlElement(
       'div', 
       { style: 'position: absolute; top: 0px; left: 0px; width: 100%;' }
     );
     const wrapper = makeHtmlElement(
       'div', 
-      { class: 'otter-dropdown otter-dropdown-show-arrow-light otter-dropdown-visible otter-dropdown-placement-default' },
+      { class: 'otter-dropdown otter-dropdown-visible otter-dropdown-placement-default' },
       { style: 'min-width: 98px; left: -136px; top: -188px;' }
       // { dataIndexNumber: items[order].id }
     );
     wrapper.setAttribute('data-index-number', items[order].id);
-
     // otter-dropdown-show-arrow
     if ( (wrapper.classList.contains('otter-dropdown-show-arrow-light')) || (wrapper.classList.contains('otter-dropdown-show-arrow')) ) {
       const arrowDiv = document.createElement('div');
@@ -63,7 +59,6 @@
       arrowDiv.classList.add('otter-dropdown-arrow-black');
       wrapper.append(arrowDiv);
     }
-
     const itemContainer = makeHtmlElement(
       'ul', 
       { class: 'otter-dropdown-menu otter-dropdown-menu-root otter-dropdown-menu-vertical otter-dropdown-menu-light' },
@@ -72,7 +67,6 @@
       // { dataMenuLsit : true }
     );
     itemContainer.setAttribute('data-menu-list', true);
-
     const groupOfItmes = [ 
       { 
         id: 1, 
@@ -104,7 +98,6 @@
     item1.setAttribute('data-menu-id', items[order].menu[0].id);
     item2.setAttribute('data-menu-id', items[order].menu[1].id);
     item3.setAttribute('data-menu-id', items[order].menu[2].id);
-
     const groupOfSpans = [null, null, null];
     const [span1, span2, span3] = groupOfSpans.map((item) =>
       makeHtmlElement(
@@ -139,7 +132,6 @@
         'a', { href: item.href }, { target: item.target }, { rel: item.rel }, { textContent: item.textContent }
       )
     );
-
     span1.append(a1);
     span2.append(a2);
     span3.append(a3);

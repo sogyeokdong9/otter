@@ -4,7 +4,6 @@
   const cntnrElmnt = document.querySelector('.wrap');
   const trgElmn = cntnrElmnt.querySelectorAll('.otter-dropdown-trigger');
   const drpdnMn = document.querySelectorAll('.otter-dropdown');
-
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
     let CLICK_COUNT = 0;
@@ -20,18 +19,8 @@
         mouseEventLog('click: visible')
         recordLog();
       }
-      console.log(CLICK_COUNT);
     })
-    // for (let i = 0; i < drpdnMn.length; i++) {
-    //   const element = drpdnMn[i];
-    //   element.addEventListener('mouseleave', function() {
-    //     'use strict';
-    //     isDrpdnMnOpen(false, i);
-    //     // mouseEventLog('mouseleave')
-    //   })
-    // }
   }
-
   function openDrpdnMn(idx) {
     'use strict';
     for (let i = 0; i < drpdnMn.length; i++) {
@@ -49,16 +38,10 @@
     drpdnMn[idx].classList.replace("otter-dropdown-hidden", "otter-dropdown-visible");
     setLctDrpdnMn('in', idx);
   }
-  
   function isDrpdnMnOpen(bool, idx) {
     'use strict';
-    if (bool) {
-      openDrpdnMn(idx);
-    } else {
-      closeDrpdnMn(idx);
-    }
+    bool ? openDrpdnMn(idx) : closeDrpdnMn(idx);
   }
-
   function closeDrpdnMn(idx) {
     'use strict';
     trgElmn[idx].lastChild.previousElementSibling.ariaExpanded = false;
@@ -66,7 +49,6 @@
     trgElmn[idx].classList.replace("otter-dropdown-open", "otter-dropdown-close");
     setLctDrpdnMn('out', idx)
   }
-
   function setLctDrpdnMn(loc, idx) {
     'use strict';
     const element = trgElmn[idx];
@@ -108,7 +90,6 @@
     setPlacement('bottom', JUST_CENTER_AXIS);
     setPlacement('bottomRight', JUST_RIGHT_AXIS);
   }
-
   function toStringTime() {
     'use strict';
     let result;
@@ -117,28 +98,24 @@
     const timeStr2 = time.getUTCMilliseconds();
     return result = timeStr1 + ':' +timeStr2;
   }
-
   function getActiveBtnElmn() {
     'use strict';
     let isBtn;
     const activeElmn = cntnrElmnt.querySelector('.otter-dropdown-open');
     return isBtn = activeElmn;
-  }
-  
+  } 
   function getActiveDrpdnMn() {
     'use strict';
     let isDrpdnMn;
     const activeElmn = document.querySelector('.otter-dropdown-visible');
     return isDrpdnMn = activeElmn;
   }
-
   function recordLog() {
     const logMsEvnt = [];
     const logActElmArry = [];
     const logPreElmArry = [];
     const getLog = cntnrElmnt.querySelectorAll('.log-item');
     logMsEvnt.push(getLog)
-
     for (let i = 0; i < getLog.length; i++) {
       const element = getLog[i];
       logActElmArry.push(element.childNodes[2].outerText);
@@ -154,7 +131,6 @@
       element.lastChild.textContent = logPreElmArry[i];
     }
   }
-
   function mouseEventLog(mouseState) {
     'use strict';
     const loadBtnItemText = getActiveBtnElmn().firstElementChild.innerText;
@@ -165,7 +141,6 @@
     const loadDrpdnMnItemIdx = getActiveDrpdnMn().getAttribute('data-index-number');
     const loadDrpdnMnArrow = getActiveDrpdnMn().classList[1];
     const logElmnt = cntnrElmnt.querySelector('.event-log');
-    
     const makeHtmlElement = function (tagName, ...attr) {
       const element = document.createElement(tagName);
       for (let prop of attr) {
@@ -178,7 +153,6 @@
       }
       return element;
     };
-
     const itemContainer = makeHtmlElement('li', { class: 'log-item' });
     const groopOfPairs = [ 
       { id: 1, name: mouseState, class: 'specified' },
@@ -198,7 +172,6 @@
     itemContainer.append(item1, item2, item3, item4, item5, item6, item7, item8, item9, item10);
     logElmnt.append(itemContainer);
   }
-
   window.addEventListener('resize', function(){
     'use strict';
     console.log('resize event!');
@@ -206,7 +179,6 @@
       const JUST_LEFT_AXIS = (getActiveBtnElmn().offsetLeft);
       const JUST_CENTER_AXIS = ((getActiveBtnElmn().offsetLeft) + ( (getActiveBtnElmn().offsetWidth) - getActiveDrpdnMn().offsetWidth) / 2);
       const JUST_RIGHT_AXIS = ((getActiveBtnElmn().offsetLeft) + ( (getActiveBtnElmn().offsetWidth) - getActiveDrpdnMn().offsetWidth));
-
       function defineBaseCoordinate(val) {
         'use strict';
         getActiveDrpdnMn().style.left = val + 'px';
@@ -226,5 +198,4 @@
       }
     }
   });
-
 })();
