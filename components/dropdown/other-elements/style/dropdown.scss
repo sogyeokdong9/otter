@@ -116,12 +116,7 @@ $dropdowns-data: (
     box-shadow: 2px 2px 5px -2px var(--otter-dropdown-arrow-bottom-box-shadow);
   }
 }
-.otter-dropdown-placement-top {
-  > .otter-dropdown-arrow-black,
-  > .otter-dropdown-arrow-light {
-    left: calc(50% - 9px);
-  }
-}
+.otter-dropdown-placement-top,
 .otter-dropdown-placement-bottom {
   > .otter-dropdown-arrow-black,
   > .otter-dropdown-arrow-light {
@@ -136,7 +131,6 @@ $dropdowns-data: (
     left: 12px;
   }
 }
-
 .otter-dropdown-placement-topRight,
 .otter-dropdown-placement-bottomRight {
   > .otter-dropdown-arrow-black,
@@ -144,7 +138,6 @@ $dropdowns-data: (
     right: 12px;
   }
 }
-
 .otter-dropdown-placement-bottomLeft,
 .otter-dropdown-placement-bottomRight,
 .otter-dropdown-placement-bottom {
@@ -154,7 +147,6 @@ $dropdowns-data: (
     transform: rotate(0) translateY(0);
   }
 }
-
 .otter-dropdown-placement-topLeft,
 .otter-dropdown-placement-topRight,
 .otter-dropdown-placement-top {
@@ -174,8 +166,6 @@ $dropdowns-data: (
   line-height: 0;
   background-color: #f0f0f0;
 }
-
-
 .otter-dropdown-menu-horizontal {
   .otter-dropdown-menu-item-divider,
   .otter-dropdown-menu-submenu-title-divider {
@@ -186,9 +176,7 @@ $dropdowns-data: (
     line-height: 32px;
     background-color: #f0f0f0;
   }
-
 }
-
 .otter-dropdown-menu-black {
   .otter-dropdown-menu-item-divider,
   .otter-dropdown-menu-submenu-title-divider {
@@ -218,7 +206,6 @@ $dropdowns-data: (
   display: flex;
   align-items: center;
 }
-
 .otter-dropdown-menu-title-content {
   flex: auto;
   > a {
@@ -237,7 +224,6 @@ $dropdowns-data: (
     }
   }
 }
-
 .otter-dropdown-menu-vertical {
   display: flex;
   flex-direction: column;
@@ -277,7 +263,6 @@ $dropdowns-data: (
     }
   }
 }
-
 $dropdowns-data: (
   light: light,
   black: black
@@ -311,14 +296,16 @@ $dropdowns-data: (
   }
 }
 
-
 .otter-slide-up-in {
   animation: otterSlideUpIn  .3s linear;;
+}
+.otter-slide-up-out {
+  animation: otterSlideUpOut  .3s linear;;
 }
 
 @-webkit-keyframes otterSlideUpIn {
   0% {
-    transform: scaleY(0.8);
+    transform: scaleY(0.7);
     transform-origin: 0% 0%;
     opacity: 0;
   }
@@ -330,7 +317,7 @@ $dropdowns-data: (
 }
 @keyframes otterSlideUpIn {
   0% {
-    transform: scaleY(0.8);
+    transform: scaleY(0.7);
     transform-origin: 0% 0%;
     opacity: 0;
   }
@@ -341,11 +328,6 @@ $dropdowns-data: (
   }
 }
 
-
-.otter-slide-up-out {
-  animation: otterSlideUpOut  .3s linear;;
-}
-
 @-webkit-keyframes otterSlideUpOut {
   0% {
     transform: scaleY(1);
@@ -353,7 +335,7 @@ $dropdowns-data: (
     opacity: 1;
   }
   100% {
-    transform: scaleY(0.8);
+    transform: scaleY(0.7);
     transform-origin: 0% 0%;
     opacity: 0;
   }
@@ -365,7 +347,7 @@ $dropdowns-data: (
     opacity: 1;
   }
   100% {
-    transform: scaleY(0.8);
+    transform: scaleY(0.7);
     transform-origin: 0% 0%;
     opacity: 0;
   }

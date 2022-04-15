@@ -44,7 +44,7 @@
     );
     const wrapper = makeHtmlElement(
       'div', 
-      { class: 'otter-dropdown otter-dropdown-visible otter-dropdown-placement-default' },
+      { class: 'otter-dropdown otter-dropdown-visible' },
       { style: 'min-width: 98px; left: -136px; top: -188px;' }
       // { dataIndexNumber: items[order].id }
     );
