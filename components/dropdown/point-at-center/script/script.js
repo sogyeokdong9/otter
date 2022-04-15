@@ -118,6 +118,7 @@
     const element = drpdnMn[idx];
     element.classList.add(val1);
   }
+
   function setDrpdnMnClsRemove(idx, val1) {
     'use strict';
     const element = drpdnMn[idx];
@@ -171,12 +172,9 @@
             }
           }
           if(axis) {
-            console.log(1);
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val1 + 'px';
             displayContainsClass(drpdnMn[idx], 'block', 'none', 'otter-dropdown-show-arrow-light', 'otter-dropdown-show-arrow-black');
           } else {
-            console.log(2);
-            console.log(getTrgAttrPlcmnt(idx));
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val2 + 'px';
             displayContainsClass(drpdnMn[idx], 'none', 'block', 'otter-dropdown-show-arrow-light', 'otter-dropdown-show-arrow-black');
             if (

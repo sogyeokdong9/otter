@@ -8,7 +8,7 @@
   for (let i = 0; i < trgElmn.length; i++) {
     let CLICK_COUNT = 0;
     const element = trgElmn[i];
-    element.addEventListener('click', function() {
+    element.addEventListener('click', function(event) {
       'use strict';
       CLICK_COUNT++;
       if (CLICK_COUNT % 2 === 0) {
@@ -19,6 +19,7 @@
         eventLog('click')
         setPrivousElmn();
       }
+      event.preventDefault();
     })
   }
 
@@ -43,6 +44,12 @@
     }
   }
 
+  function getTrgAttrPlcmnt(idx) {
+    const element = trgElmn[idx];
+    const result = element.getAttribute('data-placement');
+    return result;
+  }
+
   function createPlcmntClsNm(idx) {
     'use strict';
     const element = trgElmn[idx];
@@ -51,7 +58,7 @@
     const positionPlcmnt = (hasAttrPlcmnt) ? element.getAttribute('data-placement') : 'default';
     if (!hasAttrPlcmnt) { element.setAttribute('data-placement', 'default'); }
     const makePlcmntCls = prefixPlcmnt + positionPlcmnt;
-    return makePlcmntCls; 
+    return makePlcmntCls;
   }
 
   function openDrpdnMn(idx) {
@@ -59,22 +66,37 @@
     const element = trgElmn[idx];
     closeAllDrpdnMn();
     setDrpdnMnExpanded(idx);
-    setDrpdnMnExpanded(idx);
     setTrgClsReplace(idx, 'otter-dropdown-close', 'otter-dropdown-open');
     setDrpdnMnClsAdd(idx, createPlcmntClsNm(idx));
-    setDrpdnMnClsAdd(idx, 'otter-slide-up-in');
-    setDrpdnMnClsReplace(idx, "otter-slide-up-out", "otter-slide-up-in");
+    if (
+      getTrgAttrPlcmnt(idx) === undefined ||
+      getTrgAttrPlcmnt(idx) === '' ||
+      getTrgAttrPlcmnt(idx) === 'default' ||
+      getTrgAttrPlcmnt(idx) === 'bottomLeft' ||
+      getTrgAttrPlcmnt(idx) === 'bottom' ||
+      getTrgAttrPlcmnt(idx) === 'bottomRight' ) {
+      setDrpdnMnClsRemove(idx, 'otter-slide-down-out');
+      setDrpdnMnClsRemove(idx, 'otter-slide-down-in');
+      setDrpdnMnClsAdd(idx, 'otter-slide-up-in');
+      setDrpdnMnClsReplace(idx, "otter-slide-up-out", "otter-slide-up-in");
+    } else {
+      setDrpdnMnClsRemove(idx, 'otter-slide-up-out');
+      setDrpdnMnClsRemove(idx, 'otter-slide-up-in');
+      setDrpdnMnClsAdd(idx, 'otter-slide-down-in');
+      setDrpdnMnClsReplace(idx, "otter-slide-down-out", "otter-slide-down-in");
+    }
     setDrpdnMnClsReplace(idx, "otter-dropdown-hidden", "otter-dropdown-visible");
     setLctDrpdnMn('in', idx);
   }
 
   function closeDrpdnMn(idx) {
     'use strict';
-    trgElmn[idx].lastChild.previousElementSibling.ariaExpanded = false;
-    drpdnMn[idx].classList.replace("otter-dropdown-visible", "otter-dropdown-hidden");
-    trgElmn[idx].classList.replace("otter-dropdown-open", "otter-dropdown-close");
-    drpdnMn[idx].classList.replace("otter-slide-up-in", "otter-slide-up-out");
-    setLctDrpdnMn('out', idx)
+    setDrpdnMnExpanded(idx);
+    setTrgClsReplace(idx, 'otter-dropdown-open', 'otter-dropdown-close');
+    setDrpdnMnClsReplace(idx, "otter-slide-up-in", "otter-slide-up-out");
+    setDrpdnMnClsReplace(idx, "otter-slide-down-in", "otter-slide-down-out");
+    setDrpdnMnClsReplace(idx, "otter-dropdown-visible", "otter-dropdown-hidden");
+    setLctDrpdnMn('out', idx);
   }
 
   function closeAllDrpdnMn() {
@@ -96,6 +118,12 @@
     element.classList.add(val1);
   }
 
+  function setDrpdnMnClsRemove(idx, val1) {
+    'use strict';
+    const element = drpdnMn[idx];
+    element.classList.remove(val1);
+  }
+
   function setDrpdnMnClsReplace(idx, val1, val2) {
     'use strict';
     const element = drpdnMn[idx];
@@ -114,7 +142,7 @@
     const GET_INTER_BTN_DROPDOWN_MENU_VALUE = trgElmn[idx].offsetWidth - drpdnMn[idx].offsetWidth;
     const JUST_LEFT_AXIS = trgElmn[idx].offsetLeft + GET_ARROW_POINTING_AT_CENTER_VALUE;
     const JUST_CENTER_AXIS = trgElmn[idx].offsetLeft + ( GET_INTER_BTN_DROPDOWN_MENU_VALUE / 2 );
-    const JUST_RIGHT_AXIS = trgElmn[idx].offsetLeft + GET_INTER_BTN_DROPDOWN_MENU_VALUE - GET_ARROW_POINTING_AT_CENTER_VALUE; 
+    const JUST_RIGHT_AXIS = trgElmn[idx].offsetLeft + GET_INTER_BTN_DROPDOWN_MENU_VALUE - GET_ARROW_POINTING_AT_CENTER_VALUE;
     const ALIGN_BTM_AXIS = trgElmn[idx].offsetTop + trgElmn[idx].offsetHeight;
     const ALIGN_TOP_AXIS = ALIGN_BTM_AXIS - drpdnMn[idx].offsetHeight - trgElmn[idx].offsetHeight;
 
@@ -148,6 +176,23 @@
           } else {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val2 + 'px';
             displayContainsClass(drpdnMn[idx], 'none', 'block', 'otter-dropdown-show-arrow-light', 'otter-dropdown-show-arrow-black');
+            if (
+              getTrgAttrPlcmnt(idx) === undefined ||
+              getTrgAttrPlcmnt(idx) === '' ||
+              getTrgAttrPlcmnt(idx) === 'default' ||
+              getTrgAttrPlcmnt(idx) === 'bottomLeft' ||
+              getTrgAttrPlcmnt(idx) === 'bottom' ||
+              getTrgAttrPlcmnt(idx) === 'bottomRight' ) {
+              setDrpdnMnClsRemove(idx, 'otter-slide-up-out');
+              setDrpdnMnClsRemove(idx, 'otter-slide-up-in');
+              setDrpdnMnClsAdd(idx, 'otter-slide-down-in');
+              setDrpdnMnClsReplace(idx, "otter-slide-down-out", "otter-slide-down-in");
+            } else {
+              setDrpdnMnClsRemove(idx, 'otter-slide-down-out');
+              setDrpdnMnClsRemove(idx, 'otter-slide-down-in');
+              setDrpdnMnClsAdd(idx, 'otter-slide-up-in');
+              setDrpdnMnClsReplace(idx, "otter-slide-up-out", "otter-slide-up-in");
+            }
           }
         }
       }
@@ -213,7 +258,7 @@
     const result = activeElmn;
     return result;
   }
-  
+
   function eventLog(mouseState) {
     'use strict';
     const loadBtnItemText = getActiveBtnElmn().firstElementChild.innerText;
@@ -237,7 +282,7 @@
       return element;
     };
     const itemContainer = makeHtmlElement('li', { class: 'log-item' });
-    const groopOfPairs = [ 
+    const groopOfPairs = [
       { id: 1, name: mouseState, class: 'specified' },
       { id: 2, name: getStringTime(), class: 'log-time' },
       { id: 3, name: loadBtnItemIdx, class: 'trigger-idx' },
@@ -255,6 +300,7 @@
     itemContainer.append(item1, item2, item3, item4, item5, item6, item7, item8, item9, item10);
     logElmnt.append(itemContainer);
   }
+
   window.addEventListener('resize', function(){
     'use strict';
     console.log('resize event!');
@@ -269,8 +315,8 @@
         'use strict';
         getActiveDrpdnMn().style.left = val + 'px';
       }
-      if ( getActiveDrpdnMn().classList.contains('otter-dropdown-placement-default') || 
-        getActiveDrpdnMn().classList.contains('otter-dropdown-placement-bottomLeft') || 
+      if ( getActiveDrpdnMn().classList.contains('otter-dropdown-placement-default') ||
+        getActiveDrpdnMn().classList.contains('otter-dropdown-placement-bottomLeft') ||
         getActiveDrpdnMn().classList.contains('otter-dropdown-placement-topLeft') ) {
         defineBaseCoordinate(JUST_LEFT_AXIS);
       } else if ( getActiveDrpdnMn().classList.contains('otter-dropdown-placement-top') ||
