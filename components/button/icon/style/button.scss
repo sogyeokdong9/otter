@@ -410,10 +410,10 @@ button[class*="otter-btn"] {
 }
 %otter-btn-disabled-icon {
   .magnifying-glass {
-    border-color: var(--otter-icon-disabled-border);
+    border-color: currentcolor;
   }
   .magnifying-glass::before {
-    background: var(--otter-icon-disabled-before-background);
+    background: currentcolor;
   }
 }
 

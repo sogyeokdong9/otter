@@ -22,12 +22,6 @@
   --otter-primary-color-hover: rgba(64, 169, 255, 1);
   --otter-primary-color-activeive: rgba(9, 109, 217, 1);
   --otter-primary-color-outline: rgba(24, 144, 255, 0.20);
-  --otter-icon-before-background: rgba(0, 0, 0, 0.85);
-  --otter-icon-border: rgba(0, 0, 0, 0.85);
-  --otter-icon: rgba(0, 0, 0, 0.85);
-  --otter-icon-disabled-before-background: rgba(0, 0, 0, 0.25);
-  --otter-icon-disabled-border: rgba(0, 0, 0, 0.25);
-  --otter-icon-disabled: rgba(0, 0, 0, 0.25);
   --otter-dropdown-background: rgba(255, 255, 255, 1);
   --otter-dropdown: rgba(0, 0, 0, 0.85);
   --otter-dropdown-item: rgba(0, 0, 0, 0.85);
@@ -158,6 +152,7 @@
   --otter-input-disabled-active-box-shadow: none;
   --otter-input-disabled-active: rgba(0, 0, 0, 0.25);
   --otter-input-disabled-active-text-shadow: none;
+  --otter-btn-background-ghost-container: rgba(36, 41, 47, 1);
   --otter-btn-background-ghost-border: rgba(255, 255, 255, 1);
   --otter-btn-background-ghost-background: rgba(0, 0, 0, 0);
   --otter-btn-background-ghost-box-shadow: rgba(0, 0, 0, 0.016);
@@ -188,11 +183,6 @@
   --otter-btn-dangerous-active-box-shadow: rgba(0, 0, 0, 0.016);
   --otter-btn-dangerous-active: rgba(255, 77, 79, 1);
   --otter-btn-dangerous-active-text-shadow: none;
-  --otter-btn-dangerous-icon-before-background: rgba(255, 77, 79, 1);
-  --otter-btn-dangerous-icon-border: rgba(255, 77, 79, 1);
-  --otter-btn-dangerous-icon: rgba(255, 77, 79, 1);
-  --otter-btn-dangerous-icon-before-hover-border: rgba(255, 120, 177, 1);
-  --otter-btn-dangerous-icon-hover: rgba(255, 120, 177, 1);
   --otter-btn-orizin-dangerous-border: rgba(255, 77, 79, 1);
   --otter-btn-orizin-dangerous-background: rgba(255, 77, 79, 1);
   --otter-btn-orizin-dangerous-box-shadow: rgba(0, 0, 0, 0.043);
@@ -253,9 +243,6 @@
   --otter-btn-primary-active-box-shadow: rgba(0, 0, 0, 0.043);
   --otter-btn-primary-active: rgba(255, 255, 255, 1);
   --otter-btn-primary-active-text-shadow: rgba(0, 0, 0, 0.12);
-  --otter-btn-primary-icon-before-background: rgba(255, 255, 255, 1);
-  --otter-btn-primary-icon-border: rgba(255, 255, 255, 1);
-  --otter-btn-primary-icon: rgba(255, 255, 255, 1);
   --otter-btn-default-border: rgba(217, 217, 217, 1);
   --otter-btn-default-background: rgba(255, 255, 255, 1);
   --otter-btn-default-box-shadow: rgba(0, 0, 0, 0.016);
@@ -271,8 +258,6 @@
   --otter-btn-default-active-box-shadow: rgba(0, 0, 0, 0.004);
   --otter-btn-default-active: rgba(9, 109, 217, 1);
   --otter-btn-default-active-text-shadow: none;
-  --otter-btn-default-icon-before-hover-border: rgba(64, 169, 255, 1);
-  --otter-btn-default-icon-hover: rgba(64, 169, 255, 1);
   --otter-btn-dashed-border: rgba(217, 217, 217, 1);
   --otter-btn-dashed-background: rgba(255, 255, 255, 1);
   --otter-btn-dashed-box-shadow: rgba(0, 0, 0, 0.016);
@@ -288,8 +273,6 @@
   --otter-btn-dashed-active-box-shadow: rgba(0, 0, 0, 0.016);
   --otter-btn-dashed-active: rgba(9, 109, 217, 1);
   --otter-btn-dashed-active-text-shadow: none;
-  --otter-btn-dashed-icon-before-hover-border: rgba(64, 169, 255, 1);
-  --otter-btn-dashed-icon-hover: rgba(64, 169, 255, 1);
   --otter-btn-text-border: rgba(0, 0, 0, 0);
   --otter-btn-text-background: rgba(0, 0, 0, 0);
   --otter-btn-text-box-shadow: none;
@@ -305,8 +288,6 @@
   --otter-btn-text-active-box-shadow: none;
   --otter-btn-text-active: rgba(0, 0, 0, 0.85);
   --otter-btn-text-active-text-shadow: none;
-  --otter-btn-text-icon-before-hover-border: rgba(0, 0, 0, 0.85);
-  --otter-btn-text-icon-hover: rgba(0, 0, 0, 0.85);
   --otter-btn-link-border: rgba(0, 0, 0, 0);
   --otter-btn-link-background: rgba(0, 0, 0, 0);
   --otter-btn-link-box-shadow: none;
@@ -322,9 +303,6 @@
   --otter-btn-link-active-box-shadow: none;
   --otter-btn-link-active:rgba(9, 109, 217, 1);
   --otter-btn-link-active-text-shadow: none;
-  --otter-btn-link-icon-before-background: rgba(24, 144, 255, 1);
-  --otter-btn-link-icon-border: rgba(24, 144, 255, 1);
-  --otter-btn-link-icon: rgba(24, 144, 255, 1);
   --otter-btn-disabled-reset-border: rgba(0, 0, 0, 0);
   --otter-btn-disabled-reset-background: rgba(0, 0, 0, 0);
   --otter-btn-disabled-reset: rgba(0, 0, 0, 0.25);
