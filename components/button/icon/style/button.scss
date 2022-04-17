@@ -1,0 +1,466 @@
+@charset 'utf-8';
+
+$btns-data: (
+  otter-btn: solid,
+  default: solid,
+  primary: solid,
+  dashed: dashed,
+  text: none,
+  link: none,
+  dangerous: solid,
+  background-ghost: solid,
+);
+
+// @each문울 통하여 자동생성
+// otter-btn, otter-btn-default, otter-btn-primary, otter-btn-dashed,  otter-btn-text
+// otter-btn-link, otter-btn-dangerous
+@each $btn, $border in $btns-data {
+  @if $btn == otter-btn {
+    .otter-btn {
+      height: 32px;
+      padding: 4px 15px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      background-image: none;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.5715;
+      transition: all .3s cubic-bezier(0.22, 0.68, 0, 1);
+      border-color: var(--otter-btn-default-border);
+      background-color: var(--otter-btn-default-background);
+      box-shadow: 0 2px 0 var(--otter-btn-default-box-shadow);
+      color: var(--otter-btn-default);
+      text-shadow: var(--otter-btn-default-text-shadow);
+      &:hover,
+      &:focus {
+        border-color: var(--otter-btn-default-hover-border);
+        background-color: var(--otter-btn-default-hover-background);
+        box-shadow: var(--otter-btn-default-hover-box-shadow);
+        color: var(--otter-btn-default-hover);
+        text-shadow: var(--otter-btn-default-hover-text-shadow);
+        text-decoration: none;
+      }
+      &:active {
+        border-color: var(--otter-btn-default-active-border);
+        background-color: var(--otter-btn-default-active-background);
+        box-shadow: 0 2px 0 var(--otter-btn-default-active-box-shadow);
+        color: var(--otter-btn-default-active);
+        text-shadow: 0 2px 0 var(--otter-btn-default-active-text-shadow);
+      }
+      &:hover>a:only-child,
+      &:focus>a:only-child {
+        @extend %otter-btn-a-child;
+      }
+      &:hover>a:only-child:after,
+      &:focus>a:only-child:after {
+        @extend %otter-btn-a-child-after;
+      }
+    }
+  } @else {
+    .otter-btn-#{$btn} {
+      border-style: #{$border};
+      border-color: var(--otter-btn-#{$btn}-border);
+      background-color: var(--otter-btn-#{$btn}-background);
+      box-shadow: 0 2px 0 var(--otter-btn-#{$btn}-box-shadow);
+      color: var(--otter-btn-#{$btn});
+      text-shadow: 0 2px 0 var(--otter-btn-#{$btn}-text-shadow);
+      &:hover,
+      &:focus {
+        border-color: var(--otter-btn-#{$btn}-hover-border);
+        background-color: var(--otter-btn-#{$btn}-hover-background);
+        box-shadow: 0 2px 0 var(--otter-btn-#{$btn}-hover-box-shadow);
+        color: var(--otter-btn-#{$btn}-hover);
+        text-shadow: 0 2px 0 var(--otter-btn-#{$btn}-hover-text-shadow);
+      }
+      &:active {
+        border-color: var(--otter-btn-#{$btn}-active-border);
+        background-color: var(--otter-btn-#{$btn}-active-background);
+        box-shadow: 0 2px 0 var(--otter-btn-#{$btn}-active-box-shadow);
+        color: var(--otter-btn-#{$btn}-active);
+        text-shadow: 0 2px 0 var(--otter-btn-#{$btn}-active-text-shadow);
+      }
+      &:hover>a:only-child,
+      &:focus>a:only-child {
+        @extend %otter-btn-a-child;
+      }
+      &:hover>a:only-child:after,
+      &:focus>a:only-child:after {
+        @if $btn == background-ghost {
+          @extend %otter-btn-ghost-a-child-after;
+        } else {
+          @extend %otter-btn-a-child-after;
+        }
+      }
+    }
+  }
+}
+
+// @each문 자동생성 이후 후처리
+button[class*="otter-btn-link"], button[class*="otter-btn-text"] {
+  border: none;
+}
+button[class*="otter-btn-dashed"] {
+  border-style: dashed;
+}
+button[disabled] {
+  @extend %otter-btn-disabled-reset;
+}
+button:not(.otter-btn-background-ghost) {
+  &[class*="otter-btn-dangerous"] {
+    &:not([disabled]) {
+      &.otter-btn-primary {
+        @extend %otter-btn-orizin-dangerous;
+      }
+    }
+    // &[disabled] { content: normal; }
+  }
+  &:not(.otter-btn-dangerous) {
+    &:not([disabled]) { content: normal; }
+    // &[disabled] { content: normal; }
+  }
+}
+button[class*="otter-btn-background-ghost"] {
+  &[class*="otter-btn-dangerous"] {
+    &:not([disabled]) {
+      @extend %otter-btn-ghost-dangerous;
+      &.otter-btn-primary {
+        color: var(--otter-btn-dangerous);
+        border-color: var(--otter-btn-dangerous-border);
+      }
+      &.otter-btn-link {
+        color: var(--otter-btn-dangerous);
+      }
+    }
+    // &[disabled] { content: normal; }
+  }
+  &:not(.otter-btn-dangerous) {
+    &:not([disabled]) {
+      @extend %otter-btn-ghost;
+      &.otter-btn-primary {
+        color: var(--otter-btn-ghost-active);
+        border-color: var(--otter-btn-ghost-active-border);
+      }
+      &.otter-btn-link {
+        color: var(--otter-btn-ghost-active);
+      }
+    }
+    // &[disabled] { content: normal; }
+  }
+}
+.otter-btn-background-ghost {
+  &.otter-btn-primary > a:only-child,
+  &.otter-btn-primary:hover > a:only-child,
+  &.otter-btn-primary:focus > a:only-child,
+  &.otter-btn-primary:active > a:only-child,
+  &.otter-btn-primary[disabled] > a:only-child,
+  &.otter-btn-primary[disabled]:hover > a:only-child,
+  &.otter-btn-primary[disabled]:focus > a:only-child,
+  &.otter-btn-primary[disabled]:active > a:only-child,
+  &.otter-btn-dangerous > a:only-child,
+  &.otter-btn-dangerous:hover > a:only-child,
+  &.otter-btn-dangerous:focus > a:only-child,
+  &.otter-btn-dangerous:active > a:only-child,
+  &.otter-btn-dangerous[disabled] > a:only-child,
+  &.otter-btn-dangerous[disabled]:hover > a:only-child,
+  &.otter-btn-dangerous[disabled]:focus > a:only-child,
+  &.otter-btn-dangerous[disabled]:active > a:only-child,
+  &.otter-btn-dangerous.otter-btn-link > a:only-child,
+  &.otter-btn-dangerous.otter-btn-link:hover > a:only-child,
+  &.otter-btn-dangerous.otter-btn-link:focus > a:only-child,
+  &.otter-btn-dangerous.otter-btn-link:active > a:only-child,
+  &.otter-btn-dangerous.otter-btn-link[disabled] > a:only-child,
+  &.otter-btn-dangerous.otter-btn-link[disabled]:hover > a:only-child,
+  &.otter-btn-dangerous.otter-btn-link[disabled]:focus > a:only-child,
+  &.otter-btn-dangerous.otter-btn-link[disabled]:active > a:only-child {
+    @extend %otter-btn-ghost-a-child;
+  }
+}
+.otter-btn-background-ghost {
+  &.otter-btn-primary > a:only-child::after,
+  &.otter-btn-primary:hover > a:only-child::after,
+  &.otter-btn-primary:focus > a:only-child::after,
+  &.otter-btn-primary:active > a:only-child::after,
+  &.otter-btn-primary[disabled] > a:only-child::after,
+  &.otter-btn-primary[disabled]:hover > a:only-child::after,
+  &.otter-btn-primary[disabled]:focus > a:only-child::after,
+  &.otter-btn-primary[disabled]:active > a:only-child::after,
+  &.otter-btn-dangerous > a:only-child::after,
+  &.otter-btn-dangerous:hover > a:only-child::after,
+  &.otter-btn-dangerous:focus > a:only-child::after,
+  &.otter-btn-dangerous:active > a:only-child::after,
+  &.otter-btn-dangerous[disabled] > a:only-child::after,
+  &.otter-btn-dangerous[disabled]:hover > a:only-child::after,
+  &.otter-btn-dangerous[disabled]:focus > a:only-child::after,
+  &.otter-btn-dangerous[disabled]:active > a:only-child::after,
+  &.otter-btn-dangerous.otter-btn-link > a:only-child::after,
+  &.otter-btn-dangerous.otter-btn-link:hover > a:only-child::after,
+  &.otter-btn-dangerous.otter-btn-link:focus > a:only-child::after,
+  &.otter-btn-dangerous.otter-btn-link:active > a:only-child::after,
+  &.otter-btn-dangerous.otter-btn-link[disabled] > a:only-child::after,
+  &.otter-btn-dangerous.otter-btn-link[disabled]:hover > a:only-child::after,
+  &.otter-btn-dangerous.otter-btn-link[disabled]:focus > a:only-child::after,
+  &.otter-btn-dangerous.otter-btn-link[disabled]:active > a:only-child::after {
+    @extend %otter-btn-ghost-a-child-after;
+  }
+}
+
+// size
+.otter-btn {
+  &-lg {
+    height: 40px;
+    padding: 6.4px 15px;
+    border-radius: 2px;
+    font-size: 16px;
+  }
+  &-sm {
+    height: 24px;
+    padding: 0 7px;
+    border-radius: 2px;
+    font-size: 14px;
+  }
+}
+
+// block
+.otter-btn {
+  &.otter-btn-block {
+    width: 100%;
+  }
+}
+
+// ghost
+.ghost-container {
+  padding: 1em 0;
+  background: var(--otter-btn-background-ghost-container);
+}
+
+// icon
+.otter-btn-icon-only {
+	width: 32px;
+	height: 32px;
+	padding: 2.4px 0;
+	font-size: 16px;
+	border-radius: 2px;
+	// vertical-align: -3px
+  > * {
+    font-size: 16px;
+  }
+ > .ottericon {
+    display: flex;
+    justify-content: center
+  }
+  &.otter-btn-lg {
+    width: 40px;
+    height: 40px;
+    padding: 4.9px 0;
+    border-radius: 2px;
+    font-size: 18px;
+    > * {
+      font-size: 18px;
+    }
+  }
+  &.otter-btn-sm {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border-radius: 2px;
+    font-size: 14px;
+    > * {
+      font-size: 14px;
+    }
+  }
+
+}
+a.otter-btn-icon-only {
+	vertical-align: -1px;
+  > .ottericon {
+    display: inline;
+  }
+}
+.otter-btn-circle {
+	min-width: 32px;
+	padding-right: 0;
+	padding-left: 0;
+	border-radius: 50%;
+	text-align: center;
+  &.otter-btn-lg {
+    min-width: 40px;
+    border-radius: 50%
+  }
+  &.otter-btn-sm {
+    min-width: 24px;
+    border-radius: 50%
+  }
+}
+.magnifying-glass {
+  position: relative;
+  top: -0.0725em;
+  left: -0.125em;
+  display: inline-block;
+  width: 0.4em;
+  height: 0.4em;
+  border: 0.1em solid currentColor;
+  border-radius: 0.35em;
+  box-sizing: content-box;
+  font-size: 1.135em;
+  &::before {
+    content: "";
+    position: absolute;
+    right: -0.265em;
+    bottom: -0.145em;
+    display: inline-block;
+    width: 0.35em;
+    height: 0.08em;
+    border-width: 0;
+    background: currentColor;
+    transform: rotate(45deg);
+  }
+}
+
+// disabled
+button[class$="-lg"],
+button[class$="-sm"],
+button[class$="-btn"],
+button[class$="-default"],
+button[class$="-primary"],
+button[class$="-dashed"],
+button[class$="-dangerous"],
+button[class$="-ghost"],
+button[class$="-circle"],
+button[class$="-only"],
+button[class$="-block"] {
+  &[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
+    @extend %otter-btn-disabled-filled;
+    @extend %otter-btn-disabled-icon;
+  }
+}
+button[class*="otter-btn-background-ghost"] {
+  &[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
+    @extend %otter-btn-ghost-disabled-filled;
+  }
+}
+button[class$="-text"], button[class$="-link"],
+button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"], 
+button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"],
+button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"], 
+button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"],
+button[class*="-text otter-btn-circle otter-btn-icon-only"], 
+button[class*="-link otter-btn-circle otter-btn-icon-only"],
+button[class*="-text otter-btn-icon-only otter-btn-circle"], 
+button[class*="-link otter-btn-icon-only otter-btn-circle"],
+button[class*="-text otter-btn-icon-only"], button[class*="-link otter-btn-icon-only"],
+button[class*="-text otter-btn-dangerous"], button[class*="-link otter-btn-dangerous"],
+button[class*="-text otter-btn-lg"], button[class*="-link otter-btn-lg"],
+button[class*="-text otter-btn-sm"], button[class*="-link otter-btn-sm"],
+button[class*="-text otter-btn-block"], button[class*="-link otter-btn-block"] {
+  &[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
+    @extend %otter-btn-disabled-unfilled;
+    @extend %otter-btn-disabled-icon;
+  }
+}
+
+button[class*="-ghost otter-btn-lg otter-btn-text"],
+button[class*="-ghost otter-btn-lg otter-btn-link"],
+button[class*="-ghost otter-btn-sm otter-btn-text"],
+button[class*="-ghost otter-btn-sm otter-btn-link"],
+button[class*="-ghost otter-btn-text otter-btn-lg"],
+button[class*="-ghost otter-btn-link otter-btn-lg"],
+button[class*="-ghost otter-btn-text"],
+button[class*="-ghost otter-btn-link"],
+button[class*="-ghost otter-btn-text otter-btn-sm"],
+button[class*="-ghost otter-btn-link otter-btn-sm"] {
+  &[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
+    @extend %otter-btn-ghost-disabled-unfilled;
+  }
+}
+button[class*="otter-btn"] {
+  &[disabled]>a:only-child, &[disabled]:hover>a:only-child, &[disabled]:focus>a:only-child, &[disabled]:active>a:only-child {
+    @extend %otter-btn-a-child;
+  }
+}
+button[class*="otter-btn"] {
+  &[disabled]>a:only-child:after, &[disabled]:hover>a:only-child:after, &[disabled]:focus>a:only-child:after, &[disabled]:active>a:only-child:after {
+    @extend %otter-btn-a-child-after;
+  }
+}
+
+// @extend
+%otter-btn-disabled-reset {
+  border-color: var(--otter-btn-disabled-reset-border);
+  background-color: var(--otter-btn-disabled-reset-background);
+  color: var(--otter-btn-disabled-reset);
+}
+%otter-btn-ghost-a-child,
+%otter-btn-a-child {
+	color: currentcolor;
+}
+%otter-btn-a-child-after {
+	position: absolute;
+	inset: 0;
+	content: "";
+	background: 0 0;
+}
+%otter-btn-ghost-a-child-after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: '';
+  background: transparent;
+}
+%otter-btn-disabled-icon {
+  .magnifying-glass {
+    border-color: var(--otter-icon-disabled-border);
+  }
+  .magnifying-glass::before {
+    background: var(--otter-icon-disabled-before-background);
+  }
+}
+
+$ghostBtns-data: (
+  orizin-dangerous: orizin-dangerous,
+  ghost-dangerous: ghost-dangerous,
+  ghost: ghost
+);
+@each $ghostBtn, $label in $ghostBtns-data {
+  %otter-btn-#{$ghostBtn} {
+    border-color: var(--otter-btn-#{$label}-border);
+    background-color: var(--otter-btn-#{$label}-background);
+    -webkit-box-shadow: 0 2px 0 var(--otter-btn-#{$label}-box-shadow);
+    box-shadow: 0 2px 0 var(--otter-btn-#{$label}-box-shadow);
+    color: var(--otter-btn-#{$label});
+    text-shadow: 0 2px 0 var(--otter-btn-#{$label}-text-shadow);
+    &:hover, &:focus {
+      border-color: var(--otter-btn-#{$label}-hover-border);
+      background-color: var(--otter-btn-#{$label}-hover-background);
+      -webkit-box-shadow: 0 2px 0 var(--otter-btn-#{$label}-hover-box-shadow);
+      box-shadow: 0 2px 0 var(--otter-btn-#{$label}-hover-box-shadow);
+      color: var(--otter-btn-#{$label}-hover);
+      text-shadow: 0 2px 0 var(--otter-btn-#{$label}-hover-text-shadow);
+    }
+    &:active {
+      border-color: var(--otter-btn-#{$label}-active-border);
+      background-color: var(--otter-btn-#{$label}-active-background);
+      -webkit-box-shadow: 0 2px 0 var(--otter-btn-#{$label}-active-box-shadow);
+      box-shadow: 0 2px 0 var(--otter-btn-#{$label}-active-box-shadow);
+      color: var(--otter-btn-#{$label}-active);
+      text-shadow: 0 2px 0 var(--otter-btn-#{$label}-active-text-shadow);
+    }
+  }
+}
+
+$disabledBtns-data: (
+  disabled-filled: disabled-default,
+  disabled-unfilled: disabled-text,
+  ghost-disabled-filled: background-ghost-disabled-default,
+  ghost-disabled-unfilled: background-ghost-disabled-text
+);
+@each $disabledBtn, $label in $disabledBtns-data {
+  %otter-btn-#{$disabledBtn} {
+    border-color: var(--otter-btn-#{$label}-border);
+    background: var(--otter-btn-#{$label}-background);
+    box-shadow: var(--otter-btn-#{$label}-box-shadow);
+    color: var(--otter-btn-#{$label});
+    text-shadow: var(--otter-btn-#{$label}-text-shadow);
+  }
+}
