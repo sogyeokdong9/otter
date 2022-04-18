@@ -32,22 +32,6 @@
     bool ? openDrpdnMn(idx) : closeDrpdnMn(idx);
   }
 
-  function checkDrpdnMnExpanded(idx) {
-    'use strict';
-    const element = trgElmn[idx];
-    const result = element.lastChild.previousElementSibling.ariaExpanded;
-    return result;
-  }
-
-  function setDrpdnMnExpanded(idx) {
-    'use strict';
-    if (!checkDrpdnMnExpanded(idx)) {
-      trgElmn[idx].lastChild.previousElementSibling.ariaExpanded = true;
-    } else {
-      trgElmn[idx].lastChild.previousElementSibling.ariaExpanded = false;
-    }
-  }
-
   function getTrgAttrPlcmnt(idx) {
     const element = trgElmn[idx];
     const result = element.getAttribute('data-placement');
@@ -69,7 +53,7 @@
     'use strict';
     const element = trgElmn[idx];
     closeAllDrpdnMn();
-    setDrpdnMnExpanded(idx);
+    trgElmn[idx].lastChild.previousElementSibling.ariaExpanded = true;
     setTrgClsReplace(idx, 'otter-dropdown-close', 'otter-dropdown-open');
     setDrpdnMnClsAdd(idx, createPlcmntClsNm(idx));
     if (
@@ -95,7 +79,7 @@
 
   function closeDrpdnMn(idx) {
     'use strict';
-    setDrpdnMnExpanded(idx);
+    trgElmn[idx].lastChild.previousElementSibling.ariaExpanded = false;
     setTrgClsReplace(idx, 'otter-dropdown-open', 'otter-dropdown-close');
     setDrpdnMnClsReplace(idx, "otter-slide-up-in", "otter-slide-up-out");
     setDrpdnMnClsReplace(idx, "otter-slide-down-in", "otter-slide-down-out");
@@ -309,12 +293,12 @@
     'use strict';
     console.log('resize event!');
     if( getActiveDrpdnMn() ) {
-      const checkArrowPointingAtCenter = getActiveBtnElmn().getAttribute('data-pointer-at-center');
+      const checkArrowPointingAtCenter = getActiveBtnElmn() ? getActiveBtnElmn().getAttribute('data-pointer-at-center') : null;
       const GET_ARROW_POINTING_AT_CENTER_VALUE = checkArrowPointingAtCenter ? getActiveBtnElmn().offsetWidth / 2 : 0;
-      const GET_INTER_BTN_DROPDOWN_MENU_VALUE = getActiveBtnElmn().offsetWidth - getActiveDrpdnMn().offsetWidth;
-      const JUST_LEFT_AXIS = getActiveBtnElmn().offsetLeft + GET_ARROW_POINTING_AT_CENTER_VALUE;
-      const JUST_CENTER_AXIS = getActiveBtnElmn().offsetLeft + ( GET_INTER_BTN_DROPDOWN_MENU_VALUE / 2 );
-      const JUST_RIGHT_AXIS = getActiveBtnElmn().offsetLeft + GET_INTER_BTN_DROPDOWN_MENU_VALUE - GET_ARROW_POINTING_AT_CENTER_VALUE;
+      const GET_INTER_BTN_DROPDOWN_MENU_VALUE = getActiveBtnElmn() ? getActiveBtnElmn().offsetWidth - getActiveDrpdnMn().offsetWidth : null;
+      const JUST_LEFT_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetLeft + GET_ARROW_POINTING_AT_CENTER_VALUE : null;
+      const JUST_CENTER_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetLeft + ( GET_INTER_BTN_DROPDOWN_MENU_VALUE / 2 ) : null;
+      const JUST_RIGHT_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetLeft + GET_INTER_BTN_DROPDOWN_MENU_VALUE - GET_ARROW_POINTING_AT_CENTER_VALUE : null;
       function defineBaseCoordinate(val) {
         'use strict';
         getActiveDrpdnMn().style.left = val + 'px';
