@@ -126,7 +126,8 @@ hr:after {
     counter-increment: count;
     &::before {
       content: "[" counter(count, decimal-leading-zero) "] == [" counter(count, lower-alpha) "]";
-      min-width: 100px;
+      min-width: 120px;
+      padding-right: 20px;
       color: var(--otter-ftbck-disable);
     }
   }
@@ -138,20 +139,40 @@ hr:after {
 
 .log-item {
   display: flex;
+  flex-wrap: wrap;
   & .now-class,
   & .specified {
     color: var(--otter-ftbck-primary-text);
   }
+  & .dropdown-arrow,
   & .log-time {
     color: var(--otter-ftbck-disable);
+    min-width: 150px;
   }
+  & .dropdown-idx,
+  & .dropdown-txt,
+  & .trigger-idx,
+  & .trigger-txt,
+  & .trigger-plc,
+  & .trigger-cls,
   & .is-checked-danger,
   & .is-checked-disabled,
   & .is-checked-block,
   & .changed-class {
     color: var(--otter-ftbck-secondary-text);
   }
+  & .dropdown-txt {
+    min-width: 385px;
+  }
+  & .previous-idx,
+  & .dropdown-idx,
+  & .trigger-idx {
+    min-width: 40px;
+    color: var(--otter-ftbck-disable);
+    text-align: center;
+  }
   span {
-    min-width: 120px;
+    padding-right: 20px;
+    min-width: 115px;
   }
 }
