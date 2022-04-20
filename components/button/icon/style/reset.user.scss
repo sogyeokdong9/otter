@@ -110,6 +110,13 @@ hr:after {
   clip-path: polygon(0 0, 0 0, 0 0);
 }
 
+.spacial-letter-down.a11y-hidden {
+  display: none;
+  width: 0;
+  margin-right: -3px;
+  font-size: 0;
+}
+
 .wrap { 
   margin: 1em;
   form {
@@ -144,11 +151,14 @@ hr:after {
   & .specified {
     color: var(--otter-ftbck-primary-text);
   }
+  & .tooltip-arrow,
   & .dropdown-arrow,
   & .log-time {
     color: var(--otter-ftbck-disable);
     min-width: 150px;
   }
+  & .tooltip-txt,
+  & .tooltip-idx,
   & .dropdown-idx,
   & .dropdown-txt,
   & .trigger-idx,
@@ -164,6 +174,10 @@ hr:after {
   & .dropdown-txt {
     min-width: 385px;
   }
+  & .tooltip-txt {
+    min-width: 185px;
+  }
+  & .tooltip-idx,
   & .previous-idx,
   & .dropdown-idx,
   & .trigger-idx {

@@ -125,6 +125,13 @@ hr:after {
           clip-path: polygon(0 0, 0 0, 0 0);
 }
 
+.spacial-letter-down.a11y-hidden {
+  display: none;
+  width: 0;
+  margin-right: -3px;
+  font-size: 0;
+}
+
 .wrap {
   margin: 1em;
 }
@@ -175,12 +182,15 @@ hr:after {
   color: var(--otter-ftbck-primary-text);
 }
 
+.log-item .tooltip-arrow,
 .log-item .dropdown-arrow,
 .log-item .log-time {
   color: var(--otter-ftbck-disable);
   min-width: 150px;
 }
 
+.log-item .tooltip-txt,
+.log-item .tooltip-idx,
 .log-item .dropdown-idx,
 .log-item .dropdown-txt,
 .log-item .trigger-idx,
@@ -198,6 +208,11 @@ hr:after {
   min-width: 385px;
 }
 
+.log-item .tooltip-txt {
+  min-width: 185px;
+}
+
+.log-item .tooltip-idx,
 .log-item .previous-idx,
 .log-item .dropdown-idx,
 .log-item .trigger-idx {

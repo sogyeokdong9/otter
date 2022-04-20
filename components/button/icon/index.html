@@ -8,84 +8,118 @@
 	<link rel="stylesheet" href="./style/reset.user.css">
 	<link rel="stylesheet" href="./style/color.css">
 	<link rel="stylesheet" href="./style/button.css">
+	<link rel="stylesheet" href="./style/tooltip.css">
+	<link rel="stylesheet" href="./style/animation.css">
 	<link rel="stylesheet" href="./style/style.css">
 	<title>Icon Button</title>
 </head>
 <body>
-	<div class="wrap">
-		<!-- TODO: Show tooltips when content has only icons -->
-		<button type="button" class="otter-btn otter-btn-circle otter-btn-primary otter-btn-icon-only">
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-circle otter-btn-primary"><span>A</span></button>
-		<button type="button" class="otter-btn otter-btn-primary">
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-			<span>Search</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-circle otter-btn-default otter-btn-icon-only">
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-default">
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-			<span>Search</span>
-		</button>
-	</div>
-	<div class="wrap">
-		<button type="button" class="otter-btn otter-btn-circle otter-btn-primary otter-btn-icon-only"  disabled>
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-circle otter-btn-primary" disabled>
-			<span>A</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-primary" disabled>
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-			<span>Search</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-circle otter-btn-default otter-btn-icon-only" disabled>
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-default" disabled>
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-			<span>Search</span>
-		</button>
-	</div>
-	<div class="wrap">
-		<button type="button" class="otter-btn otter-btn-circle otter-btn-default otter-btn-icon-only">
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-default">
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-			<span>Search</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-circle otter-btn-dashed otter-btn-icon-only">
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-dashed">
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-			<span>Search</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-default otter-btn-icon-only">
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-		</button>
-	</div>
-	<div class="wrap">
-		<button type="button" class="otter-btn otter-btn-circle otter-btn-default otter-btn-icon-only" disabled>
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-default" disabled>
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-			<span>Search</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-circle otter-btn-dashed otter-btn-icon-only" disabled>
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-dashed" disabled>
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-			<span>Search</span>
-		</button>
-		<button type="button" class="otter-btn otter-btn-default otter-btn-icon-only" disabled>
-			<span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-		</button>
-	</div>
+  <div class="wrap">
+    <div style="margin: 0.5em">
+      <span role="button" class="otter-tooltip-trigger otter-tooltip-link otter-tooltip-close"  data-index-number="1" data-placement="topLeft">
+        <span data-tooltip="Search">
+          <button type="button" class="otter-btn otter-btn-circle otter-btn-primary otter-btn-icon-only">
+            <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+          </button>
+        </span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+      </span>
+      <button type="button" class="otter-btn otter-btn-circle otter-btn-primary"><span>A</span></button>
+      <button type="button" class="otter-btn otter-btn-primary">
+        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+        <span>Search</span>
+      </button>
+      <span role="button" class="otter-tooltip-trigger otter-tooltip-link otter-tooltip-close"  data-index-number="2">
+        <span data-tooltip="Search">
+          <button type="button" class="otter-btn otter-btn-circle otter-btn-default otter-btn-icon-only">
+            <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+          </button>
+        </span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+      </span>
+      <button type="button" class="otter-btn otter-btn-default">
+        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+        <span>Search</span>
+      </button>
+    </div>
+    <div style="margin: 0.5em">
+      <button type="button" class="otter-btn otter-btn-circle otter-btn-primary otter-btn-icon-only"  disabled>
+        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-circle otter-btn-primary" disabled>
+        <span>A</span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-primary" disabled>
+        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+        <span>Search</span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-circle otter-btn-default otter-btn-icon-only" disabled>
+        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-default" disabled>
+        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+        <span>Search</span>
+      </button>
+    </div>
+    <div style="margin: 0.5em">
+      <span role="button" class="otter-tooltip-trigger otter-tooltip-link otter-tooltip-close"  data-index-number="3" data-placement="topLeft">
+        <span data-tooltip="Search">
+          <button type="button" class="otter-btn otter-btn-circle otter-btn-default otter-btn-icon-only">
+            <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+          </button>
+        </span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+      </span>
+      <button type="button" class="otter-btn otter-btn-default">
+        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+        <span>Search</span>
+      </button>
+      <span role="button" class="otter-tooltip-trigger otter-tooltip-link otter-tooltip-close"  data-index-number="4" data-placement="top">
+        <span data-tooltip="Search">
+          <button type="button" class="otter-btn otter-btn-circle otter-btn-dashed otter-btn-icon-only">
+            <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+          </button>
+        </span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+      </span>
+      <button type="button" class="otter-btn otter-btn-dashed">
+        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+        <span>Search</span>
+      </button>
+      <span role="button" class="otter-tooltip-trigger otter-tooltip-link otter-tooltip-close"  data-index-number="5" data-placement="topRight">
+        <span data-tooltip="Search">
+          <button type="button" class="otter-btn otter-btn-default otter-btn-icon-only">
+            <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+          </button>
+        </span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+      </span>
+    </div>
+    <div style="margin: 0.5em">
+      <button type="button" class="otter-btn otter-btn-circle otter-btn-default otter-btn-icon-only" disabled>
+        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-default" disabled>
+        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+        <span>Search</span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-circle otter-btn-dashed otter-btn-icon-only" disabled>
+        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-dashed" disabled>
+        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+        <span>Search</span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-default otter-btn-icon-only" disabled>
+        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+      </button>
+    </div>
+    <ol class="event-log">
+      <!-- <li>log</li> -->
+    </ol>
+  </div>
+  <!-- Dynamically generate data -->
+  <script src="./script/createTooltip.js"></script>
+  <script src="./script/script.js"></script>
 </body>
 </html>
