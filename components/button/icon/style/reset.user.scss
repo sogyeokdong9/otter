@@ -151,12 +151,12 @@ hr:after {
   & .specified {
     color: var(--otter-ftbck-primary-text);
   }
-  & .tooltip-arrow,
   & .dropdown-arrow,
   & .log-time {
     color: var(--otter-ftbck-disable);
     min-width: 150px;
   }
+  & .tooltip-arrow,
   & .tooltip-txt,
   & .tooltip-idx,
   & .dropdown-idx,

@@ -182,13 +182,13 @@ hr:after {
   color: var(--otter-ftbck-primary-text);
 }
 
-.log-item .tooltip-arrow,
 .log-item .dropdown-arrow,
 .log-item .log-time {
   color: var(--otter-ftbck-disable);
   min-width: 150px;
 }
 
+.log-item .tooltip-arrow,
 .log-item .tooltip-txt,
 .log-item .tooltip-idx,
 .log-item .dropdown-idx,
