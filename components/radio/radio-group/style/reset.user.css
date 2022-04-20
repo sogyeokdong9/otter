@@ -125,6 +125,13 @@ hr:after {
           clip-path: polygon(0 0, 0 0, 0 0);
 }
 
+.spacial-letter-down.a11y-hidden {
+  display: none;
+  width: 0;
+  margin-right: -3px;
+  font-size: 0;
+}
+
 .wrap {
   margin: 1em;
 }
@@ -152,7 +159,8 @@ hr:after {
 
 .event-log li::before {
   content: "[" counter(count, decimal-leading-zero) "] == [" counter(count, lower-alpha) "]";
-  min-width: 100px;
+  min-width: 120px;
+  padding-right: 20px;
   color: var(--otter-ftbck-disable);
 }
 
@@ -165,6 +173,8 @@ hr:after {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .log-item .now-class,
@@ -172,10 +182,21 @@ hr:after {
   color: var(--otter-ftbck-primary-text);
 }
 
+.log-item .dropdown-arrow,
 .log-item .log-time {
   color: var(--otter-ftbck-disable);
+  min-width: 150px;
 }
 
+.log-item .tooltip-arrow,
+.log-item .tooltip-txt,
+.log-item .tooltip-idx,
+.log-item .dropdown-idx,
+.log-item .dropdown-txt,
+.log-item .trigger-idx,
+.log-item .trigger-txt,
+.log-item .trigger-plc,
+.log-item .trigger-cls,
 .log-item .is-checked-danger,
 .log-item .is-checked-disabled,
 .log-item .is-checked-block,
@@ -183,7 +204,25 @@ hr:after {
   color: var(--otter-ftbck-secondary-text);
 }
 
+.log-item .dropdown-txt {
+  min-width: 385px;
+}
+
+.log-item .tooltip-txt {
+  min-width: 185px;
+}
+
+.log-item .tooltip-idx,
+.log-item .previous-idx,
+.log-item .dropdown-idx,
+.log-item .trigger-idx {
+  min-width: 40px;
+  color: var(--otter-ftbck-disable);
+  text-align: center;
+}
+
 .log-item span {
-  min-width: 120px;
+  padding-right: 20px;
+  min-width: 115px;
 }
 /*# sourceMappingURL=reset.user.css.map */
