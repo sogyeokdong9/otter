@@ -1,0 +1,221 @@
+@charset "UTF-8";
+a, area, button, [role='button'], input:not([type='range']), label, select, summary, textarea {
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+}
+
+a {
+  color: #1890ff;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  -webkit-text-decoration-skip: objects;
+}
+
+a:hover {
+  color: #40a9ff;
+}
+
+a:active {
+  color: #096dd9;
+}
+
+a:active,
+a:hover {
+  text-decoration: none;
+  outline: 0;
+}
+
+a:focus {
+  text-decoration: none;
+  outline: 0;
+}
+
+a[disabled] {
+  color: rgba(0, 0, 0, 0.25);
+  cursor: not-allowed;
+}
+
+input, button, select, optgroup, textarea {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+}
+
+button, input {
+  overflow: visible;
+}
+
+input[type='radio'], input[type='checkbox'] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+input[type="radio"] {
+  cursor: pointer;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  -ms-touch-action: manipulation;
+      touch-action: manipulation;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+button:not([disabled]):hover {
+  text-decoration: none;
+}
+
+button:not([disabled]):active, button:not([disabled]):focus {
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+button[disabled] {
+  cursor: not-allowed;
+}
+
+button[disabled] > * {
+  pointer-events: none;
+}
+
+hr {
+  height: 53px;
+  border: none;
+  background: #f0f0f0;
+  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='30' height='30' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(217, 0%, 100%, 1)'/><path d='M0 10h20z'  transform='translate(5,0)' stroke-width='0.5' stroke='hsla(4, 0%, 82%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,-16)' fill='url(%23a)'/></svg>");
+  text-align: center;
+}
+
+hr:after {
+  content: '§';
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  left: -20px;
+  padding: 0 10px;
+  background: #f0f0f0;
+  font-size: 18px;
+  color: #bbb;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.a11y-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  -webkit-clip-path: polygon(0 0, 0 0, 0 0);
+          clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+.wrap {
+  margin: 1em;
+}
+
+.wrap form {
+  margin: 1em 0;
+}
+
+.event-log {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  counter-reset: count;
+}
+
+.event-log li {
+  counter-increment: count;
+}
+
+.event-log li::before {
+  content: "[" counter(count, decimal-leading-zero) "] == [" counter(count, lower-alpha) "]";
+  min-width: 120px;
+  padding-right: 20px;
+  color: var(--otter-ftbck-disable);
+}
+
+.event-log::after {
+  content: "Event Log";
+  margin-left: -40px;
+}
+
+.log-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.log-item .now-class,
+.log-item .specified {
+  color: var(--otter-ftbck-primary-text);
+}
+
+.log-item .dropdown-arrow,
+.log-item .log-time {
+  color: var(--otter-ftbck-disable);
+  min-width: 150px;
+}
+
+.log-item .tooltip-arrow,
+.log-item .tooltip-txt,
+.log-item .tooltip-idx,
+.log-item .dropdown-idx,
+.log-item .dropdown-txt,
+.log-item .trigger-idx,
+.log-item .trigger-txt,
+.log-item .trigger-plc,
+.log-item .trigger-cls,
+.log-item .is-checked-danger,
+.log-item .is-checked-disabled,
+.log-item .is-checked-block,
+.log-item .changed-class {
+  color: var(--otter-ftbck-secondary-text);
+}
+
+.log-item .tooltip-txt {
+  min-width: 200px;
+}
+
+.log-item .dropdown-txt {
+  min-width: 385px;
+}
+
+.log-item .tooltip-idx,
+.log-item .previous-idx,
+.log-item .dropdown-idx,
+.log-item .trigger-idx {
+  min-width: 40px;
+  color: var(--otter-ftbck-disable);
+  text-align: center;
+}
+
+.log-item span {
+  padding-right: 20px;
+  min-width: 115px;
+}
+/*# sourceMappingURL=reset.user.css.map */

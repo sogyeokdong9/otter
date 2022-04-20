@@ -1,0 +1,216 @@
+@charset "utf-8";
+
+/* This CSS will print because '%code-name' is extended. */
+%otter-tooltip-box {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+%otter-tooltip-font {
+  font-size: 14px;
+  font-variant: tabular-nums;
+  font-feature-settings: 'tnum';
+  line-height: 1.5715;
+  color: var(--otter-tooltip);
+}
+
+.otter-tooltip-trigger {
+  span[data-tooltip] {
+    display: inline-block;
+    color: var(--otter-tooltip);
+    text-decoration: dotted underline var(--otter-tooltip-text-decoration) 2px;
+  }
+  & .spacial-letter-down {
+    position: relative;
+    top: 2px;
+    display: inline-block;
+    color: var(--otter-tooltip-specail-letter-down);
+    -webkit-transition: top 0.3s, -webkit-transform 0.3s;
+    transition:top 0.3s, transform 0.3s;
+  }
+  &.otter-tooltip-open .spacial-letter-down {
+    position: relative;
+    top: -2px;
+    left: 0;
+    color: var(--otter-tooltip-specail-letter-down-hover);
+    -webkit-transform:rotate(0.5turn);
+    transform:rotate(0.5turn);
+  }
+}
+.otter-tooltip {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  display: block;
+  @extend %otter-tooltip-box;
+  @extend %otter-tooltip-font;
+  z-index: 1050;
+  &:before {
+    position: absolute;
+    top: -4px;
+    right: 0;
+    bottom: -4px;
+    left: -7px;
+    z-index: -9999;
+    opacity: 0.0001;
+    content: ' ';
+  }
+}
+.otter-tooltip-hidden {
+  display: none;
+}
+.otter-tooltip-visible {
+  display: block;
+}
+
+// arrow
+.otter-tooltip-show-arrow,
+.otter-tooltip-show-arrow-black,
+.otter-tooltip-show-arrow-light {
+  &.otter-tooltip-placement-topLeft,
+  &.otter-tooltip-placement-top,
+  &.otter-tooltip-placement-topRight,
+  &.otter-tooltip-placement-default,
+  &.otter-tooltip-placement-bottomLeft,
+  &.otter-tooltip-placement-bottom,
+  &.otter-tooltip-placement-bottomRight {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+}
+
+$tooltips-data: (
+  light: light,
+  black: black
+);
+@each $tooltip, $label in $tooltips-data {
+  .otter-tooltip-arrow-#{$tooltip} {
+    position: absolute;
+    z-index: 1;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 9px solid var(--otter-tooltip-arrow-#{$label}-background);
+    transform: rotate(180deg) translateY(11px);
+    pointer-events: none;
+  }
+}
+
+.otter-tooltip-placement-default,
+.otter-tooltip-placement-top,
+.otter-tooltip-placement-topLeft,
+.otter-tooltip-placement-topRight {
+  > .otter-tooltip-arrow-black,
+  > .otter-tooltip-arrow-light {
+    bottom: 10px;
+    box-shadow: 3px 3px 7px -3px var(--otter-tooltip-arrow-top-box-shadow);
+    transform: rotate(0deg) translateY(11px);
+  }
+}
+.otter-tooltip-placement-bottom,
+.otter-tooltip-placement-bottomLeft,
+.otter-tooltip-placement-bottomRight {
+  > .otter-tooltip-arrow-black,
+  > .otter-tooltip-arrow-light {
+    top: 10px;
+    box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
+  }
+}
+.otter-tooltip-placement-default,
+.otter-tooltip-placement-top,
+.otter-tooltip-placement-bottom {
+  > .otter-tooltip-arrow-black,
+  > .otter-tooltip-arrow-light {
+    left: calc(50% - 9px);
+  }
+}
+.otter-tooltip-placement-topLeft,
+.otter-tooltip-placement-bottomLeft {
+  > .otter-tooltip-arrow-black,
+  > .otter-tooltip-arrow-light {
+    left: 12px;
+  }
+}
+.otter-tooltip-placement-topRight,
+.otter-tooltip-placement-bottomRight {
+  > .otter-tooltip-arrow-black,
+  > .otter-tooltip-arrow-light {
+    right: 12px;
+  }
+}
+.otter-tooltip-placement-bottomLeft,
+.otter-tooltip-placement-bottomRight,
+.otter-tooltip-placement-bottom {
+  > .otter-tooltip-arrow-black:last-child,
+  > .otter-tooltip-arrow-light:last-child {
+    top: initial;
+    transform: rotate(0) translateY(0);
+  }
+}
+.otter-tooltip-placement-default,
+.otter-tooltip-placement-topLeft,
+.otter-tooltip-placement-topRight,
+.otter-tooltip-placement-top {
+  > .otter-tooltip-arrow-black:last-child,
+  > .otter-tooltip-arrow-light:last-child {
+    top: 0;
+    transform: rotate(180deg) translateY(0);
+  }
+}
+
+.otter-tooltip-content {
+  position: relative;
+  margin: 0;
+  padding: 4px 0;
+  list-style-type: none;
+  border-radius: 2px;
+  background-color: var(--otter-tooltip-background);
+  background-clip: padding-box;
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 
+              0 6px 16px 0 rgba(0, 0, 0, 0.08), 
+              0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  outline: none;
+}
+.otter-tooltip-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.otter-tooltip-title-content {
+  flex: auto;
+}
+.otter-tooltip-item {
+  clear: both;
+  margin: 0;
+  padding: 5px 12px;
+  color: var(--otter-tooltip-item);
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+}
+$tooltips-data: (
+  light: light,
+  black: black
+);
+@each $tooltip, $label in $tooltips-data {
+  .otter-tooltip-#{$tooltip} {
+    background-color: var(--otter-tooltip-#{$label}-background);
+    & .otter-tooltip-item {
+      color: var(--otter-tooltip-#{$label}-item);
+      &:hover {
+        background-color: var(--otter-tooltip-#{$label}-item-hover-background);
+      }
+      &-disabled {
+        color: var(--otter-tooltip-#{$label}-disabled-item);
+        &:hover{
+          color: var(--otter-tooltip-#{$label}-disabled-item-hover);
+          background-color: var(--otter-tooltip-#{$label}-disabled-item-hover-background);
+        }
+      }
+    }
+  }
+}
