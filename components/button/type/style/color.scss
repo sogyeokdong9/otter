@@ -4,7 +4,6 @@
   --otter-black: rgba(0. 0, 0, 1);
   --otter-white: rgba(255, 255, 255, 1);
   --otter-transparent: rgba(0. 0, 0, 0);
-
   --otter-ftbck-title: rgba(0, 0, 0, 0.85);	
 	--otter-ftbck-primary-text: rgba(0, 0, 0, 0.65);	
 	--otter-ftbck-secondary-text: rgba(0, 0, 0, 0.45);	
@@ -13,7 +12,6 @@
 	--otter-ftbck-dividers: rgba(0, 0, 0, 0.06);	
 	--otter-ftbck-background: rgba(0, 0, 0, 0.04);	
 	--otter-ftbck-table-header: rgba(0, 0, 0, 0.02);
-
 	--otter-ftwht-title: rgba(255, 255, 255, 0.85);	
 	--otter-ftwht-primary-text: rgba(255, 255, 255, 0.65);	
 	--otter-ftwht-secondary-text: rgba(255, 255, 255, 0.45);	
@@ -22,19 +20,48 @@
 	--otter-ftwht-dividers: rgba(255, 255, 255, 0.12);	
 	--otter-ftwht-background: rgba(255, 255, 255, 0.08);	
 	--otter-ftwht-table-header: rgba(255, 255, 255, 0.04);	
-
 	--otter-primary-color: rgba(24, 144, 255, 1);
   --otter-primary-color-hover: rgba(64, 169, 255, 1);
   --otter-primary-color-activeive: rgba(9, 109, 217, 1);
   --otter-primary-color-outline: rgba(24, 144, 255, 0.20);
 
-  // icon
-  // --otter-icon-before-background: rgba(0, 0, 0, 0.85);
-  // --otter-icon-border: rgba(0, 0, 0, 0.85);
-  // --otter-icon: rgba(0, 0, 0, 0.85);
-  // --otter-icon-disabled-before-background: rgba(0, 0, 0, 0.25);
-  // --otter-icon-disabled-border: rgba(0, 0, 0, 0.25);
-  // --otter-icon-disabled: rgba(0, 0, 0, 0.25);
+  // tooltip
+  --otter-tooltip-background: rgba(255, 255, 255, 1);
+  --otter-tooltip: rgba(24, 144, 255, 1);
+  --otter-tooltip-item: rgba(0, 0, 0, 0.85);
+  --otter-tooltip-item-background: rgba(255, 255, 255, 1);
+  --otter-tooltip-item-hover-background: rgba(245, 245, 245, 1);
+  --otter-tooltip-disabled-item: rgba(0, 0, 0, 0.25);
+  --otter-tooltip-disabled-item-hover: rgba(0, 0, 0, 0.25);
+  --otter-tooltip-disabled-item-hover-background: rgba(255, 255, 255, 1);
+  --otter-tooltip-specail-letter-down: rgba(24, 144, 255, 1);
+  --otter-tooltip-specail-letter-down-hover: rgba(64, 169, 255, 1);
+  --otter-tooltip-text-decoration: rgba(64, 169, 255, 1);
+  --otter-tooltip-light-background: rgba(255, 255, 255, 1);
+  --otter-tooltip-light: rgba(0, 0, 0, 0.85);
+  --otter-tooltip-light-item: rgba(0, 0, 0, 0.85);
+  --otter-tooltip-light-item-background: rgba(255, 255, 255, 1);
+  --otter-tooltip-light-item-hover-background: rgba(245, 245, 245, 1);
+  --otter-tooltip-light-disabled-item: rgba(0, 0, 0, 0.25);
+  --otter-tooltip-light-disabled-item-hover: rgba(0, 0, 0, 0.25);
+  --otter-tooltip-light-disabled-item-hover-background: rgba(255, 255, 255, 1);
+  --otter-tooltip-black-background: rgba(0, 21, 41, 1);
+  --otter-tooltip-black: rgba(255, 255, 255, 0.65);
+  --otter-tooltip-black-item: rgba(255, 255, 255, 0.65);
+  --otter-tooltip-black-item-background: rgba(0, 21, 41, 1);
+  --otter-tooltip-black-item-hover-background: rgba(24, 144, 255, 1);
+  --otter-tooltip-black-disabled-item: rgba(255, 255, 255, 0.30);
+  --otter-tooltip-black-disabled-item-hover: rgba(255, 255, 255, 0.30);
+  --otter-tooltip-black-disabled-item-hover-background: rgba(0, 0, 0, 0.25);
+  --otter-tooltip-arrow-light-background: rgba(255, 255, 255, 1);
+  --otter-tooltip-arrow-black-background:  rgba(0, 21, 41, 1);
+  --otter-tooltip-arrow-top-box-shadow: rgba(0, 0, 0, 0.1);
+  --otter-tooltip-arrow-bottom-box-shadow: rgba(0, 0, 0, 0.1);
+  --otter-tooltip-item-danger: rgba(255, 77, 79, 1);
+  --otter-tooltip-item-danger-item: rgba(255, 77, 79, 1);
+  --otter-tooltip-item-danger-item-background: rgba(255, 255, 255, 1);
+  --otter-tooltip-item-danger-item-hover-background: rgba(255, 77, 79, 1);
+  --otter-tooltip-item-danger-hover: rgba(255, 255, 255, 1);
 
   // dropdown
   --otter-dropdown-background: rgba(255, 255, 255, 1);
@@ -47,7 +74,6 @@
   --otter-dropdown-disabled-item-hover-background: rgba(255, 255, 255, 1);
   --otter-dropdown-specail-letter-down: rgba(24, 144, 255, 1);
   --otter-dropdown-specail-letter-down-hover: rgba(64, 169, 255, 1);
-  // dropdown-light
   --otter-dropdown-light-background: rgba(255, 255, 255, 1);
   --otter-dropdown-light: rgba(0, 0, 0, 0.85);
   --otter-dropdown-light-item: rgba(0, 0, 0, 0.85);
@@ -56,7 +82,6 @@
   --otter-dropdown-light-disabled-item: rgba(0, 0, 0, 0.25);
   --otter-dropdown-light-disabled-item-hover: rgba(0, 0, 0, 0.25);
   --otter-dropdown-light-disabled-item-hover-background: rgba(255, 255, 255, 1);
-  // dropdown-black
   --otter-dropdown-black-background: rgba(0, 21, 41, 1);
   --otter-dropdown-black: rgba(255, 255, 255, 0.65);
   --otter-dropdown-black-item: rgba(255, 255, 255, 0.65);
@@ -65,14 +90,10 @@
   --otter-dropdown-black-disabled-item: rgba(255, 255, 255, 0.30);
   --otter-dropdown-black-disabled-item-hover: rgba(255, 255, 255, 0.30);
   --otter-dropdown-black-disabled-item-hover-background: rgba(0, 0, 0, 0.25);
-  // dropdown-arrow-light
   --otter-dropdown-arrow-light-background: rgba(255, 255, 255, 1);
-  // dropdown-arrow-black
   --otter-dropdown-arrow-black-background:  rgba(0, 21, 41, 1);
-  // dropdown-arrow-box-shadow
   --otter-dropdown-arrow-top-box-shadow: rgba(0, 0, 0, 0.1);
   --otter-dropdown-arrow-bottom-box-shadow: rgba(0, 0, 0, 0.1);
-  // dropdown: danger
   --otter-dropdown-item-danger: rgba(255, 77, 79, 1);
   --otter-dropdown-item-danger-item: rgba(255, 77, 79, 1);
   --otter-dropdown-item-danger-item-background: rgba(255, 255, 255, 1);
@@ -107,7 +128,6 @@
   --otter-radio-checked-box-shadow: rgba(0, 0, 0, 0);
   --otter-radio-checked: rgba(0, 0, 0, 0.85);
   --otter-radio-checked-text-shadow: none;
-  // input[type="radio" disabled]
   --otter-radio-disabled-border: rgba(217, 217, 217, 1);
   --otter-radio-disabled-background: rgba(245, 245, 245, 1);
   --otter-radio-disabled-box-shadow: none;
@@ -135,6 +155,7 @@
   --otter-radio-disabled-checked-box-shadow: none;
   --otter-radio-disabled-checked: rgba(0, 0, 0, 0.25);
   --otter-radio-disabled-checked-text-shadow: none;
+  
   // input[type="text"]
   --otter-input-border: rgba(217, 217, 217, 1);
   --otter-input-background: rgba(255, 255, 255, 1);
@@ -157,7 +178,6 @@
   --otter-input-active-box-shadow: none;
   --otter-input-active: rgba(0, 0, 0, 0.85);
   --otter-input-active-text-shadow: none;
-  // input[type="text" disabled]
   --otter-input-disabled-border: rgba(0, 0, 0, 0.25);
   --otter-input-disabled-background: rgba(0, 0, 0, 0);
   --otter-input-disabled-box-shadow: none;
@@ -223,11 +243,9 @@
   --otter-btn-dangerous-active-box-shadow: rgba(0, 0, 0, 0.016);
   --otter-btn-dangerous-active: rgba(255, 77, 79, 1);
   --otter-btn-dangerous-active-text-shadow: none;
-  // btn[type: danger > icon]
   // --otter-btn-dangerous-icon-before-background: rgba(255, 77, 79, 1);
   // --otter-btn-dangerous-icon-border: rgba(255, 77, 79, 1);
   // --otter-btn-dangerous-icon: rgba(255, 77, 79, 1);
-  // btn[type: danger:hover > icon]
   // --otter-btn-dangerous-icon-before-hover-border: rgba(255, 120, 177, 1);
   // --otter-btn-dangerous-icon-hover: rgba(255, 120, 177, 1);
 
@@ -318,12 +336,10 @@
   --otter-btn-primary-active-box-shadow: rgba(0, 0, 0, 0.043);
   --otter-btn-primary-active: rgba(255, 255, 255, 1);
   --otter-btn-primary-active-text-shadow: rgba(0, 0, 0, 0.12);
-  // btn[type: primary > icon]
   // --otter-btn-primary-icon-before-background: rgba(255, 255, 255, 1);
   // --otter-btn-primary-icon-border: rgba(255, 255, 255, 1);
   // --otter-btn-primary-icon: rgba(255, 255, 255, 1);
 
-  
   // btn[type]
   --otter-btn-border: rgba(217, 217, 217, 1);
   --otter-btn-background: rgba(255, 255, 255, 1);
@@ -395,7 +411,6 @@
   --otter-btn-dashed-active-box-shadow: rgba(0, 0, 0, 0.016);
   --otter-btn-dashed-active: rgba(9, 109, 217, 1);
   --otter-btn-dashed-active-text-shadow: none;
-  // btn[type: dashed > icon]
   // --otter-btn-dashed-icon-before-hover-border: rgba(64, 169, 255, 1);
   // --otter-btn-dashed-icon-hover: rgba(64, 169, 255, 1);
   
@@ -420,7 +435,6 @@
   --otter-btn-text-active-box-shadow: none;
   --otter-btn-text-active: rgba(0, 0, 0, 0.85);
   --otter-btn-text-active-text-shadow: none;
-  // btn[type: text > icon]
   // --otter-btn-text-icon-before-hover-border: rgba(0, 0, 0, 0.85);
   // --otter-btn-text-icon-hover: rgba(0, 0, 0, 0.85);
   
@@ -445,34 +459,29 @@
   --otter-btn-link-active-box-shadow: none;
   --otter-btn-link-active:rgba(9, 109, 217, 1);
   --otter-btn-link-active-text-shadow: none;
-  // btn[type: link > icon]
   // --otter-btn-link-icon-before-background: rgba(24, 144, 255, 1);
   // --otter-btn-link-icon-border: rgba(24, 144, 255, 1);
   // --otter-btn-link-icon: rgba(24, 144, 255, 1);
 
-  // btn[disabled reset]
+  // btn[disabled]
   --otter-btn-disabled-reset-border: rgba(0, 0, 0, 0);
   --otter-btn-disabled-reset-background: rgba(0, 0, 0, 0);
   --otter-btn-disabled-reset: rgba(0, 0, 0, 0.25);
-  // btn[type: default disabled]
   --otter-btn-disabled-default-border: rgba(217, 217, 217, 1);
   --otter-btn-disabled-default-background: rgba(245, 245, 245, 1);
   --otter-btn-disabled-default-box-shadow: none;
   --otter-btn-disabled-default: rgba(0, 0, 0, 0.25);
   --otter-btn-disabled-default-text-shadow: none;
-  // btn[type: text disabled]
   --otter-btn-disabled-text-border: rgba(0, 0, 0, 0);
   --otter-btn-disabled-text-background: rgba(0, 0, 0, 0);
   --otter-btn-disabled-text-box-shadow: none;
   --otter-btn-disabled-text: rgba(0, 0, 0, 0.25);
   --otter-btn-disabled-text-text-shadow: none;
-  // btn[type: background-ghost default disabled]
   --otter-btn-background-ghost-disabled-default-border: rgba(87, 96, 106, .25);
   --otter-btn-background-ghost-disabled-default-background: rgba(0, 0, 0, 0);
   --otter-btn-background-ghost-disabled-default-box-shadow: none;
   --otter-btn-background-ghost-disabled-default: rgba(255, 255, 255, 0.10);
   --otter-btn-background-ghost-disabled-default-text-shadow: none;
-  // btn[type: background-ghost text disabled]
   --otter-btn-background-ghost-disabled-text-border: rgba(0, 0, 0, 0);
   --otter-btn-background-ghost-disabled-text-background: rgba(0, 0, 0, 0);
   --otter-btn-background-ghost-disabled-text-box-shadow: none;
