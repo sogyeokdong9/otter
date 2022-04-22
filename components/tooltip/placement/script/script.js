@@ -153,7 +153,7 @@
     const VALIGN_MID_AXIS = trgElmn[idx].offsetTop + ( ( trgElmn[idx].offsetHeight - tooltip[idx].offsetHeight ) / 2 );
     const VALIGN_BTM_AXIS = trgElmn[idx].offsetTop + ( trgElmn[idx].offsetHeight - tooltip[idx].offsetHeight );
 
-    function setPlacement( val, left ) {
+    function setPlacement(val, left1) {
       'use strict';
       const alignTopBasis = ( ALIGN_TOP_AXIS > 0 && ALIGN_TOP_AXIS > SCROLL_Y ); 
       const alignBtmBasis = ( ALIGN_BTM_AXIS > 0 && ALIGN_BTM_AXIS > SCROLL_Y && (CLIENT_HEIGHT / 1.1) > trgElmn[idx].offsetTop + tooltip[idx].clientHeight - trgElmn[idx].offsetHeight );
@@ -161,7 +161,7 @@
       const valignRightBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && RIGHT_AXIS + tooltip[idx].offsetWidth  < CLIENT_WIDTH );
       if (getPlacement === val) {
         tooltip[idx].style.minWidth = (tooltip[idx].offsetWidth) + 'px';
-        tooltip[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : left + 'px';
+        tooltip[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : left1 + 'px';
 
         const expr = getPlacement;
 
@@ -365,7 +365,8 @@
     'use strict';
     console.log('resize event!');
     if( getActiveTooltip() ) {
-      const checkArrowPointingAtCenter = getActiveBtnElmn() ? getActiveBtnElmn().getAttribute('data-pointer-at-center'): null;
+      const getPlacement = getActiveBtnElmn() ? getActiveBtnElmn().dataset.placement : null;
+      const checkArrowPointingAtCenter = getActiveBtnElmn() ? getActiveBtnElmn().getAttribute('data-pointer-at-center') : null;
       const SCROLL_Y = Math.round(window.scrollY);
       const CLIENT_WIDTH = document.body.clientWidth;
       // const CLIENT_HEIGHT = document.body.clientHeight;
@@ -384,32 +385,41 @@
       const valignLeftBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && JUST_LEFT_AXIS - getActiveTooltip().offsetWidth  > 0 );
       const valignRightBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && RIGHT_AXIS + getActiveTooltip().offsetWidth  < CLIENT_WIDTH );
 
-      function defineBaseCoordinate(left, display1, display2) {
+      function defineBaseCoordinate(left1, display1, display2) {
         'use strict';
-        getActiveTooltip().style.left = left + 'px';
+        getActiveTooltip().style.left = left1 + 'px';
         getActiveTooltip().firstChild.style.display = display1;
         getActiveTooltip().lastChild.style.display = display2;
       }
-      if ( getActiveTooltip().classList.contains('otter-tooltip-placement-default') ||
-        getActiveTooltip().classList.contains('otter-tooltip-placement-bottomLeft') ||
-        getActiveTooltip().classList.contains('otter-tooltip-placement-topLeft') ) {
-        defineBaseCoordinate(JUST_LEFT_AXIS);
-      } else if ( getActiveTooltip().classList.contains('otter-tooltip-placement-top') ||
-        getActiveTooltip().classList.contains('otter-tooltip-placement-bottom') ) {
+
+      const expr = getPlacement;
+
+      switch (expr) {
+        case 'default':
+        case 'top':
+        case 'bottom':
           defineBaseCoordinate(JUST_CENTER_AXIS);
-      } else if ( getActiveTooltip().classList.contains('otter-tooltip-placement-bottomRight') ||
-        getActiveTooltip().classList.contains('otter-tooltip-placement-topRight' )) {
-        defineBaseCoordinate(JUST_RIGHT_AXIS);
-      } else if ( getActiveTooltip().classList.contains('otter-tooltip-placement-leftTop') ||
-        getActiveTooltip().classList.contains('otter-tooltip-placement-left' ) ||
-        getActiveTooltip().classList.contains('otter-tooltip-placement-leftBottom' )) {
-        valignLeftBasis ? defineBaseCoordinate(LEFT_AXIS, 'block', 'none') : defineBaseCoordinate(RIGHT_AXIS, 'none', 'block'); 
-      } else if ( getActiveTooltip().classList.contains('otter-tooltip-placement-rightTop') ||
-        getActiveTooltip().classList.contains('otter-tooltip-placement-right' ) ||
-        getActiveTooltip().classList.contains('otter-tooltip-placement-rightBottom' )) {
-        valignRightBasis ? defineBaseCoordinate(RIGHT_AXIS, 'block', 'none') : defineBaseCoordinate(LEFT_AXIS, 'none', 'block'); 
-      } else {
-        defineBaseCoordinate(JUST_LEFT_AXIS);
+          break;
+        case 'bottomLeft':
+        case 'topLeft':
+          defineBaseCoordinate(JUST_LEFT_AXIS);
+          break;
+        case 'bottomRight':
+        case 'topRight':
+          defineBaseCoordinate(JUST_RIGHT_AXIS);
+          break;
+        case 'leftTop':
+        case 'left':
+        case 'leftBottom':
+          valignLeftBasis ? defineBaseCoordinate(LEFT_AXIS, 'block', 'none') : defineBaseCoordinate(RIGHT_AXIS, 'none', 'block'); 
+          break;
+        case 'rightTop':
+        case 'right':
+        case 'rightBottom':
+          valignRightBasis ? defineBaseCoordinate(RIGHT_AXIS, 'block', 'none') : defineBaseCoordinate(LEFT_AXIS, 'none', 'block'); 
+          break;
+        default:
+          defineBaseCoordinate(JUST_CENTER_AXIS);
       }
     }
   });

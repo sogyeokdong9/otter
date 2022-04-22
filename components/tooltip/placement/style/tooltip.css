@@ -22,14 +22,14 @@
   color: var(--otter-tooltip);
 }
 
-.otter-tooltip-trigger span[data-tooltip] {
+.otter-tooltip-trigger[role="button"] span[data-tooltip] {
   display: inline-block;
   color: var(--otter-tooltip);
   -webkit-text-decoration: dotted underline var(--otter-tooltip-text-decoration) 2px;
           text-decoration: dotted underline var(--otter-tooltip-text-decoration) 2px;
 }
 
-.otter-tooltip-trigger .spacial-letter-down {
+.otter-tooltip-trigger[role="button"] .spacial-letter-down {
   position: relative;
   top: 2px;
   display: inline-block;
@@ -40,7 +40,7 @@
   transition: top 0.3s, transform 0.3s, -webkit-transform 0.3s;
 }
 
-.otter-tooltip-trigger.otter-tooltip-open .spacial-letter-down {
+.otter-tooltip-trigger[role="button"].otter-tooltip-open .spacial-letter-down {
   position: relative;
   top: -2px;
   left: 0;

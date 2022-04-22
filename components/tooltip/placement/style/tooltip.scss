@@ -21,7 +21,7 @@
   color: var(--otter-tooltip);
 }
 
-.otter-tooltip-trigger {
+.otter-tooltip-trigger[role="button"] {
   span[data-tooltip] {
     display: inline-block;
     color: var(--otter-tooltip);
@@ -44,6 +44,15 @@
     transform:rotate(0.5turn);
   }
 }
+
+// .otter-btn.otter-tooltip-trigger {
+//   span[data-tooltip] {
+//     display: inline-block;
+//     color: var(--otter-btn-default);
+//     text-decoration: none;
+//   }
+// }
+
 .otter-tooltip {
   position: absolute;
   top: -9999px;
