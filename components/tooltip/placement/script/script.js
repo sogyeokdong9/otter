@@ -321,7 +321,7 @@
 
   function eventLog(mouseState) {
     'use strict';
-    const loadBtnItemText = getActiveBtnElmn().firstElementChild.innerText;
+    const loadBtnItemText = ( Boolean(getActiveBtnElmn().firstElementChild.innerText) ) ? getActiveBtnElmn().firstElementChild.innerText : 'null';
     const loadBtnItemAttr = getActiveBtnElmn().getAttribute('data-placement');
     const loadBtnItemCls = getActiveBtnElmn().classList[2];
     const loadBtnItemIdx = getActiveBtnElmn().getAttribute('data-index-number');
