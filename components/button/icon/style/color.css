@@ -33,7 +33,7 @@
   --otter-tooltip-specail-letter-down: rgba(24, 144, 255, 1);
   --otter-tooltip-specail-letter-down-hover: rgba(64, 169, 255, 1);
   --otter-tooltip-text-decoration: rgba(64, 169, 255, 1);
-  --otter-tooltip-light-background: rgba(255, 255, 255, 1);
+  --otter-tooltip-light-background: rgba(255, 255, 255, 0.85);
   --otter-tooltip-light: rgba(0, 0, 0, 0.85);
   --otter-tooltip-light-item: rgba(0, 0, 0, 0.85);
   --otter-tooltip-light-item-background: rgba(255, 255, 255, 1);
@@ -41,7 +41,7 @@
   --otter-tooltip-light-disabled-item: rgba(0, 0, 0, 0.25);
   --otter-tooltip-light-disabled-item-hover: rgba(0, 0, 0, 0.25);
   --otter-tooltip-light-disabled-item-hover-background: rgba(255, 255, 255, 1);
-  --otter-tooltip-black-background: rgba(0, 21, 41, 1);
+  --otter-tooltip-black-background: rgba(0, 21, 41, 0.85);
   --otter-tooltip-black: rgba(255, 255, 255, 0.65);
   --otter-tooltip-black-item: rgba(255, 255, 255, 0.65);
   --otter-tooltip-black-item-background: rgba(0, 21, 41, 1);
@@ -49,8 +49,8 @@
   --otter-tooltip-black-disabled-item: rgba(255, 255, 255, 0.30);
   --otter-tooltip-black-disabled-item-hover: rgba(255, 255, 255, 0.30);
   --otter-tooltip-black-disabled-item-hover-background: rgba(0, 0, 0, 0.25);
-  --otter-tooltip-arrow-light-background: rgba(255, 255, 255, 1);
-  --otter-tooltip-arrow-black-background:  rgba(0, 21, 41, 1);
+  --otter-tooltip-arrow-light-background: rgba(255, 255, 255, 0.85);
+  --otter-tooltip-arrow-black-background:  rgba(0, 21, 41, 0.85);
   --otter-tooltip-arrow-top-box-shadow: rgba(0, 0, 0, 0.1);
   --otter-tooltip-arrow-bottom-box-shadow: rgba(0, 0, 0, 0.1);
   --otter-tooltip-item-danger: rgba(255, 77, 79, 1);
