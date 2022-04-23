@@ -22,14 +22,14 @@
   color: var(--otter-tooltip);
 }
 
-.otter-tooltip-trigger span[data-tooltip] {
+.otter-tooltip-trigger[role="button"] span[data-tooltip] {
   display: inline-block;
   color: var(--otter-tooltip);
   -webkit-text-decoration: dotted underline var(--otter-tooltip-text-decoration) 2px;
           text-decoration: dotted underline var(--otter-tooltip-text-decoration) 2px;
 }
 
-.otter-tooltip-trigger .spacial-letter-down {
+.otter-tooltip-trigger[role="button"] .spacial-letter-down {
   position: relative;
   top: 2px;
   display: inline-block;
@@ -40,7 +40,7 @@
   transition: top 0.3s, transform 0.3s, -webkit-transform 0.3s;
 }
 
-.otter-tooltip-trigger.otter-tooltip-open .spacial-letter-down {
+.otter-tooltip-trigger[role="button"].otter-tooltip-open .spacial-letter-down {
   position: relative;
   top: -2px;
   left: 0;
@@ -95,15 +95,32 @@
   padding-bottom: 15px;
 }
 
+.otter-tooltip-show-arrow.otter-tooltip-placement-leftTop, .otter-tooltip-show-arrow.otter-tooltip-placement-left, .otter-tooltip-show-arrow.otter-tooltip-placement-leftBottom, .otter-tooltip-show-arrow.otter-tooltip-placement-rightTop, .otter-tooltip-show-arrow.otter-tooltip-placement-right, .otter-tooltip-show-arrow.otter-tooltip-placement-rightBottom,
+.otter-tooltip-show-arrow-black.otter-tooltip-placement-leftTop,
+.otter-tooltip-show-arrow-black.otter-tooltip-placement-left,
+.otter-tooltip-show-arrow-black.otter-tooltip-placement-leftBottom,
+.otter-tooltip-show-arrow-black.otter-tooltip-placement-rightTop,
+.otter-tooltip-show-arrow-black.otter-tooltip-placement-right,
+.otter-tooltip-show-arrow-black.otter-tooltip-placement-rightBottom,
+.otter-tooltip-show-arrow-light.otter-tooltip-placement-leftTop,
+.otter-tooltip-show-arrow-light.otter-tooltip-placement-left,
+.otter-tooltip-show-arrow-light.otter-tooltip-placement-leftBottom,
+.otter-tooltip-show-arrow-light.otter-tooltip-placement-rightTop,
+.otter-tooltip-show-arrow-light.otter-tooltip-placement-right,
+.otter-tooltip-show-arrow-light.otter-tooltip-placement-rightBottom {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .otter-tooltip-arrow-light {
   position: absolute;
   z-index: 1;
   display: inline-block;
-  width: 18px;
-  height: 18px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid var(--otter-tooltip-arrow-light-background);
+  width: 16px;
+  height: 16px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--otter-tooltip-arrow-light-background);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -113,11 +130,11 @@
   position: absolute;
   z-index: 1;
   display: inline-block;
-  width: 18px;
-  height: 18px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid var(--otter-tooltip-arrow-black-background);
+  width: 16px;
+  height: 16px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--otter-tooltip-arrow-black-background);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -147,6 +164,34 @@
   top: 10px;
   -webkit-box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
           box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
+}
+
+.otter-tooltip-placement-leftTop > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-leftTop > .otter-tooltip-arrow-light,
+.otter-tooltip-placement-left > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-left > .otter-tooltip-arrow-light,
+.otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-light {
+  top: 0;
+  right: -1px;
+  -webkit-box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
+          box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
+  -webkit-transform: rotate(270deg) translateX(calc(50% - 16px));
+          transform: rotate(270deg) translateX(calc(50% - 16px));
+}
+
+.otter-tooltip-placement-rightTop > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-rightTop > .otter-tooltip-arrow-light,
+.otter-tooltip-placement-right > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-right > .otter-tooltip-arrow-light,
+.otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-light {
+  top: 0;
+  left: -1px;
+  -webkit-box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
+          box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
+  -webkit-transform: rotate(90deg) translateX(calc(50%));
+          transform: rotate(90deg) translateX(calc(50%));
 }
 
 .otter-tooltip-placement-default > .otter-tooltip-arrow-black,
@@ -194,6 +239,28 @@
   top: 0;
   -webkit-transform: rotate(180deg) translateY(0);
           transform: rotate(180deg) translateY(0);
+}
+
+.otter-tooltip-placement-leftTop > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-leftTop > .otter-tooltip-arrow-light:last-child,
+.otter-tooltip-placement-left > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-left > .otter-tooltip-arrow-light:last-child,
+.otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-light:last-child {
+  left: 0;
+  -webkit-transform: rotate(90deg) translateX(calc(50%));
+          transform: rotate(90deg) translateX(calc(50%));
+}
+
+.otter-tooltip-placement-rightTop > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-rightTop > .otter-tooltip-arrow-light:last-child,
+.otter-tooltip-placement-right > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-right > .otter-tooltip-arrow-light:last-child,
+.otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-light:last-child {
+  left: calc(100% - 16px);
+  -webkit-transform: rotate(270deg) translateX(calc(50% - 16px));
+          transform: rotate(270deg) translateX(calc(50% - 16px));
 }
 
 .otter-tooltip-content {
@@ -249,5 +316,58 @@
 
 .otter-tooltip-black .otter-tooltip-item {
   color: var(--otter-tooltip-black-item);
+}
+
+.grid-placement {
+  display: -ms-grid;
+  display: grid;
+  margin: 150px 25%;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(auto, auto);
+}
+
+.one {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1 / 4;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  text-align: center;
+}
+
+.two {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-column: 1 / 4;
+  -ms-grid-row: 5;
+  grid-row: 5 / 5;
+  text-align: center;
+}
+
+.three {
+  -ms-grid-column: 1;
+  grid-column: 1;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 3;
+  grid-row: 2 / 5;
+  text-align: right;
+}
+
+.four {
+  -ms-grid-column: 3;
+  grid-column: 3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 3;
+  grid-row: 2 / 5;
+  text-align: left;
+}
+
+.one .otter-btn,
+.two .otter-btn,
+.three .otter-btn,
+.four .otter-btn {
+  min-width: 120px;
 }
 /*# sourceMappingURL=tooltip.css.map */

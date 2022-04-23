@@ -5,8 +5,6 @@
   const trgElmn = cntnrElmnt.querySelectorAll('.otter-tooltip-trigger');
   const tooltip = document.querySelectorAll('.otter-tooltip');
 
-  console.log(trgElmn);
-
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
     element.addEventListener('mouseenter', function() {
@@ -54,22 +52,38 @@
     trgElmn[idx].lastChild.previousElementSibling.ariaExpanded = true;
     setTrgClsReplace(idx, 'otter-tooltip-close', 'otter-tooltip-open');
     setTooltipClsAdd(idx, createPlcmntClsNm(idx));
-    if (
-      getTrgAttrPlcmnt(idx) === undefined ||
-      getTrgAttrPlcmnt(idx) === '' ||
-      getTrgAttrPlcmnt(idx) === 'default' ||
-      getTrgAttrPlcmnt(idx) === 'bottomLeft' ||
-      getTrgAttrPlcmnt(idx) === 'bottom' ||
-      getTrgAttrPlcmnt(idx) === 'bottomRight' ) {
-      setTooltipClsRemove(idx, 'otter-slide-down-out');
-      setTooltipClsRemove(idx, 'otter-slide-down-in');
-      setTooltipClsAdd(idx, 'otter-slide-up-in');
-      setTooltipClsReplace(idx, "otter-slide-up-out", "otter-slide-up-in");
-    } else {
-      setTooltipClsRemove(idx, 'otter-slide-up-out');
-      setTooltipClsRemove(idx, 'otter-slide-up-in');
-      setTooltipClsAdd(idx, 'otter-slide-down-in');
-      setTooltipClsReplace(idx, "otter-slide-down-out", "otter-slide-down-in");
+    const expr = getTrgAttrPlcmnt(idx);
+
+    switch (expr) {
+      case 'bottomLeft':
+      case 'bottom':
+      case 'bottomRight':
+        setTooltipClsRemove(idx, 'otter-slide-down-out');
+        setTooltipClsRemove(idx, 'otter-slide-down-in');
+        setTooltipClsAdd(idx, 'otter-slide-up-in');
+        setTooltipClsReplace(idx, "otter-slide-up-out", "otter-slide-up-in");
+        break;
+      case 'leftTop':
+      case 'left':
+      case 'leftBottom':
+        setTooltipClsRemove(idx, 'otter-slide-left-out');
+        setTooltipClsRemove(idx, 'otter-slide-left-in');
+        setTooltipClsAdd(idx, 'otter-slide-right-in');
+        setTooltipClsReplace(idx, "otter-slide-right-out", "otter-slide-right-in");
+        break;
+      case 'rightTop':
+      case 'right':
+      case 'rightBottom':
+        setTooltipClsRemove(idx, 'otter-slide-right-out');
+        setTooltipClsRemove(idx, 'otter-slide-right-in');
+        setTooltipClsAdd(idx, 'otter-slide-left-in');
+        setTooltipClsReplace(idx, "otter-slide-left-out", "otter-slide-left-in");
+        break;
+      default:
+        setTooltipClsRemove(idx, 'otter-slide-up-out');
+        setTooltipClsRemove(idx, 'otter-slide-up-in');
+        setTooltipClsAdd(idx, 'otter-slide-down-in');
+        setTooltipClsReplace(idx, "otter-slide-down-out", "otter-slide-down-in");
     }
     setTooltipClsReplace(idx, "otter-tooltip-hidden", "otter-tooltip-visible");
     setLctTooltip('in', idx);
@@ -81,6 +95,8 @@
     setTrgClsReplace(idx, 'otter-tooltip-open', 'otter-tooltip-close');
     setTooltipClsReplace(idx, "otter-slide-up-in", "otter-slide-up-out");
     setTooltipClsReplace(idx, "otter-slide-down-in", "otter-slide-down-out");
+    setTooltipClsReplace(idx, "otter-slide-left-in", "otter-slide-left-out");
+    setTooltipClsReplace(idx, "otter-slide-right-in", "otter-slide-right-out");
     setTooltipClsReplace(idx, "otter-tooltip-visible", "otter-tooltip-hidden");
     setLctTooltip('out', idx);
   }
@@ -92,28 +108,28 @@
     }
   }
 
-  function setTrgClsReplace(idx, val1, val2) {
+  function setTrgClsReplace(idx, class1, class2) {
     'use strict';
     const element = trgElmn[idx];
-    element.classList.replace(val1, val2);
+    element.classList.replace(class1, class2);
   }
 
-  function setTooltipClsAdd(idx, val1) {
+  function setTooltipClsAdd(idx, class1) {
     'use strict';
     const element = tooltip[idx];
-    element.classList.add(val1);
+    element.classList.add(class1);
   }
 
-  function setTooltipClsRemove(idx, val1) {
+  function setTooltipClsRemove(idx, class1) {
     'use strict';
     const element = tooltip[idx];
-    element.classList.remove(val1);
+    element.classList.remove(class1);
   }
 
-  function setTooltipClsReplace(idx, val1, val2) {
+  function setTooltipClsReplace(idx, class1, class2) {
     'use strict';
     const element = tooltip[idx];
-    element.classList.replace(val1, val2);
+    element.classList.replace(class1, class2);
   }
 
   function setLctTooltip(loc, idx) {
@@ -129,62 +145,107 @@
     const JUST_LEFT_AXIS = trgElmn[idx].offsetLeft + GET_ARROW_POINTING_AT_CENTER_VALUE;
     const JUST_CENTER_AXIS = trgElmn[idx].offsetLeft + ( GET_INTER_BTN_TOOLTIP_VALUE / 2 );
     const JUST_RIGHT_AXIS = trgElmn[idx].offsetLeft + GET_INTER_BTN_TOOLTIP_VALUE - GET_ARROW_POINTING_AT_CENTER_VALUE;
+    const LEFT_AXIS = JUST_RIGHT_AXIS - trgElmn[idx].offsetWidth;
+    const RIGHT_AXIS = JUST_LEFT_AXIS + trgElmn[idx].offsetWidth;
     const ALIGN_BTM_AXIS = trgElmn[idx].offsetTop + trgElmn[idx].offsetHeight;
-    const ALIGN_TOP_AXIS = ALIGN_BTM_AXIS - tooltip[idx].offsetHeight - trgElmn[idx].offsetHeight;
-    console.log(tooltip[idx].offsetHeight);
-    console.log(tooltip[idx].offsetHeight);
-    console.log(tooltip[idx].offsetHeight);
+    const ALIGN_TOP_AXIS = trgElmn[idx].offsetTop - tooltip[idx].offsetHeight;
+    const VALIGN_TOP_AXIS = trgElmn[idx].offsetTop;
+    const VALIGN_MID_AXIS = trgElmn[idx].offsetTop + ( ( trgElmn[idx].offsetHeight - tooltip[idx].offsetHeight ) / 2 );
+    const VALIGN_BTM_AXIS = trgElmn[idx].offsetTop + ( trgElmn[idx].offsetHeight - tooltip[idx].offsetHeight );
 
-    function setPlacement( val, para ) {
+    function setPlacement(val, left1) {
       'use strict';
-      const alignTopBasis = ( ALIGN_TOP_AXIS > 0 && ALIGN_TOP_AXIS > SCROLL_Y );
+      const alignTopBasis = ( ALIGN_TOP_AXIS > 0 && ALIGN_TOP_AXIS > SCROLL_Y ); 
       const alignBtmBasis = ( ALIGN_BTM_AXIS > 0 && ALIGN_BTM_AXIS > SCROLL_Y && (CLIENT_HEIGHT / 1.1) > trgElmn[idx].offsetTop + tooltip[idx].clientHeight - trgElmn[idx].offsetHeight );
+      const valignLeftBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && JUST_LEFT_AXIS - tooltip[idx].offsetWidth  > 0 );
+      const valignRightBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && RIGHT_AXIS + tooltip[idx].offsetWidth  < CLIENT_WIDTH );
       if (getPlacement === val) {
         tooltip[idx].style.minWidth = (tooltip[idx].offsetWidth) + 'px';
-        tooltip[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : para + 'px';
-        if (getPlacement === 'topLeft' || getPlacement === 'top' || getPlacement === 'topRight' || getPlacement === 'default') {
-          defineAlignBasis(alignTopBasis, ALIGN_TOP_AXIS, ALIGN_BTM_AXIS)
-        } else {
-          defineAlignBasis(alignBtmBasis, ALIGN_BTM_AXIS, ALIGN_TOP_AXIS)
+        tooltip[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : left1 + 'px';
+
+        const expr = getPlacement;
+
+        switch (expr) {
+          case 'bottomLeft':
+          case 'bottom':
+          case 'bottomRight':
+            defineAlignBasis(alignBtmBasis, ALIGN_BTM_AXIS, ALIGN_TOP_AXIS);
+            break;
+          case 'leftTop':
+            defineAlignBasis(valignLeftBasis, VALIGN_TOP_AXIS, VALIGN_TOP_AXIS, LEFT_AXIS, RIGHT_AXIS);
+            break;
+          case 'left':
+            defineAlignBasis(valignLeftBasis, VALIGN_MID_AXIS, VALIGN_MID_AXIS, LEFT_AXIS, RIGHT_AXIS);
+            break;
+          case 'leftBottom':
+            defineAlignBasis(valignLeftBasis, VALIGN_BTM_AXIS, VALIGN_BTM_AXIS, LEFT_AXIS, RIGHT_AXIS);
+            break;
+          case 'rightTop':
+            defineAlignBasis(valignRightBasis, VALIGN_TOP_AXIS, VALIGN_TOP_AXIS, RIGHT_AXIS, LEFT_AXIS);
+            break;
+          case 'right':
+            defineAlignBasis(valignRightBasis, VALIGN_MID_AXIS, VALIGN_MID_AXIS, RIGHT_AXIS, LEFT_AXIS);
+            break;
+          case 'rightBottom':
+            defineAlignBasis(valignRightBasis, VALIGN_BTM_AXIS, VALIGN_BTM_AXIS, RIGHT_AXIS, LEFT_AXIS);
+            break;
+          default:
+            defineAlignBasis(alignTopBasis, ALIGN_TOP_AXIS, ALIGN_BTM_AXIS);
         }
-        function defineAlignBasis(axis, val1, val2) {
+
+        function defineAlignBasis(axis, val1, val2, val3, val4) {
           'use strict';
-          function displayContainsClass(obj, val1, val2, class1, class2, class3 ) {
+          function displayContainsClass(obj, display1, display2, class1, class2, class3 ) {
             'use strict';
             if (
               (obj.classList.contains(class1)) ||
               (obj.classList.contains(class2)) ||
               (obj.classList.contains(class3)) ) {
-              obj.firstChild.style.display = val1;
-              obj.lastChild.style.display = val2;
+              obj.firstChild.style.display = display1;
+              obj.lastChild.style.display = display2;
             }
           }
           if(axis) {
-            // console.log("1");
             tooltip[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val1 + 'px';
+            tooltip[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : val3 + 'px';
             displayContainsClass(tooltip[idx], 'block', 'none', 'otter-tooltip-show-arrow-light', 'otter-tooltip-show-arrow-black');
           } else {
-            // console.log("2");
             tooltip[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val2 + 'px';
+            tooltip[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : val4 + 'px';
             displayContainsClass(tooltip[idx], 'none', 'block', 'otter-tooltip-show-arrow-light', 'otter-tooltip-show-arrow-black');
-            if (
-              // getTrgAttrPlcmnt(idx) === undefined ||
-              // getTrgAttrPlcmnt(idx) === '' ||
-              // getTrgAttrPlcmnt(idx) === 'default' ||
-              getTrgAttrPlcmnt(idx) === 'bottomLeft' ||
-              getTrgAttrPlcmnt(idx) === 'bottom' ||
-              getTrgAttrPlcmnt(idx) === 'bottomRight' ) {
-              // console.log("3");
-              setTooltipClsRemove(idx, 'otter-slide-up-out');
-              setTooltipClsRemove(idx, 'otter-slide-up-in');
-              setTooltipClsAdd(idx, 'otter-slide-down-in');
-              setTooltipClsReplace(idx, "otter-slide-down-out", "otter-slide-down-in");
-            } else {
-              // console.log("4");
-              setTooltipClsRemove(idx, 'otter-slide-down-out');
-              setTooltipClsRemove(idx, 'otter-slide-down-in');
-              setTooltipClsAdd(idx, 'otter-slide-up-in');
-              setTooltipClsReplace(idx, "otter-slide-up-out", "otter-slide-up-in");
+
+            const expr = getTrgAttrPlcmnt(idx);
+
+            switch (expr) {
+              case 'bottomLeft':
+              case 'bottom':
+              case 'bottomRight':
+                setTooltipClsRemove(idx, 'otter-slide-up-out');
+                setTooltipClsRemove(idx, 'otter-slide-up-in');
+                setTooltipClsAdd(idx, 'otter-slide-down-in');
+                setTooltipClsReplace(idx, "otter-slide-down-out", "otter-slide-down-in");
+                break;
+              case 'leftTop':
+              case 'left':
+              case 'leftBottom':
+                setTooltipClsRemove(idx, 'otter-slide-right-out');
+                setTooltipClsRemove(idx, 'otter-slide-right-in');
+                setTooltipClsAdd(idx, 'otter-slide-left-in');
+                setTooltipClsReplace(idx, "otter-slide-left-out", "otter-slide-left-in");
+                break;
+              case 'rightTop':
+              case 'right':
+              case 'rightBottom':
+                setTooltipClsRemove(idx, 'otter-slide-left-out');
+                setTooltipClsRemove(idx, 'otter-slide-left-in');
+                setTooltipClsAdd(idx, 'otter-slide-right-in');
+                setTooltipClsReplace(idx, "otter-slide-right-out", "otter-slide-right-in");
+                break;
+              default:
+                setTooltipClsRemove(idx, 'otter-slide-up-out');
+                setTooltipClsRemove(idx, 'otter-slide-up-in');
+                setTooltipClsAdd(idx, 'otter-slide-down-in');
+                setTooltipClsReplace(idx, "otter-slide-down-out", "otter-slide-down-in");
             }
           }
         }
@@ -197,6 +258,12 @@
     setPlacement('bottomLeft', JUST_LEFT_AXIS);
     setPlacement('bottom', JUST_CENTER_AXIS);
     setPlacement('bottomRight', JUST_RIGHT_AXIS);
+    setPlacement('leftTop', LEFT_AXIS);
+    setPlacement('left', LEFT_AXIS);
+    setPlacement('leftBottom', LEFT_AXIS);
+    setPlacement('rightTop', RIGHT_AXIS);
+    setPlacement('right', RIGHT_AXIS);
+    setPlacement('rightBottom', RIGHT_AXIS);
   }
 
   function getPrivousElmnArray() {
@@ -298,28 +365,61 @@
     'use strict';
     console.log('resize event!');
     if( getActiveTooltip() ) {
-      const checkArrowPointingAtCenter = getActiveBtnElmn() ? getActiveBtnElmn().getAttribute('data-pointer-at-center'): null;
+      const getPlacement = getActiveBtnElmn() ? getActiveBtnElmn().dataset.placement : null;
+      const checkArrowPointingAtCenter = getActiveBtnElmn() ? getActiveBtnElmn().getAttribute('data-pointer-at-center') : null;
+      const SCROLL_Y = Math.round(window.scrollY);
+      const CLIENT_WIDTH = document.body.clientWidth;
+      // const CLIENT_HEIGHT = document.body.clientHeight;
       const GET_ARROW_POINTING_AT_CENTER_VALUE = checkArrowPointingAtCenter ? getActiveBtnElmn().offsetWidth / 2 : 0;
       const GET_INTER_BTN_TOOLTIP_VALUE = getActiveBtnElmn() ? getActiveBtnElmn().offsetWidth - getActiveTooltip().offsetWidth: null;
       const JUST_LEFT_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetLeft + GET_ARROW_POINTING_AT_CENTER_VALUE: null;
       const JUST_CENTER_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetLeft + ( GET_INTER_BTN_TOOLTIP_VALUE / 2 ): null;
       const JUST_RIGHT_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetLeft + GET_INTER_BTN_TOOLTIP_VALUE - GET_ARROW_POINTING_AT_CENTER_VALUE: null;
-      function defineBaseCoordinate(val) {
+      const LEFT_AXIS = getActiveBtnElmn() ? JUST_RIGHT_AXIS - getActiveBtnElmn().offsetWidth : null;
+      const RIGHT_AXIS = getActiveBtnElmn() ? JUST_LEFT_AXIS + getActiveBtnElmn().offsetWidth : null;
+      // const ALIGN_BTM_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop + getActiveBtnElmn().offsetHeight : null;
+      // const ALIGN_TOP_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop - getActiveTooltip().offsetHeight : null;
+      const VALIGN_TOP_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop : null;
+      // const VALIGN_MID_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop + ( ( getActiveBtnElmn().offsetHeight - getActiveTooltip().offsetHeight ) / 2 ) : null;
+      // const VALIGN_BTM_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop + ( getActiveBtnElmn().offsetHeight - getActiveTooltip().offsetHeight ) : null;
+      const valignLeftBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && JUST_LEFT_AXIS - getActiveTooltip().offsetWidth  > 0 );
+      const valignRightBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && RIGHT_AXIS + getActiveTooltip().offsetWidth  < CLIENT_WIDTH );
+
+      function defineBaseCoordinate(left1, display1, display2) {
         'use strict';
-        getActiveTooltip().style.left = val + 'px';
+        getActiveTooltip().style.left = left1 + 'px';
+        getActiveTooltip().firstChild.style.display = display1;
+        getActiveTooltip().lastChild.style.display = display2;
       }
-      if ( getActiveTooltip().classList.contains('otter-tooltip-placement-default') ||
-        getActiveTooltip().classList.contains('otter-tooltip-placement-bottomLeft') ||
-        getActiveTooltip().classList.contains('otter-tooltip-placement-topLeft') ) {
-        defineBaseCoordinate(JUST_LEFT_AXIS);
-      } else if ( getActiveTooltip().classList.contains('otter-tooltip-placement-top') ||
-        getActiveTooltip().classList.contains('otter-tooltip-placement-bottom') ) {
-        defineBaseCoordinate(JUST_CENTER_AXIS);
-      } else if ( getActiveTooltip().classList.contains('otter-tooltip-placement-bottomRight') ||
-        getActiveTooltip().classList.contains('otter-tooltip-placement-topRight' )) {
-        defineBaseCoordinate(JUST_RIGHT_AXIS);
-      } else {
-        defineBaseCoordinate(JUST_LEFT_AXIS);
+
+      const expr = getPlacement;
+
+      switch (expr) {
+        case 'default':
+        case 'top':
+        case 'bottom':
+          defineBaseCoordinate(JUST_CENTER_AXIS);
+          break;
+        case 'bottomLeft':
+        case 'topLeft':
+          defineBaseCoordinate(JUST_LEFT_AXIS);
+          break;
+        case 'bottomRight':
+        case 'topRight':
+          defineBaseCoordinate(JUST_RIGHT_AXIS);
+          break;
+        case 'leftTop':
+        case 'left':
+        case 'leftBottom':
+          valignLeftBasis ? defineBaseCoordinate(LEFT_AXIS, 'block', 'none') : defineBaseCoordinate(RIGHT_AXIS, 'none', 'block'); 
+          break;
+        case 'rightTop':
+        case 'right':
+        case 'rightBottom':
+          valignRightBasis ? defineBaseCoordinate(RIGHT_AXIS, 'block', 'none') : defineBaseCoordinate(LEFT_AXIS, 'none', 'block'); 
+          break;
+        default:
+          defineBaseCoordinate(JUST_CENTER_AXIS);
       }
     }
   });
