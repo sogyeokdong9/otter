@@ -145,8 +145,8 @@
     const JUST_LEFT_AXIS = trgElmn[idx].offsetLeft + GET_ARROW_POINTING_AT_CENTER_VALUE;
     const JUST_CENTER_AXIS = trgElmn[idx].offsetLeft + ( GET_INTER_BTN_TOOLTIP_VALUE / 2 );
     const JUST_RIGHT_AXIS = trgElmn[idx].offsetLeft + GET_INTER_BTN_TOOLTIP_VALUE - GET_ARROW_POINTING_AT_CENTER_VALUE;
-    const LEFT_AXIS = JUST_RIGHT_AXIS - trgElmn[idx].offsetWidth;
-    const RIGHT_AXIS = JUST_LEFT_AXIS + trgElmn[idx].offsetWidth;
+    const LEFT_AXIS = JUST_RIGHT_AXIS + GET_ARROW_POINTING_AT_CENTER_VALUE - trgElmn[idx].offsetWidth;
+    const RIGHT_AXIS = JUST_LEFT_AXIS - GET_ARROW_POINTING_AT_CENTER_VALUE + trgElmn[idx].offsetWidth;
     const ALIGN_BTM_AXIS = trgElmn[idx].offsetTop + trgElmn[idx].offsetHeight;
     const ALIGN_TOP_AXIS = trgElmn[idx].offsetTop - tooltip[idx].offsetHeight;
     const VALIGN_TOP_AXIS = trgElmn[idx].offsetTop;
@@ -157,7 +157,7 @@
       'use strict';
       const alignTopBasis = ( ALIGN_TOP_AXIS > 0 && ALIGN_TOP_AXIS > SCROLL_Y ); 
       const alignBtmBasis = ( ALIGN_BTM_AXIS > 0 && ALIGN_BTM_AXIS > SCROLL_Y && (CLIENT_HEIGHT / 1.1) > trgElmn[idx].offsetTop + tooltip[idx].clientHeight - trgElmn[idx].offsetHeight );
-      const valignLeftBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && JUST_LEFT_AXIS - tooltip[idx].offsetWidth  > 0 );
+      const valignLeftBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && JUST_LEFT_AXIS - GET_ARROW_POINTING_AT_CENTER_VALUE - tooltip[idx].offsetWidth  > 0 );
       const valignRightBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && RIGHT_AXIS + tooltip[idx].offsetWidth  < CLIENT_WIDTH );
       if (getPlacement === val) {
         tooltip[idx].style.minWidth = (tooltip[idx].offsetWidth) + 'px';
@@ -375,14 +375,14 @@
       const JUST_LEFT_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetLeft + GET_ARROW_POINTING_AT_CENTER_VALUE: null;
       const JUST_CENTER_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetLeft + ( GET_INTER_BTN_TOOLTIP_VALUE / 2 ): null;
       const JUST_RIGHT_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetLeft + GET_INTER_BTN_TOOLTIP_VALUE - GET_ARROW_POINTING_AT_CENTER_VALUE: null;
-      const LEFT_AXIS = getActiveBtnElmn() ? JUST_RIGHT_AXIS - getActiveBtnElmn().offsetWidth : null;
-      const RIGHT_AXIS = getActiveBtnElmn() ? JUST_LEFT_AXIS + getActiveBtnElmn().offsetWidth : null;
+      const LEFT_AXIS = getActiveBtnElmn() ? JUST_RIGHT_AXIS + GET_ARROW_POINTING_AT_CENTER_VALUE - getActiveBtnElmn().offsetWidth : null;
+      const RIGHT_AXIS = getActiveBtnElmn() ? JUST_LEFT_AXIS - GET_ARROW_POINTING_AT_CENTER_VALUE + getActiveBtnElmn().offsetWidth : null;
       // const ALIGN_BTM_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop + getActiveBtnElmn().offsetHeight : null;
       // const ALIGN_TOP_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop - getActiveTooltip().offsetHeight : null;
       const VALIGN_TOP_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop : null;
       // const VALIGN_MID_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop + ( ( getActiveBtnElmn().offsetHeight - getActiveTooltip().offsetHeight ) / 2 ) : null;
       // const VALIGN_BTM_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop + ( getActiveBtnElmn().offsetHeight - getActiveTooltip().offsetHeight ) : null;
-      const valignLeftBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && JUST_LEFT_AXIS - getActiveTooltip().offsetWidth  > 0 );
+      const valignLeftBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && JUST_LEFT_AXIS - GET_ARROW_POINTING_AT_CENTER_VALUE - getActiveTooltip().offsetWidth  > 0 );
       const valignRightBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && RIGHT_AXIS + getActiveTooltip().offsetWidth  < CLIENT_WIDTH );
 
       function defineBaseCoordinate(left1, display1, display2) {
