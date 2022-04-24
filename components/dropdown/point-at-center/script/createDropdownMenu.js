@@ -225,6 +225,8 @@
         }
       }
     }
+    // itemContainer.lastChild.insertAdjacentHTML('beforebegin', '<li class="otter-dropdown-menu-item-divider"></li>');
+    // itemContainer.lastChild.classList.add('otter-dropdown-menu-item-disabled');
     document.body.append(container);
   }
   createDrpdnMn(0, 3);
