@@ -56,22 +56,38 @@
     trgElmn[idx].lastChild.previousElementSibling.ariaExpanded = true;
     setTrgClsReplace(idx, 'otter-dropdown-close', 'otter-dropdown-open');
     setDrpdnMnClsAdd(idx, createPlcmntClsNm(idx));
-    if (
-      getTrgAttrPlcmnt(idx) === undefined ||
-      getTrgAttrPlcmnt(idx) === '' ||
-      getTrgAttrPlcmnt(idx) === 'default' ||
-      getTrgAttrPlcmnt(idx) === 'bottomLeft' ||
-      getTrgAttrPlcmnt(idx) === 'bottom' ||
-      getTrgAttrPlcmnt(idx) === 'bottomRight' ) {
-      setDrpdnMnClsRemove(idx, 'otter-slide-down-out');
-      setDrpdnMnClsRemove(idx, 'otter-slide-down-in');
-      setDrpdnMnClsAdd(idx, 'otter-slide-up-in');
-      setDrpdnMnClsReplace(idx, "otter-slide-up-out", "otter-slide-up-in");
-    } else {
-      setDrpdnMnClsRemove(idx, 'otter-slide-up-out');
-      setDrpdnMnClsRemove(idx, 'otter-slide-up-in');
-      setDrpdnMnClsAdd(idx, 'otter-slide-down-in');
-      setDrpdnMnClsReplace(idx, "otter-slide-down-out", "otter-slide-down-in");
+    const expr = getTrgAttrPlcmnt(idx);
+
+    switch (expr) {
+      case 'topLeft':
+      case 'top':
+      case 'topRight':
+        setDrpdnMnClsRemove(idx, 'otter-slide-up-out');
+        setDrpdnMnClsRemove(idx, 'otter-slide-up-in');
+        setDrpdnMnClsAdd(idx, 'otter-slide-down-in');
+        setDrpdnMnClsReplace(idx, "otter-slide-down-out", "otter-slide-down-in");
+        break;
+      case 'leftTop':
+      case 'left':
+      case 'leftBottom':
+        setDrpdnMnClsRemove(idx, 'otter-slide-left-out');
+        setDrpdnMnClsRemove(idx, 'otter-slide-left-in');
+        setDrpdnMnClsAdd(idx, 'otter-slide-right-in');
+        setDrpdnMnClsReplace(idx, "otter-slide-right-out", "otter-slide-right-in");
+        break;
+      case 'rightTop':
+      case 'right':
+      case 'rightBottom':
+        setDrpdnMnClsRemove(idx, 'otter-slide-right-out');
+        setDrpdnMnClsRemove(idx, 'otter-slide-right-in');
+        setDrpdnMnClsAdd(idx, 'otter-slide-left-in');
+        setDrpdnMnClsReplace(idx, "otter-slide-left-out", "otter-slide-left-in");
+        break;
+      default:
+        setDrpdnMnClsRemove(idx, 'otter-slide-down-out');
+        setDrpdnMnClsRemove(idx, 'otter-slide-down-in');
+        setDrpdnMnClsAdd(idx, 'otter-slide-up-in');
+        setDrpdnMnClsReplace(idx, "otter-slide-up-out", "otter-slide-up-in");
     }
     setDrpdnMnClsReplace(idx, "otter-dropdown-hidden", "otter-dropdown-visible");
     setLctDrpdnMn('in', idx);
@@ -83,6 +99,8 @@
     setTrgClsReplace(idx, 'otter-dropdown-open', 'otter-dropdown-close');
     setDrpdnMnClsReplace(idx, "otter-slide-up-in", "otter-slide-up-out");
     setDrpdnMnClsReplace(idx, "otter-slide-down-in", "otter-slide-down-out");
+    setDrpdnMnClsReplace(idx, "otter-slide-left-in", "otter-slide-left-out");
+    setDrpdnMnClsReplace(idx, "otter-slide-right-in", "otter-slide-right-out");
     setDrpdnMnClsReplace(idx, "otter-dropdown-visible", "otter-dropdown-hidden");
     setLctDrpdnMn('out', idx);
   }
@@ -94,28 +112,28 @@
     }
   }
 
-  function setTrgClsReplace(idx, val1, val2) {
+  function setTrgClsReplace(idx, class1, class2) {
     'use strict';
     const element = trgElmn[idx];
-    element.classList.replace(val1, val2);
+    element.classList.replace(class1, class2);
   }
 
-  function setDrpdnMnClsAdd(idx, val1) {
+  function setDrpdnMnClsAdd(idx, class1) {
     'use strict';
     const element = drpdnMn[idx];
-    element.classList.add(val1);
+    element.classList.add(class1);
   }
 
-  function setDrpdnMnClsRemove(idx, val1) {
+  function setDrpdnMnClsRemove(idx, class1) {
     'use strict';
     const element = drpdnMn[idx];
-    element.classList.remove(val1);
+    element.classList.remove(class1);
   }
 
-  function setDrpdnMnClsReplace(idx, val1, val2) {
+  function setDrpdnMnClsReplace(idx, class1, class2) {
     'use strict';
     const element = drpdnMn[idx];
-    element.classList.replace(val1, val2);
+    element.classList.replace(class1, class2);
   }
 
   function setLctDrpdnMn(loc, idx) {
@@ -131,55 +149,107 @@
     const JUST_LEFT_AXIS = trgElmn[idx].offsetLeft + GET_ARROW_POINTING_AT_CENTER_VALUE;
     const JUST_CENTER_AXIS = trgElmn[idx].offsetLeft + ( GET_INTER_BTN_DROPDOWN_MENU_VALUE / 2 );
     const JUST_RIGHT_AXIS = trgElmn[idx].offsetLeft + GET_INTER_BTN_DROPDOWN_MENU_VALUE - GET_ARROW_POINTING_AT_CENTER_VALUE;
+    const LEFT_AXIS = JUST_RIGHT_AXIS - trgElmn[idx].offsetWidth;
+    const RIGHT_AXIS = JUST_LEFT_AXIS + trgElmn[idx].offsetWidth;
     const ALIGN_BTM_AXIS = trgElmn[idx].offsetTop + trgElmn[idx].offsetHeight;
-    const ALIGN_TOP_AXIS = ALIGN_BTM_AXIS - drpdnMn[idx].offsetHeight - trgElmn[idx].offsetHeight;
+    const ALIGN_TOP_AXIS = trgElmn[idx].offsetTop - drpdnMn[idx].offsetHeight;
+    const VALIGN_TOP_AXIS = trgElmn[idx].offsetTop;
+    const VALIGN_MID_AXIS = trgElmn[idx].offsetTop + ( ( trgElmn[idx].offsetHeight - drpdnMn[idx].offsetHeight ) / 2 );
+    const VALIGN_BTM_AXIS = trgElmn[idx].offsetTop + ( trgElmn[idx].offsetHeight - drpdnMn[idx].offsetHeight );
 
-    function setPlacement( val, para ) {
+    function setPlacement( val, left1 ) {
       'use strict';
       const alignTopBasis = ( ALIGN_TOP_AXIS > 0 && ALIGN_TOP_AXIS > SCROLL_Y );
       const alignBtmBasis = ( ALIGN_BTM_AXIS > 0 && ALIGN_BTM_AXIS > SCROLL_Y && (CLIENT_HEIGHT / 1.1) > trgElmn[idx].offsetTop + drpdnMn[idx].clientHeight - trgElmn[idx].offsetHeight );
+      const valignLeftBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && JUST_LEFT_AXIS - drpdnMn[idx].offsetWidth  > 0 );
+      const valignRightBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && RIGHT_AXIS + drpdnMn[idx].offsetWidth  < CLIENT_WIDTH );
       if (getPlacement === val) {
         drpdnMn[idx].style.minWidth = (trgElmn[idx].offsetWidth) + 'px';
-        drpdnMn[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : para + 'px';
-        if (getPlacement === 'topLeft' || getPlacement === 'top' || getPlacement === 'topRight') {
-          defineAlignBasis(alignTopBasis, ALIGN_TOP_AXIS, ALIGN_BTM_AXIS)
-        } else {
-          defineAlignBasis(alignBtmBasis, ALIGN_BTM_AXIS, ALIGN_TOP_AXIS)
+        drpdnMn[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : left1 + 'px';
+
+        const expr = getPlacement;
+
+        switch (expr) {
+          case 'topLeft':
+          case 'top':
+          case 'topRight':
+            defineAlignBasis(alignTopBasis, ALIGN_TOP_AXIS, ALIGN_BTM_AXIS)
+            break;
+          case 'leftTop':
+            defineAlignBasis(valignLeftBasis, VALIGN_TOP_AXIS, VALIGN_TOP_AXIS, LEFT_AXIS, RIGHT_AXIS);
+            break;
+          case 'left':
+            defineAlignBasis(valignLeftBasis, VALIGN_MID_AXIS, VALIGN_MID_AXIS, LEFT_AXIS, RIGHT_AXIS);
+            break;
+          case 'leftBottom':
+            defineAlignBasis(valignLeftBasis, VALIGN_BTM_AXIS, VALIGN_BTM_AXIS, LEFT_AXIS, RIGHT_AXIS);
+            break;
+          case 'rightTop':
+            defineAlignBasis(valignRightBasis, VALIGN_TOP_AXIS, VALIGN_TOP_AXIS, RIGHT_AXIS, LEFT_AXIS);
+            break;
+          case 'right':
+            defineAlignBasis(valignRightBasis, VALIGN_MID_AXIS, VALIGN_MID_AXIS, RIGHT_AXIS, LEFT_AXIS);
+            break;
+          case 'rightBottom':
+            defineAlignBasis(valignRightBasis, VALIGN_BTM_AXIS, VALIGN_BTM_AXIS, RIGHT_AXIS, LEFT_AXIS);
+            break;
+          default:
+            defineAlignBasis(alignBtmBasis, ALIGN_BTM_AXIS, ALIGN_TOP_AXIS);
         }
-        function defineAlignBasis(axis, val1, val2) {
+
+        function defineAlignBasis(axis, val1, val2, val3, val4) {
           'use strict';
-          function displayContainsClass(obj, val1, val2, class1, class2, class3 ) {
+          function displayContainsClass(obj, display1, display2, class1, class2, class3 ) {
             'use strict';
             if (
               (obj.classList.contains(class1)) ||
               (obj.classList.contains(class2)) ||
               (obj.classList.contains(class3)) ) {
-              obj.firstChild.style.display = val1;
-              obj.lastChild.style.display = val2;
+              obj.firstChild.style.display = display1;
+              obj.lastChild.style.display = display2;
             }
           }
           if(axis) {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val1 + 'px';
+            drpdnMn[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : val3 + 'px';
             displayContainsClass(drpdnMn[idx], 'block', 'none', 'otter-dropdown-show-arrow-light', 'otter-dropdown-show-arrow-black');
           } else {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val2 + 'px';
+            drpdnMn[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : val4 + 'px';
             displayContainsClass(drpdnMn[idx], 'none', 'block', 'otter-dropdown-show-arrow-light', 'otter-dropdown-show-arrow-black');
-            if (
-              getTrgAttrPlcmnt(idx) === undefined ||
-              getTrgAttrPlcmnt(idx) === '' ||
-              getTrgAttrPlcmnt(idx) === 'default' ||
-              getTrgAttrPlcmnt(idx) === 'bottomLeft' ||
-              getTrgAttrPlcmnt(idx) === 'bottom' ||
-              getTrgAttrPlcmnt(idx) === 'bottomRight' ) {
-              setDrpdnMnClsRemove(idx, 'otter-slide-up-out');
-              setDrpdnMnClsRemove(idx, 'otter-slide-up-in');
-              setDrpdnMnClsAdd(idx, 'otter-slide-down-in');
-              setDrpdnMnClsReplace(idx, "otter-slide-down-out", "otter-slide-down-in");
-            } else {
-              setDrpdnMnClsRemove(idx, 'otter-slide-down-out');
-              setDrpdnMnClsRemove(idx, 'otter-slide-down-in');
-              setDrpdnMnClsAdd(idx, 'otter-slide-up-in');
-              setDrpdnMnClsReplace(idx, "otter-slide-up-out", "otter-slide-up-in");
+
+            const expr = getTrgAttrPlcmnt(idx);
+
+            switch (expr) {
+              case 'topLeft':
+              case 'top':
+              case 'topRight':
+                setDrpdnMnClsRemove(idx, 'otter-slide-down-out');
+                setDrpdnMnClsRemove(idx, 'otter-slide-down-in');
+                setDrpdnMnClsAdd(idx, 'otter-slide-up-in');
+                setDrpdnMnClsReplace(idx, "otter-slide-up-out", "otter-slide-up-in");
+                break;
+              case 'leftTop':
+              case 'left':
+              case 'leftBottom':
+                setDrpdnMnClsRemove(idx, 'otter-slide-right-out');
+                setDrpdnMnClsRemove(idx, 'otter-slide-right-in');
+                setDrpdnMnClsAdd(idx, 'otter-slide-left-in');
+                setDrpdnMnClsReplace(idx, "otter-slide-left-out", "otter-slide-left-in");
+                break;
+              case 'rightTop':
+              case 'right':
+              case 'rightBottom':
+                setDrpdnMnClsRemove(idx, 'otter-slide-left-out');
+                setDrpdnMnClsRemove(idx, 'otter-slide-left-in');
+                setDrpdnMnClsAdd(idx, 'otter-slide-right-in');
+                setDrpdnMnClsReplace(idx, "otter-slide-right-out", "otter-slide-right-in");
+                break;
+              default:
+                setDrpdnMnClsRemove(idx, 'otter-slide-up-out');
+                setDrpdnMnClsRemove(idx, 'otter-slide-up-in');
+                setDrpdnMnClsAdd(idx, 'otter-slide-down-in');
+                setDrpdnMnClsReplace(idx, "otter-slide-down-out", "otter-slide-down-in");
             }
           }
         }
@@ -192,6 +262,12 @@
     setPlacement('bottomLeft', JUST_LEFT_AXIS);
     setPlacement('bottom', JUST_CENTER_AXIS);
     setPlacement('bottomRight', JUST_RIGHT_AXIS);
+    setPlacement('leftTop', LEFT_AXIS);
+    setPlacement('left', LEFT_AXIS);
+    setPlacement('leftBottom', LEFT_AXIS);
+    setPlacement('rightTop', RIGHT_AXIS);
+    setPlacement('right', RIGHT_AXIS);
+    setPlacement('rightBottom', RIGHT_AXIS);
   }
 
   function getPrivousElmnArray() {
@@ -249,7 +325,7 @@
 
   function eventLog(mouseState) {
     'use strict';
-    const loadBtnItemText = getActiveBtnElmn().firstElementChild.innerText;
+    const loadBtnItemText = ( Boolean(getActiveBtnElmn().firstElementChild.innerText) ) ? getActiveBtnElmn().firstElementChild.innerText : 'null';
     const loadBtnItemAttr = getActiveBtnElmn().getAttribute('data-placement');
     const loadBtnItemCls = getActiveBtnElmn().classList[2];
     const loadBtnItemIdx = getActiveBtnElmn().getAttribute('data-index-number');
@@ -293,28 +369,62 @@
     'use strict';
     console.log('resize event!');
     if( getActiveDrpdnMn() ) {
+      const getPlacement = getActiveBtnElmn() ? getActiveBtnElmn().dataset.placement : null;
       const checkArrowPointingAtCenter = getActiveBtnElmn() ? getActiveBtnElmn().getAttribute('data-pointer-at-center') : null;
+      const SCROLL_Y = Math.round(window.scrollY);
+      const CLIENT_WIDTH = document.body.clientWidth;
+      // const CLIENT_HEIGHT = document.body.clientHeight;
       const GET_ARROW_POINTING_AT_CENTER_VALUE = checkArrowPointingAtCenter ? getActiveBtnElmn().offsetWidth / 2 : 0;
       const GET_INTER_BTN_DROPDOWN_MENU_VALUE = getActiveBtnElmn() ? getActiveBtnElmn().offsetWidth - getActiveDrpdnMn().offsetWidth : null;
       const JUST_LEFT_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetLeft + GET_ARROW_POINTING_AT_CENTER_VALUE : null;
       const JUST_CENTER_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetLeft + ( GET_INTER_BTN_DROPDOWN_MENU_VALUE / 2 ) : null;
       const JUST_RIGHT_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetLeft + GET_INTER_BTN_DROPDOWN_MENU_VALUE - GET_ARROW_POINTING_AT_CENTER_VALUE : null;
-      function defineBaseCoordinate(val) {
+      const LEFT_AXIS = getActiveBtnElmn() ? JUST_RIGHT_AXIS - getActiveBtnElmn().offsetWidth : null;
+      const RIGHT_AXIS = getActiveBtnElmn() ? JUST_LEFT_AXIS + getActiveBtnElmn().offsetWidth : null;
+      // const ALIGN_BTM_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop + getActiveBtnElmn().offsetHeight : null;
+      // const ALIGN_TOP_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop - getActiveDrpdnMn().offsetHeight : null;
+      const VALIGN_TOP_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop : null;
+      // const VALIGN_MID_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop + ( ( getActiveBtnElmn().offsetHeight - getActiveDrpdnMn().offsetHeight ) / 2 ) : null;
+      // const VALIGN_BTM_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop + ( getActiveBtnElmn().offsetHeight - getActiveDrpdnMn().offsetHeight ) : null;
+      const valignLeftBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && JUST_LEFT_AXIS - getActiveDrpdnMn().offsetWidth  > 0 );
+      const valignRightBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && RIGHT_AXIS + getActiveDrpdnMn().offsetWidth  < CLIENT_WIDTH );
+
+
+      function defineBaseCoordinate(left1, display1, display2) {
         'use strict';
-        getActiveDrpdnMn().style.left = val + 'px';
+        getActiveDrpdnMn().style.left = left1 + 'px';
+        getActiveDrpdnMn().firstChild.style.display = display1;
+        getActiveDrpdnMn().lastChild.style.display = display2;
       }
-      if ( getActiveDrpdnMn().classList.contains('otter-dropdown-placement-default') ||
-        getActiveDrpdnMn().classList.contains('otter-dropdown-placement-bottomLeft') ||
-        getActiveDrpdnMn().classList.contains('otter-dropdown-placement-topLeft') ) {
-        defineBaseCoordinate(JUST_LEFT_AXIS);
-      } else if ( getActiveDrpdnMn().classList.contains('otter-dropdown-placement-top') ||
-        getActiveDrpdnMn().classList.contains('otter-dropdown-placement-bottom') ) {
-        defineBaseCoordinate(JUST_CENTER_AXIS);
-      } else if ( getActiveDrpdnMn().classList.contains('otter-dropdown-placement-bottomRight') ||
-        getActiveDrpdnMn().classList.contains('otter-dropdown-placement-topRight' )) {
-        defineBaseCoordinate(JUST_RIGHT_AXIS);
-      } else {
-        defineBaseCoordinate(JUST_LEFT_AXIS);
+
+      const expr = getPlacement;
+
+      switch (expr) {
+        case 'default':
+        case 'top':
+        case 'bottom':
+          defineBaseCoordinate(JUST_CENTER_AXIS);
+          break;
+        case 'bottomLeft':
+        case 'topLeft':
+          defineBaseCoordinate(JUST_LEFT_AXIS);
+          break;
+        case 'bottomRight':
+        case 'topRight':
+          defineBaseCoordinate(JUST_RIGHT_AXIS);
+          break;
+        case 'leftTop':
+        case 'left':
+        case 'leftBottom':
+          valignLeftBasis ? defineBaseCoordinate(LEFT_AXIS, 'block', 'none') : defineBaseCoordinate(RIGHT_AXIS, 'none', 'block'); 
+          break;
+        case 'rightTop':
+        case 'right':
+        case 'rightBottom':
+          valignRightBasis ? defineBaseCoordinate(RIGHT_AXIS, 'block', 'none') : defineBaseCoordinate(LEFT_AXIS, 'none', 'block'); 
+          break;
+        default:
+          defineBaseCoordinate(JUST_LEFT_AXIS);
       }
     }
   });
