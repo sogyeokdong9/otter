@@ -116,11 +116,11 @@
   position: absolute;
   z-index: 1;
   display: inline-block;
-  width: 16px;
-  height: 16px;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 8px solid var(--otter-tooltip-arrow-light-background);
+  width: 18px;
+  height: 18px;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid var(--otter-tooltip-arrow-light-background);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -130,11 +130,11 @@
   position: absolute;
   z-index: 1;
   display: inline-block;
-  width: 16px;
-  height: 16px;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 8px solid var(--otter-tooltip-arrow-black-background);
+  width: 18px;
+  height: 18px;
+  border-left: 9px solid transparent;
+  border-right: 9px solid transparent;
+  border-top: 9px solid var(--otter-tooltip-arrow-black-background);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -148,11 +148,24 @@
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-light,
 .otter-tooltip-placement-topRight > .otter-tooltip-arrow-black,
 .otter-tooltip-placement-topRight > .otter-tooltip-arrow-light {
-  bottom: 10px;
+  bottom: 8px;
   -webkit-box-shadow: 3px 3px 7px -3px var(--otter-tooltip-arrow-top-box-shadow);
           box-shadow: 3px 3px 7px -3px var(--otter-tooltip-arrow-top-box-shadow);
   -webkit-transform: rotate(0deg) translateY(11px);
           transform: rotate(0deg) translateY(11px);
+}
+
+.otter-tooltip-placement-default > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-default > .otter-tooltip-arrow-light:last-child,
+.otter-tooltip-placement-top > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-top > .otter-tooltip-arrow-light:last-child,
+.otter-tooltip-placement-topLeft > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-topLeft > .otter-tooltip-arrow-light:last-child,
+.otter-tooltip-placement-topRight > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-topRight > .otter-tooltip-arrow-light:last-child {
+  top: -3px;
+  -webkit-transform: rotate(180deg) translateY(0);
+          transform: rotate(180deg) translateY(0);
 }
 
 .otter-tooltip-placement-bottom > .otter-tooltip-arrow-black,
@@ -161,41 +174,22 @@
 .otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-light,
 .otter-tooltip-placement-bottomRight > .otter-tooltip-arrow-black,
 .otter-tooltip-placement-bottomRight > .otter-tooltip-arrow-light {
-  top: 10px;
+  top: 8px;
   -webkit-box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
           box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
 }
 
-.otter-tooltip-placement-leftTop > .otter-tooltip-arrow-black,
-.otter-tooltip-placement-leftTop > .otter-tooltip-arrow-light,
-.otter-tooltip-placement-left > .otter-tooltip-arrow-black,
-.otter-tooltip-placement-left > .otter-tooltip-arrow-light,
-.otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-black,
-.otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-light {
-  top: 0;
-  right: -1px;
-  -webkit-box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
-          box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
-  -webkit-transform: rotate(270deg) translateX(calc(50% - 16px));
-          transform: rotate(270deg) translateX(calc(50% - 16px));
+.otter-tooltip-placement-bottom > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-bottom > .otter-tooltip-arrow-light:last-child,
+.otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-light:last-child,
+.otter-tooltip-placement-bottomRight > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-bottomRight > .otter-tooltip-arrow-light:last-child {
+  top: initial;
+  -webkit-transform: rotate(0) translateY(0);
+          transform: rotate(0) translateY(0);
 }
 
-.otter-tooltip-placement-rightTop > .otter-tooltip-arrow-black,
-.otter-tooltip-placement-rightTop > .otter-tooltip-arrow-light,
-.otter-tooltip-placement-right > .otter-tooltip-arrow-black,
-.otter-tooltip-placement-right > .otter-tooltip-arrow-light,
-.otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-black,
-.otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-light {
-  top: 0;
-  left: -1px;
-  -webkit-box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
-          box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
-  -webkit-transform: rotate(90deg) translateX(calc(50%));
-          transform: rotate(90deg) translateX(calc(50%));
-}
-
-.otter-tooltip-placement-default > .otter-tooltip-arrow-black,
-.otter-tooltip-placement-default > .otter-tooltip-arrow-light,
 .otter-tooltip-placement-top > .otter-tooltip-arrow-black,
 .otter-tooltip-placement-top > .otter-tooltip-arrow-light,
 .otter-tooltip-placement-bottom > .otter-tooltip-arrow-black,
@@ -203,6 +197,8 @@
   left: calc(50% - 9px);
 }
 
+.otter-tooltip-placement-default > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-default > .otter-tooltip-arrow-light,
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-black,
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-light,
 .otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-black,
@@ -217,28 +213,15 @@
   right: 12px;
 }
 
-.otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-black:last-child,
-.otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-light:last-child,
-.otter-tooltip-placement-bottomRight > .otter-tooltip-arrow-black:last-child,
-.otter-tooltip-placement-bottomRight > .otter-tooltip-arrow-light:last-child,
-.otter-tooltip-placement-bottom > .otter-tooltip-arrow-black:last-child,
-.otter-tooltip-placement-bottom > .otter-tooltip-arrow-light:last-child {
-  top: initial;
-  -webkit-transform: rotate(0) translateY(0);
-          transform: rotate(0) translateY(0);
-}
-
-.otter-tooltip-placement-default > .otter-tooltip-arrow-black:last-child,
-.otter-tooltip-placement-default > .otter-tooltip-arrow-light:last-child,
-.otter-tooltip-placement-topLeft > .otter-tooltip-arrow-black:last-child,
-.otter-tooltip-placement-topLeft > .otter-tooltip-arrow-light:last-child,
-.otter-tooltip-placement-topRight > .otter-tooltip-arrow-black:last-child,
-.otter-tooltip-placement-topRight > .otter-tooltip-arrow-light:last-child,
-.otter-tooltip-placement-top > .otter-tooltip-arrow-black:last-child,
-.otter-tooltip-placement-top > .otter-tooltip-arrow-light:last-child {
-  top: 0;
-  -webkit-transform: rotate(180deg) translateY(0);
-          transform: rotate(180deg) translateY(0);
+.otter-tooltip-placement-leftTop > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-leftTop > .otter-tooltip-arrow-light,
+.otter-tooltip-placement-left > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-left > .otter-tooltip-arrow-light,
+.otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-light {
+  right: -3px;
+  -webkit-box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
+          box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
 }
 
 .otter-tooltip-placement-leftTop > .otter-tooltip-arrow-black:last-child,
@@ -247,9 +230,62 @@
 .otter-tooltip-placement-left > .otter-tooltip-arrow-light:last-child,
 .otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-black:last-child,
 .otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-light:last-child {
-  left: 0;
+  left: -3px;
+  -webkit-box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
+          box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
+}
+
+.otter-tooltip-placement-leftTop > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-leftTop > .otter-tooltip-arrow-light {
+  top: 10px;
+  -webkit-transform: rotate(270deg) translateX(0);
+          transform: rotate(270deg) translateX(0);
+}
+
+.otter-tooltip-placement-leftTop > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-leftTop > .otter-tooltip-arrow-light:last-child {
+  top: 0;
   -webkit-transform: rotate(90deg) translateX(calc(50%));
           transform: rotate(90deg) translateX(calc(50%));
+}
+
+.otter-tooltip-placement-left > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-left > .otter-tooltip-arrow-light {
+  top: 50%;
+  -webkit-transform: rotate(270deg) translateX(calc(50%));
+          transform: rotate(270deg) translateX(calc(50%));
+}
+
+.otter-tooltip-placement-left > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-left > .otter-tooltip-arrow-light:last-child {
+  top: 50%;
+  -webkit-transform: rotate(90deg) translateX(calc(50% - 18px));
+          transform: rotate(90deg) translateX(calc(50% - 18px));
+}
+
+.otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-light {
+  top: calc(100% - 10px);
+  -webkit-transform: rotate(270deg) translateX(calc(100%));
+          transform: rotate(270deg) translateX(calc(100%));
+}
+
+.otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-light:last-child {
+  top: calc(100% - 37px);
+  -webkit-transform: rotate(90deg) translateX(calc(50%));
+          transform: rotate(90deg) translateX(calc(50%));
+}
+
+.otter-tooltip-placement-rightTop > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-rightTop > .otter-tooltip-arrow-light,
+.otter-tooltip-placement-right > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-right > .otter-tooltip-arrow-light,
+.otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-light {
+  left: -3px;
+  -webkit-box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
+          box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
 }
 
 .otter-tooltip-placement-rightTop > .otter-tooltip-arrow-black:last-child,
@@ -258,9 +294,49 @@
 .otter-tooltip-placement-right > .otter-tooltip-arrow-light:last-child,
 .otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-black:last-child,
 .otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-light:last-child {
-  left: calc(100% - 16px);
-  -webkit-transform: rotate(270deg) translateX(calc(50% - 16px));
-          transform: rotate(270deg) translateX(calc(50% - 16px));
+  left: calc(100% - 15px);
+}
+
+.otter-tooltip-placement-rightTop > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-rightTop > .otter-tooltip-arrow-light {
+  top: 10px;
+  -webkit-transform: rotate(90deg) translateX(0);
+          transform: rotate(90deg) translateX(0);
+}
+
+.otter-tooltip-placement-rightTop > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-rightTop > .otter-tooltip-arrow-light:last-child {
+  top: 18px;
+  -webkit-transform: rotate(270deg) translateX(calc(50%));
+          transform: rotate(270deg) translateX(calc(50%));
+}
+
+.otter-tooltip-placement-right > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-right > .otter-tooltip-arrow-light {
+  top: 50%;
+  -webkit-transform: rotate(90deg) translateX(calc(50% - 18px));
+          transform: rotate(90deg) translateX(calc(50% - 18px));
+}
+
+.otter-tooltip-placement-right > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-right > .otter-tooltip-arrow-light:last-child {
+  top: 50%;
+  -webkit-transform: rotate(270deg) translateX(calc(50%));
+          transform: rotate(270deg) translateX(calc(50%));
+}
+
+.otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-black,
+.otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-light {
+  top: calc(100% - 37px);
+  -webkit-transform: rotate(90deg) translateX(calc(50%));
+          transform: rotate(90deg) translateX(calc(50%));
+}
+
+.otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-black:last-child,
+.otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-light:last-child {
+  top: calc(100% - 19px);
+  -webkit-transform: rotate(270deg) translateX(calc(50%));
+          transform: rotate(270deg) translateX(calc(50%));
 }
 
 .otter-tooltip-content {
