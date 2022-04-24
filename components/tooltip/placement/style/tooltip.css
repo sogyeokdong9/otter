@@ -1,4 +1,3 @@
-/* This CSS will print because '%code-name' is extended. */
 .otter-tooltip {
   margin: 0;
   padding: 0;
@@ -237,44 +236,44 @@
 
 .otter-tooltip-placement-leftTop > .otter-tooltip-arrow-black,
 .otter-tooltip-placement-leftTop > .otter-tooltip-arrow-light {
-  top: 10px;
+  top: calc(18px / 2.571428571428571);
   -webkit-transform: rotate(270deg) translateX(0);
           transform: rotate(270deg) translateX(0);
 }
 
 .otter-tooltip-placement-leftTop > .otter-tooltip-arrow-black:last-child,
 .otter-tooltip-placement-leftTop > .otter-tooltip-arrow-light:last-child {
-  top: 0;
-  -webkit-transform: rotate(90deg) translateX(calc(50%));
-          transform: rotate(90deg) translateX(calc(50%));
+  top: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(90deg) translateX(0);
+          transform: rotate(90deg) translateX(0);
 }
 
 .otter-tooltip-placement-left > .otter-tooltip-arrow-black,
 .otter-tooltip-placement-left > .otter-tooltip-arrow-light {
-  top: 50%;
-  -webkit-transform: rotate(270deg) translateX(calc(50%));
-          transform: rotate(270deg) translateX(calc(50%));
+  top: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(270deg) translateX(calc(50% - 9px));
+          transform: rotate(270deg) translateX(calc(50% - 9px));
 }
 
 .otter-tooltip-placement-left > .otter-tooltip-arrow-black:last-child,
 .otter-tooltip-placement-left > .otter-tooltip-arrow-light:last-child {
-  top: 50%;
-  -webkit-transform: rotate(90deg) translateX(calc(50% - 18px));
-          transform: rotate(90deg) translateX(calc(50% - 18px));
+  top: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(90deg) translateX(0);
+          transform: rotate(90deg) translateX(0);
 }
 
 .otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-black,
 .otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-light {
-  top: calc(100% - 10px);
-  -webkit-transform: rotate(270deg) translateX(calc(100%));
-          transform: rotate(270deg) translateX(calc(100%));
+  top: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(270deg) translateX(calc(50% - 9px));
+          transform: rotate(270deg) translateX(calc(50% - 9px));
 }
 
 .otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-black:last-child,
 .otter-tooltip-placement-leftBottom > .otter-tooltip-arrow-light:last-child {
-  top: calc(100% - 37px);
-  -webkit-transform: rotate(90deg) translateX(calc(50%));
-          transform: rotate(90deg) translateX(calc(50%));
+  top: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(90deg) translateX(calc(50% - 9px));
+          transform: rotate(90deg) translateX(calc(50% - 9px));
 }
 
 .otter-tooltip-placement-rightTop > .otter-tooltip-arrow-black,
@@ -299,44 +298,44 @@
 
 .otter-tooltip-placement-rightTop > .otter-tooltip-arrow-black,
 .otter-tooltip-placement-rightTop > .otter-tooltip-arrow-light {
-  top: 10px;
+  top: calc(18px / 2.571428571428571);
   -webkit-transform: rotate(90deg) translateX(0);
           transform: rotate(90deg) translateX(0);
 }
 
 .otter-tooltip-placement-rightTop > .otter-tooltip-arrow-black:last-child,
 .otter-tooltip-placement-rightTop > .otter-tooltip-arrow-light:last-child {
-  top: 18px;
-  -webkit-transform: rotate(270deg) translateX(calc(50%));
-          transform: rotate(270deg) translateX(calc(50%));
+  top: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(270deg) translateX(calc(50% - 9px));
+          transform: rotate(270deg) translateX(calc(50% - 9px));
 }
 
 .otter-tooltip-placement-right > .otter-tooltip-arrow-black,
 .otter-tooltip-placement-right > .otter-tooltip-arrow-light {
-  top: 50%;
-  -webkit-transform: rotate(90deg) translateX(calc(50% - 18px));
-          transform: rotate(90deg) translateX(calc(50% - 18px));
+  top: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(90deg) translateX(calc(50% - 9px));
+          transform: rotate(90deg) translateX(calc(50% - 9px));
 }
 
 .otter-tooltip-placement-right > .otter-tooltip-arrow-black:last-child,
 .otter-tooltip-placement-right > .otter-tooltip-arrow-light:last-child {
-  top: 50%;
-  -webkit-transform: rotate(270deg) translateX(calc(50%));
-          transform: rotate(270deg) translateX(calc(50%));
+  top: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(270deg) translateX(calc(50% - 9px));
+          transform: rotate(270deg) translateX(calc(50% - 9px));
 }
 
 .otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-black,
 .otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-light {
-  top: calc(100% - 37px);
-  -webkit-transform: rotate(90deg) translateX(calc(50%));
-          transform: rotate(90deg) translateX(calc(50%));
+  top: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(90deg) translateX(calc(50% - 9px));
+          transform: rotate(90deg) translateX(calc(50% - 9px));
 }
 
 .otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-black:last-child,
 .otter-tooltip-placement-rightBottom > .otter-tooltip-arrow-light:last-child {
-  top: calc(100% - 19px);
-  -webkit-transform: rotate(270deg) translateX(calc(50%));
-          transform: rotate(270deg) translateX(calc(50%));
+  top: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(270deg) translateX(calc(50% - 9px));
+          transform: rotate(270deg) translateX(calc(50% - 9px));
 }
 
 .otter-tooltip-content {

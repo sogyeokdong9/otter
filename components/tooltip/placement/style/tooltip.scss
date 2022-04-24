@@ -1,6 +1,5 @@
 @charset "utf-8";
 
-/* This CSS will print because '%code-name' is extended. */
 %otter-tooltip-box {
   margin: 0;
   padding: 0;
@@ -162,28 +161,6 @@ $tooltips-data: (
   );
 }
 
-// .otter-tooltip-placement-default,
-// .otter-tooltip-placement-top,
-// .otter-tooltip-placement-topLeft,
-// .otter-tooltip-placement-topRight {
-//   > .otter-tooltip-arrow-black,
-//   > .otter-tooltip-arrow-light {
-//     bottom: 10px;
-//     box-shadow: 3px 3px 7px -3px var(--otter-tooltip-arrow-top-box-shadow);
-//     transform: rotate(0deg) translateY(11px);
-//   }
-// }
-// .otter-tooltip-placement-default,
-// .otter-tooltip-placement-topLeft,
-// .otter-tooltip-placement-topRight,
-// .otter-tooltip-placement-top {
-//   > .otter-tooltip-arrow-black:last-child,
-//   > .otter-tooltip-arrow-light:last-child {
-//     top: 0;
-//     transform: rotate(180deg) translateY(0);
-//   }
-// }
-
 .otter-tooltip-placement-bottom,
 .otter-tooltip-placement-bottomLeft,
 .otter-tooltip-placement-bottomRight {
@@ -194,26 +171,6 @@ $tooltips-data: (
       $lctf: rotate(0) translateY(0)
   );
 }
-
-// .otter-tooltip-placement-bottom,
-// .otter-tooltip-placement-bottomLeft,
-// .otter-tooltip-placement-bottomRight {
-//   > .otter-tooltip-arrow-black,
-//   > .otter-tooltip-arrow-light {
-//     top: 10px;
-//     box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
-//   }
-// }
-// .otter-tooltip-placement-bottomLeft,
-// .otter-tooltip-placement-bottomRight,
-// .otter-tooltip-placement-bottom {
-//   > .otter-tooltip-arrow-black:last-child,
-//   > .otter-tooltip-arrow-light:last-child {
-//     top: initial;
-//     transform: rotate(0) translateY(0);
-//   }
-// }
-
 
 .otter-tooltip-placement-top,
 .otter-tooltip-placement-bottom {
@@ -229,30 +186,6 @@ $tooltips-data: (
   @include position( $r: 12px );
 }
 
-// .otter-tooltip-placement-default,
-// .otter-tooltip-placement-top,
-// .otter-tooltip-placement-bottom {
-//   > .otter-tooltip-arrow-black,
-//   > .otter-tooltip-arrow-light {
-//     left: calc(50% - 9px);
-//   }
-// }
-// .otter-tooltip-placement-topLeft,
-// .otter-tooltip-placement-bottomLeft {
-//   > .otter-tooltip-arrow-black,
-//   > .otter-tooltip-arrow-light {
-//     left: 12px;
-//   }
-// }
-// .otter-tooltip-placement-topRight,
-// .otter-tooltip-placement-bottomRight {
-//   > .otter-tooltip-arrow-black,
-//   > .otter-tooltip-arrow-light {
-//     right: 12px;
-//   }
-// }
-
-
 .otter-tooltip-placement-leftTop,
 .otter-tooltip-placement-left,
 .otter-tooltip-placement-leftBottom {
@@ -265,52 +198,28 @@ $tooltips-data: (
 }
 .otter-tooltip-placement-leftTop {
   @include position(
-    $t: 10px,
+    $t: calc(18px / 2.571428571428571),
     $tf: rotate(270deg) translateX(0),
-      $lct: 0,
-      $lctf: rotate(90deg) translateX( calc(50%) )
+      $lct: calc(18px / 2.571428571428571),
+      $lctf: rotate(90deg) translateX( 0 )
   );
 }
 .otter-tooltip-placement-left {
   @include position(
-    $t: 50%,
-    $tf: rotate(270deg) translateX( calc(50%) ),
-      $lct: 50%,
-      $lctf: rotate(90deg) translateX( calc(50% - 18px) )
+    $t: calc(18px / 2.571428571428571),
+    $tf: rotate(270deg) translateX( calc(50% - 9px) ),
+      $lct: calc(18px / 2.571428571428571),
+      $lctf: rotate(90deg) translateX( 0 )
   );
 }
 .otter-tooltip-placement-leftBottom {
   @include position(
-    $t: calc(100% - 10px),
-    $tf: rotate(270deg) translateX( calc(100%) ),
-      $lct: calc(100% - 37px),
-      $lctf: rotate(90deg) translateX( calc(50%) )
+    $t: calc(18px / 2.571428571428571),
+    $tf: rotate(270deg) translateX( calc(50% - 9px) ),
+      $lct: calc(18px / 2.571428571428571),
+      $lctf: rotate(90deg) translateX( calc(50% - 9px) ),
   );
 }
-
-
-// .otter-tooltip-placement-leftTop,
-// .otter-tooltip-placement-left,
-// .otter-tooltip-placement-leftBottom {
-//   > .otter-tooltip-arrow-black,
-//   > .otter-tooltip-arrow-light {
-//     top: 0;
-//     right: -1px;
-//     box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
-//     transform: rotate(270deg) translateX( calc(50% - 16px));
-//   }
-// }
-// .otter-tooltip-placement-leftTop,
-// .otter-tooltip-placement-left,
-// .otter-tooltip-placement-leftBottom {
-//   > .otter-tooltip-arrow-black:last-child,
-//   > .otter-tooltip-arrow-light:last-child {
-//     left: 0;
-//     transform: rotate(90deg) translateX( calc(50%));
-//   }
-// }
-
-
 
 .otter-tooltip-placement-rightTop,
 .otter-tooltip-placement-right,
@@ -323,53 +232,28 @@ $tooltips-data: (
 }
 .otter-tooltip-placement-rightTop {
   @include position(
-    $t: 10px,
+    $t: calc(18px / 2.571428571428571),
     $tf: rotate(90deg) translateX(0),
-      $lct: 18px,
-      $lctf: rotate(270deg) translateX( calc(50%) )
+      $lct: calc(18px / 2.571428571428571),
+      $lctf: rotate(270deg) translateX( calc(50% - 9px) )
   );
 }
 .otter-tooltip-placement-right {
   @include position(
-    $t: 50%,
-    $tf: rotate(90deg) translateX( calc(50% - 18px) ),
-      $lct: 50%,
-      $lctf: rotate(270deg) translateX( calc(50%) )
+    $t: calc(18px / 2.571428571428571),
+    $tf: rotate(90deg) translateX( calc(50% - 9px) ),
+      $lct: calc(18px / 2.571428571428571),
+      $lctf: rotate(270deg) translateX( calc(50% - 9px) )
   );
 }
 .otter-tooltip-placement-rightBottom {
   @include position(
-    $t: calc(100% - 37px),
-    $tf: rotate(90deg) translateX( calc(50%) ),
-      $lct: calc(100% - 19px),
-      $lctf: rotate(270deg) translateX( calc(50%) )
+    $t: calc(18px / 2.571428571428571),
+    $tf: rotate(90deg) translateX( calc(50% - 9px) ),
+      $lct: calc(18px / 2.571428571428571),
+      $lctf: rotate(270deg) translateX( calc(50% - 9px) ),
   );
 }
-
-
-
-// .otter-tooltip-placement-rightTop,
-// .otter-tooltip-placement-right,
-// .otter-tooltip-placement-rightBottom {
-//   > .otter-tooltip-arrow-black,
-//   > .otter-tooltip-arrow-light {
-//     top: 0;
-//     left: -1px;
-//     box-shadow: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow);
-//     transform: rotate(90deg) translateX( calc(50%));
-//   }
-// }
-// .otter-tooltip-placement-rightTop,
-// .otter-tooltip-placement-right,
-// .otter-tooltip-placement-rightBottom {
-//   > .otter-tooltip-arrow-black:last-child,
-//   > .otter-tooltip-arrow-light:last-child {
-//     left: calc(100% - 16px);
-//     transform: rotate(270deg) translateX( calc(50% - 16px));
-//   }
-// }
-
-
 
 .otter-tooltip-content {
   position: relative;
