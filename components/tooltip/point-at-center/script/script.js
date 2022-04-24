@@ -19,7 +19,7 @@
     })
     element.addEventListener('mouseleave', function() {
       'use strict';
-      // isTooltipOpen(false, i);
+      isTooltipOpen(false, i);
     })
   }
 
