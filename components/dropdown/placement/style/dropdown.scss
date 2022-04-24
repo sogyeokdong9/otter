@@ -1,6 +1,5 @@
 @charset "utf-8";
 
-/* This CSS will print because '%code-name' is extended. */
 %otter-dropdown-box {
   margin: 0;
   padding: 0;
@@ -151,6 +150,7 @@ $dropdowns-data: (
   );
 }
 
+.otter-dropdown-placement-default,
 .otter-dropdown-placement-bottom,
 .otter-dropdown-placement-bottomLeft,
 .otter-dropdown-placement-bottomRight {
@@ -188,26 +188,26 @@ $dropdowns-data: (
 }
 .otter-dropdown-placement-leftTop {
   @include position(
-    $t: 10px,
+    $t: calc(18px / 2.571428571428571),
     $tf: rotate(270deg) translateX(0),
-      $lct: 0,
-      $lctf: rotate(90deg) translateX( calc(50%) )
+      $lct: calc(18px / 2.571428571428571),
+      $lctf: rotate(90deg) translateX( 0 )
   );
 }
 .otter-dropdown-placement-left {
   @include position(
-    $t: 50%,
-    $tf: rotate(270deg) translateX( calc(50%) ),
-      $lct: 50%,
-      $lctf: rotate(90deg) translateX( calc(50% - 18px) )
+    $t: calc( 50% - 9px ),
+    $tf: rotate(270deg) translateX( calc(50% - 9px) ),
+      $lct: calc( 50% - 9px ),
+      $lctf: rotate(90deg) translateX( 0 )
   );
 }
 .otter-dropdown-placement-leftBottom {
   @include position(
-    $t: calc(100% - 10px),
-    $tf: rotate(270deg) translateX( calc(100%) ),
-      $lct: calc(100% - 37px),
-      $lctf: rotate(90deg) translateX( calc(50%) )
+    $b: calc(18px / 2.571428571428571),
+    $tf: rotate(270deg) translateX( calc(50% - 9px) ),
+      $lcb: calc(18px / 2.571428571428571),
+      $lctf: rotate(90deg) translateX( calc(50% - 9px) )
   );
 }
 
@@ -222,26 +222,26 @@ $dropdowns-data: (
 }
 .otter-dropdown-placement-rightTop {
   @include position(
-    $t: 10px,
+    $t: calc(18px / 2.571428571428571),
     $tf: rotate(90deg) translateX(0),
-      $lct: 18px,
-      $lctf: rotate(270deg) translateX( calc(50%) )
+      $lct: calc(18px / 2.571428571428571),
+      $lctf: rotate(270deg) translateX( calc(50% - 9px) )
   );
 }
 .otter-dropdown-placement-right {
   @include position(
-    $t: 50%,
-    $tf: rotate(90deg) translateX( calc(50% - 18px) ),
-      $lct: 50%,
-      $lctf: rotate(270deg) translateX( calc(50%) )
+    $t: calc( 50% - 9px ),
+    $tf: rotate(90deg) translateX( calc(50% - 9px) ),
+      $lct: calc( 50% - 9px ),
+      $lctf: rotate(270deg) translateX( calc(50% - 9px) )
   );
 }
 .otter-dropdown-placement-rightBottom {
   @include position(
-    $t: calc(100% - 37px),
-    $tf: rotate(90deg) translateX( calc(50%) ),
-      $lct: calc(100% - 19px),
-      $lctf: rotate(270deg) translateX( calc(50%) )
+    $b: calc(18px / 2.571428571428571),
+    $tf: rotate(90deg) translateX( calc(50% - 9px) ),
+      $lcb: calc(18px / 2.571428571428571),
+      $lctf: rotate(270deg) translateX( calc(50% - 9px) )
   );
 }
 

@@ -1,4 +1,3 @@
-/* This CSS will print because '%code-name' is extended. */
 .otter-dropdown {
   margin: 0;
   padding: 0;
@@ -153,6 +152,8 @@
           transform: rotate(180deg) translateY(0);
 }
 
+.otter-dropdown-placement-default > .otter-dropdown-arrow-black,
+.otter-dropdown-placement-default > .otter-dropdown-arrow-light,
 .otter-dropdown-placement-bottom > .otter-dropdown-arrow-black,
 .otter-dropdown-placement-bottom > .otter-dropdown-arrow-light,
 .otter-dropdown-placement-bottomLeft > .otter-dropdown-arrow-black,
@@ -164,6 +165,8 @@
           box-shadow: 2px 2px 5px -2px var(--otter-dropdown-arrow-bottom-box-shadow);
 }
 
+.otter-dropdown-placement-default > .otter-dropdown-arrow-black:last-child,
+.otter-dropdown-placement-default > .otter-dropdown-arrow-light:last-child,
 .otter-dropdown-placement-bottom > .otter-dropdown-arrow-black:last-child,
 .otter-dropdown-placement-bottom > .otter-dropdown-arrow-light:last-child,
 .otter-dropdown-placement-bottomLeft > .otter-dropdown-arrow-black:last-child,
@@ -222,44 +225,44 @@
 
 .otter-dropdown-placement-leftTop > .otter-dropdown-arrow-black,
 .otter-dropdown-placement-leftTop > .otter-dropdown-arrow-light {
-  top: 10px;
+  top: calc(18px / 2.571428571428571);
   -webkit-transform: rotate(270deg) translateX(0);
           transform: rotate(270deg) translateX(0);
 }
 
 .otter-dropdown-placement-leftTop > .otter-dropdown-arrow-black:last-child,
 .otter-dropdown-placement-leftTop > .otter-dropdown-arrow-light:last-child {
-  top: 0;
-  -webkit-transform: rotate(90deg) translateX(calc(50%));
-          transform: rotate(90deg) translateX(calc(50%));
+  top: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(90deg) translateX(0);
+          transform: rotate(90deg) translateX(0);
 }
 
 .otter-dropdown-placement-left > .otter-dropdown-arrow-black,
 .otter-dropdown-placement-left > .otter-dropdown-arrow-light {
-  top: 50%;
-  -webkit-transform: rotate(270deg) translateX(calc(50%));
-          transform: rotate(270deg) translateX(calc(50%));
+  top: calc( 50% - 9px);
+  -webkit-transform: rotate(270deg) translateX(calc(50% - 9px));
+          transform: rotate(270deg) translateX(calc(50% - 9px));
 }
 
 .otter-dropdown-placement-left > .otter-dropdown-arrow-black:last-child,
 .otter-dropdown-placement-left > .otter-dropdown-arrow-light:last-child {
-  top: 50%;
-  -webkit-transform: rotate(90deg) translateX(calc(50% - 18px));
-          transform: rotate(90deg) translateX(calc(50% - 18px));
+  top: calc( 50% - 9px);
+  -webkit-transform: rotate(90deg) translateX(0);
+          transform: rotate(90deg) translateX(0);
 }
 
 .otter-dropdown-placement-leftBottom > .otter-dropdown-arrow-black,
 .otter-dropdown-placement-leftBottom > .otter-dropdown-arrow-light {
-  top: calc(100% - 10px);
-  -webkit-transform: rotate(270deg) translateX(calc(100%));
-          transform: rotate(270deg) translateX(calc(100%));
+  bottom: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(270deg) translateX(calc(50% - 9px));
+          transform: rotate(270deg) translateX(calc(50% - 9px));
 }
 
 .otter-dropdown-placement-leftBottom > .otter-dropdown-arrow-black:last-child,
 .otter-dropdown-placement-leftBottom > .otter-dropdown-arrow-light:last-child {
-  top: calc(100% - 37px);
-  -webkit-transform: rotate(90deg) translateX(calc(50%));
-          transform: rotate(90deg) translateX(calc(50%));
+  bottom: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(90deg) translateX(calc(50% - 9px));
+          transform: rotate(90deg) translateX(calc(50% - 9px));
 }
 
 .otter-dropdown-placement-rightTop > .otter-dropdown-arrow-black,
@@ -284,44 +287,44 @@
 
 .otter-dropdown-placement-rightTop > .otter-dropdown-arrow-black,
 .otter-dropdown-placement-rightTop > .otter-dropdown-arrow-light {
-  top: 10px;
+  top: calc(18px / 2.571428571428571);
   -webkit-transform: rotate(90deg) translateX(0);
           transform: rotate(90deg) translateX(0);
 }
 
 .otter-dropdown-placement-rightTop > .otter-dropdown-arrow-black:last-child,
 .otter-dropdown-placement-rightTop > .otter-dropdown-arrow-light:last-child {
-  top: 18px;
-  -webkit-transform: rotate(270deg) translateX(calc(50%));
-          transform: rotate(270deg) translateX(calc(50%));
+  top: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(270deg) translateX(calc(50% - 9px));
+          transform: rotate(270deg) translateX(calc(50% - 9px));
 }
 
 .otter-dropdown-placement-right > .otter-dropdown-arrow-black,
 .otter-dropdown-placement-right > .otter-dropdown-arrow-light {
-  top: 50%;
-  -webkit-transform: rotate(90deg) translateX(calc(50% - 18px));
-          transform: rotate(90deg) translateX(calc(50% - 18px));
+  top: calc( 50% - 9px);
+  -webkit-transform: rotate(90deg) translateX(calc(50% - 9px));
+          transform: rotate(90deg) translateX(calc(50% - 9px));
 }
 
 .otter-dropdown-placement-right > .otter-dropdown-arrow-black:last-child,
 .otter-dropdown-placement-right > .otter-dropdown-arrow-light:last-child {
-  top: 50%;
-  -webkit-transform: rotate(270deg) translateX(calc(50%));
-          transform: rotate(270deg) translateX(calc(50%));
+  top: calc( 50% - 9px);
+  -webkit-transform: rotate(270deg) translateX(calc(50% - 9px));
+          transform: rotate(270deg) translateX(calc(50% - 9px));
 }
 
 .otter-dropdown-placement-rightBottom > .otter-dropdown-arrow-black,
 .otter-dropdown-placement-rightBottom > .otter-dropdown-arrow-light {
-  top: calc(100% - 37px);
-  -webkit-transform: rotate(90deg) translateX(calc(50%));
-          transform: rotate(90deg) translateX(calc(50%));
+  bottom: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(90deg) translateX(calc(50% - 9px));
+          transform: rotate(90deg) translateX(calc(50% - 9px));
 }
 
 .otter-dropdown-placement-rightBottom > .otter-dropdown-arrow-black:last-child,
 .otter-dropdown-placement-rightBottom > .otter-dropdown-arrow-light:last-child {
-  top: calc(100% - 19px);
-  -webkit-transform: rotate(270deg) translateX(calc(50%));
-          transform: rotate(270deg) translateX(calc(50%));
+  bottom: calc(18px / 2.571428571428571);
+  -webkit-transform: rotate(270deg) translateX(calc(50% - 9px));
+          transform: rotate(270deg) translateX(calc(50% - 9px));
 }
 
 .otter-dropdown-menu {
