@@ -212,6 +212,10 @@ hr:after {
   min-width: 185px;
 }
 
+.log-item .trigger-cls {
+  min-width: 155px;
+}
+
 .log-item .tooltip-idx,
 .log-item .previous-idx,
 .log-item .dropdown-idx,
