@@ -10,6 +10,7 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-0",
+          "dataTheme":"black",
           "name":"tooltip1"
         }
       ]
@@ -20,6 +21,7 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-1",
+          "dataTheme":"black",
           "name":"tooltip2"
         }
       ]
@@ -30,6 +32,7 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-2",
+          "dataTheme":"black",
           "name":"tooltip3"
         }
       ]
@@ -40,17 +43,117 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-3",
+          "dataTheme":"black",
           "name":"tooltip4"
+        }
+      ]
+    },
+    {
+      "id":"5",
+      "name":"Tooltip",
+      "tooltip":[
+        {
+          "id":"tooltip-tmp-key-4",
+          "dataTheme":"black",
+          "name":"tooltip5"
+        }
+      ]
+    },
+    {
+      "id":"6",
+      "name":"Tooltip",
+      "tooltip":[
+        {
+          "id":"tooltip-tmp-key-5",
+          "dataTheme":"black",
+          "name":"tooltip6"
+        }
+      ]
+    },
+    {
+      "id":"7",
+      "name":"Tooltip",
+      "tooltip":[
+        {
+          "id":"tooltip-tmp-key-6",
+          "dataTheme":"black",
+          "name":"tooltip7"
+        }
+      ]
+    },
+    {
+      "id":"8",
+      "name":"Tooltip",
+      "tooltip":[
+        {
+          "id":"tooltip-tmp-key-7",
+          "dataTheme":"black",
+          "name":"tooltip8"
+        }
+      ]
+    },
+    {
+      "id":"9",
+      "name":"Tooltip",
+      "tooltip":[
+        {
+          "id":"tooltip-tmp-key-8",
+          "dataTheme":"black",
+          "name":"tooltip9"
+        }
+      ]
+    },
+    {
+      "id":"10",
+      "name":"Tooltip",
+      "tooltip":[
+        {
+          "id":"tooltip-tmp-key-9",
+          "dataTheme":"black",
+          "name":"tooltip10"
+        }
+      ]
+    },
+    {
+      "id":"11",
+      "name":"Tooltip",
+      "tooltip":[
+        {
+          "id":"tooltip-tmp-key-10",
+          "dataTheme":"black",
+          "name":"tooltip11"
+        }
+      ]
+    },
+    {
+      "id":"12",
+      "name":"Tooltip",
+      "tooltip":[
+        {
+          "id":"tooltip-tmp-key-11",
+          "dataTheme":"black",
+          "name":"tooltip12"
         }
       ]
     }
   ]
+
   const prefixTooltipId = 'tooltip-tmp-key-';
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
     items[i].tooltip[0].id = prefixTooltipId + [i];
-    items[i].tooltip[0].name = element.firstElementChild.attributes[0].value;
+    items[i].tooltip[0].name = element.firstElementChild.dataset.tooltip;
+    getDataTooltipTheme(i);
     createTooltip(i);
+  }
+  function getDataTooltipTheme(idx) {
+    'use strict';
+    const element = trgElmn[idx];
+    if ( !element.dataset.tooltipTheme ) {
+      element.setAttribute('data-tooltip-theme', items[idx].tooltip[0].dataTheme);
+    } else {
+      items[idx].tooltip[0].dataTheme = element.getAttribute('data-tooltip-theme');
+    }
   }
   function createTooltip(order) {
     'use strict';
@@ -68,11 +171,11 @@
     };
     const container = makeHtmlElement(
       'div', 
-      { style: 'position: absolute; top: 0px; left: 0px; width: 100%;' }
+      { style: 'position: absolute; top: 0; left: 0; width: 100%;' }
     );
     const wrapper = makeHtmlElement(
       'div', 
-      { class: 'otter-tooltip otter-tooltip-show-arrow-black otter-tooltip-visible' },
+      { class: `otter-tooltip otter-tooltip-show-arrow-${items[order].tooltip[0].dataTheme} otter-tooltip-visible` },
       { style: 'min-width: auto; left: -136px; top: -188px; pointer-events: none;' },
       { role: 'tooltip' }
     );
@@ -80,9 +183,10 @@
     createArrow();
     const itemContainer = makeHtmlElement(
       'div', 
-      { class: 'otter-tooltip-content otter-tooltip-root otter-tooltip-black' },
+      { class: `otter-tooltip-content otter-tooltip-root otter-tooltip-${items[order].tooltip[0].dataTheme}` }
     );
     itemContainer.setAttribute('data-item-id', items[order].tooltip[0].id);
+    itemContainer.setAttribute('data-tooltip-theme', items[order].tooltip[0].dataTheme);
     itemContainer.setAttribute('data-tooltip', true);
     const item = makeHtmlElement(
       'div', 
@@ -95,8 +199,19 @@
     createArrow();
     function createArrow() {
       'use strict';
-      createHtmlElement('div', 'otter-tooltip-arrow-light', 'otter-tooltip-show-arrow-light', 'otter-tooltip-show-arrow');
-      createHtmlElement('div', 'otter-tooltip-arrow-black', 'otter-tooltip-show-arrow-black');
+      // createHtmlElement('div', 'otter-tooltip-arrow-light', 'otter-tooltip-show-arrow-light');
+      createHtmlElement('div', 'otter-tooltip-arrow-black', 'otter-tooltip-show-arrow-black', 'otter-tooltip-show-arrow');
+      createHtmlElement('div', 'otter-tooltip-arrow-silver', 'otter-tooltip-show-arrow-silver');
+      createHtmlElement('div', 'otter-tooltip-arrow-gray', 'otter-tooltip-show-arrow-gray');
+      createHtmlElement('div', 'otter-tooltip-arrow-white', 'otter-tooltip-show-arrow-white');
+      createHtmlElement('div', 'otter-tooltip-arrow-maroon', 'otter-tooltip-show-arrow-maroon');
+      createHtmlElement('div', 'otter-tooltip-arrow-red', 'otter-tooltip-show-arrow-red');
+      createHtmlElement('div', 'otter-tooltip-arrow-purple', 'otter-tooltip-show-arrow-purple');
+      createHtmlElement('div', 'otter-tooltip-arrow-fuchsia', 'otter-tooltip-show-arrow-fuchsia');
+      createHtmlElement('div', 'otter-tooltip-arrow-green', 'otter-tooltip-show-arrow-green');
+      createHtmlElement('div', 'otter-tooltip-arrow-lime', 'otter-tooltip-show-arrow-lime');
+      createHtmlElement('div', 'otter-tooltip-arrow-olive', 'otter-tooltip-show-arrow-olive');
+      createHtmlElement('div', 'otter-tooltip-arrow-yellow', 'otter-tooltip-show-arrow-yellow');
       function createHtmlElement(element, class1, param1, param2) {
         'use strict';
         if (wrapper.classList.contains(param1) || wrapper.classList.contains(param2)) {

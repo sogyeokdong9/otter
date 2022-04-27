@@ -195,12 +195,26 @@
 
         function defineAlignBasis(axis, val1, val2, val3, val4) {
           'use strict';
-          function displayContainsClass(obj, display1, display2, class1, class2, class3 ) {
+          function getActiveTooltipClass() {
             'use strict';
-            if (
-              (obj.classList.contains(class1)) ||
-              (obj.classList.contains(class2)) ||
-              (obj.classList.contains(class3)) ) {
+            const activeTooltipClass = tooltip[idx] ? tooltip[idx].classList : null;
+            const result = activeTooltipClass;
+            return result;
+          }
+          function getActiveTooltipClassToString() {
+            'use strict';
+            const result = getActiveTooltipClass().toString();
+            return result;
+          }
+          function getActiveTooltipHasClassString() {
+            'use strict';
+            const result = getActiveTooltipClassToString().indexOf('otter-tooltip-show-arrow');
+            return result;
+          }
+
+          function displayContainsClass(obj, display1, display2 ) {
+            'use strict';
+            if ( getActiveTooltipHasClassString() !== -1 ) {
               obj.firstChild.style.display = display1;
               obj.lastChild.style.display = display2;
             }
@@ -208,11 +222,11 @@
           if(axis) {
             tooltip[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val1 + 'px';
             tooltip[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : val3 + 'px';
-            displayContainsClass(tooltip[idx], 'block', 'none', 'otter-tooltip-show-arrow-light', 'otter-tooltip-show-arrow-black');
+            displayContainsClass(tooltip[idx], 'block', 'none');
           } else {
             tooltip[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val2 + 'px';
             tooltip[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : val4 + 'px';
-            displayContainsClass(tooltip[idx], 'none', 'block', 'otter-tooltip-show-arrow-light', 'otter-tooltip-show-arrow-black');
+            displayContainsClass(tooltip[idx], 'none', 'block');
 
             const expr = getTrgAttrPlcmnt(idx);
 
