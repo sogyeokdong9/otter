@@ -316,12 +316,12 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"],
       $lctf: rotate(0) translateY(0)
   );
 }
-
+.otter-tooltip-placement-default,
 .otter-tooltip-placement-top,
 .otter-tooltip-placement-bottom {
   @include position( $l: calc(50% - 9px) );
 }
-.otter-tooltip-placement-default,
+
 .otter-tooltip-placement-topLeft,
 .otter-tooltip-placement-bottomLeft {
   @include position( $l: 12px );

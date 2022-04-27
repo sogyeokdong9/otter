@@ -746,144 +746,144 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
           transform: rotate(0) translateY(0);
 }
 
+.otter-tooltip-placement-default > .otter-tooltip-arrow-light,
 .otter-tooltip-placement-top > .otter-tooltip-arrow-light,
 .otter-tooltip-placement-bottom > .otter-tooltip-arrow-light {
   left: calc(50% - 9px);
 }
 
+.otter-tooltip-placement-default > .otter-tooltip-arrow-black,
 .otter-tooltip-placement-top > .otter-tooltip-arrow-black,
 .otter-tooltip-placement-bottom > .otter-tooltip-arrow-black {
   left: calc(50% - 9px);
 }
 
+.otter-tooltip-placement-default > .otter-tooltip-arrow-silver,
 .otter-tooltip-placement-top > .otter-tooltip-arrow-silver,
 .otter-tooltip-placement-bottom > .otter-tooltip-arrow-silver {
   left: calc(50% - 9px);
 }
 
+.otter-tooltip-placement-default > .otter-tooltip-arrow-gray,
 .otter-tooltip-placement-top > .otter-tooltip-arrow-gray,
 .otter-tooltip-placement-bottom > .otter-tooltip-arrow-gray {
   left: calc(50% - 9px);
 }
 
+.otter-tooltip-placement-default > .otter-tooltip-arrow-white,
 .otter-tooltip-placement-top > .otter-tooltip-arrow-white,
 .otter-tooltip-placement-bottom > .otter-tooltip-arrow-white {
   left: calc(50% - 9px);
 }
 
+.otter-tooltip-placement-default > .otter-tooltip-arrow-maroon,
 .otter-tooltip-placement-top > .otter-tooltip-arrow-maroon,
 .otter-tooltip-placement-bottom > .otter-tooltip-arrow-maroon {
   left: calc(50% - 9px);
 }
 
+.otter-tooltip-placement-default > .otter-tooltip-arrow-red,
 .otter-tooltip-placement-top > .otter-tooltip-arrow-red,
 .otter-tooltip-placement-bottom > .otter-tooltip-arrow-red {
   left: calc(50% - 9px);
 }
 
+.otter-tooltip-placement-default > .otter-tooltip-arrow-purple,
 .otter-tooltip-placement-top > .otter-tooltip-arrow-purple,
 .otter-tooltip-placement-bottom > .otter-tooltip-arrow-purple {
   left: calc(50% - 9px);
 }
 
+.otter-tooltip-placement-default > .otter-tooltip-arrow-fuchsia,
 .otter-tooltip-placement-top > .otter-tooltip-arrow-fuchsia,
 .otter-tooltip-placement-bottom > .otter-tooltip-arrow-fuchsia {
   left: calc(50% - 9px);
 }
 
+.otter-tooltip-placement-default > .otter-tooltip-arrow-green,
 .otter-tooltip-placement-top > .otter-tooltip-arrow-green,
 .otter-tooltip-placement-bottom > .otter-tooltip-arrow-green {
   left: calc(50% - 9px);
 }
 
+.otter-tooltip-placement-default > .otter-tooltip-arrow-lime,
 .otter-tooltip-placement-top > .otter-tooltip-arrow-lime,
 .otter-tooltip-placement-bottom > .otter-tooltip-arrow-lime {
   left: calc(50% - 9px);
 }
 
+.otter-tooltip-placement-default > .otter-tooltip-arrow-olive,
 .otter-tooltip-placement-top > .otter-tooltip-arrow-olive,
 .otter-tooltip-placement-bottom > .otter-tooltip-arrow-olive {
   left: calc(50% - 9px);
 }
 
+.otter-tooltip-placement-default > .otter-tooltip-arrow-yellow,
 .otter-tooltip-placement-top > .otter-tooltip-arrow-yellow,
 .otter-tooltip-placement-bottom > .otter-tooltip-arrow-yellow {
   left: calc(50% - 9px);
 }
 
-.otter-tooltip-placement-default > .otter-tooltip-arrow-light,
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-light,
 .otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-light {
   left: 12px;
 }
 
-.otter-tooltip-placement-default > .otter-tooltip-arrow-black,
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-black,
 .otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-black {
   left: 12px;
 }
 
-.otter-tooltip-placement-default > .otter-tooltip-arrow-silver,
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-silver,
 .otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-silver {
   left: 12px;
 }
 
-.otter-tooltip-placement-default > .otter-tooltip-arrow-gray,
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-gray,
 .otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-gray {
   left: 12px;
 }
 
-.otter-tooltip-placement-default > .otter-tooltip-arrow-white,
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-white,
 .otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-white {
   left: 12px;
 }
 
-.otter-tooltip-placement-default > .otter-tooltip-arrow-maroon,
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-maroon,
 .otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-maroon {
   left: 12px;
 }
 
-.otter-tooltip-placement-default > .otter-tooltip-arrow-red,
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-red,
 .otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-red {
   left: 12px;
 }
 
-.otter-tooltip-placement-default > .otter-tooltip-arrow-purple,
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-purple,
 .otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-purple {
   left: 12px;
 }
 
-.otter-tooltip-placement-default > .otter-tooltip-arrow-fuchsia,
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-fuchsia,
 .otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-fuchsia {
   left: 12px;
 }
 
-.otter-tooltip-placement-default > .otter-tooltip-arrow-green,
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-green,
 .otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-green {
   left: 12px;
 }
 
-.otter-tooltip-placement-default > .otter-tooltip-arrow-lime,
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-lime,
 .otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-lime {
   left: 12px;
 }
 
-.otter-tooltip-placement-default > .otter-tooltip-arrow-olive,
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-olive,
 .otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-olive {
   left: 12px;
 }
 
-.otter-tooltip-placement-default > .otter-tooltip-arrow-yellow,
 .otter-tooltip-placement-topLeft > .otter-tooltip-arrow-yellow,
 .otter-tooltip-placement-bottomLeft > .otter-tooltip-arrow-yellow {
   left: 12px;
