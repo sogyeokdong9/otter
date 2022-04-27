@@ -204,6 +204,10 @@ hr:after {
   color: var(--otter-ftbck-secondary-text);
 }
 
+.log-item .tooltip-arrow {
+  min-width: 270px;
+}
+
 .log-item .dropdown-txt {
   min-width: 385px;
 }
@@ -214,6 +218,10 @@ hr:after {
 
 .log-item .trigger-cls {
   min-width: 155px;
+}
+
+.log-item .log-time {
+  min-width: 150px;
 }
 
 .log-item .tooltip-idx,
