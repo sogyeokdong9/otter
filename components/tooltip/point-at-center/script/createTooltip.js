@@ -32,7 +32,7 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-2",
-          "dataTheme":"balck",
+          "dataTheme":"black",
           "name":"tooltip3"
         }
       ]
