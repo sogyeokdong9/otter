@@ -1,5 +1,149 @@
 @charset "utf-8";
 
+$tooltips-data: (
+  light: light, // rgba(255, 255, 255, 1);
+  black: black, // rgba(0, 0, 0, 1);
+  silver: silver, // rgba(192,192,192, 1);
+  gray: gray, // rgba(128, 128, 128, 1);
+  white: white, // rgba(255, 255, 255, 1);
+  maroon: maroon,  // rgba(128, 0, 0, 1);
+  red: red, // rgba(255, 0, 0, 1);
+  purple: purple, // rgba(128, 0, 128, 1);
+  fuchsia: fuchsia, // rgba(255, 0, 255, 1);
+  green: green, // rgba(0, 128, 0, 1);
+  lime: lime, // rgba(0, 255, 0, 1);
+  olive: olive,  // rgba(128, 128, 0, 1);
+  yellow: yellow // rgba(255, 255, 0, 1);
+  // navy: navy,
+  // blue: blue,
+  // teal: teal,
+  // aqua: aqua,
+  // orange: orange,
+  // aliceblue: aliceblue,
+  // antiquewhite: antiquewhite,
+  // aquamarine: aquamarine,
+  // azure: azure,
+  // beige: beige,
+  // bisque: bisque,
+  // blanchedalmond: blanchedalmond,
+  // blueviolet: blueviolet,
+  // brown: brown,
+  // burlywood: burlywood,
+  // cadetblue: cadetblue,
+  // chartreuse: chartreuse,
+  // chocolate: chocolate,
+  // coral: coral,
+  // cornflowerblue: cornflowerblue,
+  // cornsilk: cornsilk,
+  // crimson: crimson,
+  // darkblue: darkblue,
+  // darkcyan: darkcyan,
+  // darkgoldenrod: darkgoldenrod,
+  // darkgray: darkgray,
+  // darkgreen: darkgreen,
+  // darkkhaki: darkkhaki,
+  // darkmagenta: darkmagenta,
+  // darkolivegreen: darkolivegreen,
+  // darkorange: darkorange,
+  // darkorchid: darkorchid,
+  // darkred: darkred,
+  // darksalmon: darksalmon,
+  // darkseagreen: darkseagreen,
+  // darkslateblue: darkslateblue,
+  // darkslategray: darkslategray,
+  // darkturquoise: darkturquoise,
+  // darkviolet: darkviolet,
+  // deeppink: deeppink,
+  // deepskyblue: deepskyblue,
+  // dimgray: dimgray,
+  // dodgerblue: dodgerblue,
+  // firebrick: firebrick,
+  // floralwhite: floralwhite,
+  // forestgreen: forestgreen,
+  // gainsboro: gainsboro,
+  // ghostwhite: ghostwhite,
+  // gold: gold,
+  // goldenrod: goldenrod,
+  // greenyellow: greenyellow,
+  // honeydew: honeydew,
+  // hotpink: hotpink,
+  // indianred: indianred,
+  // indigo: indigo,
+  // ivory: ivory,
+  // khaki: khaki,
+  // lavender: lavender,
+  // lavenderblush: lavenderblush,
+  // lawngreen: lawngreen,
+  // lemonchiffon: lemonchiffon,
+  // lightblue: lightblue,
+  // lightcoral: lightcoral,
+  // lightcyan: lightcyan,
+  // lightgoldenrodyellow: lightgoldenrodyellow,
+  // lightgray: lightgray,
+  // lightgreen: lightgreen,
+  // lightpink: lightpink,
+  // lightsalmon: lightsalmon,
+  // lightseagreen: lightseagreen,
+  // lightskyblue: lightskyblue,
+  // lightslategray: lightslategray,
+  // lightsteelblue: lightsteelblue,
+  // lightyellow: lightyellow,
+  // limegreen: limegreen,
+  // linen: linen,
+  // magent: magent,
+  // mediumaquamarine: mediumaquamarine,
+  // mediumblue: mediumblue,
+  // mediumorchid: mediumorchid,
+  // mediumpurple: mediumpurple,
+  // mediumseagreen: mediumseagreen,
+  // mediumslateblue: mediumslateblue,
+  // mediumspringgreen: mediumspringgreen,
+  // mediumturquoise: mediumturquoise,
+  // mediumvioletred: mediumvioletred,
+  // midnightblue: midnightblue,
+  // mintcream: mintcream,
+  // mistyrose: mistyrose,
+  // moccasin: moccasin,
+  // navajowhite: navajowhite,
+  // oldlace: oldlace,
+  // olivedrab: olivedrab,
+  // orangered: orangered,
+  // orchid: orchid,
+  // palegoldenrod: palegoldenrod,
+  // palegreen: palegreen,
+  // paleturquoise: paleturquoise,
+  // palevioletred: palevioletred,
+  // papayawhip: papayawhip,
+  // peachpuff: peachpuff,
+  // peru: peru,
+  // pink: pink,
+  // plum: plum,
+  // powderblue: powderblue,
+  // rosybrown: rosybrown,
+  // royalblue: royalblue,
+  // saddlebrown: saddlebrown,
+  // salmon: salmon,
+  // sandybrown: sandybrown,
+  // seagreen: seagreen,
+  // seashell: seashell,
+  // sienna: sienna,
+  // skyblue: skyblue,
+  // slateblue: slateblue,
+  // slategray: slategray,
+  // snow: snow,
+  // springgreen: springgreen,
+  // steelblue: steelblue,
+  // tan: tan,
+  // thistle: thistle,
+  // tomato: tomato,
+  // turquoise: turquoise,
+  // violet: violet,
+  // wheat: wheat,
+  // whitesmoke: whitesmoke,
+  // yellowgreen: yellowgreen,
+  // rebeccapurple: rebeccapurple
+);
+
 %otter-tooltip-box {
   margin: 0;
   padding: 0;
@@ -72,19 +216,15 @@
 }
 
 // arrow
-.otter-tooltip-show-arrow,
-.otter-tooltip-show-arrow-black,
-.otter-tooltip-show-arrow-light {
+div[class^="otter-tooltip otter-tooltip-show-arrow-"],
+.otter-tooltip-show-arrow {
   &.otter-tooltip-placement-topLeft,
   &.otter-tooltip-placement-top,
   &.otter-tooltip-placement-topRight,
   &.otter-tooltip-placement-default,
   &.otter-tooltip-placement-bottomLeft,
   &.otter-tooltip-placement-bottom,
-  &.otter-tooltip-placement-bottomRight {
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
+  &.otter-tooltip-placement-bottomRight,
   &.otter-tooltip-placement-leftTop,
   &.otter-tooltip-placement-left,
   &.otter-tooltip-placement-leftBottom,
@@ -93,23 +233,27 @@
   &.otter-tooltip-placement-rightBottom {
     padding-left: 15px;
     padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
 
-$tooltips-data: (
-  light: light,
-  black: black
-);
+
 @each $tooltip, $label in $tooltips-data {
   .otter-tooltip-arrow-#{$tooltip} {
     position: absolute;
     z-index: 1;
     display: inline-block;
+    // width: 18px;
+    // height: 18px;
+    // border-left: 9px solid transparent;
+    // border-right: 9px solid transparent;
+    // border-top: 9px solid var(--otter-tooltip-arrow-#{$label}-background);
+    // transform: rotate(180deg) translateY(11px);
+    background-color: var(--otter-tooltip-arrow-#{$label}-background);
     width: 18px;
     height: 18px;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-top: 9px solid var(--otter-tooltip-arrow-#{$label}-background);
+    clip-path: polygon(0 0, 50% 50%, 100% 0);
     transform: rotate(180deg) translateY(11px);
     pointer-events: none;
   }
@@ -129,21 +273,22 @@ $tooltips-data: (
   $lcbs: null,
   $lctf: null
 ) {
-  > .otter-tooltip-arrow-black,
-  > .otter-tooltip-arrow-light {
-    top: $t;
-    right: $r;
-    bottom: $b;
-    left: $l;
-    box-shadow: $bs;
-    transform: $tf;
-    &:last-child {
-      top: $lct;
-      right: $lcr;
-      bottom: $lcb;
-      left: $lcl;
-      box-shadow: $lcbs;
-      transform: $lctf;
+  @each $tooltip, $label in $tooltips-data {
+    > .otter-tooltip-arrow-#{$tooltip} {
+      top: $t;
+      right: $r;
+      bottom: $b;
+      left: $l;
+      box-shadow: $bs;
+      transform: $tf;
+      &:last-child {
+        top: $lct;
+        right: $lcr;
+        bottom: $lcb;
+        left: $lcl;
+        box-shadow: $lcbs;
+        transform: $lctf;
+      }
     }
   }
 }
@@ -196,6 +341,33 @@ $tooltips-data: (
       $lcbs: 2px 2px 5px -2px var(--otter-tooltip-arrow-bottom-box-shadow)
   );
 }
+.otter-tooltip-placement-rightTop,
+.otter-tooltip-placement-leftTop {
+  .otter-tooltip-content {
+    top: -15px;
+  }
+}
+.otter-tooltip-placement-rightBottom,
+.otter-tooltip-placement-leftBottom {
+  .otter-tooltip-content {
+    bottom: -15px;
+  }
+}
+
+.otter-tooltip-placement-topLeft,
+.otter-tooltip-placement-bottomLeft {
+  .otter-tooltip-content {
+    left: -15px;
+  }
+}
+
+.otter-tooltip-placement-topRight,
+.otter-tooltip-placement-bottomRight {
+  .otter-tooltip-content {
+    right: -15px;
+  }
+}
+
 .otter-tooltip-placement-leftTop {
   @include position(
     $t: calc(18px / 2.571428571428571),
@@ -206,17 +378,17 @@ $tooltips-data: (
 }
 .otter-tooltip-placement-left {
   @include position(
-    $t: calc(18px / 2.571428571428571),
-    $tf: rotate(270deg) translateX( calc(50% - 9px) ),
-      $lct: calc(18px / 2.571428571428571),
-      $lctf: rotate(90deg) translateX( 0 )
+    $t: calc( 50% ),
+    $tf: rotate(270deg) translateX( calc(50%) ),
+      $lct: calc( 50% ),
+      $lctf: rotate(90deg) translateX( 0 - 9px)
   );
 }
 .otter-tooltip-placement-leftBottom {
   @include position(
-    $t: calc(18px / 2.571428571428571),
+    $b: calc(18px / 2.571428571428571),
     $tf: rotate(270deg) translateX( calc(50% - 9px) ),
-      $lct: calc(18px / 2.571428571428571),
+      $lcb: calc(18px / 2.571428571428571),
       $lctf: rotate(90deg) translateX( calc(50% - 9px) )
   );
 }
@@ -238,19 +410,21 @@ $tooltips-data: (
       $lctf: rotate(270deg) translateX( calc(50% - 9px) )
   );
 }
+
 .otter-tooltip-placement-right {
   @include position(
-    $t: calc(18px / 2.571428571428571),
-    $tf: rotate(90deg) translateX( calc(50% - 9px) ),
-      $lct: calc(18px / 2.571428571428571),
-      $lctf: rotate(270deg) translateX( calc(50% - 9px) )
+    $t: calc( 50% ),
+    $tf: rotate(90deg) translateX( calc( 50% - 18px ) ),
+      $lct: calc( 50% ),
+      $lctf: rotate(270deg) translateX( calc( 50% ) )
   );
 }
+
 .otter-tooltip-placement-rightBottom {
   @include position(
-    $t: calc(18px / 2.571428571428571),
+    $b: calc(18px / 2.571428571428571),
     $tf: rotate(90deg) translateX( calc(50% - 9px) ),
-      $lct: calc(18px / 2.571428571428571),
+      $lcb: calc(18px / 2.571428571428571),
       $lctf: rotate(270deg) translateX( calc(50% - 9px) )
   );
 }
@@ -285,10 +459,7 @@ $tooltips-data: (
   font-size: 14px;
   line-height: 22px;
 }
-$tooltips-data: (
-  light: light,
-  black: black
-);
+
 @each $tooltip, $label in $tooltips-data {
   .otter-tooltip-#{$tooltip} {
     background-color: var(--otter-tooltip-#{$label}-background);
@@ -325,12 +496,51 @@ $tooltips-data: (
   grid-row: 2 / 5;
   text-align: left;
 }
-
 .one,
 .two,
 .three,
 .four {
   .otter-btn {
     min-width: 120px;
+  }
+}
+.palette {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 15px;
+  div {
+    button {
+      width: 100%;
+      span:first-child::after {
+        position: relative;
+        content: '●';
+        top: -5px;
+        left: 3px;
+        font-size: .5em;
+        color: black;
+      }
+    }
+    @each $tooltip, $label in $tooltips-data {
+      button[data-tooltip-theme="#{$tooltip}"] {
+        span:first-child::after {
+          color: #{$tooltip};
+        }
+      }
+    }
+  }
+}
+
+@each $tooltip, $label in $tooltips-data {
+  .otter-btn.#{$tooltip} {
+    // min-width: 40px;
+    // min-height: 80px;
+    &:hover,
+    &:focus {
+      // font-size:0;
+      color: var(--otter-#{$label});
+      border-color: var(--otter-#{$label});
+      background-color: var(--otter-#{$label});
+    }
   }
 }
