@@ -4,7 +4,6 @@
   const cntnrElmnt = document.querySelector('.wrap');
   const trgElmn = cntnrElmnt.querySelectorAll('.otter-dropdown-trigger');
   const drpdnMn = document.querySelectorAll('.otter-dropdown');
-
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
     element.addEventListener('mouseenter', function() {
@@ -26,18 +25,15 @@
       })
     }
   }
-
   function isDrpdnMnOpen(bool, idx) {
     'use strict';
     bool ? openDrpdnMn(idx) : closeDrpdnMn(idx);
   }
-
   function getTrgAttrPlcmnt(idx) {
     const element = trgElmn[idx];
     const result = element.getAttribute('data-placement');
     return result;
   }
-
   function createPlcmntClsNm(idx) {
     'use strict';
     const element = trgElmn[idx];
@@ -48,7 +44,6 @@
     const makePlcmntCls = prefixPlcmnt + positionPlcmnt;
     return makePlcmntCls;
   }
-
   function openDrpdnMn(idx) {
     'use strict';
     const element = trgElmn[idx];
@@ -57,7 +52,6 @@
     setTrgClsReplace(idx, 'otter-dropdown-close', 'otter-dropdown-open');
     setDrpdnMnClsAdd(idx, createPlcmntClsNm(idx));
     const expr = getTrgAttrPlcmnt(idx);
-
     switch (expr) {
       case 'topLeft':
       case 'top':
@@ -92,7 +86,6 @@
     setDrpdnMnClsReplace(idx, "otter-dropdown-hidden", "otter-dropdown-visible");
     setLctDrpdnMn('in', idx);
   }
-
   function closeDrpdnMn(idx) {
     'use strict';
     trgElmn[idx].lastChild.previousElementSibling.ariaExpanded = false;
@@ -104,38 +97,32 @@
     setDrpdnMnClsReplace(idx, "otter-dropdown-visible", "otter-dropdown-hidden");
     setLctDrpdnMn('out', idx);
   }
-
   function closeAllDrpdnMn() {
     'use strict';
     for (let i = 0; i < drpdnMn.length; i++) {
       closeDrpdnMn(i);
     }
   }
-
   function setTrgClsReplace(idx, class1, class2) {
     'use strict';
     const element = trgElmn[idx];
     element.classList.replace(class1, class2);
   }
-
   function setDrpdnMnClsAdd(idx, class1) {
     'use strict';
     const element = drpdnMn[idx];
     element.classList.add(class1);
   }
-
   function setDrpdnMnClsRemove(idx, class1) {
     'use strict';
     const element = drpdnMn[idx];
     element.classList.remove(class1);
   }
-
   function setDrpdnMnClsReplace(idx, class1, class2) {
     'use strict';
     const element = drpdnMn[idx];
     element.classList.replace(class1, class2);
   }
-
   function setLctDrpdnMn(loc, idx) {
     'use strict';
     const element = trgElmn[idx];
@@ -156,7 +143,6 @@
     const VALIGN_TOP_AXIS = trgElmn[idx].offsetTop;
     const VALIGN_MID_AXIS = trgElmn[idx].offsetTop + ( ( trgElmn[idx].offsetHeight - drpdnMn[idx].offsetHeight ) / 2 );
     const VALIGN_BTM_AXIS = trgElmn[idx].offsetTop + ( trgElmn[idx].offsetHeight - drpdnMn[idx].offsetHeight );
-
     function setPlacement( val, left1 ) {
       'use strict';
       const alignTopBasis = ( ALIGN_TOP_AXIS > 0 && ALIGN_TOP_AXIS > SCROLL_Y );
@@ -166,9 +152,7 @@
       if (getPlacement === val) {
         drpdnMn[idx].style.minWidth = (trgElmn[idx].offsetWidth) + 'px';
         drpdnMn[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : left1 + 'px';
-
         const expr = getPlacement;
-
         switch (expr) {
           case 'topLeft':
           case 'top':
@@ -196,15 +180,27 @@
           default:
             defineAlignBasis(alignBtmBasis, ALIGN_BTM_AXIS, ALIGN_TOP_AXIS);
         }
-
         function defineAlignBasis(axis, val1, val2, val3, val4) {
           'use strict';
-          function displayContainsClass(obj, display1, display2, class1, class2, class3 ) {
+          function getActiveDrpdMnClass() {
             'use strict';
-            if (
-              (obj.classList.contains(class1)) ||
-              (obj.classList.contains(class2)) ||
-              (obj.classList.contains(class3)) ) {
+            const activeDrpdMnClass = drpdnMn[idx] ? drpdnMn[idx].classList : null;
+            const result = activeDrpdMnClass;
+            return result;
+          }
+          function getActiveDrpdMnClassToString() {
+            'use strict';
+            const result = getActiveDrpdMnClass().toString();
+            return result;
+          }
+          function getActiveDrpdMnHasClassString() {
+            'use strict';
+            const result = getActiveDrpdMnClassToString().indexOf('otter-dropdown-show-arrow');
+            return result;
+          }
+          function displayContainsClass(obj, display1, display2 ) {
+            'use strict';
+            if ( getActiveDrpdMnHasClassString() !== -1 ) {
               obj.firstChild.style.display = display1;
               obj.lastChild.style.display = display2;
             }
@@ -212,14 +208,12 @@
           if(axis) {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val1 + 'px';
             drpdnMn[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : val3 + 'px';
-            displayContainsClass(drpdnMn[idx], 'block', 'none', 'otter-dropdown-show-arrow-light', 'otter-dropdown-show-arrow-black');
+            displayContainsClass(drpdnMn[idx], 'block', 'none');
           } else {
             drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val2 + 'px';
             drpdnMn[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : val4 + 'px';
-            displayContainsClass(drpdnMn[idx], 'none', 'block', 'otter-dropdown-show-arrow-light', 'otter-dropdown-show-arrow-black');
-
+            displayContainsClass(drpdnMn[idx], 'none', 'block');
             const expr = getTrgAttrPlcmnt(idx);
-
             switch (expr) {
               case 'topLeft':
               case 'top':
@@ -269,7 +263,6 @@
     setPlacement('right', RIGHT_AXIS);
     setPlacement('rightBottom', RIGHT_AXIS);
   }
-
   function getPrivousElmnArray() {
     'use strict';
     const logAllArray = [];
@@ -290,7 +283,6 @@
     const result = logPreviousArray;
     return result;
   }
-
   function setPrivousElmn() {
     'use strict';
     const getLogItem = cntnrElmnt.querySelectorAll('.log-item');
@@ -299,7 +291,6 @@
       element.lastChild.textContent = getPrivousElmnArray()[i];
     }
   }
-
   function getStringTime() {
     'use strict';
     const time = new Date();
@@ -308,21 +299,18 @@
     const result = timeStr1 + ':' +timeStr2;
     return result;
   }
-
   function getActiveBtnElmn() {
     'use strict';
     const activeElmn = cntnrElmnt.querySelector('.otter-dropdown-open');
     const result = activeElmn;
     return result;
   }
-
   function getActiveDrpdnMn() {
     'use strict';
     const activeElmn = document.querySelector('.otter-dropdown-visible');
     const result = activeElmn;
     return result;
   }
-
   function eventLog(mouseState) {
     'use strict';
     const loadBtnItemText = ( Boolean(getActiveBtnElmn().firstElementChild.innerText) ) ? getActiveBtnElmn().firstElementChild.innerText : 'null';
@@ -364,7 +352,6 @@
     itemContainer.append(item1, item2, item3, item4, item5, item6, item7, item8, item9, item10);
     logElmnt.append(itemContainer);
   }
-
   window.addEventListener('resize', function(){
     'use strict';
     console.log('resize event!');
@@ -388,16 +375,13 @@
       // const VALIGN_BTM_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop + ( getActiveBtnElmn().offsetHeight - getActiveDrpdnMn().offsetHeight ) : null;
       const valignLeftBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && JUST_LEFT_AXIS - GET_ARROW_POINTING_AT_CENTER_VALUE - getActiveDrpdnMn().offsetWidth  > 0 );
       const valignRightBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && RIGHT_AXIS + getActiveDrpdnMn().offsetWidth  < CLIENT_WIDTH );
-
       function defineBaseCoordinate(left1, display1, display2) {
         'use strict';
         getActiveDrpdnMn().style.left = left1 + 'px';
         getActiveDrpdnMn().firstChild.style.display = display1;
         getActiveDrpdnMn().lastChild.style.display = display2;
       }
-
       const expr = getPlacement;
-
       switch (expr) {
         case 'default':
         case 'top':

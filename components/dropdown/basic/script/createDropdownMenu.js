@@ -146,7 +146,6 @@
       createHtmlElement('div', 'otter-dropdown-arrow-lime', 'otter-dropdown-show-arrow-lime');
       createHtmlElement('div', 'otter-dropdown-arrow-olive', 'otter-dropdown-show-arrow-olive');
       createHtmlElement('div', 'otter-dropdown-arrow-yellow', 'otter-dropdown-show-arrow-yellow');
-
       function createHtmlElement(element, class1, param1, param2) {
         'use strict';
         if (wrapper.classList.contains(param1) || wrapper.classList.contains(param2)) {
