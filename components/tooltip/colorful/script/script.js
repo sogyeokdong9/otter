@@ -194,24 +194,26 @@
         }
 
         function defineAlignBasis(axis, val1, val2, val3, val4) {
-          // 'use strict';
+          'use strict';
           function getActiveTooltipClass() {
+            'use strict';
             const activeTooltipClass = tooltip[idx] ? tooltip[idx].classList : null;
             const result = activeTooltipClass;
             return result;
           }
           function getActiveTooltipClassToString() {
+            'use strict';
             const result = getActiveTooltipClass().toString();
             return result;
           }
           function getActiveTooltipHasClassString() {
+            'use strict';
             const result = getActiveTooltipClassToString().indexOf('otter-tooltip-show-arrow');
             return result;
           }
 
           function displayContainsClass(obj, display1, display2 ) {
             'use strict';
-
             if ( getActiveTooltipHasClassString() !== -1 ) {
               obj.firstChild.style.display = display1;
               obj.lastChild.style.display = display2;

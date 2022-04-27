@@ -100,11 +100,11 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   position: absolute;
   z-index: 1;
   display: inline-block;
+  background-color: var(--otter-tooltip-arrow-light-background);
   width: 18px;
   height: 18px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid var(--otter-tooltip-arrow-light-background);
+  -webkit-clip-path: polygon(0 0, 50% 50%, 100% 0);
+          clip-path: polygon(0 0, 50% 50%, 100% 0);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -114,11 +114,11 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   position: absolute;
   z-index: 1;
   display: inline-block;
+  background-color: var(--otter-tooltip-arrow-black-background);
   width: 18px;
   height: 18px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid var(--otter-tooltip-arrow-black-background);
+  -webkit-clip-path: polygon(0 0, 50% 50%, 100% 0);
+          clip-path: polygon(0 0, 50% 50%, 100% 0);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -128,11 +128,11 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   position: absolute;
   z-index: 1;
   display: inline-block;
+  background-color: var(--otter-tooltip-arrow-silver-background);
   width: 18px;
   height: 18px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid var(--otter-tooltip-arrow-silver-background);
+  -webkit-clip-path: polygon(0 0, 50% 50%, 100% 0);
+          clip-path: polygon(0 0, 50% 50%, 100% 0);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -142,11 +142,11 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   position: absolute;
   z-index: 1;
   display: inline-block;
+  background-color: var(--otter-tooltip-arrow-gray-background);
   width: 18px;
   height: 18px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid var(--otter-tooltip-arrow-gray-background);
+  -webkit-clip-path: polygon(0 0, 50% 50%, 100% 0);
+          clip-path: polygon(0 0, 50% 50%, 100% 0);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -156,11 +156,11 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   position: absolute;
   z-index: 1;
   display: inline-block;
+  background-color: var(--otter-tooltip-arrow-white-background);
   width: 18px;
   height: 18px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid var(--otter-tooltip-arrow-white-background);
+  -webkit-clip-path: polygon(0 0, 50% 50%, 100% 0);
+          clip-path: polygon(0 0, 50% 50%, 100% 0);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -170,11 +170,11 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   position: absolute;
   z-index: 1;
   display: inline-block;
+  background-color: var(--otter-tooltip-arrow-maroon-background);
   width: 18px;
   height: 18px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid var(--otter-tooltip-arrow-maroon-background);
+  -webkit-clip-path: polygon(0 0, 50% 50%, 100% 0);
+          clip-path: polygon(0 0, 50% 50%, 100% 0);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -184,11 +184,11 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   position: absolute;
   z-index: 1;
   display: inline-block;
+  background-color: var(--otter-tooltip-arrow-red-background);
   width: 18px;
   height: 18px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid var(--otter-tooltip-arrow-red-background);
+  -webkit-clip-path: polygon(0 0, 50% 50%, 100% 0);
+          clip-path: polygon(0 0, 50% 50%, 100% 0);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -198,11 +198,11 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   position: absolute;
   z-index: 1;
   display: inline-block;
+  background-color: var(--otter-tooltip-arrow-purple-background);
   width: 18px;
   height: 18px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid var(--otter-tooltip-arrow-purple-background);
+  -webkit-clip-path: polygon(0 0, 50% 50%, 100% 0);
+          clip-path: polygon(0 0, 50% 50%, 100% 0);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -212,11 +212,11 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   position: absolute;
   z-index: 1;
   display: inline-block;
+  background-color: var(--otter-tooltip-arrow-fuchsia-background);
   width: 18px;
   height: 18px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid var(--otter-tooltip-arrow-fuchsia-background);
+  -webkit-clip-path: polygon(0 0, 50% 50%, 100% 0);
+          clip-path: polygon(0 0, 50% 50%, 100% 0);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -226,11 +226,11 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   position: absolute;
   z-index: 1;
   display: inline-block;
+  background-color: var(--otter-tooltip-arrow-green-background);
   width: 18px;
   height: 18px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid var(--otter-tooltip-arrow-green-background);
+  -webkit-clip-path: polygon(0 0, 50% 50%, 100% 0);
+          clip-path: polygon(0 0, 50% 50%, 100% 0);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -240,11 +240,11 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   position: absolute;
   z-index: 1;
   display: inline-block;
+  background-color: var(--otter-tooltip-arrow-lime-background);
   width: 18px;
   height: 18px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid var(--otter-tooltip-arrow-lime-background);
+  -webkit-clip-path: polygon(0 0, 50% 50%, 100% 0);
+          clip-path: polygon(0 0, 50% 50%, 100% 0);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -254,11 +254,11 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   position: absolute;
   z-index: 1;
   display: inline-block;
+  background-color: var(--otter-tooltip-arrow-olive-background);
   width: 18px;
   height: 18px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid var(--otter-tooltip-arrow-olive-background);
+  -webkit-clip-path: polygon(0 0, 50% 50%, 100% 0);
+          clip-path: polygon(0 0, 50% 50%, 100% 0);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -268,11 +268,11 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   position: absolute;
   z-index: 1;
   display: inline-block;
+  background-color: var(--otter-tooltip-arrow-yellow-background);
   width: 18px;
   height: 18px;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-top: 9px solid var(--otter-tooltip-arrow-yellow-background);
+  -webkit-clip-path: polygon(0 0, 50% 50%, 100% 0);
+          clip-path: polygon(0 0, 50% 50%, 100% 0);
   -webkit-transform: rotate(180deg) translateY(11px);
           transform: rotate(180deg) translateY(11px);
   pointer-events: none;
@@ -2571,20 +2571,10 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   color: yellow;
 }
 
-.otter-btn.light {
-  min-width: 40px;
-  min-height: 80px;
-}
-
 .otter-btn.light:hover, .otter-btn.light:focus {
   color: var(--otter-light);
   border-color: var(--otter-light);
   background-color: var(--otter-light);
-}
-
-.otter-btn.black {
-  min-width: 40px;
-  min-height: 80px;
 }
 
 .otter-btn.black:hover, .otter-btn.black:focus {
@@ -2593,20 +2583,10 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   background-color: var(--otter-black);
 }
 
-.otter-btn.silver {
-  min-width: 40px;
-  min-height: 80px;
-}
-
 .otter-btn.silver:hover, .otter-btn.silver:focus {
   color: var(--otter-silver);
   border-color: var(--otter-silver);
   background-color: var(--otter-silver);
-}
-
-.otter-btn.gray {
-  min-width: 40px;
-  min-height: 80px;
 }
 
 .otter-btn.gray:hover, .otter-btn.gray:focus {
@@ -2615,20 +2595,10 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   background-color: var(--otter-gray);
 }
 
-.otter-btn.white {
-  min-width: 40px;
-  min-height: 80px;
-}
-
 .otter-btn.white:hover, .otter-btn.white:focus {
   color: var(--otter-white);
   border-color: var(--otter-white);
   background-color: var(--otter-white);
-}
-
-.otter-btn.maroon {
-  min-width: 40px;
-  min-height: 80px;
 }
 
 .otter-btn.maroon:hover, .otter-btn.maroon:focus {
@@ -2637,20 +2607,10 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   background-color: var(--otter-maroon);
 }
 
-.otter-btn.red {
-  min-width: 40px;
-  min-height: 80px;
-}
-
 .otter-btn.red:hover, .otter-btn.red:focus {
   color: var(--otter-red);
   border-color: var(--otter-red);
   background-color: var(--otter-red);
-}
-
-.otter-btn.purple {
-  min-width: 40px;
-  min-height: 80px;
 }
 
 .otter-btn.purple:hover, .otter-btn.purple:focus {
@@ -2659,20 +2619,10 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   background-color: var(--otter-purple);
 }
 
-.otter-btn.fuchsia {
-  min-width: 40px;
-  min-height: 80px;
-}
-
 .otter-btn.fuchsia:hover, .otter-btn.fuchsia:focus {
   color: var(--otter-fuchsia);
   border-color: var(--otter-fuchsia);
   background-color: var(--otter-fuchsia);
-}
-
-.otter-btn.green {
-  min-width: 40px;
-  min-height: 80px;
 }
 
 .otter-btn.green:hover, .otter-btn.green:focus {
@@ -2681,31 +2631,16 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"].otter-tooltip-placement-to
   background-color: var(--otter-green);
 }
 
-.otter-btn.lime {
-  min-width: 40px;
-  min-height: 80px;
-}
-
 .otter-btn.lime:hover, .otter-btn.lime:focus {
   color: var(--otter-lime);
   border-color: var(--otter-lime);
   background-color: var(--otter-lime);
 }
 
-.otter-btn.olive {
-  min-width: 40px;
-  min-height: 80px;
-}
-
 .otter-btn.olive:hover, .otter-btn.olive:focus {
   color: var(--otter-olive);
   border-color: var(--otter-olive);
   background-color: var(--otter-olive);
-}
-
-.otter-btn.yellow {
-  min-width: 40px;
-  min-height: 80px;
 }
 
 .otter-btn.yellow:hover, .otter-btn.yellow:focus {

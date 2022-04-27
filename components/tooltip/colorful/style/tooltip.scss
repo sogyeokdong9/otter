@@ -244,11 +244,16 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"],
     position: absolute;
     z-index: 1;
     display: inline-block;
+    // width: 18px;
+    // height: 18px;
+    // border-left: 9px solid transparent;
+    // border-right: 9px solid transparent;
+    // border-top: 9px solid var(--otter-tooltip-arrow-#{$label}-background);
+    // transform: rotate(180deg) translateY(11px);
+    background-color: var(--otter-tooltip-arrow-#{$label}-background);
     width: 18px;
     height: 18px;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-top: 9px solid var(--otter-tooltip-arrow-#{$label}-background);
+    clip-path: polygon(0 0, 50% 50%, 100% 0);
     transform: rotate(180deg) translateY(11px);
     pointer-events: none;
   }
@@ -528,8 +533,8 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"],
 
 @each $tooltip, $label in $tooltips-data {
   .otter-btn.#{$tooltip} {
-    min-width: 40px;
-    min-height: 80px;
+    // min-width: 40px;
+    // min-height: 80px;
     &:hover,
     &:focus {
       // font-size:0;

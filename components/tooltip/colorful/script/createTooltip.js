@@ -21,7 +21,7 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-1",
-          "dataTheme":"sliver",
+          "dataTheme":"black",
           "name":"tooltip2"
         }
       ]
@@ -32,7 +32,7 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-2",
-          "dataTheme":"gray",
+          "dataTheme":"black",
           "name":"tooltip3"
         }
       ]
@@ -43,7 +43,7 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-3",
-          "dataTheme":"white",
+          "dataTheme":"black",
           "name":"tooltip4"
         }
       ]
@@ -54,7 +54,7 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-4",
-          "dataTheme":"maroon",
+          "dataTheme":"black",
           "name":"tooltip5"
         }
       ]
@@ -65,7 +65,7 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-5",
-          "dataTheme":"red",
+          "dataTheme":"black",
           "name":"tooltip6"
         }
       ]
@@ -76,7 +76,7 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-6",
-          "dataTheme":"purple",
+          "dataTheme":"black",
           "name":"tooltip7"
         }
       ]
@@ -87,7 +87,7 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-7",
-          "dataTheme":"fuchsia",
+          "dataTheme":"black",
           "name":"tooltip8"
         }
       ]
@@ -98,7 +98,7 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-8",
-          "dataTheme":"green",
+          "dataTheme":"black",
           "name":"tooltip9"
         }
       ]
@@ -109,7 +109,7 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-9",
-          "dataTheme":"lime",
+          "dataTheme":"black",
           "name":"tooltip10"
         }
       ]
@@ -120,7 +120,7 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-10",
-          "dataTheme":"olive",
+          "dataTheme":"black",
           "name":"tooltip11"
         }
       ]
@@ -131,19 +131,29 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-11",
-          "dataTheme":"yellow",
+          "dataTheme":"black",
           "name":"tooltip12"
         }
       ]
     }
   ]
+  
   const prefixTooltipId = 'tooltip-tmp-key-';
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
     items[i].tooltip[0].id = prefixTooltipId + [i];
-    items[i].tooltip[0].dataTheme = element.getAttribute('data-tooltip-theme');
-    items[i].tooltip[0].name = element.firstElementChild.attributes[0].value;
+    items[i].tooltip[0].name = element.firstElementChild.dataset.tooltip;
+    getDataTooltipTheme(i);
     createTooltip(i);
+  }
+  function getDataTooltipTheme(idx) {
+    'use strict';
+    const element = trgElmn[idx];
+    if ( !element.dataset.tooltipTheme ) {
+      element.setAttribute('data-tooltip-theme', items[idx].tooltip[0].dataTheme);
+    } else {
+      items[idx].tooltip[0].dataTheme = element.getAttribute('data-tooltip-theme');
+    }
   }
   function createTooltip(order) {
     'use strict';
@@ -173,7 +183,7 @@
     createArrow();
     const itemContainer = makeHtmlElement(
       'div', 
-      { class: `otter-tooltip-content otter-tooltip-root otter-tooltip-${items[order].tooltip[0].dataTheme}` },
+      { class: `otter-tooltip-content otter-tooltip-root otter-tooltip-${items[order].tooltip[0].dataTheme}` }
     );
     itemContainer.setAttribute('data-item-id', items[order].tooltip[0].id);
     itemContainer.setAttribute('data-tooltip-theme', items[order].tooltip[0].dataTheme);

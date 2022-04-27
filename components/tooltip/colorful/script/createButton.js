@@ -177,7 +177,6 @@
     }
   ]
   const iAmTooltip = `I'm tooltip.`;
-
   for (let i = 0; i < items.length; i++) {
     createButton(i);
   }
@@ -196,7 +195,6 @@
       }
       return element;
     };
-
     const container = makeHtmlElement(
       'div'
     );
