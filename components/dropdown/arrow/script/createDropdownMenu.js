@@ -5,6 +5,7 @@
     {
       "id":"1",
       "name":"Dasboard",
+      "dataTheme":"red",
       "menu":[
         {
           "id":"dropdown-menu-ul-li-tmp-key-0-0",
@@ -26,6 +27,7 @@
     {
       "id":"2",
       "name":"Pull Request",
+      "dataTheme":"purple",
       "menu":[
         {
           "id":"dropdown-menu-ul-li-tmp-key-1-0",
@@ -52,6 +54,7 @@
     {
       "id":"3",
       "name":"Issue",
+      "dataTheme":"fuchsia",
       "menu":[
         {
           "id":"dropdown-menu-ul-li-tmp-key-2-0",
@@ -73,6 +76,7 @@
     {
       "id":"4",
       "name":"Explore",
+      "dataTheme":"green",
       "menu":[
         {
           "id":"dropdown-menu-ul-li-tmp-key-3-0",
@@ -104,6 +108,7 @@
     {
       "id":"5",
       "name":"Overview",
+      "dataTheme":"lime",
       "menu":[
         {
           "id":"dropdown-menu-ul-li-tmp-key-4-0",
@@ -135,6 +140,7 @@
     {
       "id":"6",
       "name":"Settings",
+      "dataTheme":"yellow",
       "menu":[
         {
           "id":"dropdown-menu-ul-li-tmp-key-5-0",
@@ -199,10 +205,10 @@
     container.style.top = '0';
     container.style.left = '0';
     container.style.width = '100%';
-    wrapper.classList.add('otter-dropdown', 'otter-dropdown-show-arrow-light', 'otter-dropdown-hidden');
+    wrapper.classList.add('otter-dropdown', `otter-dropdown-show-arrow-${items[order].dataTheme}`, 'otter-dropdown-hidden');
     wrapper.setAttribute('data-index-number', items[order].id);
     createArrow();
-    itemContainer.classList.add('otter-dropdown-menu', 'otter-dropdown-menu-root', 'otter-dropdown-menu-vertical', 'otter-dropdown-menu-light');
+    itemContainer.classList.add('otter-dropdown-menu', 'otter-dropdown-menu-root', 'otter-dropdown-menu-vertical', `otter-dropdown-menu-${items[order].dataTheme}`);
     itemContainer.setAttribute('role', 'menu');
     itemContainer.setAttribute('tabindex', 0);
     itemContainer.setAttribute('data-menu-list', true);
@@ -216,6 +222,17 @@
       'use strict';
       createHtmlElement('div', 'otter-dropdown-arrow-light', 'otter-dropdown-show-arrow-light', 'otter-dropdown-show-arrow');
       createHtmlElement('div', 'otter-dropdown-arrow-black', 'otter-dropdown-show-arrow-black');
+      createHtmlElement('div', 'otter-dropdown-arrow-silver', 'otter-dropdown-show-arrow-silver');
+      createHtmlElement('div', 'otter-dropdown-arrow-gray', 'otter-dropdown-show-arrow-gray');
+      createHtmlElement('div', 'otter-dropdown-arrow-white', 'otter-dropdown-show-arrow-white');
+      createHtmlElement('div', 'otter-dropdown-arrow-maroon', 'otter-dropdown-show-arrow-maroon');
+      createHtmlElement('div', 'otter-dropdown-arrow-red', 'otter-dropdown-show-arrow-red');
+      createHtmlElement('div', 'otter-dropdown-arrow-purple', 'otter-dropdown-show-arrow-purple');
+      createHtmlElement('div', 'otter-dropdown-arrow-fuchsia', 'otter-dropdown-show-arrow-fuchsia');
+      createHtmlElement('div', 'otter-dropdown-arrow-green', 'otter-dropdown-show-arrow-green');
+      createHtmlElement('div', 'otter-dropdown-arrow-lime', 'otter-dropdown-show-arrow-lime');
+      createHtmlElement('div', 'otter-dropdown-arrow-olive', 'otter-dropdown-show-arrow-olive');
+      createHtmlElement('div', 'otter-dropdown-arrow-yellow', 'otter-dropdown-show-arrow-yellow');
       function createHtmlElement(element, class1, param1, param2) {
         'use strict';
         if (wrapper.classList.contains(param1) || wrapper.classList.contains(param2)) {
@@ -225,6 +242,7 @@
         }
       }
     }
+    // itemContainer.lastChild.insertAdjacentHTML('beforebegin', `<li class="otter-dropdown-menu-item otter-dropdown-menu-item-danger" role="menuitem" tabindex="-1" data-menu-id="dropdown-menu-ul-li-tmp-key-0-1"><span class="otter-dropdown-menu-title-content"><a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Following</a></span></li>`);
     // itemContainer.lastChild.insertAdjacentHTML('beforebegin', '<li class="otter-dropdown-menu-item-divider"></li>');
     // itemContainer.lastChild.classList.add('otter-dropdown-menu-item-disabled');
     document.body.append(container);

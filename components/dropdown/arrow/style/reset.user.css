@@ -182,10 +182,10 @@ hr:after {
   color: var(--otter-ftbck-primary-text);
 }
 
+.log-item .tooltip-arrow,
 .log-item .dropdown-arrow,
 .log-item .log-time {
   color: var(--otter-ftbck-disable);
-  min-width: 150px;
 }
 
 .log-item .tooltip-arrow,
@@ -204,6 +204,11 @@ hr:after {
   color: var(--otter-ftbck-secondary-text);
 }
 
+.log-item .dropdown-arrow,
+.log-item .tooltip-arrow {
+  min-width: 270px;
+}
+
 .log-item .dropdown-txt {
   min-width: 385px;
 }
@@ -214,6 +219,10 @@ hr:after {
 
 .log-item .trigger-cls {
   min-width: 155px;
+}
+
+.log-item .log-time {
+  min-width: 150px;
 }
 
 .log-item .tooltip-idx,

@@ -1,5 +1,148 @@
 @charset "utf-8";
 
+$dropdowns-data: (
+  light: light, // rgba(255, 255, 255, 1);
+  black: black, // rgba(0, 0, 0, 1);
+  silver: silver, // rgba(192, 192, 192, 1);
+  gray: gray, // rgba(128, 128, 128, 1);
+  white: white, // rgba(255, 255, 255, 1);
+  maroon: maroon,  // rgba(128, 0, 0, 1);
+  red: red, // rgba(255, 0, 0, 1);
+  purple: purple, // rgba(128, 0, 128, 1);
+  fuchsia: fuchsia, // rgba(255, 0, 255, 1);
+  green: green, // rgba(0, 128, 0, 1);
+  lime: lime, // rgba(0, 255, 0, 1);
+  olive: olive,  // rgba(128, 128, 0, 1);
+  yellow: yellow // rgba(255, 255, 0, 1);
+  // navy: navy,
+  // blue: blue,
+  // teal: teal,
+  // aqua: aqua,
+  // orange: orange,
+  // aliceblue: aliceblue,
+  // antiquewhite: antiquewhite,
+  // aquamarine: aquamarine,
+  // azure: azure,
+  // beige: beige,
+  // bisque: bisque,
+  // blanchedalmond: blanchedalmond,
+  // blueviolet: blueviolet,
+  // brown: brown,
+  // burlywood: burlywood,
+  // cadetblue: cadetblue,
+  // chartreuse: chartreuse,
+  // chocolate: chocolate,
+  // coral: coral,
+  // cornflowerblue: cornflowerblue,
+  // cornsilk: cornsilk,
+  // crimson: crimson,
+  // darkblue: darkblue,
+  // darkcyan: darkcyan,
+  // darkgoldenrod: darkgoldenrod,
+  // darkgray: darkgray,
+  // darkgreen: darkgreen,
+  // darkkhaki: darkkhaki,
+  // darkmagenta: darkmagenta,
+  // darkolivegreen: darkolivegreen,
+  // darkorange: darkorange,
+  // darkorchid: darkorchid,
+  // darkred: darkred,
+  // darksalmon: darksalmon,
+  // darkseagreen: darkseagreen,
+  // darkslateblue: darkslateblue,
+  // darkslategray: darkslategray,
+  // darkturquoise: darkturquoise,
+  // darkviolet: darkviolet,
+  // deeppink: deeppink,
+  // deepskyblue: deepskyblue,
+  // dimgray: dimgray,
+  // dodgerblue: dodgerblue,
+  // firebrick: firebrick,
+  // floralwhite: floralwhite,
+  // forestgreen: forestgreen,
+  // gainsboro: gainsboro,
+  // ghostwhite: ghostwhite,
+  // gold: gold,
+  // goldenrod: goldenrod,
+  // greenyellow: greenyellow,
+  // honeydew: honeydew,
+  // hotpink: hotpink,
+  // indianred: indianred,
+  // indigo: indigo,
+  // ivory: ivory,
+  // khaki: khaki,
+  // lavender: lavender,
+  // lavenderblush: lavenderblush,
+  // lawngreen: lawngreen,
+  // lemonchiffon: lemonchiffon,
+  // lightblue: lightblue,
+  // lightcoral: lightcoral,
+  // lightcyan: lightcyan,
+  // lightgoldenrodyellow: lightgoldenrodyellow,
+  // lightgray: lightgray,
+  // lightgreen: lightgreen,
+  // lightpink: lightpink,
+  // lightsalmon: lightsalmon,
+  // lightseagreen: lightseagreen,
+  // lightskyblue: lightskyblue,
+  // lightslategray: lightslategray,
+  // lightsteelblue: lightsteelblue,
+  // lightyellow: lightyellow,
+  // limegreen: limegreen,
+  // linen: linen,
+  // magent: magent,
+  // mediumaquamarine: mediumaquamarine,
+  // mediumblue: mediumblue,
+  // mediumorchid: mediumorchid,
+  // mediumpurple: mediumpurple,
+  // mediumseagreen: mediumseagreen,
+  // mediumslateblue: mediumslateblue,
+  // mediumspringgreen: mediumspringgreen,
+  // mediumturquoise: mediumturquoise,
+  // mediumvioletred: mediumvioletred,
+  // midnightblue: midnightblue,
+  // mintcream: mintcream,
+  // mistyrose: mistyrose,
+  // moccasin: moccasin,
+  // navajowhite: navajowhite,
+  // oldlace: oldlace,
+  // olivedrab: olivedrab,
+  // orangered: orangered,
+  // orchid: orchid,
+  // palegoldenrod: palegoldenrod,
+  // palegreen: palegreen,
+  // paleturquoise: paleturquoise,
+  // palevioletred: palevioletred,
+  // papayawhip: papayawhip,
+  // peachpuff: peachpuff,
+  // peru: peru,
+  // pink: pink,
+  // plum: plum,
+  // powderblue: powderblue,
+  // rosybrown: rosybrown,
+  // royalblue: royalblue,
+  // saddlebrown: saddlebrown,
+  // salmon: salmon,
+  // sandybrown: sandybrown,
+  // seagreen: seagreen,
+  // seashell: seashell,
+  // sienna: sienna,
+  // skyblue: skyblue,
+  // slateblue: slateblue,
+  // slategray: slategray,
+  // snow: snow,
+  // springgreen: springgreen,
+  // steelblue: steelblue,
+  // tan: tan,
+  // thistle: thistle,
+  // tomato: tomato,
+  // turquoise: turquoise,
+  // violet: violet,
+  // wheat: wheat,
+  // whitesmoke: whitesmoke,
+  // yellowgreen: yellowgreen,
+  // rebeccapurple: rebeccapurple
+);
 %otter-dropdown-box {
   margin: 0;
   padding: 0;
@@ -20,7 +163,6 @@
     top: 2px;
     display: inline-block;
     color: var(--otter-dropdown-specail-letter-down);
-    -webkit-transition: top 0.3s, -webkit-transform 0.3s;
     transition:top 0.3s, transform 0.3s;
   }
   &.otter-dropdown-open .spacial-letter-down {
@@ -28,7 +170,6 @@
     top: -2px;
     left: 0;
     color: var(--otter-dropdown-specail-letter-down-hover);
-    -webkit-transform:rotate(0.5turn);
     transform:rotate(0.5turn);
   }
 }
@@ -62,34 +203,28 @@
 }
 
 // arrow
-.otter-dropdown-show-arrow,
-.otter-dropdown-show-arrow-black,
-.otter-dropdown-show-arrow-light {
-  &.otter-dropdown-placement-default,
+div[class^="otter-dropdown otter-dropdown-show-arrow-"],
+.otter-dropdown-show-arrow {
   &.otter-dropdown-placement-topLeft,
   &.otter-dropdown-placement-top,
   &.otter-dropdown-placement-topRight,
+  &.otter-dropdown-placement-default,
   &.otter-dropdown-placement-bottomLeft,
   &.otter-dropdown-placement-bottom,
-  &.otter-dropdown-placement-bottomRight {
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
+  &.otter-dropdown-placement-bottomRight,
   &.otter-dropdown-placement-leftTop,
   &.otter-dropdown-placement-left,
   &.otter-dropdown-placement-leftBottom,
   &.otter-dropdown-placement-rightTop,
   &.otter-dropdown-placement-right,
   &.otter-dropdown-placement-rightBottom {
+    padding-top: 15px;
+    padding-bottom: 15px;
     padding-left: 15px;
     padding-right: 15px;
   }
 }
 
-$dropdowns-data: (
-  light: light,
-  black: black
-);
 @each $dropdown, $label in $dropdowns-data {
   .otter-dropdown-arrow-#{$dropdown} {
     position: absolute;
@@ -97,9 +232,8 @@ $dropdowns-data: (
     display: inline-block;
     width: 18px;
     height: 18px;
-    border-left: 9px solid transparent;
-    border-right: 9px solid transparent;
-    border-top: 9px solid var(--otter-dropdown-arrow-#{$label}-background);
+    background-color: var(--otter-dropdown-arrow-#{$label}-background);
+    clip-path: polygon(0 0, 50% 50%, 100% 0);
     transform: rotate(180deg) translateY(11px);
     pointer-events: none;
   }
@@ -119,21 +253,22 @@ $dropdowns-data: (
   $lcbs: null,
   $lctf: null
 ) {
-  > .otter-dropdown-arrow-black,
-  > .otter-dropdown-arrow-light {
-    top: $t;
-    right: $r;
-    bottom: $b;
-    left: $l;
-    box-shadow: $bs;
-    transform: $tf;
-    &:last-child {
-      top: $lct;
-      right: $lcr;
-      bottom: $lcb;
-      left: $lcl;
-      box-shadow: $lcbs;
-      transform: $lctf;
+  @each $dropdown, $label in $dropdowns-data {  
+    > .otter-dropdown-arrow-#{$dropdown} {
+      top: $t;
+      right: $r;
+      bottom: $b;
+      left: $l;
+      box-shadow: $bs;
+      transform: $tf;
+      &:last-child {
+        top: $lct;
+        right: $lcr;
+        bottom: $lcb;
+        left: $lcl;
+        box-shadow: $lcbs;
+        transform: $lctf;
+      }
     }
   }
 }
@@ -186,6 +321,33 @@ $dropdowns-data: (
       $lcbs: 2px 2px 5px -2px var(--otter-dropdown-arrow-bottom-box-shadow)
   );
 }
+.otter-dropdown-placement-rightTop,
+.otter-dropdown-placement-leftTop {
+  div + .otter-dropdown-menu {
+    top: -15px;
+  }
+}
+.otter-dropdown-placement-rightBottom,
+.otter-dropdown-placement-leftBottom {
+  div + .otter-dropdown-menu {
+    bottom: -15px;
+  }
+}
+
+.otter-dropdown-placement-topLeft,
+.otter-dropdown-placement-bottomLeft {
+  div + .otter-dropdown-menu {
+    left: -15px;
+  }
+}
+
+.otter-dropdown-placement-topRight,
+.otter-dropdown-placement-bottomRight {
+  div + .otter-dropdown-menu {
+    right: -15px;
+  }
+}
+
 .otter-dropdown-placement-leftTop {
   @include position(
     $t: calc(18px / 2.571428571428571),
@@ -196,10 +358,10 @@ $dropdowns-data: (
 }
 .otter-dropdown-placement-left {
   @include position(
-    $t: calc( 50% - 9px ),
-    $tf: rotate(270deg) translateX( calc(50% - 9px) ),
-      $lct: calc( 50% - 9px ),
-      $lctf: rotate(90deg) translateX( 0 )
+    $t: calc( 50% ),
+    $tf: rotate(270deg) translateX( calc(50%) ),
+      $lct: calc( 50% ),
+      $lctf: rotate(90deg) translateX( 0 - 9px)
   );
 }
 .otter-dropdown-placement-leftBottom {
@@ -230,10 +392,10 @@ $dropdowns-data: (
 }
 .otter-dropdown-placement-right {
   @include position(
-    $t: calc( 50% - 9px ),
-    $tf: rotate(90deg) translateX( calc(50% - 9px) ),
-      $lct: calc( 50% - 9px ),
-      $lctf: rotate(270deg) translateX( calc(50% - 9px) )
+    $t: calc( 50% ),
+    $tf: rotate(90deg) translateX( calc( 50% - 18px ) ),
+      $lct: calc( 50% ),
+      $lctf: rotate(270deg) translateX( calc( 50% ) )
   );
 }
 .otter-dropdown-placement-rightBottom {
@@ -258,9 +420,9 @@ $dropdowns-data: (
               0 9px 28px 8px rgba(0, 0, 0, 0.05);
   text-align: left;
   outline: none;
-  &.otter-dropdown-menu-black {
-    box-shadow: none;
-  }
+  // &.otter-dropdown-menu-black {
+  //   box-shadow: none;
+  // }
 }
 .otter-dropdown-menu-item {
   position: relative;
@@ -341,10 +503,7 @@ $dropdowns-data: (
     line-height: $lh;
   }
 }
-$dropdowns-data: (
-  light: light,
-  black: black
-);
+
 @each $dropdown, $label in $dropdowns-data {
   .otter-dropdown-menu-#{$dropdown} {
     background-color: var(--otter-dropdown-#{$label}-background);

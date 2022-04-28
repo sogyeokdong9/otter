@@ -151,10 +151,10 @@ hr:after {
   & .specified {
     color: var(--otter-ftbck-primary-text);
   }
+  & .tooltip-arrow,
   & .dropdown-arrow,
   & .log-time {
-    color: var(--otter-ftbck-disable);
-    min-width: 150px;
+    color: var(--otter-ftbck-disable);;
   }
   & .tooltip-arrow,
   & .tooltip-txt,
@@ -171,6 +171,10 @@ hr:after {
   & .changed-class {
     color: var(--otter-ftbck-secondary-text);
   }
+  & .dropdown-arrow,
+  & .tooltip-arrow {
+    min-width: 270px;
+  }
   & .dropdown-txt {
     min-width: 385px;
   }
@@ -179,6 +183,9 @@ hr:after {
   }
   & .trigger-cls {
     min-width: 155px;
+  }
+  & .log-time {
+    min-width: 150px;
   }
   & .tooltip-idx,
   & .previous-idx,
