@@ -1150,23 +1150,23 @@ div[class^="otter-dropdown otter-dropdown-show-arrow-"].otter-dropdown-placement
           box-shadow: 2px 2px 5px -2px var(--otter-dropdown-arrow-bottom-box-shadow);
 }
 
-.otter-dropdown-placement-rightTop .otter-dropdown-menu,
-.otter-dropdown-placement-leftTop .otter-dropdown-menu {
+.otter-dropdown-placement-rightTop div + .otter-dropdown-menu,
+.otter-dropdown-placement-leftTop div + .otter-dropdown-menu {
   top: -15px;
 }
 
-.otter-dropdown-placement-rightBottom .otter-dropdown-menu,
-.otter-dropdown-placement-leftBottom .otter-dropdown-menu {
+.otter-dropdown-placement-rightBottom div + .otter-dropdown-menu,
+.otter-dropdown-placement-leftBottom div + .otter-dropdown-menu {
   bottom: -15px;
 }
 
-.otter-dropdown-placement-topLeft .otter-dropdown-menu,
-.otter-dropdown-placement-bottomLeft .otter-dropdown-menu {
+.otter-dropdown-placement-topLeft div + .otter-dropdown-menu,
+.otter-dropdown-placement-bottomLeft div + .otter-dropdown-menu {
   left: -15px;
 }
 
-.otter-dropdown-placement-topRight .otter-dropdown-menu,
-.otter-dropdown-placement-bottomRight .otter-dropdown-menu {
+.otter-dropdown-placement-topRight div + .otter-dropdown-menu,
+.otter-dropdown-placement-bottomRight div + .otter-dropdown-menu {
   right: -15px;
 }
 
@@ -2300,11 +2300,6 @@ div[class^="otter-dropdown otter-dropdown-show-arrow-"].otter-dropdown-placement
           box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
   text-align: left;
   outline: none;
-}
-
-.otter-dropdown-menu.otter-dropdown-menu-black {
-  -webkit-box-shadow: none;
-          box-shadow: none;
 }
 
 .otter-dropdown-menu-item {
