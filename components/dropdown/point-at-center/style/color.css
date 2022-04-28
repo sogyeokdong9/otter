@@ -22,6 +22,8 @@
   --otter-primary-color-hover: rgba(64, 169, 255, 1);
   --otter-primary-color-activeive: rgba(9, 109, 217, 1);
   --otter-primary-color-outline: rgba(24, 144, 255, 0.20);
+  --otter-hr-background: rgba(240, 240, 240, 1);
+  --otter-hr: rgba(187, 187, 187, 1);
   --otter-tooltip-background: rgba(0, 21, 41, 0.85);
   --otter-tooltip: rgba(0, 0, 0, 0.85);
   --otter-tooltip-item: rgba(0, 0, 0, 0.85);

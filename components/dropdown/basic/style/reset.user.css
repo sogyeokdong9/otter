@@ -5,37 +5,34 @@ a, area, button, [role='button'], input:not([type='range']), label, select, summ
 }
 
 a {
-  color: #1890ff;
-  text-decoration: none;
-  background-color: transparent;
   outline: none;
-  cursor: pointer;
+  background-color: transparent;
+  color: var(--otter-primary-color);
+  text-decoration: none;
+  -webkit-text-decoration-skip: objects;
+          text-decoration-skip: objects;
   -webkit-transition: color 0.3s;
   transition: color 0.3s;
-  -webkit-text-decoration-skip: objects;
+  cursor: pointer;
 }
 
 a:hover {
-  color: #40a9ff;
+  color: var(--otter-primary-color-hover);
 }
 
 a:active {
-  color: #096dd9;
+  color: var(--otter-primary-color-activeive);
 }
 
+a:focus,
 a:active,
 a:hover {
   text-decoration: none;
   outline: 0;
 }
 
-a:focus {
-  text-decoration: none;
-  outline: 0;
-}
-
 a[disabled] {
-  color: rgba(0, 0, 0, 0.25);
+  color: var(--otter-ftbck-disable);
   cursor: not-allowed;
 }
 
@@ -69,9 +66,9 @@ button {
   -ms-touch-action: manipulation;
       touch-action: manipulation;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
 }
 
@@ -96,23 +93,23 @@ button[disabled] > * {
 hr {
   height: 53px;
   border: none;
-  background: #f0f0f0;
+  background: var(--otter-hr-background);
   background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='30' height='30' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(217, 0%, 100%, 1)'/><path d='M0 10h20z'  transform='translate(5,0)' stroke-width='0.5' stroke='hsla(4, 0%, 82%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,-16)' fill='url(%23a)'/></svg>");
   text-align: center;
 }
 
 hr:after {
   content: '§';
-  display: inline-block;
   position: relative;
   top: 10px;
   left: -20px;
+  display: inline-block;
   padding: 0 10px;
-  background: #f0f0f0;
+  background: var(--otter-hr-background);
   font-size: 18px;
-  color: #bbb;
+  color: var(--otter-hr);
   -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .a11y-hidden {
@@ -184,8 +181,8 @@ hr:after {
 
 .log-item .dropdown-arrow,
 .log-item .log-time {
-  color: var(--otter-ftbck-disable);
   min-width: 150px;
+  color: var(--otter-ftbck-disable);
 }
 
 .log-item .tooltip-arrow,
