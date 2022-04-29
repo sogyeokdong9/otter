@@ -150,7 +150,6 @@
     }
   ]
 
-  console.log(trgElmn);
   const prefixTooltipId = 'tooltip-tmp-key-';
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
@@ -247,7 +246,6 @@
         }
       }
     }
-
     function checkDataColorDataThemeSame() {
       const result = Boolean(items[order].tooltip[0].dataColor === items[order].tooltip[0].dataTheme);
       return result;
@@ -256,7 +254,6 @@
       const result = Boolean(items[order].tooltip[0].dataColor === undefined)
       return result;
     }
-
     if ( checkDataColorDataThemeSame() || checkDataColorUndefined() ) {
       itemContainer.removeAttribute('data-tooltip-color')
       itemContainer.removeAttribute('style')
