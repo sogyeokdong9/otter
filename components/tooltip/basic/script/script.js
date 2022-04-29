@@ -49,7 +49,7 @@
     'use strict';
     const element = trgElmn[idx];
     closeAllTooltip();
-    trgElmn[idx].lastChild.previousElementSibling.ariaExpanded = true;
+    element.lastElementChild.ariaExpanded = true;
     setTrgClsReplace(idx, 'otter-tooltip-close', 'otter-tooltip-open');
     setTooltipClsAdd(idx, createPlcmntClsNm(idx));
     const expr = getTrgAttrPlcmnt(idx);
@@ -91,7 +91,8 @@
 
   function closeTooltip(idx) {
     'use strict';
-    trgElmn[idx].lastChild.previousElementSibling.ariaExpanded = false;
+    const element = trgElmn[idx];
+    element.lastElementChild.ariaExpanded = false;
     setTrgClsReplace(idx, 'otter-tooltip-open', 'otter-tooltip-close');
     setTooltipClsReplace(idx, "otter-slide-up-in", "otter-slide-up-out");
     setTooltipClsReplace(idx, "otter-slide-down-in", "otter-slide-down-out");
