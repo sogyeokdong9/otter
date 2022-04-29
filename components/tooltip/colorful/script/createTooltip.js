@@ -10,8 +10,8 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-0",
-          "dataColor":"black",
           "dataTheme":"black",
+          "dataColor":"black",
           "name":"tooltip1"
         }
       ]
@@ -209,13 +209,13 @@
       ]
     }
   ]
-  
+
   const prefixTooltipId = 'tooltip-tmp-key-';
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
     items[i].tooltip[0].id = prefixTooltipId + [i];
     items[i].tooltip[0].name = element.firstElementChild.dataset.tooltip;
-    items[i].tooltip[0].dataColor = element.firstElementChild.dataset.tooltipColor;
+    items[i].tooltip[0].dataColor = element.dataset.tooltipColor;
     getDataTooltipTheme(i);
     getDataTooltipColor(i);
     createTooltip(i);
@@ -264,7 +264,6 @@
     );
     wrapper.setAttribute('data-index-number', items[order].id);
     createArrow();
-
     const itemContainer = makeHtmlElement(
       'div', 
       { class: `otter-tooltip-content otter-tooltip-root otter-tooltip-${items[order].tooltip[0].dataTheme}` },
@@ -274,7 +273,6 @@
     itemContainer.setAttribute('data-tooltip-theme', items[order].tooltip[0].dataTheme);
     itemContainer.setAttribute('data-tooltip-color', items[order].tooltip[0].dataColor);
     itemContainer.setAttribute('data-tooltip', true);
-
     const item = makeHtmlElement(
       'div', 
       { class: 'otter-tooltip-item otter-tooltip-title-content' },
@@ -308,7 +306,15 @@
         }
       }
     }
-    if ( items[order].tooltip[0].dataColor === items[order].tooltip[0].dataTheme ) {
+    function checkDataColorDataThemeSame() {
+      const result = Boolean(items[order].tooltip[0].dataColor === items[order].tooltip[0].dataTheme);
+      return result;
+    }
+    function checkDataColorUndefined() {
+      const result = Boolean(items[order].tooltip[0].dataColor === undefined)
+      return result;
+    }
+    if ( checkDataColorDataThemeSame() || checkDataColorUndefined() ) {
       itemContainer.removeAttribute('data-tooltip-color')
       itemContainer.removeAttribute('style')
       itemContainer.previousSibling.removeAttribute('style')
