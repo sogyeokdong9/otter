@@ -169,8 +169,9 @@ hr:after {
   & .dropdown-txt {
     min-width: 385px;
   }
-  & .tooltip-txt {
-    min-width: 185px;
+  & .tooltip-txt,
+  & .trigger-txt {
+    min-width: 205px;
   }
   & .trigger-cls {
     min-width: 155px;
