@@ -209,8 +209,9 @@ hr:after {
   min-width: 385px;
 }
 
-.log-item .tooltip-txt {
-  min-width: 185px;
+.log-item .tooltip-txt,
+.log-item .trigger-txt {
+  min-width: 205px;
 }
 
 .log-item .trigger-cls {

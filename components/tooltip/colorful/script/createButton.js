@@ -2,7 +2,6 @@
 (function () {
   'use strict';
   const cntnrElmnt = document.querySelector('.wrap');
-  const palette = cntnrElmnt.querySelectorAll('.palette');
 
   // <div class="1">
   //   <button type="button" class="otter-btn otter-btn-default otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="1" data-placement="top">
@@ -39,6 +38,7 @@
           "dataIndexNumber":1,
           "dataPlacement":"rightTop",
           "dataTheme": "black",
+          "dataColor": "black",
           "name":"Black"
         }
       ]
@@ -51,6 +51,7 @@
           "dataIndexNumber":2,
           "dataPlacement":"topLeft",
           "dataTheme": "silver",
+          "dataColor": "silver",
           "name":"Silver"
         }
       ]
@@ -63,6 +64,7 @@
           "dataIndexNumber":3,
           "dataPlacement":"topRight",
           "dataTheme": "gray",
+          "dataColor": "gray",
           "name":"Gray"
         }
       ]
@@ -75,6 +77,7 @@
           "dataIndexNumber":4,
           "dataPlacement":"rightTop",
           "dataTheme": "white",
+          "dataColor": "white",
           "name":"White"
         }
       ]
@@ -87,6 +90,7 @@
           "dataIndexNumber":5,
           "dataPlacement":"right",
           "dataTheme": "maroon",
+          "dataColor": "maroon",
           "name":"Maroon"
         }
       ]
@@ -99,6 +103,7 @@
           "dataIndexNumber":6,
           "dataPlacement":"bottomLeft",
           "dataTheme": "red",
+          "dataColor": "red",
           "name":"Red"
         }
       ]
@@ -111,6 +116,7 @@
           "dataIndexNumber":7,
           "dataPlacement":"bottomRight",
           "dataTheme": "purple",
+          "dataColor": "purple",
           "name":"Purple"
         }
       ]
@@ -123,6 +129,7 @@
           "dataIndexNumber":8,
           "dataPlacement":"right",
           "dataTheme": "fuchsia",
+          "dataColor": "fuchsia",
           "name":"Fuchsia"
         }
       ]
@@ -135,6 +142,7 @@
           "dataIndexNumber":9,
           "dataPlacement":"rightBottom",
           "dataTheme": "green",
+          "dataColor": "green",
           "name":"Green"
         }
       ]
@@ -147,6 +155,7 @@
           "dataIndexNumber":10,
           "dataPlacement":"top",
           "dataTheme": "lime",
+          "dataColor": "lime",
           "name":"Lime"
         }
       ]
@@ -159,6 +168,7 @@
           "dataIndexNumber":11,
           "dataPlacement":"bottom",
           "dataTheme": "olive",
+          "dataColor": "olive",
           "name":"Olive"
         }
       ]
@@ -171,6 +181,7 @@
           "dataIndexNumber":12,
           "dataPlacement":"rightBottom",
           "dataTheme": "yellow",
+          "dataColor": "yellow",
           "name":"Yellow"
         }
       ]
@@ -206,6 +217,7 @@
     wrapper.classList.add( items[order].button[0].dataTheme );
     wrapper.setAttribute('data-index-number', items[order].button[0].dataIndexNumber);
     wrapper.setAttribute('data-tooltip-theme', items[order].button[0].dataTheme);
+    wrapper.setAttribute('data-tooltip-color', items[order].button[0].dataColor);
     wrapper.setAttribute('data-placement', items[order].button[0].dataPlacement);
 
     const item = makeHtmlElement(

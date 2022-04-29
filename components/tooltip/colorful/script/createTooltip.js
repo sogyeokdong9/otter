@@ -10,6 +10,7 @@
       "tooltip":[
         {
           "id":"tooltip-tmp-key-0",
+          "dataColor":"black",
           "dataTheme":"black",
           "name":"tooltip1"
         }
@@ -22,6 +23,7 @@
         {
           "id":"tooltip-tmp-key-1",
           "dataTheme":"black",
+          "dataColor":"black",
           "name":"tooltip2"
         }
       ]
@@ -33,6 +35,7 @@
         {
           "id":"tooltip-tmp-key-2",
           "dataTheme":"black",
+          "dataColor":"black",
           "name":"tooltip3"
         }
       ]
@@ -44,6 +47,7 @@
         {
           "id":"tooltip-tmp-key-3",
           "dataTheme":"black",
+          "dataColor":"black",
           "name":"tooltip4"
         }
       ]
@@ -55,6 +59,7 @@
         {
           "id":"tooltip-tmp-key-4",
           "dataTheme":"black",
+          "dataColor":"black",
           "name":"tooltip5"
         }
       ]
@@ -66,6 +71,7 @@
         {
           "id":"tooltip-tmp-key-5",
           "dataTheme":"black",
+          "dataColor":"black",
           "name":"tooltip6"
         }
       ]
@@ -77,6 +83,7 @@
         {
           "id":"tooltip-tmp-key-6",
           "dataTheme":"black",
+          "dataColor":"black",
           "name":"tooltip7"
         }
       ]
@@ -88,6 +95,7 @@
         {
           "id":"tooltip-tmp-key-7",
           "dataTheme":"black",
+          "dataColor":"black",
           "name":"tooltip8"
         }
       ]
@@ -99,6 +107,7 @@
         {
           "id":"tooltip-tmp-key-8",
           "dataTheme":"black",
+          "dataColor":"black",
           "name":"tooltip9"
         }
       ]
@@ -110,6 +119,7 @@
         {
           "id":"tooltip-tmp-key-9",
           "dataTheme":"black",
+          "dataColor":"black",
           "name":"tooltip10"
         }
       ]
@@ -121,6 +131,7 @@
         {
           "id":"tooltip-tmp-key-10",
           "dataTheme":"black",
+          "dataColor":"black",
           "name":"tooltip11"
         }
       ]
@@ -132,7 +143,68 @@
         {
           "id":"tooltip-tmp-key-11",
           "dataTheme":"black",
+          "dataColor":"black",
           "name":"tooltip12"
+        }
+      ]
+    },
+    {
+      "id":"13",
+      "name":"Tooltip",
+      "tooltip":[
+        {
+          "id":"tooltip-tmp-key-12",
+          "dataTheme":"black",
+          "dataColor":"black",
+          "name":"tooltip13"
+        }
+      ]
+    },
+    {
+      "id":"14",
+      "name":"Tooltip",
+      "tooltip":[
+        {
+          "id":"tooltip-tmp-key-13",
+          "dataTheme":"black",
+          "dataColor":"black",
+          "name":"tooltip14"
+        }
+      ]
+    },
+    {
+      "id":"15",
+      "name":"Tooltip",
+      "tooltip":[
+        {
+          "id":"tooltip-tmp-key-14",
+          "dataTheme":"black",
+          "dataColor":"black",
+          "name":"tooltip15"
+        }
+      ]
+    },
+    {
+      "id":"16",
+      "name":"Tooltip",
+      "tooltip":[
+        {
+          "id":"tooltip-tmp-key-15",
+          "dataTheme":"black",
+          "dataColor":"black",
+          "name":"tooltip16"
+        }
+      ]
+    },
+    {
+      "id":"17",
+      "name":"Tooltip",
+      "tooltip":[
+        {
+          "id":"tooltip-tmp-key-16",
+          "dataTheme":"black",
+          "dataColor":"black",
+          "name":"tooltip17"
         }
       ]
     }
@@ -143,7 +215,9 @@
     const element = trgElmn[i];
     items[i].tooltip[0].id = prefixTooltipId + [i];
     items[i].tooltip[0].name = element.firstElementChild.dataset.tooltip;
+    items[i].tooltip[0].dataColor = element.firstElementChild.dataset.tooltipColor;
     getDataTooltipTheme(i);
+    getDataTooltipColor(i);
     createTooltip(i);
   }
   function getDataTooltipTheme(idx) {
@@ -155,6 +229,15 @@
       items[idx].tooltip[0].dataTheme = element.getAttribute('data-tooltip-theme');
     }
   }
+  function getDataTooltipColor(idx) {
+    'use strict';
+    const element = trgElmn[idx];
+    if ( !element.dataset.tooltipColor ) {
+      element.setAttribute('data-tooltip-color', items[idx].tooltip[0].dataColor);
+    } else {
+      items[idx].tooltip[0].dataColor = element.getAttribute('data-tooltip-color');
+    }
+  }  
   function createTooltip(order) {
     'use strict';
     const makeHtmlElement = function (tagName, ...attr) {
@@ -181,13 +264,17 @@
     );
     wrapper.setAttribute('data-index-number', items[order].id);
     createArrow();
+
     const itemContainer = makeHtmlElement(
       'div', 
-      { class: `otter-tooltip-content otter-tooltip-root otter-tooltip-${items[order].tooltip[0].dataTheme}` }
+      { class: `otter-tooltip-content otter-tooltip-root otter-tooltip-${items[order].tooltip[0].dataTheme}` },
+      { style: `background-color: ${items[order].tooltip[0].dataColor}` }
     );
     itemContainer.setAttribute('data-item-id', items[order].tooltip[0].id);
     itemContainer.setAttribute('data-tooltip-theme', items[order].tooltip[0].dataTheme);
+    itemContainer.setAttribute('data-tooltip-color', items[order].tooltip[0].dataColor);
     itemContainer.setAttribute('data-tooltip', true);
+
     const item = makeHtmlElement(
       'div', 
       { class: 'otter-tooltip-item otter-tooltip-title-content' },
@@ -199,18 +286,33 @@
     createArrow();
     function createArrow() {
       'use strict';
-      for (let i = 0; i < items.length; i++) {
-        const element = items[i];
-        createHtmlElement('div', `otter-tooltip-arrow-${items[i].tooltip[0].dataTheme}`, `otter-tooltip-show-arrow-${items[i].tooltip[0].dataTheme}`);
-      }
+      createHtmlElement('div', 'otter-tooltip-arrow-black', 'otter-tooltip-show-arrow-black', 'otter-tooltip-show-arrow');
+      createHtmlElement('div', 'otter-tooltip-arrow-silver', 'otter-tooltip-show-arrow-silver');
+      createHtmlElement('div', 'otter-tooltip-arrow-gray', 'otter-tooltip-show-arrow-gray');
+      createHtmlElement('div', 'otter-tooltip-arrow-white', 'otter-tooltip-show-arrow-white');
+      createHtmlElement('div', 'otter-tooltip-arrow-maroon', 'otter-tooltip-show-arrow-maroon');
+      createHtmlElement('div', 'otter-tooltip-arrow-red', 'otter-tooltip-show-arrow-red');
+      createHtmlElement('div', 'otter-tooltip-arrow-purple', 'otter-tooltip-show-arrow-purple');
+      createHtmlElement('div', 'otter-tooltip-arrow-fuchsia', 'otter-tooltip-show-arrow-fuchsia');
+      createHtmlElement('div', 'otter-tooltip-arrow-green', 'otter-tooltip-show-arrow-green');
+      createHtmlElement('div', 'otter-tooltip-arrow-lime', 'otter-tooltip-show-arrow-lime');
+      createHtmlElement('div', 'otter-tooltip-arrow-olive', 'otter-tooltip-show-arrow-olive');
+      createHtmlElement('div', 'otter-tooltip-arrow-yellow', 'otter-tooltip-show-arrow-yellow');
       function createHtmlElement(element, class1, param1, param2) {
         'use strict';
         if (wrapper.classList.contains(param1) || wrapper.classList.contains(param2)) {
           const arrowDiv = document.createElement(element);
           arrowDiv.classList.add(class1);
+          arrowDiv.style.backgroundColor = items[order].tooltip[0].dataColor;
           wrapper.append(arrowDiv);
         }
       }
+    }
+    if ( items[order].tooltip[0].dataColor === items[order].tooltip[0].dataTheme ) {
+      itemContainer.removeAttribute('data-tooltip-color')
+      itemContainer.removeAttribute('style')
+      itemContainer.previousSibling.removeAttribute('style')
+      itemContainer.nextSibling.removeAttribute('style')
     }
     document.querySelector('body').append(container);
   }
