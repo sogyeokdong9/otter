@@ -1,20 +1,5 @@
 # Tooltip
 
-## Structure
-
-```code
-div(`wrap)
-  a(`otter-dropdown-trigger otter-dropdown-link otter-dropdown-close")
-    {Hover me} span('special-letter-down')[focusable="false" role="img" aria-label="display of dropdown menus state that open or close" aria-expanded="false"]
-  <!-- Mouse Event Log  -->
-div[style="position: absolute; top: 0; left: 0; width: 100%;"]
-  div(`otter-dropdown[, `otter-dropdown-hidden])
-    ul(`otter-dropdown-menu(`otter-dropdown-menu-root[, `otter-dropdown-menu-vertical[, `otter-dropdown-menu-light]]))[role="menu" tabindex="0" data-menu-list="true"]
-      li(`otter-dropdown-menu-item)[role="menuitem" tabindex="-1" data-menu-id="dropdown-menu-vertical-black-tmp_key-0"]
-        span(`otter-dropdown-menu-title-content)
-          a{item}
-```
-
 ## Examples
 
 - [CodePen: Otter: Tooltip > basic](https://codepen.io/sogyeokdong/pen/RwxvemG "Otter: Tooltip > basic")
@@ -86,9 +71,9 @@ div[style="position: absolute; top: 0; left: 0; width: 100%;"]
       <div class="otter-space otter-space-flex otter-space-horizontal otter-space-justify-center otter-space-horizontal-gap-8">
         <div class="otter-space-item">
           <!-- trigger -->
-          <button type="button" class="otter-btn otter-btn-default otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="1" data-tooltip-theme="black" data-placement="topLeft" data-pointer-at-center="true" data-tooltip-color="undefined">
+          <button type="button" class="otter-btn otter-btn-default otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="1" data-placement="topLeft" data-pointer-at-center="true">
             <span data-tooltip="I'm tooltip. One">One</span>
-            <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">∨</span>
+            <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
           </button>
         </div>
       </div>
@@ -107,50 +92,32 @@ div[style="position: absolute; top: 0; left: 0; width: 100%;"]
 </div>
 ```
 
-### Trigger mode
+### Colorful tooltip
 
 ```html
 <div class="wrap">
-  <!-- trigger -->
-  <a href="javascript:void(0)" role="button" class="otter-dropdown-trigger otter-dropdown-link otter-dropdown-close" data-index-number="1" data-placement="bottomLeft">
-    Click me <span class="spacial-letter-down" focusable="false" role="img" aria-label="display of dropdown menus state that open or close" aria-expanded="false">&#8744;</span>
-  </a>
+  <div class="grid-placement">
+    <div class="one">
+      <div class="otter-space otter-space-flex otter-space-horizontal otter-space-justify-center otter-space-horizontal-gap-8">
+        <div class="otter-space-item">
+          <!-- trigger -->
+          <button type="button" class="otter-btn otter-btn-default otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="1" data-tooltip-theme="black" data-tooltip-color="black" data-placement="rightTop">
+            <span data-tooltip="I'm tooltip. Black">Black</span>
+            <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="isplay of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <!-- dropdown menu -->
 <div style="position: absolute; top: 0; left: 0; width: 100%;">
-  <div class="otter-dropdown otter-dropdown-hidden">
-    <ul class="otter-dropdown-menu otter-dropdown-menu-root otter-dropdown-menu-vertical otter-dropdown-menu-light" role="menu" tabindex="0" data-index-number="1" data-menu-list="true">
-      <li class="otter-dropdown-menu-item" role="menuitem" tabindex="-1" data-menu-id="dropdown-menu-vertical-black-tmp_key-0">
-        <span class="otter-dropdown-menu-title-content">
-          <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">1st menu item</a>
-        </span>
-      </li>
-    </ul>
+  <div class="otter-tooltip otter-tooltip-show-arrow-black otter-tooltip-hidden otter-tooltip-placement-topLeft otter-slide-down-out" style="min-width: 0px; left: -1920px; top: -1121px; pointer-events: none;" role="tooltip" data-index-number="1">
+    <div class="otter-tooltip-arrow-black" style="display: block;"></div>
+    <div class="otter-tooltip-content otter-tooltip-root otter-tooltip-black" data-item-id="tooltip-tmp-key-0" data-tooltip-theme="black" data-tooltip="true">
+      <div class="otter-tooltip-item otter-tooltip-title-content">I'm tooltip. One</div>
+    </div>
+    <div class="otter-tooltip-arrow-black" style="display: none;"></div>
   </div>
-</div> 
+</div>
 ```
-
-## State
-- Direction
-  - `otter-dropdown-menu-vertical`
-  - `otter-dropdown-menu-horizontal`
-- Theme
-  - `otter-dropdown-menu-light`
-  - `otter-dropdown-menu-dark`
-- List item
-  - `otter-dropdown-menu-item-danger`
-- Other Elements: It can be that add style.
-  - `<li class="otter-dropdown-menu-item-divider"></li>`
-- Placement
-  - `bottomLeft`
-  - `bottom`
-  - `bottomRight`
-  - `topLeft`
-  - `top`
-  - `topRight`
-- Arrow(Theme)
-  - `otter-dropdown-show-arrow(default)`
-  - `otter-dropdown-show-arrow-light`
-  - `otter-dropdown-show-arrow-black`
-- Arrow pointing at the center
-  - `data-pointer-at-center="true"`
