@@ -21,7 +21,6 @@
       element.addEventListener('mouseleave', function() {
         'use strict';
         isDrpdnMnOpen(false, i);
-        // eventLog('mouseleave')
       })
     }
   }

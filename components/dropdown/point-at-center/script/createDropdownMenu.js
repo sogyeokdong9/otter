@@ -1,11 +1,13 @@
 'use strict';
 (function () {
   'use strict';
+  const cntnrElmnt = document.querySelector('.wrap');
+  const trgElmn = cntnrElmnt.querySelectorAll('.otter-dropdown-trigger');
   const items = [
     {
       "id":"1",
       "name":"Dasboard",
-      "dataTheme":"red",
+      "dataTheme":"light",
       "menu":[
         {
           "id":"dropdown-menu-ul-li-tmp-key-0-0",
@@ -27,7 +29,7 @@
     {
       "id":"2",
       "name":"Pull Request",
-      "dataTheme":"purple",
+      "dataTheme":"light",
       "menu":[
         {
           "id":"dropdown-menu-ul-li-tmp-key-1-0",
@@ -54,7 +56,7 @@
     {
       "id":"3",
       "name":"Issue",
-      "dataTheme":"fuchsia",
+      "dataTheme":"light",
       "menu":[
         {
           "id":"dropdown-menu-ul-li-tmp-key-2-0",
@@ -76,7 +78,7 @@
     {
       "id":"4",
       "name":"Explore",
-      "dataTheme":"green",
+      "dataTheme":"light",
       "menu":[
         {
           "id":"dropdown-menu-ul-li-tmp-key-3-0",
@@ -108,7 +110,7 @@
     {
       "id":"5",
       "name":"Overview",
-      "dataTheme":"lime",
+      "dataTheme":"light",
       "menu":[
         {
           "id":"dropdown-menu-ul-li-tmp-key-4-0",
@@ -140,7 +142,7 @@
     {
       "id":"6",
       "name":"Settings",
-      "dataTheme":"yellow",
+      "dataTheme":"light",
       "menu":[
         {
           "id":"dropdown-menu-ul-li-tmp-key-5-0",
@@ -165,6 +167,25 @@
       ]
     }
   ]
+  const prefixTooltipId = 'dropdown-menu-ul-li-tmp-key';
+  for (let i = 0; i < trgElmn.length; i++) {
+    const element = trgElmn[i];
+    getDataDropdownTheme(i);
+    for (let j = 0; j < items[i].menu.length; j++) {
+      const element = items[i].menu[j];
+      items[i].menu[j].id = `${prefixTooltipId}-${i}-${j}`;
+      if (j === items[i].menu.length - 1) { createDrpdnMn(i, j + 1); }
+    }
+  }
+  function getDataDropdownTheme(idx) {
+    'use strict';
+    const element = trgElmn[idx];
+    if ( Boolean(element.dataset.dropdownTheme) ) {
+      items[idx].dataTheme = element.getAttribute('data-dropdown-theme');
+    } else {
+      element.setAttribute('data-dropdown-theme', items[idx].dataTheme);
+    }
+  }
   function setClassAttr(elem1, elem2, elem3, menuId, menuLink) {
     'use strict';
     elem1.classList.add('otter-dropdown-menu-item');
@@ -247,10 +268,10 @@
     // itemContainer.lastChild.classList.add('otter-dropdown-menu-item-disabled');
     document.body.append(container);
   }
-  createDrpdnMn(0, 3);
-  createDrpdnMn(1, 4);
-  createDrpdnMn(2, 3);
-  createDrpdnMn(3, 5);
-  createDrpdnMn(4, 5);
-  createDrpdnMn(5, 4);
+  // createDrpdnMn(0, 3);
+  // createDrpdnMn(1, 4);
+  // createDrpdnMn(2, 3);
+  // createDrpdnMn(3, 5);
+  // createDrpdnMn(4, 5);
+  // createDrpdnMn(5, 4);
 })();

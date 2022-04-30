@@ -1157,6 +1157,7 @@ div[class^="otter-dropdown otter-dropdown-show-arrow-"].otter-dropdown-placement
   bottom: -15px;
 }
 
+.otter-dropdown-placement-default div + .otter-dropdown-menu,
 .otter-dropdown-placement-topLeft div + .otter-dropdown-menu,
 .otter-dropdown-placement-bottomLeft div + .otter-dropdown-menu {
   left: -15px;
