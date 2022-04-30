@@ -215,7 +215,6 @@
     const element = trgElmn[i];
     items[i].tooltip[0].id = prefixTooltipId + [i];
     items[i].tooltip[0].name = element.firstElementChild.dataset.tooltip;
-    items[i].tooltip[0].dataColor = element.dataset.tooltipColor;
     getDataTooltipTheme(i);
     getDataTooltipColor(i);
     createTooltip(i);
@@ -223,19 +222,19 @@
   function getDataTooltipTheme(idx) {
     'use strict';
     const element = trgElmn[idx];
-    if ( !element.dataset.tooltipTheme ) {
-      element.setAttribute('data-tooltip-theme', items[idx].tooltip[0].dataTheme);
-    } else {
+    if ( Boolean(element.dataset.tooltipTheme) ) {
       items[idx].tooltip[0].dataTheme = element.getAttribute('data-tooltip-theme');
+    } else {
+      element.setAttribute('data-tooltip-theme', items[idx].tooltip[0].dataTheme);
     }
   }
   function getDataTooltipColor(idx) {
     'use strict';
     const element = trgElmn[idx];
-    if ( !element.dataset.tooltipColor ) {
-      element.setAttribute('data-tooltip-color', items[idx].tooltip[0].dataColor);
-    } else {
+    if ( Boolean(element.dataset.tooltipColor) ) {
       items[idx].tooltip[0].dataColor = element.getAttribute('data-tooltip-color');
+    } else {
+      element.setAttribute('data-tooltip-color', items[idx].tooltip[0].dataColor);
     }
   }  
   function createTooltip(order) {
