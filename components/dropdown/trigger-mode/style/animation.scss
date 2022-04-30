@@ -24,7 +24,6 @@
 .otter-slide-right-out {
   animation: otterSlideRightOut  .3s linear;
 }
-
 @keyframes otterSlideUpIn {
   0% {
     transform: scaleY(0.8);
@@ -73,7 +72,6 @@
     opacity: 0;
   }
 }
-
 @keyframes otterSlideLeftIn {
   0% {
     transform: scaleX(0.8);

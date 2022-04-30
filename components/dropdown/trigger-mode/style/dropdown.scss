@@ -156,24 +156,22 @@ $dropdowns-data: (
   color: var(--otter-dropdown);
   line-height: 1.5715;
 }
-
 .otter-dropdown-trigger {
   & .spacial-letter-down {
     position: relative;
     top: 2px;
     display: inline-block;
     color: var(--otter-dropdown-specail-letter-down);
-    transition:top 0.3s, transform 0.3s;
+    transition: top 0.3s, transform 0.3s;
   }
   &.otter-dropdown-open .spacial-letter-down {
     position: relative;
     top: -2px;
     left: 0;
     color: var(--otter-dropdown-specail-letter-down-hover);
-    transform:rotate(0.5turn);
+    transform: rotate(0.5turn);
   }
 }
-
 .otter-dropdown {
   position: absolute;
   top: -9999px;
@@ -201,7 +199,6 @@ $dropdowns-data: (
 .otter-dropdown-visible {
   display: block;
 }
-
 // arrow
 div[class^="otter-dropdown otter-dropdown-show-arrow-"],
 .otter-dropdown-show-arrow {
@@ -221,7 +218,6 @@ div[class^="otter-dropdown otter-dropdown-show-arrow-"],
     padding: 15px;
   }
 }
-
 @each $dropdown, $label in $dropdowns-data {
   .otter-dropdown-arrow-#{$dropdown} {
     position: absolute;
@@ -235,7 +231,6 @@ div[class^="otter-dropdown otter-dropdown-show-arrow-"],
     pointer-events: none;
   }
 }
-
 @mixin position(
   $t: null,
   $r: null,
@@ -269,7 +264,6 @@ div[class^="otter-dropdown otter-dropdown-show-arrow-"],
     }
   }
 }
-
 .otter-dropdown-placement-top,
 .otter-dropdown-placement-topLeft,
 .otter-dropdown-placement-topRight {
@@ -281,7 +275,6 @@ div[class^="otter-dropdown otter-dropdown-show-arrow-"],
       $lctf: rotate(180deg) translateY(0)
   );
 }
-
 .otter-dropdown-placement-default,
 .otter-dropdown-placement-bottom,
 .otter-dropdown-placement-bottomLeft,
@@ -293,7 +286,6 @@ div[class^="otter-dropdown otter-dropdown-show-arrow-"],
       $lctf: rotate(0) translateY(0)
   );
 }
-
 .otter-dropdown-placement-top,
 .otter-dropdown-placement-bottom {
   @include position( $l: calc(50% - 9px) );
@@ -307,7 +299,6 @@ div[class^="otter-dropdown otter-dropdown-show-arrow-"],
 .otter-dropdown-placement-bottomRight {
   @include position( $r: 12px );
 }
-
 .otter-dropdown-placement-leftTop,
 .otter-dropdown-placement-left,
 .otter-dropdown-placement-leftBottom {
@@ -330,6 +321,7 @@ div[class^="otter-dropdown otter-dropdown-show-arrow-"],
     bottom: -15px;
   }
 }
+.otter-dropdown-placement-default,
 .otter-dropdown-placement-topLeft,
 .otter-dropdown-placement-bottomLeft {
   div + .otter-dropdown-menu {
@@ -399,7 +391,6 @@ div[class^="otter-dropdown otter-dropdown-show-arrow-"],
       $lctf: rotate(270deg) translateX( calc(50% - 9px) )
   );
 }
-
 .otter-dropdown-menu {
   position: relative;
   margin: 0;
@@ -476,7 +467,6 @@ div[class^="otter-dropdown otter-dropdown-show-arrow-"],
     }
   }
 }
-
 @mixin box(
   $w: null,
   $h: null,
@@ -493,7 +483,6 @@ div[class^="otter-dropdown otter-dropdown-show-arrow-"],
     line-height: $lh;
   }
 }
-
 @each $dropdown, $label in $dropdowns-data {
   .otter-dropdown-menu-#{$dropdown} {
     background-color: var(--otter-dropdown-#{$label}-background);

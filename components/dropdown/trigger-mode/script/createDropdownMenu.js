@@ -1,11 +1,13 @@
 'use strict';
 (function () {
   'use strict';
+  const cntnrElmnt = document.querySelector('.wrap');
+  const trgElmn = cntnrElmnt.querySelectorAll('.otter-dropdown-trigger');
   const items = [
     {
       "id":"1",
       "name":"Dasboard",
-      "dataTheme":"yellow",
+      "dataTheme":"light",
       "menu":[
         {
           "id":"dropdown-menu-ul-li-tmp-key-0-0",
@@ -25,6 +27,25 @@
       ]
     }
   ]
+  const prefixTooltipId = 'dropdown-menu-ul-li-tmp-key';
+  for (let i = 0; i < trgElmn.length; i++) {
+    const element = trgElmn[i];
+    getDataDropdownTheme(i);
+    for (let j = 0; j < items[i].menu.length; j++) {
+      const element = items[i].menu[j];
+      items[i].menu[j].id = `${prefixTooltipId}-${i}-${j}`;
+      if (j === items[i].menu.length - 1) { createDrpdnMn(i, j); }
+    }
+  }
+  function getDataDropdownTheme(idx) {
+    'use strict';
+    const element = trgElmn[idx];
+    if ( Boolean(element.dataset.dropdownTheme) ) {
+      items[idx].dataTheme = element.getAttribute('data-dropdown-theme');
+    } else {
+      element.setAttribute('data-dropdown-theme', items[idx].dataTheme);
+    }
+  } 
   function createDrpdnMn(order,count) {
     'use strict';
     const makeHtmlElement = function (tagName, ...attr) {
@@ -162,5 +183,5 @@
     }
     document.querySelector('body').append(container);
   }
-  createDrpdnMn(0, 3);
+  // createDrpdnMn(0, 3);
 })();

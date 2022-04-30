@@ -24,11 +24,9 @@
   --otter-primary-color-hover: rgba(64, 169, 255, 1);
   --otter-primary-color-activeive: rgba(9, 109, 217, 1);
   --otter-primary-color-outline: rgba(24, 144, 255, 0.20);
-
   // hr
   --otter-hr-background: rgba(240, 240, 240, 1);
   --otter-hr: rgba(187, 187, 187, 1);
-
   // tooltip
   --otter-tooltip-background: rgba(0, 21, 41, 0.85);
   --otter-tooltip: rgba(0, 0, 0, 0.85);
@@ -66,7 +64,6 @@
   // --otter-tooltip-item-danger-item-background: rgba(255, 255, 255, 1);
   // --otter-tooltip-item-danger-item-hover-background: rgba(255, 77, 79, 1);
   // --otter-tooltip-item-danger-hover: rgba(255, 255, 255, 1);
-
   --otter-tooltip-light-item: rgba(0, 0, 0, 0.85);
   --otter-tooltip-light-background: rgba(255, 255, 255, 1);
   --otter-tooltip-arrow-light-background: rgba(255, 255, 255, 1);
@@ -109,7 +106,6 @@
   --otter-tooltip-yellow-item: rgba(0, 0, 0, 0.85);
   --otter-tooltip-yellow-background: rgba(255, 255, 0, 1);
   --otter-tooltip-arrow-yellow-background: rgba(255, 255, 0, 1);
-
   // dropdown
   --otter-dropdown-background: rgba(255, 255, 255, 1);
   --otter-dropdown: rgba(0, 0, 0, 0.85);
@@ -258,7 +254,6 @@
   --otter-dropdown-item-danger-item-background: rgba(255, 255, 255, 1);
   --otter-dropdown-item-danger-item-hover-background: rgba(255, 77, 79, 1);
   --otter-dropdown-item-danger-hover: rgba(255, 255, 255, 1);
-
   // input[type="radio"]
   --otter-radio-border: rgba(217, 217, 217, 1);
   --otter-radio-background: rgba(255, 255, 255, 1);
@@ -314,7 +309,6 @@
   --otter-radio-disabled-checked-box-shadow: none;
   --otter-radio-disabled-checked: rgba(0, 0, 0, 0.25);
   --otter-radio-disabled-checked-text-shadow: none;
-  
   // input[type="text"]
   --otter-input-border: rgba(217, 217, 217, 1);
   --otter-input-background: rgba(255, 255, 255, 1);
@@ -357,7 +351,6 @@
   --otter-input-disabled-active-box-shadow: none;
   --otter-input-disabled-active: rgba(0, 0, 0, 0.25);
   --otter-input-disabled-active-text-shadow: none;
-
   // btn[ghost]
   --otter-btn-background-ghost-container: rgba(36, 41, 47, 1);
   --otter-btn-background-ghost-border: rgba(255, 255, 255, 1);
@@ -380,7 +373,6 @@
   --otter-btn-background-ghost-active-box-shadow: rgba(0, 0, 0, 0.016);
   --otter-btn-background-ghost-activ: rgba(9, 109, 217, 1);
   --otter-btn-background-ghost-active-text-shadow: none;
-
   // btn[danger]
   --otter-btn-dangerous-border: rgba(255, 77, 79, 1);
   --otter-btn-dangerous-background: rgba(255, 255, 255, 1);
@@ -407,7 +399,6 @@
   // --otter-btn-dangerous-icon: rgba(255, 77, 79, 1);
   // --otter-btn-dangerous-icon-before-hover-border: rgba(255, 120, 177, 1);
   // --otter-btn-dangerous-icon-hover: rgba(255, 120, 177, 1);
-
   // btn[danger primary *orizin]
   --otter-btn-orizin-dangerous-border: rgba(255, 77, 79, 1);
   --otter-btn-orizin-dangerous-background: rgba(255, 77, 79, 1);
@@ -429,7 +420,6 @@
   --otter-btn-orizin-dangerous-active-box-shadow: rgba(0, 0, 0, 0.043);
   --otter-btn-orizin-dangerous-active: rgba(255, 255, 255, 1);
   --otter-btn-orizin-dangerous-active-text-shadow: rgba(0, 0, 0, 0.12);
-
   // btn[danger ghost]
   --otter-btn-ghost-dangerous-border: rgba(255, 255, 255, 1);
   --otter-btn-ghost-dangerous-background: rgba(0, 0, 0, 0);
@@ -451,7 +441,6 @@
   --otter-btn-ghost-dangerous-active-box-shadow: none;
   --otter-btn-ghost-dangerous-active: rgba(255, 120, 117, 1);
   --otter-btn-ghost-dangerous-active-text-shadow: none;
-
   // btn[ghost]
   --otter-btn-ghost-border: rgba(255, 255, 255, 1);
   --otter-btn-ghost-background: rgba(0, 0, 0, 0);
@@ -473,7 +462,6 @@
   --otter-btn-ghost-active-box-shadow: none;
   --otter-btn-ghost-active: rgba(24, 144, 255, 1);
   --otter-btn-ghost-active-text-shadow: none;
-  
   // btn[type: primary]
   --otter-btn-primary-border: rgba(24, 144, 255, 1);
   --otter-btn-primary-background: rgba(24, 144, 255, 1);
@@ -498,7 +486,6 @@
   // --otter-btn-primary-icon-before-background: rgba(255, 255, 255, 1);
   // --otter-btn-primary-icon-border: rgba(255, 255, 255, 1);
   // --otter-btn-primary-icon: rgba(255, 255, 255, 1);
-
   // btn[type]
   --otter-btn-border: rgba(217, 217, 217, 1);
   --otter-btn-background: rgba(255, 255, 255, 1);
@@ -523,7 +510,6 @@
   // btn[type > icon]
   // --otter-btn-icon-before-hover-border: rgba(64, 169, 255, 1);
   // --otter-btn-icon-hover: rgba(64, 169, 255, 1);
-
   // btn[type: default]
   --otter-btn-default-border: rgba(217, 217, 217, 1);
   --otter-btn-default-background: rgba(255, 255, 255, 1);
@@ -548,7 +534,6 @@
   // btn[type: default > icon]
   // --otter-btn-default-icon-before-hover-border: rgba(64, 169, 255, 1);
   // --otter-btn-default-icon-hover: rgba(64, 169, 255, 1);
-  
   // btn[type: dashed]
   --otter-btn-dashed-border: rgba(217, 217, 217, 1);
   --otter-btn-dashed-background: rgba(255, 255, 255, 1);
@@ -572,7 +557,6 @@
   --otter-btn-dashed-active-text-shadow: none;
   // --otter-btn-dashed-icon-before-hover-border: rgba(64, 169, 255, 1);
   // --otter-btn-dashed-icon-hover: rgba(64, 169, 255, 1);
-  
   // btn[type: text]
   --otter-btn-text-border: rgba(0, 0, 0, 0);
   --otter-btn-text-background: rgba(0, 0, 0, 0);
@@ -596,7 +580,6 @@
   --otter-btn-text-active-text-shadow: none;
   // --otter-btn-text-icon-before-hover-border: rgba(0, 0, 0, 0.85);
   // --otter-btn-text-icon-hover: rgba(0, 0, 0, 0.85);
-  
   // btn[type: link]
   --otter-btn-link-border: rgba(0, 0, 0, 0);
   --otter-btn-link-background: rgba(0, 0, 0, 0);
@@ -621,7 +604,6 @@
   // --otter-btn-link-icon-before-background: rgba(24, 144, 255, 1);
   // --otter-btn-link-icon-border: rgba(24, 144, 255, 1);
   // --otter-btn-link-icon: rgba(24, 144, 255, 1);
-
   // btn[disabled]
   --otter-btn-disabled-reset-border: rgba(0, 0, 0, 0);
   --otter-btn-disabled-reset-background: rgba(0, 0, 0, 0);
@@ -646,7 +628,6 @@
   --otter-btn-background-ghost-disabled-text-box-shadow: none;
   --otter-btn-background-ghost-disabled-text: rgba(255, 255, 255, 0.10);
   --otter-btn-background-ghost-disabled-text-text-shadow: none;
-
   // html color
   --otter-black: #000000;  /// rgba(255, 255, 255, 1);
   --otter-silver: #c0c0c0; // rgba(192, 192, 192, 1);
