@@ -13,6 +13,17 @@
 
 [/components/button](https://github.com/sogyeokdong9/otter/tree/main/components/button "Path")
 
+- [X] Type
+- [X] Icon
+- [X] Size
+- [X] Disabled
+- [ ] Loading
+- [ ] Multiple Buttons
+- [X] Ghost Button
+- [X] Danger Buttons
+- [X] Block Button
+
+<!-- 
 To trigger an operation.
 
 *5 Types of button*
@@ -34,7 +45,9 @@ To trigger an operation.
 
 - [X] `Large` 🙄
 - [X] `[Default]` 😦
-- [X] `Small` 🥱
+- [X] `Small` 🥱 -->
+
+
 
 <!-- ## Layout -->
 
@@ -43,15 +56,18 @@ To trigger an operation.
 ### Dropdown
 
 [/components/dropdown](https://github.com/sogyeokdong9/otter/tree/main/components/dropdown "Path")
-- [X] Basic ⚓️
-- [ ] Placement
-- [ ] arrow
+- [X] Basic
+- [X] Placement
+- [X] arrow
+- [X] other elements
+- [X] Arrow pointing at the center
+- [X] Trigger mode
 
 ## Data Entry
 
 ### Radio
 
-[/components/radio](https://github.com/sogyeokdong9/otter/tree/main/components/button "Path")
+[/components/radio](https://github.com/sogyeokdong9/otter/tree/main/components/radio "Path")
 
 - [X] Basic
 - [X] Disabled
@@ -60,6 +76,17 @@ To trigger an operation.
 - [ ] Radio Group - Optoinal
 
 <!-- ## Data Display -->
+
+## Data Display
+
+### Tooltip
+
+[/components/tooltip](https://github.com/sogyeokdong9/otter/tree/main/components/tooltip "tooltip")
+
+- [X] Basic
+- [X] Placement
+- [X] Arrow pointing at the center
+- [X] Colourful tooltip
 
 <!-- ## Feedback -->
 
