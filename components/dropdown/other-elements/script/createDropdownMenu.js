@@ -34,7 +34,7 @@
     for (let j = 0; j < items[i].menu.length; j++) {
       const element = items[i].menu[j];
       items[i].menu[j].id = `${prefixTooltipId}-${i}-${j}`;
-      if (j === items[i].menu.length - 1) { createDrpdnMn(i, j); }
+      if (j === items[i].menu.length - 1) { createDrpdnMn(i, j + 1); }
     }
   }
   function getDataDropdownTheme(idx) {
@@ -66,7 +66,7 @@
     );
     const wrapper = makeHtmlElement(
       'div', 
-      { class: `otter-dropdown otter-dropdown-show-arrow-${items[order].dataTheme} otter-dropdown-visible` },
+      { class: `otter-dropdown otter-dropdown-visible` },
       { style: 'min-width: auto; left: -136px; top: -188px;' }
     );
     wrapper.setAttribute('data-index-number', items[order].id);
@@ -183,5 +183,4 @@
     }
     document.querySelector('body').append(container);
   }
-  // createDrpdnMn(0, 3);
 })();

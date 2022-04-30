@@ -382,7 +382,6 @@
       }
       const expr = getPlacement;
       switch (expr) {
-        case 'default':
         case 'top':
         case 'bottom':
           defineBaseCoordinate(JUST_CENTER_AXIS);

@@ -34,7 +34,7 @@
     for (let j = 0; j < items[i].menu.length; j++) {
       const element = items[i].menu[j];
       items[i].menu[j].id = `${prefixTooltipId}-${i}-${j}`;
-      if (j === items[i].menu.length - 1) { createDrpdnMn(i, j); }
+      if (j === items[i].menu.length - 1) { createDrpdnMn(i, j + 1); }
     }
   }
   function getDataDropdownTheme(idx) {

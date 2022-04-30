@@ -268,10 +268,4 @@
     // itemContainer.lastChild.classList.add('otter-dropdown-menu-item-disabled');
     document.body.append(container);
   }
-  // createDrpdnMn(0, 3);
-  // createDrpdnMn(1, 4);
-  // createDrpdnMn(2, 3);
-  // createDrpdnMn(3, 5);
-  // createDrpdnMn(4, 5);
-  // createDrpdnMn(5, 4);
 })();
