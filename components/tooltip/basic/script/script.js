@@ -4,7 +4,6 @@
   const cntnrElmnt = document.querySelector('.wrap');
   const trgElmn = cntnrElmnt.querySelectorAll('.otter-tooltip-trigger');
   const tooltip = document.querySelectorAll('.otter-tooltip');
-
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
     element.addEventListener('mouseenter', function() {
@@ -22,18 +21,15 @@
       isTooltipOpen(false, i);
     })
   }
-
   function isTooltipOpen(bool, idx) {
     'use strict';
     bool ? openTooltip(idx) : closeTooltip(idx);
   }
-
   function getTrgAttrPlcmnt(idx) {
     const element = trgElmn[idx];
     const result = element.getAttribute('data-placement');
     return result;
   }
-
   function createPlcmntClsNm(idx) {
     'use strict';
     const element = trgElmn[idx];
@@ -44,7 +40,6 @@
     const makePlcmntCls = prefixPlcmnt + positionPlcmnt;
     return makePlcmntCls;
   }
-
   function openTooltip(idx) {
     'use strict';
     const element = trgElmn[idx];
@@ -53,7 +48,6 @@
     setTrgClsReplace(idx, 'otter-tooltip-close', 'otter-tooltip-open');
     setTooltipClsAdd(idx, createPlcmntClsNm(idx));
     const expr = getTrgAttrPlcmnt(idx);
-
     switch (expr) {
       case 'bottomLeft':
       case 'bottom':
@@ -88,7 +82,6 @@
     setTooltipClsReplace(idx, "otter-tooltip-hidden", "otter-tooltip-visible");
     setLctTooltip('in', idx);
   }
-
   function closeTooltip(idx) {
     'use strict';
     const element = trgElmn[idx];
@@ -101,38 +94,32 @@
     setTooltipClsReplace(idx, "otter-tooltip-visible", "otter-tooltip-hidden");
     setLctTooltip('out', idx);
   }
-
   function closeAllTooltip() {
     'use strict';
     for (let i = 0; i < tooltip.length; i++) {
       closeTooltip(i);
     }
   }
-
   function setTrgClsReplace(idx, class1, class2) {
     'use strict';
     const element = trgElmn[idx];
     element.classList.replace(class1, class2);
   }
-
   function setTooltipClsAdd(idx, class1) {
     'use strict';
     const element = tooltip[idx];
     element.classList.add(class1);
   }
-
   function setTooltipClsRemove(idx, class1) {
     'use strict';
     const element = tooltip[idx];
     element.classList.remove(class1);
   }
-
   function setTooltipClsReplace(idx, class1, class2) {
     'use strict';
     const element = tooltip[idx];
     element.classList.replace(class1, class2);
   }
-
   function setLctTooltip(loc, idx) {
     'use strict';
     const element = trgElmn[idx];
@@ -153,7 +140,6 @@
     const VALIGN_TOP_AXIS = trgElmn[idx].offsetTop;
     const VALIGN_MID_AXIS = trgElmn[idx].offsetTop + ( ( trgElmn[idx].offsetHeight - tooltip[idx].offsetHeight ) / 2 );
     const VALIGN_BTM_AXIS = trgElmn[idx].offsetTop + ( trgElmn[idx].offsetHeight - tooltip[idx].offsetHeight );
-
     function setPlacement(val, left1) {
       'use strict';
       const alignTopBasis = ( ALIGN_TOP_AXIS > 0 && ALIGN_TOP_AXIS > SCROLL_Y ); 
@@ -163,9 +149,7 @@
       if (getPlacement === val) {
         tooltip[idx].style.minWidth = (tooltip[idx].offsetWidth) + 'px';
         tooltip[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : left1 + 'px';
-
         const expr = getPlacement;
-
         switch (expr) {
           case 'bottomLeft':
           case 'bottom':
@@ -193,7 +177,6 @@
           default:
             defineAlignBasis(alignTopBasis, ALIGN_TOP_AXIS, ALIGN_BTM_AXIS);
         }
-
         function defineAlignBasis(axis, val1, val2, val3, val4) {
           'use strict';
           function getActiveTooltipClass() {
@@ -212,7 +195,6 @@
             const result = getActiveTooltipClassToString().indexOf('otter-tooltip-show-arrow');
             return result;
           }
-
           function displayContainsClass(obj, display1, display2 ) {
             'use strict';
             if ( getActiveTooltipHasClassString() !== -1 ) {
@@ -228,9 +210,7 @@
             tooltip[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val2 + 'px';
             tooltip[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : val4 + 'px';
             displayContainsClass(tooltip[idx], 'none', 'block');
-
             const expr = getTrgAttrPlcmnt(idx);
-
             switch (expr) {
               case 'bottomLeft':
               case 'bottom':
@@ -280,7 +260,6 @@
     setPlacement('right', RIGHT_AXIS);
     setPlacement('rightBottom', RIGHT_AXIS);
   }
-
   function getPrivousElmnArray() {
     'use strict';
     const logAllArray = [];
@@ -301,7 +280,6 @@
     const result = logPreviousArray;
     return result;
   }
-
   function setPrivousElmn() {
     'use strict';
     const getLogItem = cntnrElmnt.querySelectorAll('.log-item');
@@ -310,7 +288,6 @@
       element.lastChild.textContent = getPrivousElmnArray()[i];
     }
   }
-
   function getStringTime() {
     'use strict';
     const time = new Date();
@@ -319,21 +296,18 @@
     const result = timeStr1 + ':' +timeStr2;
     return result;
   }
-
   function getActiveBtnElmn() {
     'use strict';
     const activeElmn = cntnrElmnt.querySelector('.otter-tooltip-open');
     const result = activeElmn;
     return result;
   }
-
   function getActiveTooltip() {
     'use strict';
     const activeElmn = document.querySelector('.otter-tooltip-visible');
     const result = activeElmn;
     return result;
   }
-
   function eventLog(mouseState) {
     'use strict';
     const loadBtnItemText = ( Boolean(getActiveBtnElmn().firstElementChild.innerText) ) ? getActiveBtnElmn().firstElementChild.innerText : 'null';
@@ -375,7 +349,6 @@
     itemContainer.append(item1, item2, item3, item4, item5, item6, item7, item8, item9, item10);
     logElmnt.append(itemContainer);
   }
-
   window.addEventListener('resize', function(){
     'use strict';
     console.log('resize event!');
@@ -399,18 +372,14 @@
       // const VALIGN_BTM_AXIS = getActiveBtnElmn() ? getActiveBtnElmn().offsetTop + ( getActiveBtnElmn().offsetHeight - getActiveTooltip().offsetHeight ) : null;
       const valignLeftBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && JUST_LEFT_AXIS - GET_ARROW_POINTING_AT_CENTER_VALUE - getActiveTooltip().offsetWidth  > 0 );
       const valignRightBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && RIGHT_AXIS + getActiveTooltip().offsetWidth  < CLIENT_WIDTH );
-
       function defineBaseCoordinate(left1, display1, display2) {
         'use strict';
         getActiveTooltip().style.left = left1 + 'px';
         getActiveTooltip().firstChild.style.display = display1;
         getActiveTooltip().lastChild.style.display = display2;
       }
-
       const expr = getPlacement;
-
       switch (expr) {
-        case 'default':
         case 'top':
         case 'bottom':
           defineBaseCoordinate(JUST_CENTER_AXIS);

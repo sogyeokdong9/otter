@@ -2,33 +2,6 @@
 (function () {
   'use strict';
   const cntnrElmnt = document.querySelector('.wrap');
-
-  // <div class="1">
-  //   <button type="button" class="otter-btn otter-btn-default otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="1" data-placement="top">
-  //     <span data-tooltip="I'm tooltip. Black">Black</span>
-  //     <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
-  //   </button>
-  // </div>
-
-  // console.log(items);
-  // console.log(items[0].id);
-  // console.log(items[0].name);
-  // console.log(items[0].button);
-  // console.log(items[0].button[0].type);
-  // console.log(items[0].button[0].class);
-  // console.log(items[0].button[0].dataIndexNumber);
-  // console.log(items[0].button[0].dataPlacement);
-  // console.log(items[0].button[0].span);
-  // console.log(items[0].button[0].span.dataTooltip);
-  // console.log(items[0].button[0].span.name);
-  // console.log(items[0].button[0].icon);
-  // console.log(items[0].button[0].icon.class);
-  // console.log(items[0].button[0].icon.focusable);
-  // console.log(items[0].button[0].icon.role);
-  // console.log(items[0].button[0].icon.ariaLabel);
-  // console.log(items[0].button[0].icon.ariaExpanded);
-  // console.log(items[0].button[0].icon.name);
-
   const items = [
     {
       "id":"1",
@@ -191,7 +164,6 @@
   for (let i = 0; i < items.length; i++) {
     createButton(i);
   }
-
   function createButton(order) {
     'use strict';
     const makeHtmlElement = function (tagName, ...attr) {
@@ -219,7 +191,6 @@
     wrapper.setAttribute('data-tooltip-theme', items[order].button[0].dataTheme);
     wrapper.setAttribute('data-tooltip-color', items[order].button[0].dataColor);
     wrapper.setAttribute('data-placement', items[order].button[0].dataPlacement);
-
     const item = makeHtmlElement(
       'span', 
       { textContent: items[order].button[0].name }
@@ -234,11 +205,9 @@
     );
     icon.setAttribute('aria-label', 'isplay of tooltip state that open or close' );
     icon.setAttribute('aria-expanded', false );
-
     wrapper.append(item);
     wrapper.append(icon);
     container.append(wrapper);
-
     document.querySelector('.palette').append(container);
   }
 })();

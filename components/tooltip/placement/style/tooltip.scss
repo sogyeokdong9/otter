@@ -143,7 +143,6 @@ $tooltips-data: (
   // yellowgreen: yellowgreen,
   // rebeccapurple: rebeccapurple
 );
-
 %otter-tooltip-box {
   visibility: visible;
   width: max-content;
@@ -161,7 +160,6 @@ $tooltips-data: (
   color: var(--otter-tooltip);
   line-height: 1.5715;
 }
-
 .otter-tooltip-trigger[role="button"] {
   span[data-tooltip] {
     display: inline-block;
@@ -183,7 +181,6 @@ $tooltips-data: (
     transform: rotate(0.5turn);
   }
 }
-
 .otter-tooltip {
   position: absolute;
   top: -9999px;
@@ -203,14 +200,12 @@ $tooltips-data: (
     opacity: 0.0001;
   }
 }
-
 .otter-tooltip-hidden {
   display: none;
 }
 .otter-tooltip-visible {
   display: block;
 }
-
 // arrow
 div[class^="otter-tooltip otter-tooltip-show-arrow-"],
 .otter-tooltip-show-arrow {
@@ -230,7 +225,6 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"],
     padding: 15px;
   }
 }
-
 @each $tooltip, $label in $tooltips-data {
   .otter-tooltip-arrow-#{$tooltip} {
     position: absolute;
@@ -244,7 +238,6 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"],
     pointer-events: none;
   }
 }
-
 @mixin position(
   $t: null,
   $r: null,
@@ -278,7 +271,6 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"],
     }
   }
 }
-
 .otter-tooltip-placement-default,
 .otter-tooltip-placement-top,
 .otter-tooltip-placement-topLeft,
@@ -406,7 +398,6 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"],
       $lctf: rotate(270deg) translateX( calc(50% - 9px) )
   );
 }
-
 .otter-tooltip-content {
   position: relative;
   margin: 0;
@@ -437,7 +428,6 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"],
   color: var(--otter-tooltip-item);
   line-height: 22px;
 }
-
 @each $tooltip, $label in $tooltips-data {
   .otter-tooltip-#{$tooltip} {
     background-color: var(--otter-tooltip-#{$label}-background);
@@ -446,7 +436,6 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"],
     }
   }
 }
-
 .grid-placement {
   display: grid;
   margin: 150px 25%;
@@ -505,7 +494,6 @@ div[class^="otter-tooltip otter-tooltip-show-arrow-"],
     }
   }
 }
-
 @each $tooltip, $label in $tooltips-data {
   .otter-btn.#{$tooltip} {
     &:hover,

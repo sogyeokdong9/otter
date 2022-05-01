@@ -3,7 +3,6 @@
 a, area, button, [role='button'], input:not([type='range']), label, select, summary, textarea {
   touch-action: manipulation;
 }
-
 a {
   outline: none;
   background-color: transparent;
@@ -12,24 +11,23 @@ a {
   text-decoration-skip: objects;
   transition: color 0.3s;
   cursor: pointer;
+  &:hover {
+    color: var(--otter-primary-color-hover);  
+  }
+  &:active {
+    color: var(--otter-primary-color-activeive);
+  }
+  &:focus,
+  &:active,
+  &:hover {
+    text-decoration: none;
+    outline: 0;
+  }
+  &[disabled] {
+    color: var(--otter-ftbck-disable);
+    cursor: not-allowed;
+  }
 }
-a:hover {
-  color: var(--otter-primary-color-hover);
-}
-a:active {
-  color: var(--otter-primary-color-activeive);
-}
-a:focus,
-a:active,
-a:hover {
-  text-decoration: none;
-  outline: 0;
-}
-a[disabled] {
-  color: var(--otter-ftbck-disable);
-  cursor: not-allowed;
-}
-
 input, button, select, optgroup, textarea {
   margin: 0;
   color: inherit;
@@ -47,7 +45,6 @@ input[type='radio'], input[type='checkbox'] {
 input[type="radio"] {
   cursor: pointer;
 }
-
 button {
   position: relative;
   display: inline-block;
@@ -72,7 +69,6 @@ button {
     }
   }
 }
-
 hr {
   height: 53px;
   border: none;
@@ -92,7 +88,6 @@ hr:after {
   color: var(--otter-hr);
   transform: rotate(45deg);
 }
-
 .a11y-hidden {
   position: absolute;
   width: 1px;
@@ -101,21 +96,18 @@ hr:after {
   overflow: hidden;
   clip-path: polygon(0 0, 0 0, 0 0);
 }
-
 .spacial-letter-down.a11y-hidden {
   display: none;
   width: 0;
   margin-right: -3px;
   font-size: 0;
 }
-
 .wrap { 
   margin: 1em;
   form {
     margin: 1em 0;
   }
 }
-
 .event-log {
   display: flex; 
   flex-direction: column-reverse; 
@@ -135,7 +127,6 @@ hr:after {
     margin-left: -40px;
   }
 }
-
 .log-item {
   display: flex;
   flex-wrap: wrap;

@@ -11,7 +11,7 @@
         {
           "id":"tooltip-tmp-key-0",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip1"
         }
       ]
@@ -23,7 +23,7 @@
         {
           "id":"tooltip-tmp-key-1",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip2"
         }
       ]
@@ -35,7 +35,7 @@
         {
           "id":"tooltip-tmp-key-2",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip3"
         }
       ]
@@ -47,7 +47,7 @@
         {
           "id":"tooltip-tmp-key-3",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip4"
         }
       ]
@@ -59,7 +59,7 @@
         {
           "id":"tooltip-tmp-key-4",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip5"
         }
       ]
@@ -71,7 +71,7 @@
         {
           "id":"tooltip-tmp-key-5",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip6"
         }
       ]
@@ -83,7 +83,7 @@
         {
           "id":"tooltip-tmp-key-6",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip7"
         }
       ]
@@ -95,7 +95,7 @@
         {
           "id":"tooltip-tmp-key-7",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip8"
         }
       ]
@@ -107,7 +107,7 @@
         {
           "id":"tooltip-tmp-key-8",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip9"
         }
       ]
@@ -119,7 +119,7 @@
         {
           "id":"tooltip-tmp-key-9",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip10"
         }
       ]
@@ -131,7 +131,7 @@
         {
           "id":"tooltip-tmp-key-10",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip11"
         }
       ]
@@ -143,7 +143,7 @@
         {
           "id":"tooltip-tmp-key-11",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip12"
         }
       ]
@@ -155,7 +155,7 @@
         {
           "id":"tooltip-tmp-key-12",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip13"
         }
       ]
@@ -167,7 +167,7 @@
         {
           "id":"tooltip-tmp-key-13",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip14"
         }
       ]
@@ -179,7 +179,7 @@
         {
           "id":"tooltip-tmp-key-14",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip15"
         }
       ]
@@ -191,7 +191,7 @@
         {
           "id":"tooltip-tmp-key-15",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip16"
         }
       ]
@@ -203,7 +203,7 @@
         {
           "id":"tooltip-tmp-key-16",
           "dataTheme":"black",
-          "dataColor":"black",
+          "dataColor":"",
           "name":"tooltip17"
         }
       ]
@@ -225,7 +225,7 @@
     if ( Boolean(element.dataset.tooltipTheme) ) {
       items[idx].tooltip[0].dataTheme = element.getAttribute('data-tooltip-theme');
     } else {
-      element.setAttribute('data-tooltip-theme', items[idx].tooltip[0].dataTheme);
+      // element.setAttribute('data-tooltip-theme', items[idx].tooltip[0].dataTheme);
     }
   }
   function getDataTooltipColor(idx) {
@@ -234,7 +234,7 @@
     if ( Boolean(element.dataset.tooltipColor) ) {
       items[idx].tooltip[0].dataColor = element.getAttribute('data-tooltip-color');
     } else {
-      element.setAttribute('data-tooltip-color', items[idx].tooltip[0].dataColor);
+      // element.setAttribute('data-tooltip-color', items[idx].tooltip[0].dataColor);
     }
   }  
   function createTooltip(order) {
