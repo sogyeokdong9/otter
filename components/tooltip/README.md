@@ -15,16 +15,6 @@ div[style="position: absolute; top: 0; left: 0; width: 100%;"]
     div([`otter-tooltip-arrow-black])[style="display: none;"]
 ```
 
-<div style="position: absolute; top: 0; left: 0; width: 100%;">
-  <div class="otter-tooltip otter-tooltip-show-arrow-black otter-tooltip-hidden otter-tooltip-placement-default otter-slide-down-out" style="min-width: 0px; left: -1377px; top: -1024px; pointer-events: none;" role="tooltip" data-index-number="1">
-    <div class="otter-tooltip-arrow-black" style="display: block;"></div>
-    <div class="otter-tooltip-content otter-tooltip-root otter-tooltip-black" data-item-id="tooltip-tmp-key-0" data-tooltip-theme="black" data-tooltip="true">
-      <div class="otter-tooltip-item otter-tooltip-title-content">I'm tooltip. Zero</div>
-    </div>
-    <div class="otter-tooltip-arrow-black" style="display: none;"></div>
-  </div>
-</div>
-
 ## Examples
 
 - [CodePen: Otter: Tooltip > basic](https://codepen.io/sogyeokdong/pen/RwxvemG "Otter: Tooltip > basic")
