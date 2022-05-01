@@ -10,6 +10,7 @@ button(`otter-btn` [`otter-btn-primary`[, `otter-btn-dangerous`[, ...`otter-btn-
 ## Examples
 
 - [CodePen: Otter: button > type](https://codepen.io/sogyeokdong/pen/GRyZVXZ "Otter: button > type")
+- [CodePen: Otter: button > icon](https://codepen.io/sogyeokdong/pen/ZErEyme "Otter: button > icon")
 - [CodePen: Otter: button > size](https://codepen.io/sogyeokdong/pen/gOowGJG "Otter: button > size")
 - [CodePen: Otter: button > disabled](https://codepen.io/sogyeokdong/pen/yLpJgMN "Otter: button > disabled")
 - [CodePen: Otter: button > danger](https://codepen.io/sogyeokdong/pen/qBpNvWq "Otter: button > danger")
@@ -38,6 +39,63 @@ Ther are `default`, `primary`, `dashed`, `text`, and `link` button in otter.
 </button>
 <button type="button" class="otter-btn otter-btn-link">
   <span>Link Button</span>
+</button>
+```
+
+### Icon
+
+Button components can contain an `Icon`. This is done by setting the icon property or placing an `Icon` component within the Button.  
+For buttons consisting only of icons without text information, you can use `Tooltip` component to display information about the icons.    
+
+<!-- 
+- Button shape(icon only): `otter-btn-circle`, `otter-btn-icon-only`
+- Tooltip selector: `otter-tooltip-trigger`, `otter-tooltip-link`, `otter-tooltip-close`
+- Tooltip theme(`data-tooltip-theme`)
+  - light 
+  - black 
+  - silver 
+  - gray 
+  - white 
+  - maroon 
+  - red 
+  - purple 
+  - fuchsia 
+  - green 
+  - lime 
+  - olive 
+  - yellow 
+- Tooltip placement(`data-placement`)
+  - topLeft
+  - top(default)
+  - topRight
+  - bottomLeft
+  - bottom
+  - bottomRight
+  - leftTop
+  - left
+  - leftBottom
+  - rightTop
+  - right
+  - rightBottom
+-->
+
+```html
+<button type="button" class="otter-btn otter-btn-circle otter-btn-primary otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="1" data-placement="topLeft">
+  <span data-tooltip="Search. One"><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+  <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+</button>
+<button type="button" class="otter-btn otter-btn-circle otter-btn-primary"><span>A</span></button>
+<button type="button" class="otter-btn otter-btn-primary">
+  <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+  <span>Search</span>
+</button>
+<button type="button" class="otter-btn otter-btn-circle otter-btn-default otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="2">
+  <span data-tooltip="Search. Two"><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+  <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+</button>
+<button type="button" class="otter-btn otter-btn-default">
+  <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+  <span>Search</span>
 </button>
 ```
 
