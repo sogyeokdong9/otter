@@ -4,9 +4,8 @@
 
 ```code
 div(`wrap)
-  a(`otter-dropdown-trigger otter-dropdown-link otter-dropdown-close")
+  a(`otter-dropdown-trigger otter-dropdown-link otter-dropdown-close)
     {Hover me} span('special-letter-down')[focusable="false" role="img" aria-label="display of dropdown menus state that open or close" aria-expanded="false"]
-  <!-- Mouse Event Log  -->
 div[style="position: absolute; top: 0; left: 0; width: 100%;"]
   div(`otter-dropdown[, `otter-dropdown-hidden])
     ul(`otter-dropdown-menu(`otter-dropdown-menu-root[, `otter-dropdown-menu-vertical[, `otter-dropdown-menu-light]]))[role="menu" tabindex="0" data-menu-list="true"]
