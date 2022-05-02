@@ -17,7 +17,7 @@
 - [X] Icon
 - [X] Size
 - [X] Disabled
-- [ ] Loading
+- [X] Loading
 - [ ] Multiple Buttons
 - [X] Ghost Button
 - [X] Danger Buttons
@@ -39,7 +39,7 @@ To trigger an operation.
 - [X] `Danger`😡
 - [X] `Ghost`👻
 - [X] `Disabled`🥶
-- [ ] `Loading`🤩 (~ing)
+- [X] `Loading`🤩 (~ing)
 
 *3 Sizes of button*
 

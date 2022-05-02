@@ -13,6 +13,7 @@ button(`otter-btn` [`otter-btn-primary`[, `otter-btn-dangerous`[, ...`otter-btn-
 - [CodePen: Otter: button > icon](https://codepen.io/sogyeokdong/pen/ZErEyme "Otter: button > icon")
 - [CodePen: Otter: button > size](https://codepen.io/sogyeokdong/pen/gOowGJG "Otter: button > size")
 - [CodePen: Otter: button > disabled](https://codepen.io/sogyeokdong/pen/yLpJgMN "Otter: button > disabled")
+- [CodePen: Otter: button > loading](https://codepen.io/sogyeokdong/pen/PoQwoVg "Otter: button > loading")
 - [CodePen: Otter: button > danger](https://codepen.io/sogyeokdong/pen/qBpNvWq "Otter: button > danger")
 - [CodePen: Otter: button > block](https://codepen.io/sogyeokdong/pen/GRymRYr "Otter: button > block")
 - [CodePen: Otter: button > ghost](https://codepen.io/sogyeokdong/pen/MWrEWqo "Otter: button > ghost")
@@ -146,6 +147,26 @@ To mark a button as disabled, add the `disbled` property to the `button`.
 </button>
 <button type="button" class="otter-btn otter-btn-link" disabled>
   <span>Link Button</span>
+</button>
+```
+
+### Loading
+
+A loading indicator can be added to a button by setting the `loading` property on the `Button`.
+- `data-loading`
+- `data-loading-delay`
+
+```html
+<button type="button" class="otter-btn otter-btn-primary" data-index-number="1"  data-loading="true" data-loading-delay="10000">
+  <span>Click me!</span>
+</button>
+<button type="button" class="otter-btn otter-btn-primary" data-index-number="2" data-loading="true" data-loading-delay="7000">
+  <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+  <span>Click me!</span>
+</button>
+<button type="button" class="otter-btn otter-btn-primary otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="3" data-placement="right" data-loading="true">
+  <span data-tooltip="Search me"><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+  <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
 </button>
 ```
 
