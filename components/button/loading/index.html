@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/reset.css">
+  <link rel="stylesheet" href="./style/reset.user.css">
+  <link rel="stylesheet" href="./style/color.css">
+  <link rel="stylesheet" href="./style/button.css">
+  <link rel="stylesheet" href="./style/tooltip.css">
+  <link rel="stylesheet" href="./style/animation.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <title>Icon Button</title>
+</head>
+<body>
+  <div class="wrap">
+    <div style="margin: 0.5em">
+      <button type="button" class="otter-btn otter-btn-primary otter-btn-loading">
+        <span class="otter-btn-loading-icon"><i class="ottericon loader" role="img" aria-label="Rotating loader icon"></i></span>
+        <span>Click me!</span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-primary otter-btn-loading">
+        <span class="otter-btn-loading-icon"><i class="ottericon loader" role="img" aria-label="Rotating loader icon"></i></span>
+        <span>Click me!</span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-primary otter-btn-loading otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="4" data-placement="right">
+        <span class="otter-btn-loading-icon" data-tooltip="Search me"><i class="ottericon loader" role="img" aria-label="Rotating loader icon"></i></span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+      </button>
+    </div>
+    <div style="margin: 0.5em">
+      <button type="button" class="otter-btn otter-btn-primary" data-index-number="1"  data-loading="true" data-loading-delay="10000">
+        <span>Click me!</span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-primary" data-index-number="2" data-loading="true" data-loading-delay="7000">
+        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+        <span>Click me!</span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-primary otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="3" data-placement="right" data-loading="true">
+        <span data-tooltip="Search me"><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+      </button>
+    </div>
+    <ol class="event-log-loading">
+      <!-- <li>log</li> -->
+    </ol>
+    <ol class="event-log">
+      <!-- <li>log</li> -->
+    </ol>
+  </div>
+  <!-- Dynamically generate data -->
+  <script src="./script/createTooltip.js"></script>
+  <script src="./script/tooltip.js"></script>
+  <script src="./script/script.js"></script>
+</body>
+</html>
