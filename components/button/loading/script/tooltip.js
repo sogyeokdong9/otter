@@ -265,7 +265,7 @@
     const logAllArray = [];
     const logCurrentArray = [];
     const logPreviousArray = [];
-    const getLogItem = cntnrElmnt.querySelectorAll('.log-item');
+    const getLogItem = cntnrElmnt.querySelectorAll('.log-item-tooltip');
     logAllArray.push(getLogItem);
     for (let i = 0; i < getLogItem.length; i++) {
       const element = getLogItem[i];
@@ -285,7 +285,7 @@
   }
   function setPrivousElmn() {
     'use strict';
-    const getLogItem = cntnrElmnt.querySelectorAll('.log-item');
+    const getLogItem = cntnrElmnt.querySelectorAll('.log-item-tooltip');
     for (let i = 0; i < getLogItem.length; i++) {
       const element = getLogItem[i];
       element.lastChild.textContent = getPrivousElmnArray()[i];
@@ -336,7 +336,7 @@
       }
       return element;
     };
-    const itemContainer = makeHtmlElement('li', { class: 'log-item' });
+    const itemContainer = makeHtmlElement('li', { class: 'log-item-tooltip' });
     const groopOfPairs = [
       { id: 1, name: mouseState, class: 'specified' },
       { id: 2, name: getStringTime(), class: 'log-time' },

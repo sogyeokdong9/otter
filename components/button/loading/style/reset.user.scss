@@ -113,7 +113,6 @@ hr:after {
   display: none;
   margin: 1em 0;
 }
-
 .event-log-tooltip,
 .event-log-loading,
 .event-log {
@@ -136,7 +135,9 @@ hr:after {
     margin-left: -40px;
   }
 }
-.log-item {
+.log-item,
+.log-item-loading,
+.log-item-tooltip {
   display: flex;
   flex-wrap: wrap;
   & .now-class,

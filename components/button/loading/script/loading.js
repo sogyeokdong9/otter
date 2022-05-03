@@ -54,7 +54,7 @@
     const logAllArray = [];
     const logCurrentArray = [];
     const logPreviousArray = [];
-    const getLogItem = cntnrElmnt.querySelectorAll('.log-item');
+    const getLogItem = cntnrElmnt.querySelectorAll('.log-item-loading');
     const titleEventLog = document.querySelector('.event-log-title-loading');
     logAllArray.push(getLogItem);
     for (let i = 0; i < getLogItem.length; i++) {
@@ -75,7 +75,7 @@
   }
   function setPrivousElmn() {
     'use strict';
-    const getLogItem = cntnrElmnt.querySelectorAll('.log-item');
+    const getLogItem = cntnrElmnt.querySelectorAll('.log-item-loading');
     for (let i = 0; i < getLogItem.length; i++) {
       const element = getLogItem[i];
       element.lastChild.textContent = getPrivousElmnArray()[i];
@@ -114,7 +114,7 @@
       }
       return element;
     };
-    const itemContainer = makeHtmlElement('li', { class: 'log-item' });
+    const itemContainer = makeHtmlElement('li', { class: 'log-item-loading' });
     const groopOfPairs = [
       { id: 1, name: mouseState, class: 'specified' },
       { id: 2, name: getStringTime(), class: 'log-time' },
