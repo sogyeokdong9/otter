@@ -24,11 +24,16 @@
 .otter-slide-right-out {
   animation: otterSlideRightOut  .3s linear;
 }
-
-.otter-btn > .otter-btn-loading-icon .ottericon {
-	animation: loadingCircle 1s infinite linear
-}
-
+.otter-btn {
+  > .otter-btn-loading-icon .ottericon {
+    animation: loadingCircle 1s infinite linear
+  }
+  &[disabled] {
+    > .otter-btn-loading-icon .ottericon {
+      animation: loadingCircle 1s infinite linear
+    }
+  }
+} 
 @keyframes loadingCircle {
   0% {
     transform: rotate(0) scale(0.70);

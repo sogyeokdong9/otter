@@ -108,11 +108,21 @@ hr:after {
     margin: 1em 0;
   }
 }
+.event-log-title-loading,
+.event-log-title-tooltip {
+  display: none;
+  margin: 1em 0;
+}
+
+.event-log-tooltip,
+.event-log-loading,
 .event-log {
   display: flex; 
   flex-direction: column-reverse; 
-  flex-wrap: wrap; 
+  flex-wrap: no-wrap; 
   counter-reset: count;
+  margin: 0;
+  padding: 0;
   li {
     counter-increment: count;
     &::before {
@@ -123,31 +133,9 @@ hr:after {
     }
   }
   &::after {
-    content: "Event Log";
     margin-left: -40px;
   }
 }
-
-.event-log-loading {
-  display: flex; 
-  flex-direction: column-reverse; 
-  flex-wrap: wrap; 
-  counter-reset: count;
-  li {
-    counter-increment: count;
-    &::before {
-      content: "[" counter(count, decimal-leading-zero) "] == [" counter(count, lower-alpha) "]";
-      min-width: 120px;
-      padding-right: 20px;
-      color: var(--otter-ftbck-disable);
-    }
-  }
-  &::after {
-    content: "Event Log (loading)";
-    margin-left: -40px;
-  }
-}
-
 .log-item {
   display: flex;
   flex-wrap: wrap;

@@ -24,6 +24,12 @@
   --otter-primary-color-outline: rgba(24, 144, 255, 0.20);
   --otter-hr-background: rgba(240, 240, 240, 1);
   --otter-hr: rgba(187, 187, 187, 1);
+  --otter-loader: rgba(24, 144, 255, 1);
+  --otter-loader-background: rgba(255, 255, 255, 1);
+  --otter-loader-disabled: rgba(0, 0, 0, 0.25);
+  --otter-loader-disabled-background: rgba(255, 255, 255, 1);
+  --otter-loader-dangerous: rgba(255, 77, 79, 1);
+  --otter-loader-dangerous-background: rgba(255, 255, 255, 1);
   --otter-tooltip-background: rgba(0, 21, 41, 0.85);
   --otter-tooltip: rgba(0, 0, 0, 0.85);
   --otter-tooltip-item: rgba(0, 0, 0, 0.85);

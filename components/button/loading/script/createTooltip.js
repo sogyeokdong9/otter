@@ -12,7 +12,7 @@
           "id":"tooltip-tmp-key-0",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip1"
+          "name":"tooltip"
         }
       ]
     },
@@ -24,7 +24,7 @@
           "id":"tooltip-tmp-key-1",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip2"
+          "name":"tooltip"
         }
       ]
     },
@@ -36,7 +36,7 @@
           "id":"tooltip-tmp-key-2",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip3"
+          "name":"tooltip"
         }
       ]
     },
@@ -48,7 +48,7 @@
           "id":"tooltip-tmp-key-3",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip4"
+          "name":"tooltip"
         }
       ]
     },
@@ -60,37 +60,37 @@
           "id":"tooltip-tmp-key-4",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip5"
+          "name":"tooltip"
         }
       ]
     }
   ]
   const prefixTooltipId = 'tooltip-tmp-key-';
+  function returnCheckValue( val1, val2 = 'Tooltip' ) {
+    const result = val1 || val2;
+    return result;
+  }
   for (let i = 0; i < trgElmn.length; i++) {
-    const element = trgElmn[i];
     items[i].tooltip[0].id = prefixTooltipId + [i];
-    items[i].tooltip[0].name = element.firstElementChild.dataset.tooltip;
+    getDataTooltip(i);
     getDataTooltipTheme(i);
     getDataTooltipColor(i);
     createTooltip(i);
   }
+  function getDataTooltip(idx) {
+    'use strict';
+    const element = trgElmn[idx];
+    items[idx].tooltip[0].name = returnCheckValue(element.firstElementChild.dataset.tooltip, items[idx].tooltip[0].name);
+  }
   function getDataTooltipTheme(idx) {
     'use strict';
     const element = trgElmn[idx];
-    if ( Boolean(element.dataset.tooltipTheme) ) {
-      items[idx].tooltip[0].dataTheme = element.getAttribute('data-tooltip-theme');
-    } else {
-      // element.setAttribute('data-tooltip-theme', items[idx].tooltip[0].dataTheme);
-    }
+    items[idx].tooltip[0].dataTheme = returnCheckValue(element.getAttribute('data-tooltip-theme'), items[idx].tooltip[0].dataTheme);
   }
   function getDataTooltipColor(idx) {
     'use strict';
     const element = trgElmn[idx];
-    if ( Boolean(element.dataset.tooltipColor) ) {
-      items[idx].tooltip[0].dataColor = element.getAttribute('data-tooltip-color');
-    } else {
-      // element.setAttribute('data-tooltip-color', items[idx].tooltip[0].dataColor);
-    }
+    items[idx].tooltip[0].dataColor = returnCheckValue(element.getAttribute('data-tooltip-color'), items[idx].tooltip[0].dataColor);
   }  
   function createTooltip(order) {
     'use strict';

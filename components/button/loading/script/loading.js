@@ -2,18 +2,19 @@
 (function () {
   'use strict';
   const cntnrElmnt = document.querySelector('.wrap');
-  const btnElmn = cntnrElmnt.querySelectorAll('button[data-loading="true"]')
+  const loadBtn = cntnrElmnt.querySelectorAll('button[data-loading="true"]');
+  const logElmnt = cntnrElmnt.querySelector('.event-log-loading');
   const orizinElmn = [];
-  for (let i = 0; i < btnElmn.length; i++) {
-    const element = btnElmn[i];
+  for (let i = 0; i < loadBtn.length; i++) {
+    const element = loadBtn[i];
     orizinElmn.push(element);
   }
-  for (let i = 0; i < btnElmn.length; i++) {
-    const element = btnElmn[i];
+  for (let i = 0; i < loadBtn.length; i++) {
+    const element = loadBtn[i];
     element.addEventListener('click', function(event) {
       'use strict';
       eventLog('click' , i);
-      const LOADING_DELAY = element.dataset.loadingDelay ? element.dataset.loadingDelay : 3000;
+      const LOADING_DELAY = element.dataset.loadingDelay ?? 3000;
       this.classList.add('otter-btn-loading');
       if (checkButtonWithinIcons(i)) {
         this.firstElementChild.className = "otter-btn-loading-icon";
@@ -43,9 +44,9 @@
   }
   function checkButtonWithinIcons(idx) {
     'use strict';
-    const element = btnElmn[idx];
+    const element = loadBtn[idx];
     const getOtterIconClass = (element.firstElementChild.innerHTML).indexOf('ottericon');
-    const result = getOtterIconClass > 0 ? true : false;
+    const result = ( getOtterIconClass !== -1 ) ? true : false;
     return result; 
   }
   function getPrivousElmnArray() {
@@ -54,6 +55,7 @@
     const logCurrentArray = [];
     const logPreviousArray = [];
     const getLogItem = cntnrElmnt.querySelectorAll('.log-item');
+    const titleEventLog = document.querySelector('.event-log-title-loading');
     logAllArray.push(getLogItem);
     for (let i = 0; i < getLogItem.length; i++) {
       const element = getLogItem[i];
@@ -62,6 +64,9 @@
     for (let i = 0; i < logCurrentArray.length; i++) {
       const element = logCurrentArray[i];
       logPreviousArray[i] = element;
+    }
+    if (logAllArray.length > 0) { 
+      titleEventLog.style.display = 'block';
     }
     logPreviousArray.unshift( '-' );
     logPreviousArray.pop();
@@ -81,19 +86,22 @@
     const time = new Date();
     const timeStr1 = time.toLocaleTimeString();
     const timeStr2 = time.getUTCMilliseconds();
-    const result = timeStr1 + ':' +timeStr2;
+    const result = `${timeStr1}:${timeStr2}`;
+    return result;
+  }
+  function returnCheckValue( val1, val2 = '-' ) {
+    const result = val1 || val2;
     return result;
   }
   function eventLog(mouseState, i) {
     'use strict';
-    const COUNT_LOADING_DELAY = Number( orizinElmn[i].getAttribute('data-loading-delay') );
-    const loadBtnItemText = ( orizinElmn[i].lastElementChild.innerHTML !== "∨" ) ? orizinElmn[i].lastElementChild.innerHTML : '-';
-    const loadBtnItemAttr = orizinElmn[i].getAttribute('data-placement') ? orizinElmn[i].getAttribute('data-placement') : '-';
-    const loadBtnItemCls = orizinElmn[i].classList[2] ? orizinElmn[i].classList[2] : orizinElmn[i].classList[1];
-    const loadBtnItemIdx = orizinElmn[i].getAttribute('data-index-number');
-    const loadBtnItemLoading = orizinElmn[i].getAttribute('data-loading');
-    const loadBtnItemLoadingDelay = COUNT_LOADING_DELAY ? COUNT_LOADING_DELAY.toLocaleString('en-US') : '3,000';
-    const logElmnt = cntnrElmnt.querySelector('.event-log-loading');
+    const loadBtnItemIdx = returnCheckValue(orizinElmn[i].getAttribute('data-index-number'), 0);
+    const loadBtnItemText = returnCheckValue(orizinElmn[i].outerText);
+    const loadBtnItemAttr = returnCheckValue(orizinElmn[i].getAttribute('data-placement'));
+    const loadBtnItemCls = returnCheckValue(orizinElmn[i].classList[2], orizinElmn[i].classList[1]);
+    const loadBtnItemLoading = returnCheckValue(orizinElmn[i].getAttribute('data-loading'));
+    const COUNT_LOADING_DELAY = Number(returnCheckValue(orizinElmn[i].getAttribute('data-loading-delay'), 3000));
+    const loadBtnItemLoadingDelay = COUNT_LOADING_DELAY.toLocaleString('en-US') || '3,000';
     const makeHtmlElement = function (tagName, ...attr) {
       const element = document.createElement(tagName);
       for (let prop of attr) {
@@ -124,4 +132,5 @@
     itemContainer.append(item1, item2, item3, item4, item5, item6, item7, item8, item9);
     logElmnt.append(itemContainer);
   }
+  logElmnt.insertAdjacentHTML('beforebegin', '<p class="event-log-title-loading">Event Log: Loading Button</p>');
 })();

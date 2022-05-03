@@ -101,6 +101,18 @@ $btns-data: (
 }
 
 .otter-btn {
+  &::before {
+    position: absolute;
+    z-index: 1;
+    inset: -1px;
+    display: none;
+    content: "";
+    border-radius: inherit;
+    background: #fff;
+    opacity: .35;
+    transition: opacity .2s;
+    pointer-events: none
+  }
   &-lg {
     height: 40px;
     padding: 6px 15px;
@@ -113,13 +125,31 @@ $btns-data: (
     border-radius: 2px;
     font-size: 14px;
   }
+  &-loading {
+    position: relative;
+    cursor: default;
+    &::before {
+      display: block
+    }
+  }
+  &-loading-icon {
+    transition: width .3s cubic-bezier(.645,.045,.355,1),opacity .3s cubic-bezier(.645,.045,.355,1);
+    &:only-child {
+      .ottericon {
+        padding-right: 0;
+      }
+    }
+    .ottericon {
+      padding-right: 8px;
+      animation: none
+    }
+  }
   &-icon-only {
     width: 32px;
     height: 32px;
     padding: 2.4px 0;
     font-size: 16px;
     border-radius: 2px;
-    // vertical-align: -3px
     > * {
       font-size: 16px;
     }
@@ -151,7 +181,6 @@ $btns-data: (
   &.otter-btn-block {
     width: 100%;
   }
-  //  otter-btn-circle
   &-circle {
     min-width: 32px;
     padding-right: 0;
@@ -169,42 +198,6 @@ $btns-data: (
   }
 }
 
-
-.otter-btn:before {
-	position: absolute;
-	z-index: 1;
-	inset: -1px;
-	display: none;
-	content: "";
-	border-radius: inherit;
-	background: #fff;
-	opacity: .35;
-	transition: opacity .2s;
-	pointer-events: none
-}
-
-.otter-btn.otter-btn-loading {
-	position: relative;
-	cursor: default
-}
-
-.otter-btn.otter-btn-loading:before {
-	display: block
-}
-
-.otter-btn > .otter-btn-loading-icon {
-	transition: width .3s cubic-bezier(.645,.045,.355,1),opacity .3s cubic-bezier(.645,.045,.355,1)
-}
-
-.otter-btn > .otter-btn-loading-icon .ottericon {
-	padding-right: 8px;
-	-webkit-animation: none;
-	animation: none
-}
-
-.otter-btn > .otter-btn-loading-icon:only-child .ottericon {
-	padding-right: 0
-}
 
 // icons
 .magnifying-glass {
@@ -231,29 +224,37 @@ $btns-data: (
     transform: rotate(45deg);
   }
 }
+.otter-btn-dangerous,
+.otter-btn.otter-btn-dangerous,
+.otter-btn.otter-btn-primary.otter-btn-dangerous {
+  .loader {
+    border-color: var(--otter-loader-dangerous-background);
+    border-right-color: var(--otter-loader-dangerous);
+  }  
+}
+button[class*="otter-btn"] {
+  &[disabled] {
+    .otter-btn-loading-icon {
+      .loader {
+        border-color: var(--otter-loader-disabled);
+        border-right-color: var(--otter-loader-disabled-background);	
+      }
+    }
+  }
+}
+
 
 .loader {
   display: inline-block;
   width: 20px;
   height: 20px;
-  border: 2px solid #3498db;
-  border-top: 2px solid #ffffff; /* Blue */
-  border-left: 2px solid #ffffff; /* Blue */
-  border-bottom: 2px solid #ffffff; /* Blue */
+  border: 2px solid var(--otter-loader);
+  border-top: 2px solid var(--otter-loader-background);
+  border-left: 2px solid var(--otter-loader-background);
+  border-bottom: 2px solid var(--otter-loader-background);
   border-radius: 50%;
   vertical-align: middle;
-  // animation: spin 1s linear infinite;
 }
-// @keyframes spin {
-//   0% { 
-//     transform: rotate(0deg) scale(0.70); 
-//   }
-//   100% { 
-//     transform: rotate(360deg) scale(0.70); 
-//   }
-// }
-
-// otter-btn-icon-only
 a.otter-btn-icon-only {
 	vertical-align: -1px;
   > .ottericon {
@@ -310,6 +311,9 @@ button[class*="otter-btn-background-ghost"] {
   }
 }
 
+// otter-btn otter-btn-primary otter-btn-loading
+// otter-btn otter-btn-default otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close
+
 // disabled
 button[class$="-lg"],
 button[class$="-sm"],
@@ -321,10 +325,15 @@ button[class$="-dangerous"],
 button[class$="-ghost"],
 button[class$="-circle"],
 button[class$="-only"],
-button[class$="-block"] {
+button[class$="-block"],
+button[class$="-close"],
+button[class$="-link"],
+button[class$="-trigger"],
+button[class$="-loading"] {
   &[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
     @extend %otter-btn-disabled-filled;
     @extend %otter-btn-disabled-icon;
+    cursor: not-allowed;
   }
 }
 

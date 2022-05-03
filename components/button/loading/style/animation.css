@@ -43,6 +43,11 @@
           animation: loadingCircle 1s infinite linear;
 }
 
+.otter-btn[disabled] > .otter-btn-loading-icon .ottericon {
+  -webkit-animation: loadingCircle 1s infinite linear;
+          animation: loadingCircle 1s infinite linear;
+}
+
 @-webkit-keyframes loadingCircle {
   0% {
     -webkit-transform: rotate(0) scale(0.7);

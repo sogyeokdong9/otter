@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./style/reset.css">
   <link rel="stylesheet" href="./style/reset.user.css">
   <link rel="stylesheet" href="./style/color.css">
+  <link rel="stylesheet" href="./style/space.css">
   <link rel="stylesheet" href="./style/button.css">
   <link rel="stylesheet" href="./style/tooltip.css">
   <link rel="stylesheet" href="./style/animation.css">
@@ -15,43 +16,111 @@
 </head>
 <body>
   <div class="wrap">
-    <div style="margin: 0.5em">
-      <button type="button" class="otter-btn otter-btn-primary otter-btn-loading">
-        <span class="otter-btn-loading-icon"><i class="ottericon loader" role="img" aria-label="Rotating loader icon"></i></span>
-        <span>Click me!</span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-primary otter-btn-loading">
-        <span class="otter-btn-loading-icon"><i class="ottericon loader" role="img" aria-label="Rotating loader icon"></i></span>
-        <span>Click me!</span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-primary otter-btn-loading otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="4" data-placement="right">
-        <span class="otter-btn-loading-icon" data-tooltip="Search me"><i class="ottericon loader" role="img" aria-label="Rotating loader icon"></i></span>
-        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
-      </button>
-    </div>
-    <div style="margin: 0.5em">
-      <button type="button" class="otter-btn otter-btn-primary" data-index-number="1"  data-loading="true" data-loading-delay="10000">
-        <span>Click me!</span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-primary" data-index-number="2" data-loading="true" data-loading-delay="7000">
-        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-        <span>Click me!</span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-primary otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="3" data-placement="right" data-loading="true">
-        <span data-tooltip="Search me"><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
-      </button>
+    <div class="otter-space otter-space-flex otter-space-vertical otter-space-align-center otter-space-vertical-gap-8" style="margin: 160px 0;">
+      <div class="otter-space-item">
+        <div class="otter-space otter-space-horizontal otter-space-align-center otter-space-horizontal-gap-8">
+          <div class="otter-space-item">
+            <button type="button" class="otter-btn otter-btn-primary otter-btn-loading">
+              <span class="otter-btn-loading-icon"><i class="ottericon loader" role="img" aria-label="Rotating loader icon"></i></span>
+              <span>Click me!</span>
+              <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+            </button>
+          </div>
+          <div class="otter-space-item">
+            <button type="button" class="otter-btn otter-btn-primary otter-btn-loading">
+              <span class="otter-btn-loading-icon"><i class="ottericon loader" role="img" aria-label="Rotating loader icon"></i></span>
+              <span>Click me!</span>
+              <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+            </button>
+          </div>
+          <div class="otter-space-item">
+            <button type="button" class="otter-btn otter-btn-primary otter-btn-loading otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="0">
+              <span class="otter-btn-loading-icon"><i class="ottericon loader" role="img" aria-label="Rotating loader icon"></i></span>
+              <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="otter-space-item">
+        <div class="otter-space otter-space-horizontal otter-space-align-center otter-space-horizontal-gap-8">
+          <div class="otter-space-item">
+            <button type="button" class="otter-btn otter-btn-primary" data-index-number="1" data-loading="true" data-loading-delay="7000">
+              <span>Click me!</span>
+              <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+            </button>
+          </div>
+          <div class="otter-space-item">
+            <button type="button" class="otter-btn otter-btn-primary" data-index-number="2" data-loading="true" data-loading-delay="5000">
+              <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+              <span>Click me!</span>
+              <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+            </button>
+          </div>
+          <div class="otter-space-item">
+            <button type="button" class="otter-btn otter-btn-primary otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="3" data-placement="bottom" data-loading="true">
+              <span data-tooltip="Search one"><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+              <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="otter-space-item">
+        <div class="otter-space otter-space-horizontal otter-space-align-center otter-space-horizontal-gap-8">
+          <div class="otter-space-item">
+            <button type="button" class="otter-btn otter-btn-primary otter-btn-dangerous" data-index-number="4" data-loading="true" data-loading-delay="7000">
+              <span>Click me!</span>
+              <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+            </button>
+          </div>
+          <div class="otter-space-item">
+            <button type="button" class="otter-btn otter-btn-primary otter-btn-dangerous" data-index-number="5" data-loading="true" data-loading-delay="5000">
+              <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+              <span>Click me!</span>
+              <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+            </button>
+          </div>
+          <div class="otter-space-item">
+            <button type="button" class="otter-btn otter-btn-primary otter-btn-dangerous otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="6" data-placement="top" data-loading="true">
+              <span data-tooltip="Search two"><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+              <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="otter-space-item">
+        <div class="otter-space otter-space-horizontal otter-space-align-center otter-space-horizontal-gap-8">
+          <div class="otter-space-item">
+            <button type="button" class="otter-btn otter-btn-default" data-index-number="7" data-loading="true" data-loading-delay="7000">
+              <span>Click me!</span>
+              <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+            </button>
+          </div>
+          <div class="otter-space-item">
+            <button type="button" class="otter-btn otter-btn-default" data-index-number="8" data-loading="true" data-loading-delay="5000">
+              <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+              <span>Click me!</span>
+              <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+            </button>
+          </div>
+          <div class="otter-space-item">
+            <button type="button" class="otter-btn otter-btn-default otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="9" data-placement="right" data-loading="true">
+              <span data-tooltip="Search three"><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
+              <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
     <ol class="event-log-loading">
       <!-- <li>log</li> -->
     </ol>
-    <ol class="event-log">
+    <ol class="event-log-tooltip">
       <!-- <li>log</li> -->
     </ol>
   </div>
   <!-- Dynamically generate data -->
   <script src="./script/createTooltip.js"></script>
   <script src="./script/tooltip.js"></script>
-  <script src="./script/script.js"></script>
+  <script src="./script/loading.js"></script>
 </body>
 </html>
