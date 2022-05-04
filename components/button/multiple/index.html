@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/reset.css">
+  <link rel="stylesheet" href="./style/reset.user.css">
+  <link rel="stylesheet" href="./style/color.css">
+  <link rel="stylesheet" href="./style/space.css">
+  <link rel="stylesheet" href="./style/button.css">
+  <link rel="stylesheet" href="./style/dropdown.css">
+  <link rel="stylesheet" href="./style/animation.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <title>Multiple Button</title>
+</head>
+<body>
+  <div class="wrap">
+    <div class="otter-space otter-space-flex otter-space-vertical otter-space-align-center otter-space-vertical-gap-8" style="margin: 160px 0;">
+      <div class="otter-space-item">
+        <div class="otter-space otter-space-horizontal otter-space-align-center">
+          <div class="otter-space-item">
+            <button type="button" class="otter-btn otter-btn-primary" data-index-number="1">
+              <span>primary</span>
+              <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+            </button>
+            <button type="button" class="otter-btn otter-btn-default" data-index-number="2">
+              <span>secondary</span>
+              <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+            </button>
+            <div class="otter-btn-group otter-dropdown-button">
+              <button type="button" class="otter-btn otter-btn-default" data-index-number="3">
+                <span>Actions</span>
+                <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+              </button>
+              <button type="button" class="otter-btn otter-btn-default otter-btn-icon-only otter-dropdown-trigger otter-dropdown-link otter-dropdown-close" data-index-number="4" data-placement="bottomRight">
+                <span><i class="ottericon ellipsis" role="img" aria-label="ellipsis icon">&#8942;</i></span>
+                <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of dropdown state that open or close" aria-expanded="false">&#8744;</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+		<ol class="event-log-dropdown">
+			<!-- <li>log</li> -->
+		</ol>
+  </div>
+  <!-- Dynamically generate data -->
+  <script src="./script/createDropdownMenu.js"></script>
+  <script src="./script/dropdown.js"></script>
+</body>
+</html>
