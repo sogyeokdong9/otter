@@ -14,9 +14,10 @@ button(`otter-btn` [`otter-btn-primary`[, `otter-btn-dangerous`[, ...`otter-btn-
 - [CodePen: Otter: button > size](https://codepen.io/sogyeokdong/pen/gOowGJG "Otter: button > size")
 - [CodePen: Otter: button > disabled](https://codepen.io/sogyeokdong/pen/yLpJgMN "Otter: button > disabled")
 - [CodePen: Otter: button > loading](https://codepen.io/sogyeokdong/pen/PoQwoVg "Otter: button > loading")
+- [CodePen: Otter: button > multiple](https://codepen.io/sogyeokdong/pen/JjpdbaP "Otter: button > multiple")
+- [CodePen: Otter: button > ghost](https://codepen.io/sogyeokdong/pen/MWrEWqo "Otter: button > ghost")
 - [CodePen: Otter: button > danger](https://codepen.io/sogyeokdong/pen/qBpNvWq "Otter: button > danger")
 - [CodePen: Otter: button > block](https://codepen.io/sogyeokdong/pen/GRymRYr "Otter: button > block")
-- [CodePen: Otter: button > ghost](https://codepen.io/sogyeokdong/pen/MWrEWqo "Otter: button > ghost")
 
 ### Type
 
@@ -170,54 +171,33 @@ A loading indicator can be added to a button by setting the `loading` property o
 </button>
 ```
 
-### Danger
+### Multiple Buttons
 
-The `danger` is intended to attract attention.
+If you need several buttons, we recommend that you use 1 primary button + n secondary buttons, and if there are more than three operations, you can group some of them into `Dropdown.Button.`
 
-```html
-<button type="button" class="otter-btn otter-btn-primary otter-btn-dangerous">
-  <span>Primary</span>
-</button>
-<button type="button" class="otter-btn otter-btn-default otter-btn-dangerous">
-  <span>Default</span>
-</button>
-<button type="button" class="otter-btn otter-btn-dashed otter-btn-dangerous">
-  <span>Dashed</span>
-</button>
-<button type="button" class="otter-btn otter-btn-text otter-btn-dangerous">
-  <span>Text</span>
-</button>
-<button type="button" class="otter-btn otter-btn-link otter-btn-dangerous">
-  <span>Link</span>
-</button>
-```
-
-### Block
-
-The `block` property will make the button fit to its parent width.
 
 ```html
-<button type="button" class="otter-btn otter-btn-block">
-  <span>Button</span>
+<button type="button" class="otter-btn otter-btn-primary" data-index-number="1">
+  <span>primary</span>
+  <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
 </button>
-<button type="button" class="otter-btn otter-btn-default otter-btn-block">
-  <span>Default Button</span>
+<button type="button" class="otter-btn otter-btn-default" data-index-number="2">
+  <span>secondary</span>
+  <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
 </button>
-<button type="button" class="otter-btn otter-btn-primary otter-btn-block">
-  <span>Primary Button</span>
-</button>
-<button type="button" class="otter-btn otter-btn-dashed otter-btn-block">
-  <span>Dashed Button</span>
-</button>
-<button type="button" class="otter-btn otter-btn-text otter-btn-block">
-  <span>Text Button</span>
-</button>
-<button type="button" class="otter-btn otter-btn-link otter-btn-block">
-  <span>Link Button</span>
-</button>
+<div class="otter-btn-group otter-dropdown-button">
+  <button type="button" class="otter-btn otter-btn-default" data-index-number="3">
+    <span>Actions</span>
+    <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+  </button>
+  <button type="button" class="otter-btn otter-btn-default otter-btn-icon-only otter-dropdown-trigger otter-dropdown-link otter-dropdown-close" data-index-number="4" data-placement="bottomRight">
+    <span><i class="ottericon ellipsis" role="img" aria-label="ellipsis icon">&#8942;</i></span>
+    <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of dropdown state that open or close" aria-expanded="false">&#8744;</span>
+  </button>
+</div>
 ```
 
-### ghost
+### Ghost Button
 
 The `ghost` property will make button's background transparent, it is commonly used in colored background.
 
@@ -246,25 +226,50 @@ The `ghost` property will make button's background transparent, it is commonly u
 </div>
 ```
 
-### loading
+### Danger Buttons
 
-A loading indicator can be added to a button by setting the `loading` property on the `button`.
+The `danger` is intended to attract attention.
 
 ```html
-<button type="button" class="otter-btn otter-btn-primary otter-btn-loading">
+<button type="button" class="otter-btn otter-btn-primary otter-btn-dangerous">
   <span>Primary</span>
 </button>
-<button type="button" class="otter-btn otter-btn-default otter-btn-loading">
+<button type="button" class="otter-btn otter-btn-default otter-btn-dangerous">
   <span>Default</span>
 </button>
-<button type="button" class="otter-btn otter-btn-dashed otter-btn-loading">
+<button type="button" class="otter-btn otter-btn-dashed otter-btn-dangerous">
   <span>Dashed</span>
 </button>
-<button type="button" class="otter-btn otter-btn-text otter-btn-loading">
+<button type="button" class="otter-btn otter-btn-text otter-btn-dangerous">
   <span>Text</span>
 </button>
-<button type="button" class="otter-btn otter-btn-link otter-btn-loading">
+<button type="button" class="otter-btn otter-btn-link otter-btn-dangerous">
   <span>Link</span>
+</button>
+```
+
+### Block Button
+
+The `block` property will make the button fit to its parent width.
+
+```html
+<button type="button" class="otter-btn otter-btn-block">
+  <span>Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-default otter-btn-block">
+  <span>Default Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-primary otter-btn-block">
+  <span>Primary Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-dashed otter-btn-block">
+  <span>Dashed Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-text otter-btn-block">
+  <span>Text Button</span>
+</button>
+<button type="button" class="otter-btn otter-btn-link otter-btn-block">
+  <span>Link Button</span>
 </button>
 ```
 
