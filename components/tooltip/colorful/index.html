@@ -16,42 +16,38 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="palette">
-      <!-- Dynamically generate data -->
-    </div>
-
-    <button type="button" class="otter-btn otter-btn-default otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="13" data-tooltip-color="#ffa500" data-placement="topLeft">
-      <span data-tooltip="I'm tooltip. #ffa500">#ffa500</span>
-      <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="isplay of tooltip state that open or close" aria-expanded="false">∨</span>
-    </button>
-
-    <button type="button" class="otter-btn otter-btn-default otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="14" data-tooltip-color="rgb(51, 170, 51)" data-placement="topLeft">
-      <span data-tooltip="rgb(51, 170, 51)">rgb(51, 170, 51)</span>
-      <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="isplay of tooltip state that open or close" aria-expanded="false">∨</span>
-    </button>
-
-    <button type="button" class="otter-btn otter-btn-default otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="15" data-tooltip-color="rgba(51, 170, 51, 1)" data-placement="topLeft">
-      <span data-tooltip="rgba(51, 170, 51, 1)">rgba(51, 170, 51, 1)</span>
-      <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="isplay of tooltip state that open or close" aria-expanded="false">∨</span>
-    </button>
-
-    <button type="button" class="otter-btn otter-btn-default otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="16" data-tooltip-color="hsla(240, 100%, 50%)" data-placement="topLeft">
-      <span data-tooltip="hsl(240, 100%, 50%)">hsl(240, 100%, 50%)</span>
-      <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="isplay of tooltip state that open or close" aria-expanded="false">∨</span>
-    </button>
-
-    <button type="button" class="otter-btn otter-btn-default otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="17" data-tooltip-color="hsla(240, 100%, 50%, 1)" data-placement="topLeft">
-      <span data-tooltip="hsla(240, 100%, 50%, 1)">hsla(240, 100%, 50%, 1)</span>
-      <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="isplay of tooltip state that open or close" aria-expanded="false">∨</span>
-    </button>
-    
-    <ol class="event-log">
+    <div style="margin: 160px 0">
+      <div class="palette">
+        <!-- Dynamically generate data -->
+      </div>
+      <button type="button" class="otter-btn otter-btn-default otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="13" data-tooltip-color="#ffa500" data-placement="topLeft">
+        <span data-tooltip="I'm tooltip. #ffa500">#ffa500</span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="isplay of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-default otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="14" data-tooltip-color="rgb(51, 170, 51)" data-placement="topLeft">
+        <span data-tooltip="rgb(51, 170, 51)">rgb(51, 170, 51)</span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="isplay of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-default otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="15" data-tooltip-color="rgba(51, 170, 51, 1)" data-placement="topLeft">
+        <span data-tooltip="rgba(51, 170, 51, 1)">rgba(51, 170, 51, 1)</span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="isplay of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-default otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="16" data-tooltip-color="hsla(240, 100%, 50%)" data-placement="topLeft">
+        <span data-tooltip="hsl(240, 100%, 50%)">hsl(240, 100%, 50%)</span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="isplay of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-default otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="17" data-tooltip-color="hsla(240, 100%, 50%, 1)" data-placement="topLeft">
+        <span data-tooltip="hsla(240, 100%, 50%, 1)">hsla(240, 100%, 50%, 1)</span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="isplay of tooltip state that open or close" aria-expanded="false">&#8744;</span>
+      </button>
+    </div> 
+    <ol class="event-log-tooltip">
       <!-- <li>log</li> -->
     </ol>
   </div>
   <!-- Dynamically generate data -->
   <script src="./script/createButton.js"></script>
   <script src="./script/createTooltip.js"></script>
-  <script src="./script/script.js"></script>
+  <script src="./script/tooltip.js"></script>
 </body>
 </html>

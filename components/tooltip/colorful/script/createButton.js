@@ -11,7 +11,7 @@
           "dataIndexNumber":1,
           "dataPlacement":"rightTop",
           "dataTheme": "black",
-          "dataColor": "black",
+          "dataColor": "",
           "name":"Black"
         }
       ]
@@ -24,7 +24,7 @@
           "dataIndexNumber":2,
           "dataPlacement":"topLeft",
           "dataTheme": "silver",
-          "dataColor": "silver",
+          "dataColor": "",
           "name":"Silver"
         }
       ]
@@ -37,7 +37,7 @@
           "dataIndexNumber":3,
           "dataPlacement":"topRight",
           "dataTheme": "gray",
-          "dataColor": "gray",
+          "dataColor": "",
           "name":"Gray"
         }
       ]
@@ -50,7 +50,7 @@
           "dataIndexNumber":4,
           "dataPlacement":"rightTop",
           "dataTheme": "white",
-          "dataColor": "white",
+          "dataColor": "",
           "name":"White"
         }
       ]
@@ -63,7 +63,7 @@
           "dataIndexNumber":5,
           "dataPlacement":"right",
           "dataTheme": "maroon",
-          "dataColor": "maroon",
+          "dataColor": "",
           "name":"Maroon"
         }
       ]
@@ -76,7 +76,7 @@
           "dataIndexNumber":6,
           "dataPlacement":"bottomLeft",
           "dataTheme": "red",
-          "dataColor": "red",
+          "dataColor": "",
           "name":"Red"
         }
       ]
@@ -89,7 +89,7 @@
           "dataIndexNumber":7,
           "dataPlacement":"bottomRight",
           "dataTheme": "purple",
-          "dataColor": "purple",
+          "dataColor": "",
           "name":"Purple"
         }
       ]
@@ -102,7 +102,7 @@
           "dataIndexNumber":8,
           "dataPlacement":"right",
           "dataTheme": "fuchsia",
-          "dataColor": "fuchsia",
+          "dataColor": "",
           "name":"Fuchsia"
         }
       ]
@@ -115,7 +115,7 @@
           "dataIndexNumber":9,
           "dataPlacement":"rightBottom",
           "dataTheme": "green",
-          "dataColor": "green",
+          "dataColor": "",
           "name":"Green"
         }
       ]
@@ -128,7 +128,7 @@
           "dataIndexNumber":10,
           "dataPlacement":"top",
           "dataTheme": "lime",
-          "dataColor": "lime",
+          "dataColor": "",
           "name":"Lime"
         }
       ]
@@ -141,7 +141,7 @@
           "dataIndexNumber":11,
           "dataPlacement":"bottom",
           "dataTheme": "olive",
-          "dataColor": "olive",
+          "dataColor": "",
           "name":"Olive"
         }
       ]
@@ -154,12 +154,16 @@
           "dataIndexNumber":12,
           "dataPlacement":"rightBottom",
           "dataTheme": "yellow",
-          "dataColor": "yellow",
+          "dataColor": "",
           "name":"Yellow"
         }
       ]
     }
   ]
+  function returnCheckValue( val1, val2 = 'Tooltip' ) {
+    const result = val1 || val2;
+    return result;
+  }
   const iAmTooltip = `I'm tooltip.`;
   for (let i = 0; i < items.length; i++) {
     createButton(i);

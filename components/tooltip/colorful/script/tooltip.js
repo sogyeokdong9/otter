@@ -4,6 +4,7 @@
   const cntnrElmnt = document.querySelector('.wrap');
   const trgElmn = cntnrElmnt.querySelectorAll('.otter-tooltip-trigger');
   const tooltip = document.querySelectorAll('.otter-tooltip');
+  const logElmnt = cntnrElmnt.querySelector('.event-log-tooltip');
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
     element.addEventListener('mouseenter', function() {
@@ -21,13 +22,17 @@
       isTooltipOpen(false, i);
     })
   }
+  function returnCheckValue( val1, val2 = '-' ) {
+    const result = val1 || val2;
+    return result;
+  }
   function isTooltipOpen(bool, idx) {
     'use strict';
     bool ? openTooltip(idx) : closeTooltip(idx);
   }
   function getTrgAttrPlcmnt(idx) {
     const element = trgElmn[idx];
-    const result = element.getAttribute('data-placement');
+    const result = returnCheckValue(element.getAttribute('data-placement'), 'default');
     return result;
   }
   function createPlcmntClsNm(idx) {
@@ -35,9 +40,8 @@
     const element = trgElmn[idx];
     const hasAttrPlcmnt = element.hasAttribute('data-placement');
     const prefixPlcmnt = 'otter-tooltip-placement-';
-    const positionPlcmnt = (hasAttrPlcmnt) ? element.getAttribute('data-placement') : 'default';
     if (!hasAttrPlcmnt) { element.setAttribute('data-placement', 'default'); }
-    const makePlcmntCls = prefixPlcmnt + positionPlcmnt;
+    const makePlcmntCls = prefixPlcmnt + getTrgAttrPlcmnt(idx);
     return makePlcmntCls;
   }
   function openTooltip(idx) {
@@ -128,7 +132,7 @@
     const SCROLL_Y = Math.round(window.scrollY);
     const CLIENT_WIDTH = document.body.clientWidth;
     const CLIENT_HEIGHT = document.body.clientHeight;
-    const GET_ARROW_POINTING_AT_CENTER_VALUE = checkArrowPointingAtCenter ? trgElmn[idx].offsetWidth / 2 : 0;
+    const GET_ARROW_POINTING_AT_CENTER_VALUE = checkArrowPointingAtCenter ? ( trgElmn[idx].offsetWidth / 2 ) : 0;
     const GET_INTER_BTN_TOOLTIP_VALUE = trgElmn[idx].offsetWidth - tooltip[idx].offsetWidth;
     const JUST_LEFT_AXIS = trgElmn[idx].offsetLeft + GET_ARROW_POINTING_AT_CENTER_VALUE;
     const JUST_CENTER_AXIS = trgElmn[idx].offsetLeft + ( GET_INTER_BTN_TOOLTIP_VALUE / 2 );
@@ -147,8 +151,8 @@
       const valignLeftBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && JUST_LEFT_AXIS - GET_ARROW_POINTING_AT_CENTER_VALUE - tooltip[idx].offsetWidth  > 0 );
       const valignRightBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && RIGHT_AXIS + tooltip[idx].offsetWidth  < CLIENT_WIDTH );
       if (getPlacement === val) {
-        tooltip[idx].style.minWidth = (tooltip[idx].offsetWidth) + 'px';
-        tooltip[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : left1 + 'px';
+        tooltip[idx].style.minWidth = `${tooltip[idx].offsetWidth}px`;
+        tooltip[idx].style.left = (loc === 'out') ? `-${CLIENT_WIDTH}px` : `${left1}px`;
         const expr = getPlacement;
         switch (expr) {
           case 'bottomLeft':
@@ -181,7 +185,7 @@
           'use strict';
           function getActiveTooltipClass() {
             'use strict';
-            const activeTooltipClass = tooltip[idx] ? tooltip[idx].classList : null;
+            const activeTooltipClass = tooltip[idx].classList ?? null;
             const result = activeTooltipClass;
             return result;
           }
@@ -203,12 +207,12 @@
             }
           }
           if(axis) {
-            tooltip[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val1 + 'px';
-            tooltip[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : val3 + 'px';
+            tooltip[idx].style.top = (loc === 'out') ? `-${CLIENT_HEIGHT}px` : `${val1}px`;
+            tooltip[idx].style.left = (loc === 'out') ? `-${CLIENT_WIDTH}px` : `${val3}px`;
             displayContainsClass(tooltip[idx], 'block', 'none');
           } else {
-            tooltip[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val2 + 'px';
-            tooltip[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : val4 + 'px';
+            tooltip[idx].style.top = (loc === 'out') ? `-${CLIENT_HEIGHT}px` : `${val2}px`;
+            tooltip[idx].style.left = (loc === 'out') ? `-${CLIENT_WIDTH}px` : `${val4}px`;
             displayContainsClass(tooltip[idx], 'none', 'block');
             const expr = getTrgAttrPlcmnt(idx);
             switch (expr) {
@@ -265,7 +269,7 @@
     const logAllArray = [];
     const logCurrentArray = [];
     const logPreviousArray = [];
-    const getLogItem = cntnrElmnt.querySelectorAll('.log-item');
+    const getLogItem = cntnrElmnt.querySelectorAll('.log-item-tooltip');
     logAllArray.push(getLogItem);
     for (let i = 0; i < getLogItem.length; i++) {
       const element = getLogItem[i];
@@ -275,6 +279,9 @@
       const element = logCurrentArray[i];
       logPreviousArray[i] = element;
     }
+    if (logAllArray.length > 0) { 
+      document.querySelector('.event-log-title-tooltip').style.display = 'block';
+    }
     logPreviousArray.unshift( '-' );
     logPreviousArray.pop();
     const result = logPreviousArray;
@@ -282,7 +289,7 @@
   }
   function setPrivousElmn() {
     'use strict';
-    const getLogItem = cntnrElmnt.querySelectorAll('.log-item');
+    const getLogItem = cntnrElmnt.querySelectorAll('.log-item-tooltip');
     for (let i = 0; i < getLogItem.length; i++) {
       const element = getLogItem[i];
       element.lastChild.textContent = getPrivousElmnArray()[i];
@@ -293,7 +300,7 @@
     const time = new Date();
     const timeStr1 = time.toLocaleTimeString();
     const timeStr2 = time.getUTCMilliseconds();
-    const result = timeStr1 + ':' +timeStr2;
+    const result = `${timeStr1}:${timeStr2}`;
     return result;
   }
   function getActiveBtnElmn() {
@@ -310,14 +317,13 @@
   }
   function eventLog(mouseState) {
     'use strict';
-    const loadBtnItemText = ( Boolean(getActiveBtnElmn().firstElementChild.innerText) ) ? getActiveBtnElmn().firstElementChild.innerText : 'null';
-    const loadBtnItemAttr = getActiveBtnElmn().getAttribute('data-placement');
-    const loadBtnItemCls = getActiveBtnElmn().classList[2];
-    const loadBtnItemIdx = getActiveBtnElmn().getAttribute('data-index-number');
-    const loadTooltipItemText = getActiveTooltip().innerText.replace(/\n\r?/g, '/');
-    const loadTooltipItemIdx = getActiveTooltip().getAttribute('data-index-number');
-    const loadTooltipArrow = getActiveTooltip().classList[1];
-    const logElmnt = cntnrElmnt.querySelector('.event-log');
+    const loadBtnItemIdx = returnCheckValue(getActiveBtnElmn().getAttribute('data-index-number'), 0);
+    const loadBtnItemText = returnCheckValue(getActiveBtnElmn().outerText);
+    const loadBtnItemAttr = returnCheckValue(getActiveBtnElmn().getAttribute('data-placement'));
+    const loadBtnItemCls = returnCheckValue(getActiveBtnElmn().classList[2]);
+    const loadTooltipItemIdx = returnCheckValue(getActiveTooltip().getAttribute('data-index-number'), 0);
+    const loadTooltipItemText = returnCheckValue(getActiveTooltip().innerText.replace(/\n\r?/g, '/'));
+    const loadTooltipArrow = returnCheckValue(getActiveTooltip().classList[1]);
     const makeHtmlElement = function (tagName, ...attr) {
       const element = document.createElement(tagName);
       for (let prop of attr) {
@@ -330,7 +336,7 @@
       }
       return element;
     };
-    const itemContainer = makeHtmlElement('li', { class: 'log-item' });
+    const itemContainer = makeHtmlElement('li', { class: 'log-item-tooltip' });
     const groopOfPairs = [
       { id: 1, name: mouseState, class: 'specified' },
       { id: 2, name: getStringTime(), class: 'log-time' },
@@ -349,9 +355,9 @@
     itemContainer.append(item1, item2, item3, item4, item5, item6, item7, item8, item9, item10);
     logElmnt.append(itemContainer);
   }
+  logElmnt.insertAdjacentHTML('beforebegin', '<p class="event-log-title-tooltip">Event Log: Tooltip</p>');
   window.addEventListener('resize', function(){
     'use strict';
-    console.log('resize event!');
     if( getActiveTooltip() ) {
       const getPlacement = getActiveBtnElmn() ? getActiveBtnElmn().dataset.placement : null;
       const checkArrowPointingAtCenter = getActiveBtnElmn() ? getActiveBtnElmn().getAttribute('data-pointer-at-center') : null;

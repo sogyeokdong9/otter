@@ -12,7 +12,7 @@
           "id":"tooltip-tmp-key-0",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip1"
+          "name":"tooltip"
         }
       ]
     },
@@ -24,7 +24,7 @@
           "id":"tooltip-tmp-key-1",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip2"
+          "name":"tooltip"
         }
       ]
     },
@@ -36,7 +36,7 @@
           "id":"tooltip-tmp-key-2",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip3"
+          "name":"tooltip"
         }
       ]
     },
@@ -48,7 +48,7 @@
           "id":"tooltip-tmp-key-3",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip4"
+          "name":"tooltip"
         }
       ]
     },
@@ -60,7 +60,7 @@
           "id":"tooltip-tmp-key-4",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip5"
+          "name":"tooltip"
         }
       ]
     },
@@ -72,7 +72,7 @@
           "id":"tooltip-tmp-key-5",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip6"
+          "name":"tooltip"
         }
       ]
     },
@@ -84,7 +84,7 @@
           "id":"tooltip-tmp-key-6",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip7"
+          "name":"tooltip"
         }
       ]
     },
@@ -96,7 +96,7 @@
           "id":"tooltip-tmp-key-7",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip8"
+          "name":"tooltip"
         }
       ]
     },
@@ -108,7 +108,7 @@
           "id":"tooltip-tmp-key-8",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip9"
+          "name":"tooltip"
         }
       ]
     },
@@ -120,7 +120,7 @@
           "id":"tooltip-tmp-key-9",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip10"
+          "name":"tooltip"
         }
       ]
     },
@@ -132,7 +132,7 @@
           "id":"tooltip-tmp-key-10",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip11"
+          "name":"tooltip"
         }
       ]
     },
@@ -144,7 +144,7 @@
           "id":"tooltip-tmp-key-11",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip12"
+          "name":"tooltip"
         }
       ]
     },
@@ -156,7 +156,7 @@
           "id":"tooltip-tmp-key-12",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip13"
+          "name":"tooltip"
         }
       ]
     },
@@ -168,7 +168,7 @@
           "id":"tooltip-tmp-key-13",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip14"
+          "name":"tooltip"
         }
       ]
     },
@@ -180,7 +180,7 @@
           "id":"tooltip-tmp-key-14",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip15"
+          "name":"tooltip"
         }
       ]
     },
@@ -192,7 +192,7 @@
           "id":"tooltip-tmp-key-15",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip16"
+          "name":"tooltip"
         }
       ]
     },
@@ -204,38 +204,37 @@
           "id":"tooltip-tmp-key-16",
           "dataTheme":"black",
           "dataColor":"",
-          "name":"tooltip17"
+          "name":"tooltip"
         }
       ]
     }
   ]
-
+  function returnCheckValue( val1, val2 = 'Tooltip' ) {
+    const result = val1 || val2;
+    return result;
+  }
   const prefixTooltipId = 'tooltip-tmp-key-';
   for (let i = 0; i < trgElmn.length; i++) {
-    const element = trgElmn[i];
     items[i].tooltip[0].id = prefixTooltipId + [i];
-    items[i].tooltip[0].name = element.firstElementChild.dataset.tooltip;
+    getDataTooltip(i);
     getDataTooltipTheme(i);
     getDataTooltipColor(i);
     createTooltip(i);
   }
+  function getDataTooltip(idx) {
+    'use strict';
+    const element = trgElmn[idx];
+    items[idx].tooltip[0].name = returnCheckValue(element.firstElementChild.dataset.tooltip, items[idx].tooltip[0].name);
+  }
   function getDataTooltipTheme(idx) {
     'use strict';
     const element = trgElmn[idx];
-    if ( Boolean(element.dataset.tooltipTheme) ) {
-      items[idx].tooltip[0].dataTheme = element.getAttribute('data-tooltip-theme');
-    } else {
-      // element.setAttribute('data-tooltip-theme', items[idx].tooltip[0].dataTheme);
-    }
+    items[idx].tooltip[0].dataTheme = returnCheckValue(element.getAttribute('data-tooltip-theme'), items[idx].tooltip[0].dataTheme);
   }
   function getDataTooltipColor(idx) {
     'use strict';
     const element = trgElmn[idx];
-    if ( Boolean(element.dataset.tooltipColor) ) {
-      items[idx].tooltip[0].dataColor = element.getAttribute('data-tooltip-color');
-    } else {
-      // element.setAttribute('data-tooltip-color', items[idx].tooltip[0].dataColor);
-    }
+    items[idx].tooltip[0].dataColor = returnCheckValue(element.getAttribute('data-tooltip-color'), items[idx].tooltip[0].dataColor);
   }  
   function createTooltip(order) {
     'use strict';
