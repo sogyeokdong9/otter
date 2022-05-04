@@ -410,6 +410,246 @@ a.otter-btn-icon-only > .ottericon {
   display: inline;
 }
 
+.ellipsis {
+  height: auto;
+  margin-left: -2px;
+  font-size: 1.125em;
+  font-style: normal;
+  vertical-align: middle;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+}
+
+.otter-btn-group .otter-btn-primary:not(:first-child):not(:last-child) {
+  border-right-color: var(--otter-primary-5);
+  border-left-color: var(--otter-primary-5);
+}
+
+.otter-btn-group .otter-btn-primary:not(:first-child):not(:last-child):disabled {
+  border-color: #d9d9d9;
+}
+
+.otter-btn-group .otter-btn-primary:first-child:not(:last-child) {
+  border-right-color: var(--otter-primary-5);
+}
+
+.otter-btn-group .otter-btn-primary:first-child:not(:last-child)[disabled] {
+  border-right-color: #d9d9d9;
+}
+
+.otter-btn-group .otter-btn-primary:last-child:not(:first-child),
+.otter-btn-group .otter-btn-primary + .otter-btn-primary {
+  border-left-color: var(--otter-primary-5);
+}
+
+.otter-btn-group .otter-btn-primary:last-child:not(:first-child)[disabled],
+.otter-btn-group .otter-btn-primary + .otter-btn-primary[disabled] {
+  border-left-color: #d9d9d9;
+}
+
+.otter-btn-group {
+  position: initial;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.otter-btn-group > .otter-btn,
+.otter-btn-group > span > .otter-btn {
+  position: relative;
+}
+
+.otter-btn-group > .otter-btn:hover,
+.otter-btn-group > span > .otter-btn:hover,
+.otter-btn-group > .otter-btn:focus,
+.otter-btn-group > span > .otter-btn:focus,
+.otter-btn-group > .otter-btn:active,
+.otter-btn-group > span > .otter-btn:active {
+  z-index: 2;
+}
+
+.otter-btn-group > .otter-btn[disabled],
+.otter-btn-group > span > .otter-btn[disabled] {
+  z-index: 0;
+}
+
+.otter-btn-group .otter-btn-icon-only {
+  font-size: 14px;
+}
+
+.otter-btn-group .otter-btn-primary + .otter-btn:not(.otter-btn-primary):not([disabled]) {
+  border-left-color: transparent;
+}
+
+.otter-btn-group .otter-btn {
+  border-radius: 0;
+}
+
+.otter-btn-group > .otter-btn:first-child,
+.otter-btn-group > span:first-child > .otter-btn {
+  margin-left: 0;
+}
+
+.otter-btn-group > .otter-btn:only-child {
+  border-radius: 2px;
+}
+
+.otter-btn-group > span:only-child > .otter-btn {
+  border-radius: 2px;
+}
+
+.otter-btn-group > .otter-btn:first-child:not(:last-child),
+.otter-btn-group > span:first-child:not(:last-child) > .otter-btn {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.otter-btn-group > .otter-btn:last-child:not(:first-child),
+.otter-btn-group > span:last-child:not(:first-child) > .otter-btn {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.otter-btn-group > .otter-btn-group {
+  float: left;
+}
+
+.otter-btn-group > .otter-btn-group:not(:first-child):not(:last-child) > .otter-btn {
+  border-radius: 0;
+}
+
+.otter-btn-group > .otter-btn-group:first-child:not(:last-child) > .otter-btn:last-child {
+  padding-right: 8px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.otter-btn-group > .otter-btn-group:last-child:not(:first-child) > .otter-btn:first-child {
+  padding-left: 8px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.otter-btn-group-lg > .otter-btn,
+.otter-btn-group-lg > span > .otter-btn {
+  height: 40px;
+  padding: 6.4px 15px;
+  font-size: 16px;
+  border-radius: 0;
+}
+
+.otter-btn-group-lg .otter-btn.otter-btn-icon-only {
+  width: 40px;
+  height: 40px;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.otter-btn-group-sm > .otter-btn,
+.otter-btn-group-sm > span > .otter-btn {
+  height: 24px;
+  padding: 0 7px;
+  font-size: 14px;
+  border-radius: 0;
+}
+
+.otter-btn-group-sm > .otter-btn > .ottericon,
+.otter-btn-group-sm > span > .otter-btn > .ottericon {
+  font-size: 14px;
+}
+
+.otter-btn-group-sm .otter-btn.otter-btn-icon-only {
+  width: 24px;
+  height: 24px;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.otter-btn-group-sm > .otter-btn:only-child {
+  border-radius: 2px;
+}
+
+.otter-btn-group-sm > span:only-child > .otter-btn {
+  border-radius: 2px;
+}
+
+.otter-btn-group-sm > .otter-btn:first-child:not(:last-child),
+.otter-btn-group-sm > span:first-child:not(:last-child) > .otter-btn {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.otter-btn-group-sm > .otter-btn:last-child:not(:first-child),
+.otter-btn-group-sm > span:last-child:not(:first-child) > .otter-btn {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.otter-btn-group .otter-btn + .otter-btn,
+.otter-btn + .otter-btn-group,
+.otter-btn-group span + .otter-btn,
+.otter-btn-group .otter-btn + span,
+.otter-btn-group > span + span,
+.otter-btn-group + .otter-btn,
+.otter-btn-group + .otter-btn-group {
+  margin-left: -1px;
+}
+
+.otter-btn-group.otter-btn-group-rtl {
+  direction: rtl;
+}
+
+.otter-btn-group-rtl.otter-btn-group .otter-btn-primary:last-child:not(:first-child),
+.otter-btn-group-rtl.otter-btn-group .otter-btn-primary + .otter-btn-primary {
+  border-right-color: var(--otter-primary-5);
+  border-left-color: #d9d9d9;
+}
+
+.otter-btn-group-rtl.otter-btn-group .otter-btn-primary:last-child:not(:first-child)[disabled],
+.otter-btn-group-rtl.otter-btn-group .otter-btn-primary + .otter-btn-primary[disabled] {
+  border-right-color: #d9d9d9;
+  border-left-color: var(--ant-primary-5);
+}
+
+.otter-btn-group-rtl.otter-btn-group > .otter-btn:first-child:not(:last-child),
+.otter-btn-group-rtl.otter-btn-group > span:first-child:not(:last-child) > .otter-btn {
+  border-radius: 0 2px 2px 0;
+}
+
+.otter-btn-group-rtl.otter-btn-group > .otter-btn:last-child:not(:first-child),
+.otter-btn-group-rtl.otter-btn-group > span:last-child:not(:first-child) > .otter-btn {
+  border-radius: 2px 0 0 2px;
+}
+
+.otter-btn-group-rtl.otter-btn-group-sm > .otter-btn:first-child:not(:last-child),
+.otter-btn-group-rtl.otter-btn-group-sm > span:first-child:not(:last-child) > .otter-btn {
+  border-radius: 0 2px 2px 0;
+}
+
+.otter-btn-group-rtl.otter-btn-group-sm > .otter-btn:last-child:not(:first-child),
+.otter-btn-group-rtl.otter-btn-group-sm > span:last-child:not(:first-child) > .otter-btn {
+  border-radius: 2px 0 0 2px;
+}
+
+.otter-btn-rtl.otter-btn-group .otter-btn + .otter-btn,
+.otter-btn-rtl.otter-btn + .otter-btn-group,
+.otter-btn-rtl.otter-btn-group span + .otter-btn,
+.otter-btn-rtl.otter-btn-group .otter-btn + span,
+.otter-btn-rtl.otter-btn-group > span + span,
+.otter-btn-rtl.otter-btn-group + .otter-btn,
+.otter-btn-rtl.otter-btn-group + .otter-btn-group,
+.otter-btn-group-rtl.otter-btn-group .otter-btn + .otter-btn,
+.otter-btn-group-rtl.otter-btn + .otter-btn-group,
+.otter-btn-group-rtl.otter-btn-group span + .otter-btn,
+.otter-btn-group-rtl.otter-btn-group .otter-btn + span,
+.otter-btn-group-rtl.otter-btn-group > span + span,
+.otter-btn-group-rtl.otter-btn-group + .otter-btn,
+.otter-btn-group-rtl.otter-btn-group + .otter-btn-group {
+  margin-right: -1px;
+  margin-left: auto;
+}
+
 button[class*="otter-btn-link"], button[class*="otter-btn-text"] {
   border: none;
 }

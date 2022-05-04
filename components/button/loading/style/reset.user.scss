@@ -108,11 +108,13 @@ hr:after {
     margin: 1em 0;
   }
 }
+.event-log-title-dropdown,
 .event-log-title-loading,
 .event-log-title-tooltip {
   display: none;
   margin: 1em 0;
 }
+.event-log-dropdown,
 .event-log-tooltip,
 .event-log-loading,
 .event-log {
@@ -136,6 +138,7 @@ hr:after {
   }
 }
 .log-item,
+.log-item-dropdown,
 .log-item-loading,
 .log-item-tooltip {
   display: flex;
