@@ -65,11 +65,11 @@
       ]
     }
   ]
-  const prefixTooltipId = 'tooltip-tmp-key-';
   function returnCheckValue( val1, val2 = 'Tooltip' ) {
     const result = val1 || val2;
     return result;
   }
+  const prefixTooltipId = 'tooltip-tmp-key-';
   for (let i = 0; i < trgElmn.length; i++) {
     items[i].tooltip[0].id = prefixTooltipId + [i];
     getDataTooltip(i);

@@ -42,6 +42,10 @@
       } 
     }
   }
+  function returnCheckValue( val1, val2 = '-' ) {
+    const result = val1 || val2;
+    return result;
+  }
   function checkButtonWithinIcons(idx) {
     'use strict';
     const element = loadBtn[idx];
@@ -87,10 +91,6 @@
     const timeStr1 = time.toLocaleTimeString();
     const timeStr2 = time.getUTCMilliseconds();
     const result = `${timeStr1}:${timeStr2}`;
-    return result;
-  }
-  function returnCheckValue( val1, val2 = '-' ) {
-    const result = val1 || val2;
     return result;
   }
   function eventLog(mouseState, i) {

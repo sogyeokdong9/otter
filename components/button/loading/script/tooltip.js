@@ -22,6 +22,10 @@
       isTooltipOpen(false, i);
     })
   }
+  function returnCheckValue( val1, val2 = '-' ) {
+    const result = val1 || val2;
+    return result;
+  }
   function isTooltipOpen(bool, idx) {
     'use strict';
     bool ? openTooltip(idx) : closeTooltip(idx);
@@ -309,10 +313,6 @@
     'use strict';
     const activeElmn = document.querySelector('.otter-tooltip-visible');
     const result = activeElmn;
-    return result;
-  }
-  function returnCheckValue( val1, val2 = '-' ) {
-    const result = val1 || val2;
     return result;
   }
   function eventLog(mouseState) {
