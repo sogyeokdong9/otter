@@ -108,11 +108,22 @@ hr:after {
     margin: 1em 0;
   }
 }
+.event-log-title-dropdown,
+.event-log-title-loading,
+.event-log-title-tooltip {
+  display: none;
+  margin: 1em 0;
+}
+.event-log-dropdown,
+.event-log-tooltip,
+.event-log-loading,
 .event-log {
   display: flex; 
   flex-direction: column-reverse; 
-  flex-wrap: wrap; 
+  flex-wrap: no-wrap; 
   counter-reset: count;
+  margin: 0;
+  padding: 0;
   li {
     counter-increment: count;
     &::before {
@@ -123,11 +134,13 @@ hr:after {
     }
   }
   &::after {
-    content: "Event Log";
     margin-left: -40px;
   }
 }
-.log-item {
+.log-item,
+.log-item-dropdown,
+.log-item-loading,
+.log-item-tooltip {
   display: flex;
   flex-wrap: wrap;
   & .now-class,
@@ -165,10 +178,19 @@ hr:after {
     min-width: 205px;
   }
   & .trigger-cls {
-    min-width: 155px;
+    min-width: 165px;
   }
   & .log-time {
     min-width: 150px;
+  }
+  & .trigger-loading-delay {
+    min-width: 75px;
+    text-align: right;
+    color: var(--otter-ftbck-disable);    
+  }
+  & .trigger-loading {
+    min-width: 55px;
+    color: var(--otter-ftbck-disable);
   }
   & .tooltip-idx,
   & .previous-idx,

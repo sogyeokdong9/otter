@@ -4,22 +4,30 @@
   const cntnrElmnt = document.querySelector('.wrap');
   const trgElmn = cntnrElmnt.querySelectorAll('.otter-dropdown-trigger');
   const drpdnMn = document.querySelectorAll('.otter-dropdown');
+  const logElmnt = cntnrElmnt.querySelector('.event-log-dropdown');
   for (let i = 0; i < trgElmn.length; i++) {
-    let CLICK_COUNT = 0;
     const element = trgElmn[i];
+    element.addEventListener('mouseenter', function() {
+      'use strict';
+      openDrpdnMn(i);
+      eventLog('mouseenter')
+      setPrivousElmn();
+    })
     element.addEventListener('click', function(event) {
       'use strict';
-      CLICK_COUNT++;
-      if (CLICK_COUNT % 2 === 0) {
-        isDrpdnMnOpen(false, i);
-        // eventLog('mouseleave')
-      } else {
-        openDrpdnMn(i);
-        eventLog('click')
-        setPrivousElmn();
-      }
       event.preventDefault();
     })
+    for (let i = 0; i < drpdnMn.length; i++) {
+      const element = drpdnMn[i];
+      element.addEventListener('mouseleave', function() {
+        'use strict';
+        isDrpdnMnOpen(false, i);
+      })
+    }
+  }
+  function returnCheckValue( val1, val2 = '-' ) {
+    const result = val1 || val2;
+    return result;
   }
   function isDrpdnMnOpen(bool, idx) {
     'use strict';
@@ -27,7 +35,7 @@
   }
   function getTrgAttrPlcmnt(idx) {
     const element = trgElmn[idx];
-    const result = element.getAttribute('data-placement');
+    const result = returnCheckValue(element.getAttribute('data-placement'), 'default');
     return result;
   }
   function createPlcmntClsNm(idx) {
@@ -35,9 +43,8 @@
     const element = trgElmn[idx];
     const hasAttrPlcmnt = element.hasAttribute('data-placement');
     const prefixPlcmnt = 'otter-dropdown-placement-';
-    const positionPlcmnt = (hasAttrPlcmnt) ? element.getAttribute('data-placement') : 'default';
     if (!hasAttrPlcmnt) { element.setAttribute('data-placement', 'default'); }
-    const makePlcmntCls = prefixPlcmnt + positionPlcmnt;
+    const makePlcmntCls = prefixPlcmnt + getTrgAttrPlcmnt(idx);
     return makePlcmntCls;
   }
   function openDrpdnMn(idx) {
@@ -84,7 +91,8 @@
   }
   function closeDrpdnMn(idx) {
     'use strict';
-    trgElmn[idx].lastChild.previousElementSibling.ariaExpanded = false;
+    const element = trgElmn[idx];
+    element.lastChild.previousElementSibling.ariaExpanded = false;
     setTrgClsReplace(idx, 'otter-dropdown-open', 'otter-dropdown-close');
     setDrpdnMnClsReplace(idx, "otter-slide-up-in", "otter-slide-up-out");
     setDrpdnMnClsReplace(idx, "otter-slide-down-in", "otter-slide-down-out");
@@ -146,8 +154,8 @@
       const valignLeftBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && JUST_LEFT_AXIS - GET_ARROW_POINTING_AT_CENTER_VALUE - drpdnMn[idx].offsetWidth  > 0 );
       const valignRightBasis = ( VALIGN_TOP_AXIS > 0 && VALIGN_TOP_AXIS > SCROLL_Y && RIGHT_AXIS + drpdnMn[idx].offsetWidth  < CLIENT_WIDTH );
       if (getPlacement === val) {
-        drpdnMn[idx].style.minWidth = (trgElmn[idx].offsetWidth) + 'px';
-        drpdnMn[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : left1 + 'px';
+        drpdnMn[idx].style.minWidth = `${drpdnMn[idx].offsetWidth}px`;
+        drpdnMn[idx].style.left = (loc === 'out') ? `-${CLIENT_WIDTH}px` : `${left1}px`;
         const expr = getPlacement;
         switch (expr) {
           case 'topLeft':
@@ -202,12 +210,12 @@
             }
           }
           if(axis) {
-            drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val1 + 'px';
-            drpdnMn[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : val3 + 'px';
+            drpdnMn[idx].style.top = (loc === 'out') ? `-${CLIENT_HEIGHT}px` : `${val1}px`;
+            drpdnMn[idx].style.left = (loc === 'out') ? `-${CLIENT_WIDTH}px` : `${val3}px`;
             displayContainsClass(drpdnMn[idx], 'block', 'none');
           } else {
-            drpdnMn[idx].style.top = (loc === 'out') ? '-' + CLIENT_HEIGHT + 'px' : val2 + 'px';
-            drpdnMn[idx].style.left = (loc === 'out') ? '-' + CLIENT_WIDTH + 'px' : val4 + 'px';
+            drpdnMn[idx].style.top = (loc === 'out') ? `-${CLIENT_HEIGHT}px` : `${val2}px`;
+            drpdnMn[idx].style.left = (loc === 'out') ? `-${CLIENT_WIDTH}px` : `${val4}px`;
             displayContainsClass(drpdnMn[idx], 'none', 'block');
             const expr = getTrgAttrPlcmnt(idx);
             switch (expr) {
@@ -264,7 +272,7 @@
     const logAllArray = [];
     const logCurrentArray = [];
     const logPreviousArray = [];
-    const getLogItem = cntnrElmnt.querySelectorAll('.log-item');
+    const getLogItem = cntnrElmnt.querySelectorAll('.log-item-dropdown');
     logAllArray.push(getLogItem);
     for (let i = 0; i < getLogItem.length; i++) {
       const element = getLogItem[i];
@@ -274,6 +282,9 @@
       const element = logCurrentArray[i];
       logPreviousArray[i] = element;
     }
+    if (logAllArray.length > 0) { 
+      document.querySelector('.event-log-title-dropdown').style.display = 'block';
+    }
     logPreviousArray.unshift( '-' );
     logPreviousArray.pop();
     const result = logPreviousArray;
@@ -281,7 +292,7 @@
   }
   function setPrivousElmn() {
     'use strict';
-    const getLogItem = cntnrElmnt.querySelectorAll('.log-item');
+    const getLogItem = cntnrElmnt.querySelectorAll('.log-item-dropdown');
     for (let i = 0; i < getLogItem.length; i++) {
       const element = getLogItem[i];
       element.lastChild.textContent = getPrivousElmnArray()[i];
@@ -292,7 +303,7 @@
     const time = new Date();
     const timeStr1 = time.toLocaleTimeString();
     const timeStr2 = time.getUTCMilliseconds();
-    const result = timeStr1 + ':' +timeStr2;
+    const result = `${timeStr1}:${timeStr2}`;
     return result;
   }
   function getActiveBtnElmn() {
@@ -309,14 +320,13 @@
   }
   function eventLog(mouseState) {
     'use strict';
-    const loadBtnItemText = ( Boolean(getActiveBtnElmn().firstElementChild.innerText) ) ? getActiveBtnElmn().firstElementChild.innerText : 'null';
-    const loadBtnItemAttr = getActiveBtnElmn().getAttribute('data-placement');
-    const loadBtnItemCls = getActiveBtnElmn().classList[2];
-    const loadBtnItemIdx = getActiveBtnElmn().getAttribute('data-index-number');
-    const loadDrpdnMnItemText = getActiveDrpdnMn().innerText.replace(/\n\r?/g, '/');
-    const loadDrpdnMnItemIdx = getActiveDrpdnMn().getAttribute('data-index-number');
-    const loadDrpdnMnArrow = getActiveDrpdnMn().classList[1];
-    const logElmnt = cntnrElmnt.querySelector('.event-log');
+    const loadBtnItemIdx = returnCheckValue(getActiveBtnElmn().getAttribute('data-index-number'), 0);
+    const loadBtnItemText = returnCheckValue(getActiveBtnElmn().outerText);
+    const loadBtnItemAttr = returnCheckValue(getActiveBtnElmn().getAttribute('data-placement'));
+    const loadBtnItemCls = returnCheckValue(getActiveBtnElmn().classList[2]);
+    const loadDrpdnMnItemIdx = returnCheckValue(getActiveDrpdnMn().getAttribute('data-index-number'), 0);
+    const loadDrpdnMnItemText = returnCheckValue(getActiveDrpdnMn().innerText.replace(/\n\r?/g, '/'));
+    const loadDrpdnMnArrow = returnCheckValue(getActiveDrpdnMn().classList[1]);
     const makeHtmlElement = function (tagName, ...attr) {
       const element = document.createElement(tagName);
       for (let prop of attr) {
@@ -329,7 +339,7 @@
       }
       return element;
     };
-    const itemContainer = makeHtmlElement('li', { class: 'log-item' });
+    const itemContainer = makeHtmlElement('li', { class: 'log-item-dropdown' });
     const groopOfPairs = [
       { id: 1, name: mouseState, class: 'specified' },
       { id: 2, name: getStringTime(), class: 'log-time' },
@@ -348,9 +358,9 @@
     itemContainer.append(item1, item2, item3, item4, item5, item6, item7, item8, item9, item10);
     logElmnt.append(itemContainer);
   }
+  logElmnt.insertAdjacentHTML('beforebegin', '<p class="event-log-title-dropdown">Event Log: Dropdown</p>');
   window.addEventListener('resize', function(){
     'use strict';
-    console.log('resize event!');
     if( getActiveDrpdnMn() ) {
       const getPlacement = getActiveBtnElmn() ? getActiveBtnElmn().dataset.placement : null;
       const checkArrowPointingAtCenter = getActiveBtnElmn() ? getActiveBtnElmn().getAttribute('data-pointer-at-center') : null;

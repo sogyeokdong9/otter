@@ -46,7 +46,6 @@
       element.setAttribute('data-dropdown-theme', items[idx].dataTheme);
     }
   }
-
   function createDrpdnMn(order,count) {
     'use strict';
     const makeHtmlElement = function (tagName, ...attr) {
@@ -179,5 +178,4 @@
     }
     document.querySelector('body').append(container);
   }
-  // createDrpdnMn(0, 3);
 })();
