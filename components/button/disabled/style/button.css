@@ -231,6 +231,20 @@
   background: var(--otter-btn-background-ghost-container);
 }
 
+.otter-btn::before {
+  position: absolute;
+  z-index: 1;
+  inset: -1px;
+  display: none;
+  content: "";
+  border-radius: inherit;
+  background: #fff;
+  opacity: .35;
+  -webkit-transition: opacity .2s;
+  transition: opacity .2s;
+  pointer-events: none;
+}
+
 .otter-btn-lg {
   height: 40px;
   padding: 6px 15px;
@@ -243,6 +257,30 @@
   padding: 0 7px;
   border-radius: 2px;
   font-size: 14px;
+}
+
+.otter-btn-loading {
+  position: relative;
+  cursor: default;
+}
+
+.otter-btn-loading::before {
+  display: block;
+}
+
+.otter-btn-loading-icon {
+  -webkit-transition: width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.otter-btn-loading-icon:only-child .ottericon {
+  padding-right: 0;
+}
+
+.otter-btn-loading-icon .ottericon {
+  padding-right: 8px;
+  -webkit-animation: none;
+          animation: none;
 }
 
 .otter-btn-icon-only {
@@ -340,12 +378,276 @@
           transform: rotate(45deg);
 }
 
+.otter-btn-dangerous .loader,
+.otter-btn.otter-btn-dangerous .loader,
+.otter-btn.otter-btn-primary.otter-btn-dangerous .loader {
+  border-color: var(--otter-loader-dangerous-background);
+  border-right-color: var(--otter-loader-dangerous);
+}
+
+button[class*="otter-btn"][disabled] .otter-btn-loading-icon .loader {
+  border-color: var(--otter-loader-disabled);
+  border-right-color: var(--otter-loader-disabled-background);
+}
+
+.loader {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--otter-loader);
+  border-top: 2px solid var(--otter-loader-background);
+  border-left: 2px solid var(--otter-loader-background);
+  border-bottom: 2px solid var(--otter-loader-background);
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
 a.otter-btn-icon-only {
   vertical-align: -1px;
 }
 
 a.otter-btn-icon-only > .ottericon {
   display: inline;
+}
+
+.ellipsis {
+  height: auto;
+  font-style: normal;
+  vertical-align: middle;
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  -webkit-transform: translate(-2px, 0);
+          transform: translate(-2px, 0);
+}
+
+.otter-btn-group {
+  position: initial;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.otter-btn-group > .otter-btn,
+.otter-btn-group > span > .otter-btn {
+  position: relative;
+}
+
+.otter-btn-group > .otter-btn:hover,
+.otter-btn-group > .otter-btn:focus,
+.otter-btn-group > .otter-btn:active,
+.otter-btn-group > span > .otter-btn:hover,
+.otter-btn-group > span > .otter-btn:focus,
+.otter-btn-group > span > .otter-btn:active {
+  z-index: 2;
+}
+
+.otter-btn-group > .otter-btn[disabled],
+.otter-btn-group > span > .otter-btn[disabled] {
+  z-index: 0;
+}
+
+.otter-btn-group .otter-btn {
+  border-radius: 0;
+}
+
+.otter-btn-group > .otter-btn:first-child,
+.otter-btn-group > span:first-child > .otter-btn {
+  margin-left: 0;
+}
+
+.otter-btn-group > .otter-btn:only-child {
+  border-radius: 2px;
+}
+
+.otter-btn-group > span:only-child > .otter-btn {
+  border-radius: 2px;
+}
+
+.otter-btn-group > .otter-btn:first-child:not(:last-child),
+.otter-btn-group > span:first-child:not(:last-child) > .otter-btn {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.otter-btn-group > .otter-btn:last-child:not(:first-child),
+.otter-btn-group > span:last-child:not(:first-child) > .otter-btn {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.otter-btn-group .otter-btn-primary:not(:first-child):not(:last-child) {
+  border-right-color: var(--otter-btn-group-otter-btn-primary-not-first-child-not-last-child-border-right);
+  border-left-color: var(--otter-btn-group-otter-btn-primary-not-first-child-not-last-child-border-left);
+}
+
+.otter-btn-group .otter-btn-primary:not(:first-child):not(:last-child):disabled {
+  border-color: var(--otter-btn-group-otter-btn-primary-not-first-child-not-last-child-border-disabled);
+}
+
+.otter-btn-group .otter-btn-primary:first-child:not(:last-child) {
+  border-right-color: var(--otter-btn-group-otter-btn-primary-first-child-not-last-child-border-right);
+}
+
+.otter-btn-group .otter-btn-primary:first-child:not(:last-child)[disabled] {
+  border-right-color: var(--otter-btn-group-otter-btn-primary-first-child-not-last-child-border-disabled);
+}
+
+.otter-btn-group .otter-btn-primary:last-child:not(:first-child),
+.otter-btn-group .otter-btn-primary + .otter-btn-primary {
+  border-left-color: var(--otter-btn-group-otter-btn-primary-last-child-not-first-child-border-left);
+}
+
+.otter-btn-group .otter-btn-primary:last-child:not(:first-child)[disabled],
+.otter-btn-group .otter-btn-primary + .otter-btn-primary[disabled] {
+  border-left-color: var(--otter-btn-group-otter-btn-primary-otter-btn-primary-disabled-border-left);
+}
+
+.otter-btn-group .otter-btn-primary + .otter-btn:not(.otter-btn-primary):not([disabled]) {
+  border-left-color: var(--otter-btn-group-otter-btn-primary-last-child-not-first-child-disabled-border-left);
+}
+
+.otter-btn-group .otter-btn-icon-only {
+  font-size: 14px;
+}
+
+.otter-btn-group > .otter-btn-group {
+  float: left;
+}
+
+.otter-btn-group > .otter-btn-group:not(:first-child):not(:last-child) > .otter-btn {
+  border-radius: 0;
+}
+
+.otter-btn-group > .otter-btn-group:first-child:not(:last-child) > .otter-btn:last-child {
+  padding-right: 8px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.otter-btn-group > .otter-btn-group:last-child:not(:first-child) > .otter-btn:first-child {
+  padding-left: 8px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.otter-btn-group-lg > .otter-btn,
+.otter-btn-group-lg > span > .otter-btn {
+  height: 40px;
+  padding: 6.4px 15px;
+  font-size: 16px;
+  border-radius: 0;
+}
+
+.otter-btn-group-lg .otter-btn.otter-btn-icon-only {
+  width: 40px;
+  height: 40px;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.otter-btn-group-sm > .otter-btn,
+.otter-btn-group-sm > span > .otter-btn {
+  height: 24px;
+  padding: 0 7px;
+  font-size: 14px;
+  border-radius: 0;
+}
+
+.otter-btn-group-sm > .otter-btn > .ottericon,
+.otter-btn-group-sm > span > .otter-btn > .ottericon {
+  font-size: 14px;
+}
+
+.otter-btn-group-sm .otter-btn.otter-btn-icon-only {
+  width: 24px;
+  height: 24px;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.otter-btn-group-sm > .otter-btn:only-child {
+  border-radius: 2px;
+}
+
+.otter-btn-group-sm > span:only-child > .otter-btn {
+  border-radius: 2px;
+}
+
+.otter-btn-group-sm > .otter-btn:first-child:not(:last-child),
+.otter-btn-group-sm > span:first-child:not(:last-child) > .otter-btn {
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.otter-btn-group-sm > .otter-btn:last-child:not(:first-child),
+.otter-btn-group-sm > span:last-child:not(:first-child) > .otter-btn {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.otter-btn-group .otter-btn + .otter-btn,
+.otter-btn + .otter-btn-group,
+.otter-btn-group span + .otter-btn,
+.otter-btn-group .otter-btn + span,
+.otter-btn-group > span + span,
+.otter-btn-group + .otter-btn,
+.otter-btn-group + .otter-btn-group {
+  margin-left: -1px;
+}
+
+.otter-btn-group.otter-btn-group-rtl {
+  direction: rtl;
+}
+
+.otter-btn-group-rtl.otter-btn-group .otter-btn-primary:last-child:not(:first-child),
+.otter-btn-group-rtl.otter-btn-group .otter-btn-primary + .otter-btn-primary {
+  border-right-color: var(--otter-btn-group-rtl-otter-btn-group-otter-btn-primary-last-child-not-first-child-border-right);
+  border-left-color: var(--otter-btn-group-rtl-otter-btn-group-otter-btn-primary-last-child-not-first-child-border-left);
+}
+
+.otter-btn-group-rtl.otter-btn-group .otter-btn-primary:last-child:not(:first-child)[disabled],
+.otter-btn-group-rtl.otter-btn-group .otter-btn-primary + .otter-btn-primary[disabled] {
+  border-right-color: var(--otter-btn-group-rtl-otter-btn-group-otter-btn-primary-last-child-not-first-child-disabled-border-right);
+  border-left-color: var(--otter-btn-group-rtl-otter-btn-group-otter-btn-primary-last-child-not-first-child-disabled-border-left);
+}
+
+.otter-btn-group-rtl.otter-btn-group > .otter-btn:first-child:not(:last-child),
+.otter-btn-group-rtl.otter-btn-group > span:first-child:not(:last-child) > .otter-btn {
+  border-radius: 0 2px 2px 0;
+}
+
+.otter-btn-group-rtl.otter-btn-group > .otter-btn:last-child:not(:first-child),
+.otter-btn-group-rtl.otter-btn-group > span:last-child:not(:first-child) > .otter-btn {
+  border-radius: 2px 0 0 2px;
+}
+
+.otter-btn-group-rtl.otter-btn-group-sm > .otter-btn:first-child:not(:last-child),
+.otter-btn-group-rtl.otter-btn-group-sm > span:first-child:not(:last-child) > .otter-btn {
+  border-radius: 0 2px 2px 0;
+}
+
+.otter-btn-group-rtl.otter-btn-group-sm > .otter-btn:last-child:not(:first-child),
+.otter-btn-group-rtl.otter-btn-group-sm > span:last-child:not(:first-child) > .otter-btn {
+  border-radius: 2px 0 0 2px;
+}
+
+.otter-btn-rtl.otter-btn-group .otter-btn + .otter-btn,
+.otter-btn-rtl.otter-btn + .otter-btn-group,
+.otter-btn-rtl.otter-btn-group span + .otter-btn,
+.otter-btn-rtl.otter-btn-group .otter-btn + span,
+.otter-btn-rtl.otter-btn-group > span + span,
+.otter-btn-rtl.otter-btn-group + .otter-btn,
+.otter-btn-rtl.otter-btn-group + .otter-btn-group,
+.otter-btn-group-rtl.otter-btn-group .otter-btn + .otter-btn,
+.otter-btn-group-rtl.otter-btn + .otter-btn-group,
+.otter-btn-group-rtl.otter-btn-group span + .otter-btn,
+.otter-btn-group-rtl.otter-btn-group .otter-btn + span,
+.otter-btn-group-rtl.otter-btn-group > span + span,
+.otter-btn-group-rtl.otter-btn-group + .otter-btn,
+.otter-btn-group-rtl.otter-btn-group + .otter-btn-group {
+  margin-right: -1px;
+  margin-left: auto;
 }
 
 button[class*="otter-btn-link"], button[class*="otter-btn-text"] {
@@ -376,6 +678,66 @@ button[class*="otter-btn-background-ghost"]:not(.otter-btn-dangerous):not([disab
 
 button[class*="otter-btn-background-ghost"]:not(.otter-btn-dangerous):not([disabled]).otter-btn-link {
   color: var(--otter-btn-ghost-active);
+}
+
+button[class$="-lg"][disabled], button[class$="-lg"][disabled]:hover, button[class$="-lg"][disabled]:focus, button[class$="-lg"][disabled]:active,
+button[class$="-sm"][disabled],
+button[class$="-sm"][disabled]:hover,
+button[class$="-sm"][disabled]:focus,
+button[class$="-sm"][disabled]:active,
+button[class$="-btn"][disabled],
+button[class$="-btn"][disabled]:hover,
+button[class$="-btn"][disabled]:focus,
+button[class$="-btn"][disabled]:active,
+button[class$="-default"][disabled],
+button[class$="-default"][disabled]:hover,
+button[class$="-default"][disabled]:focus,
+button[class$="-default"][disabled]:active,
+button[class$="-primary"][disabled],
+button[class$="-primary"][disabled]:hover,
+button[class$="-primary"][disabled]:focus,
+button[class$="-primary"][disabled]:active,
+button[class$="-dashed"][disabled],
+button[class$="-dashed"][disabled]:hover,
+button[class$="-dashed"][disabled]:focus,
+button[class$="-dashed"][disabled]:active,
+button[class$="-dangerous"][disabled],
+button[class$="-dangerous"][disabled]:hover,
+button[class$="-dangerous"][disabled]:focus,
+button[class$="-dangerous"][disabled]:active,
+button[class$="-ghost"][disabled],
+button[class$="-ghost"][disabled]:hover,
+button[class$="-ghost"][disabled]:focus,
+button[class$="-ghost"][disabled]:active,
+button[class$="-circle"][disabled],
+button[class$="-circle"][disabled]:hover,
+button[class$="-circle"][disabled]:focus,
+button[class$="-circle"][disabled]:active,
+button[class$="-only"][disabled],
+button[class$="-only"][disabled]:hover,
+button[class$="-only"][disabled]:focus,
+button[class$="-only"][disabled]:active,
+button[class$="-block"][disabled],
+button[class$="-block"][disabled]:hover,
+button[class$="-block"][disabled]:focus,
+button[class$="-block"][disabled]:active,
+button[class$="-close"][disabled],
+button[class$="-close"][disabled]:hover,
+button[class$="-close"][disabled]:focus,
+button[class$="-close"][disabled]:active,
+button[class$="-link"][disabled],
+button[class$="-link"][disabled]:hover,
+button[class$="-link"][disabled]:focus,
+button[class$="-link"][disabled]:active,
+button[class$="-trigger"][disabled],
+button[class$="-trigger"][disabled]:hover,
+button[class$="-trigger"][disabled]:focus,
+button[class$="-trigger"][disabled]:active,
+button[class$="-loading"][disabled],
+button[class$="-loading"][disabled]:hover,
+button[class$="-loading"][disabled]:focus,
+button[class$="-loading"][disabled]:active {
+  cursor: not-allowed;
 }
 
 .otter-btn:hover > a:only-child,
@@ -471,11 +833,11 @@ button[disabled] {
   color: var(--otter-btn-disabled-reset);
 }
 
-button[class$="-lg"][disabled] .magnifying-glass, button[class$="-lg"][disabled]:hover .magnifying-glass, button[class$="-lg"][disabled]:focus .magnifying-glass, button[class$="-lg"][disabled]:active .magnifying-glass, button[class$="-sm"][disabled] .magnifying-glass, button[class$="-sm"][disabled]:hover .magnifying-glass, button[class$="-sm"][disabled]:focus .magnifying-glass, button[class$="-sm"][disabled]:active .magnifying-glass, button[class$="-btn"][disabled] .magnifying-glass, button[class$="-btn"][disabled]:hover .magnifying-glass, button[class$="-btn"][disabled]:focus .magnifying-glass, button[class$="-btn"][disabled]:active .magnifying-glass, button[class$="-default"][disabled] .magnifying-glass, button[class$="-default"][disabled]:hover .magnifying-glass, button[class$="-default"][disabled]:focus .magnifying-glass, button[class$="-default"][disabled]:active .magnifying-glass, button[class$="-primary"][disabled] .magnifying-glass, button[class$="-primary"][disabled]:hover .magnifying-glass, button[class$="-primary"][disabled]:focus .magnifying-glass, button[class$="-primary"][disabled]:active .magnifying-glass, button[class$="-dashed"][disabled] .magnifying-glass, button[class$="-dashed"][disabled]:hover .magnifying-glass, button[class$="-dashed"][disabled]:focus .magnifying-glass, button[class$="-dashed"][disabled]:active .magnifying-glass, button[class$="-dangerous"][disabled] .magnifying-glass, button[class$="-dangerous"][disabled]:hover .magnifying-glass, button[class$="-dangerous"][disabled]:focus .magnifying-glass, button[class$="-dangerous"][disabled]:active .magnifying-glass, button[class$="-ghost"][disabled] .magnifying-glass, button[class$="-ghost"][disabled]:hover .magnifying-glass, button[class$="-ghost"][disabled]:focus .magnifying-glass, button[class$="-ghost"][disabled]:active .magnifying-glass, button[class$="-circle"][disabled] .magnifying-glass, button[class$="-circle"][disabled]:hover .magnifying-glass, button[class$="-circle"][disabled]:focus .magnifying-glass, button[class$="-circle"][disabled]:active .magnifying-glass, button[class$="-only"][disabled] .magnifying-glass, button[class$="-only"][disabled]:hover .magnifying-glass, button[class$="-only"][disabled]:focus .magnifying-glass, button[class$="-only"][disabled]:active .magnifying-glass, button[class$="-block"][disabled] .magnifying-glass, button[class$="-block"][disabled]:hover .magnifying-glass, button[class$="-block"][disabled]:focus .magnifying-glass, button[class$="-block"][disabled]:active .magnifying-glass, button[class$="-text"][disabled] .magnifying-glass, button[class$="-text"][disabled]:hover .magnifying-glass, button[class$="-text"][disabled]:focus .magnifying-glass, button[class$="-text"][disabled]:active .magnifying-glass, button[class$="-link"][disabled] .magnifying-glass, button[class$="-link"][disabled]:hover .magnifying-glass, button[class$="-link"][disabled]:focus .magnifying-glass, button[class$="-link"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-lg"][disabled] .magnifying-glass, button[class*="-text otter-btn-lg"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-lg"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-lg"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-lg"][disabled] .magnifying-glass, button[class*="-link otter-btn-lg"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-lg"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-lg"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-sm"][disabled] .magnifying-glass, button[class*="-text otter-btn-sm"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-sm"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-sm"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-sm"][disabled] .magnifying-glass, button[class*="-link otter-btn-sm"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-sm"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-sm"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-block"][disabled] .magnifying-glass, button[class*="-text otter-btn-block"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-block"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-block"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-block"][disabled] .magnifying-glass, button[class*="-link otter-btn-block"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-block"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-block"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-text otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-link otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-dangerous"][disabled] .magnifying-glass, button[class*="-text otter-btn-dangerous"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-dangerous"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-dangerous"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-dangerous"][disabled] .magnifying-glass, button[class*="-link otter-btn-dangerous"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-dangerous"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-dangerous"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled] .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled] .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled] .magnifying-glass, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled] .magnifying-glass, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled] .magnifying-glass, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled] .magnifying-glass, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:active .magnifying-glass {
+button[class$="-lg"][disabled] .magnifying-glass, button[class$="-lg"][disabled]:hover .magnifying-glass, button[class$="-lg"][disabled]:focus .magnifying-glass, button[class$="-lg"][disabled]:active .magnifying-glass, button[class$="-sm"][disabled] .magnifying-glass, button[class$="-sm"][disabled]:hover .magnifying-glass, button[class$="-sm"][disabled]:focus .magnifying-glass, button[class$="-sm"][disabled]:active .magnifying-glass, button[class$="-btn"][disabled] .magnifying-glass, button[class$="-btn"][disabled]:hover .magnifying-glass, button[class$="-btn"][disabled]:focus .magnifying-glass, button[class$="-btn"][disabled]:active .magnifying-glass, button[class$="-default"][disabled] .magnifying-glass, button[class$="-default"][disabled]:hover .magnifying-glass, button[class$="-default"][disabled]:focus .magnifying-glass, button[class$="-default"][disabled]:active .magnifying-glass, button[class$="-primary"][disabled] .magnifying-glass, button[class$="-primary"][disabled]:hover .magnifying-glass, button[class$="-primary"][disabled]:focus .magnifying-glass, button[class$="-primary"][disabled]:active .magnifying-glass, button[class$="-dashed"][disabled] .magnifying-glass, button[class$="-dashed"][disabled]:hover .magnifying-glass, button[class$="-dashed"][disabled]:focus .magnifying-glass, button[class$="-dashed"][disabled]:active .magnifying-glass, button[class$="-dangerous"][disabled] .magnifying-glass, button[class$="-dangerous"][disabled]:hover .magnifying-glass, button[class$="-dangerous"][disabled]:focus .magnifying-glass, button[class$="-dangerous"][disabled]:active .magnifying-glass, button[class$="-ghost"][disabled] .magnifying-glass, button[class$="-ghost"][disabled]:hover .magnifying-glass, button[class$="-ghost"][disabled]:focus .magnifying-glass, button[class$="-ghost"][disabled]:active .magnifying-glass, button[class$="-circle"][disabled] .magnifying-glass, button[class$="-circle"][disabled]:hover .magnifying-glass, button[class$="-circle"][disabled]:focus .magnifying-glass, button[class$="-circle"][disabled]:active .magnifying-glass, button[class$="-only"][disabled] .magnifying-glass, button[class$="-only"][disabled]:hover .magnifying-glass, button[class$="-only"][disabled]:focus .magnifying-glass, button[class$="-only"][disabled]:active .magnifying-glass, button[class$="-block"][disabled] .magnifying-glass, button[class$="-block"][disabled]:hover .magnifying-glass, button[class$="-block"][disabled]:focus .magnifying-glass, button[class$="-block"][disabled]:active .magnifying-glass, button[class$="-close"][disabled] .magnifying-glass, button[class$="-close"][disabled]:hover .magnifying-glass, button[class$="-close"][disabled]:focus .magnifying-glass, button[class$="-close"][disabled]:active .magnifying-glass, button[class$="-link"][disabled] .magnifying-glass, button[class$="-link"][disabled]:hover .magnifying-glass, button[class$="-link"][disabled]:focus .magnifying-glass, button[class$="-link"][disabled]:active .magnifying-glass, button[class$="-trigger"][disabled] .magnifying-glass, button[class$="-trigger"][disabled]:hover .magnifying-glass, button[class$="-trigger"][disabled]:focus .magnifying-glass, button[class$="-trigger"][disabled]:active .magnifying-glass, button[class$="-loading"][disabled] .magnifying-glass, button[class$="-loading"][disabled]:hover .magnifying-glass, button[class$="-loading"][disabled]:focus .magnifying-glass, button[class$="-loading"][disabled]:active .magnifying-glass, button[class$="-text"][disabled] .magnifying-glass, button[class$="-text"][disabled]:hover .magnifying-glass, button[class$="-text"][disabled]:focus .magnifying-glass, button[class$="-text"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-lg"][disabled] .magnifying-glass, button[class*="-text otter-btn-lg"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-lg"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-lg"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-lg"][disabled] .magnifying-glass, button[class*="-link otter-btn-lg"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-lg"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-lg"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-sm"][disabled] .magnifying-glass, button[class*="-text otter-btn-sm"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-sm"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-sm"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-sm"][disabled] .magnifying-glass, button[class*="-link otter-btn-sm"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-sm"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-sm"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-block"][disabled] .magnifying-glass, button[class*="-text otter-btn-block"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-block"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-block"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-block"][disabled] .magnifying-glass, button[class*="-link otter-btn-block"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-block"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-block"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-text otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-link otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-dangerous"][disabled] .magnifying-glass, button[class*="-text otter-btn-dangerous"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-dangerous"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-dangerous"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-dangerous"][disabled] .magnifying-glass, button[class*="-link otter-btn-dangerous"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-dangerous"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-dangerous"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled] .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled] .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled] .magnifying-glass, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled] .magnifying-glass, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:active .magnifying-glass, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled] .magnifying-glass, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:hover .magnifying-glass, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:focus .magnifying-glass, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:active .magnifying-glass, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled] .magnifying-glass, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:hover .magnifying-glass, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:focus .magnifying-glass, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:active .magnifying-glass {
   border-color: currentcolor;
 }
 
-button[class$="-lg"][disabled] .magnifying-glass::before, button[class$="-lg"][disabled]:hover .magnifying-glass::before, button[class$="-lg"][disabled]:focus .magnifying-glass::before, button[class$="-lg"][disabled]:active .magnifying-glass::before, button[class$="-sm"][disabled] .magnifying-glass::before, button[class$="-sm"][disabled]:hover .magnifying-glass::before, button[class$="-sm"][disabled]:focus .magnifying-glass::before, button[class$="-sm"][disabled]:active .magnifying-glass::before, button[class$="-btn"][disabled] .magnifying-glass::before, button[class$="-btn"][disabled]:hover .magnifying-glass::before, button[class$="-btn"][disabled]:focus .magnifying-glass::before, button[class$="-btn"][disabled]:active .magnifying-glass::before, button[class$="-default"][disabled] .magnifying-glass::before, button[class$="-default"][disabled]:hover .magnifying-glass::before, button[class$="-default"][disabled]:focus .magnifying-glass::before, button[class$="-default"][disabled]:active .magnifying-glass::before, button[class$="-primary"][disabled] .magnifying-glass::before, button[class$="-primary"][disabled]:hover .magnifying-glass::before, button[class$="-primary"][disabled]:focus .magnifying-glass::before, button[class$="-primary"][disabled]:active .magnifying-glass::before, button[class$="-dashed"][disabled] .magnifying-glass::before, button[class$="-dashed"][disabled]:hover .magnifying-glass::before, button[class$="-dashed"][disabled]:focus .magnifying-glass::before, button[class$="-dashed"][disabled]:active .magnifying-glass::before, button[class$="-dangerous"][disabled] .magnifying-glass::before, button[class$="-dangerous"][disabled]:hover .magnifying-glass::before, button[class$="-dangerous"][disabled]:focus .magnifying-glass::before, button[class$="-dangerous"][disabled]:active .magnifying-glass::before, button[class$="-ghost"][disabled] .magnifying-glass::before, button[class$="-ghost"][disabled]:hover .magnifying-glass::before, button[class$="-ghost"][disabled]:focus .magnifying-glass::before, button[class$="-ghost"][disabled]:active .magnifying-glass::before, button[class$="-circle"][disabled] .magnifying-glass::before, button[class$="-circle"][disabled]:hover .magnifying-glass::before, button[class$="-circle"][disabled]:focus .magnifying-glass::before, button[class$="-circle"][disabled]:active .magnifying-glass::before, button[class$="-only"][disabled] .magnifying-glass::before, button[class$="-only"][disabled]:hover .magnifying-glass::before, button[class$="-only"][disabled]:focus .magnifying-glass::before, button[class$="-only"][disabled]:active .magnifying-glass::before, button[class$="-block"][disabled] .magnifying-glass::before, button[class$="-block"][disabled]:hover .magnifying-glass::before, button[class$="-block"][disabled]:focus .magnifying-glass::before, button[class$="-block"][disabled]:active .magnifying-glass::before, button[class$="-text"][disabled] .magnifying-glass::before, button[class$="-text"][disabled]:hover .magnifying-glass::before, button[class$="-text"][disabled]:focus .magnifying-glass::before, button[class$="-text"][disabled]:active .magnifying-glass::before, button[class$="-link"][disabled] .magnifying-glass::before, button[class$="-link"][disabled]:hover .magnifying-glass::before, button[class$="-link"][disabled]:focus .magnifying-glass::before, button[class$="-link"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-lg"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-lg"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-lg"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-lg"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-lg"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-lg"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-lg"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-lg"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-sm"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-sm"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-sm"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-sm"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-sm"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-sm"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-sm"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-sm"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-block"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-block"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-block"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-block"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-block"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-block"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-block"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-block"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-dangerous"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-dangerous"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-dangerous"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-dangerous"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-dangerous"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-dangerous"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-dangerous"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-dangerous"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:active .magnifying-glass::before {
+button[class$="-lg"][disabled] .magnifying-glass::before, button[class$="-lg"][disabled]:hover .magnifying-glass::before, button[class$="-lg"][disabled]:focus .magnifying-glass::before, button[class$="-lg"][disabled]:active .magnifying-glass::before, button[class$="-sm"][disabled] .magnifying-glass::before, button[class$="-sm"][disabled]:hover .magnifying-glass::before, button[class$="-sm"][disabled]:focus .magnifying-glass::before, button[class$="-sm"][disabled]:active .magnifying-glass::before, button[class$="-btn"][disabled] .magnifying-glass::before, button[class$="-btn"][disabled]:hover .magnifying-glass::before, button[class$="-btn"][disabled]:focus .magnifying-glass::before, button[class$="-btn"][disabled]:active .magnifying-glass::before, button[class$="-default"][disabled] .magnifying-glass::before, button[class$="-default"][disabled]:hover .magnifying-glass::before, button[class$="-default"][disabled]:focus .magnifying-glass::before, button[class$="-default"][disabled]:active .magnifying-glass::before, button[class$="-primary"][disabled] .magnifying-glass::before, button[class$="-primary"][disabled]:hover .magnifying-glass::before, button[class$="-primary"][disabled]:focus .magnifying-glass::before, button[class$="-primary"][disabled]:active .magnifying-glass::before, button[class$="-dashed"][disabled] .magnifying-glass::before, button[class$="-dashed"][disabled]:hover .magnifying-glass::before, button[class$="-dashed"][disabled]:focus .magnifying-glass::before, button[class$="-dashed"][disabled]:active .magnifying-glass::before, button[class$="-dangerous"][disabled] .magnifying-glass::before, button[class$="-dangerous"][disabled]:hover .magnifying-glass::before, button[class$="-dangerous"][disabled]:focus .magnifying-glass::before, button[class$="-dangerous"][disabled]:active .magnifying-glass::before, button[class$="-ghost"][disabled] .magnifying-glass::before, button[class$="-ghost"][disabled]:hover .magnifying-glass::before, button[class$="-ghost"][disabled]:focus .magnifying-glass::before, button[class$="-ghost"][disabled]:active .magnifying-glass::before, button[class$="-circle"][disabled] .magnifying-glass::before, button[class$="-circle"][disabled]:hover .magnifying-glass::before, button[class$="-circle"][disabled]:focus .magnifying-glass::before, button[class$="-circle"][disabled]:active .magnifying-glass::before, button[class$="-only"][disabled] .magnifying-glass::before, button[class$="-only"][disabled]:hover .magnifying-glass::before, button[class$="-only"][disabled]:focus .magnifying-glass::before, button[class$="-only"][disabled]:active .magnifying-glass::before, button[class$="-block"][disabled] .magnifying-glass::before, button[class$="-block"][disabled]:hover .magnifying-glass::before, button[class$="-block"][disabled]:focus .magnifying-glass::before, button[class$="-block"][disabled]:active .magnifying-glass::before, button[class$="-close"][disabled] .magnifying-glass::before, button[class$="-close"][disabled]:hover .magnifying-glass::before, button[class$="-close"][disabled]:focus .magnifying-glass::before, button[class$="-close"][disabled]:active .magnifying-glass::before, button[class$="-link"][disabled] .magnifying-glass::before, button[class$="-link"][disabled]:hover .magnifying-glass::before, button[class$="-link"][disabled]:focus .magnifying-glass::before, button[class$="-link"][disabled]:active .magnifying-glass::before, button[class$="-trigger"][disabled] .magnifying-glass::before, button[class$="-trigger"][disabled]:hover .magnifying-glass::before, button[class$="-trigger"][disabled]:focus .magnifying-glass::before, button[class$="-trigger"][disabled]:active .magnifying-glass::before, button[class$="-loading"][disabled] .magnifying-glass::before, button[class$="-loading"][disabled]:hover .magnifying-glass::before, button[class$="-loading"][disabled]:focus .magnifying-glass::before, button[class$="-loading"][disabled]:active .magnifying-glass::before, button[class$="-text"][disabled] .magnifying-glass::before, button[class$="-text"][disabled]:hover .magnifying-glass::before, button[class$="-text"][disabled]:focus .magnifying-glass::before, button[class$="-text"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-lg"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-lg"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-lg"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-lg"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-lg"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-lg"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-lg"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-lg"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-sm"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-sm"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-sm"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-sm"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-sm"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-sm"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-sm"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-sm"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-block"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-block"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-block"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-block"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-block"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-block"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-block"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-block"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-dangerous"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-dangerous"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-dangerous"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-dangerous"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-dangerous"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-dangerous"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-dangerous"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-dangerous"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-dangerous otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-circle otter-btn-icon-only otter-btn-dangerous"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-circle otter-btn-icon-only"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-dangerous otter-btn-icon-only otter-btn-circle"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-circle otter-btn-icon-dangerous"][disabled]:active .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled] .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:hover .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:focus .magnifying-glass::before, button[class*="-text otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:active .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled] .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:hover .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:focus .magnifying-glass::before, button[class*="-link otter-btn-only otter-btn-icon-dangerous otter-btn-circle"][disabled]:active .magnifying-glass::before {
   background: currentcolor;
 }
 
@@ -519,7 +881,23 @@ button[class$="-only"][disabled]:active,
 button[class$="-block"][disabled],
 button[class$="-block"][disabled]:hover,
 button[class$="-block"][disabled]:focus,
-button[class$="-block"][disabled]:active {
+button[class$="-block"][disabled]:active,
+button[class$="-close"][disabled],
+button[class$="-close"][disabled]:hover,
+button[class$="-close"][disabled]:focus,
+button[class$="-close"][disabled]:active,
+button[class$="-link"][disabled],
+button[class$="-link"][disabled]:hover,
+button[class$="-link"][disabled]:focus,
+button[class$="-link"][disabled]:active,
+button[class$="-trigger"][disabled],
+button[class$="-trigger"][disabled]:hover,
+button[class$="-trigger"][disabled]:focus,
+button[class$="-trigger"][disabled]:active,
+button[class$="-loading"][disabled],
+button[class$="-loading"][disabled]:hover,
+button[class$="-loading"][disabled]:focus,
+button[class$="-loading"][disabled]:active {
   border-color: var(--otter-btn-disabled-default-border);
   background: var(--otter-btn-disabled-default-background);
   -webkit-box-shadow: var(--otter-btn-disabled-default-box-shadow);
