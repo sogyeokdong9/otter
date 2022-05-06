@@ -133,7 +133,7 @@ $btns-data: (
     }
   }
   &-loading-icon {
-    transition: width .3s cubic-bezier(.645,.045,.355,1),opacity .3s cubic-bezier(.645,.045,.355,1);
+    transition: width .3s cubic-bezier(.645,.045,.355,1), opacity .3s cubic-bezier(.645,.045,.355,1);
     &:only-child {
       .ottericon {
         padding-right: 0;
@@ -193,7 +193,7 @@ $btns-data: (
     }
     &.otter-btn-sm {
       min-width: 24px;
-      border-radius: 50%
+      border-radius: 50%;
     }
   }
 }
@@ -260,38 +260,13 @@ a.otter-btn-icon-only {
   }
 }
 
-
 // multiple
 .ellipsis {
   height: auto;
-  margin-left: -2px;
-  font-size: 1.125em;
   font-style: normal;
   vertical-align: middle;
   writing-mode: vertical-rl;
-}
-.otter-btn-group {
-  .otter-btn-primary:not(:first-child):not(:last-child) {
-    border-right-color: var(--otter-primary-5);
-    border-left-color: var(--otter-primary-5);
-  }
-  .otter-btn-primary:not(:first-child):not(:last-child):disabled {
-    border-color: #d9d9d9;
-  }
-  .otter-btn-primary:first-child:not(:last-child) {
-    border-right-color: var(--otter-primary-5);
-  }
-  .otter-btn-primary:first-child:not(:last-child)[disabled] {
-    border-right-color: #d9d9d9;
-  }
-  .otter-btn-primary:last-child:not(:first-child),
-  .otter-btn-primary+.otter-btn-primary {
-    border-left-color: var(--otter-primary-5);
-  }
-  .otter-btn-primary:last-child:not(:first-child)[disabled],
-  .otter-btn-primary+.otter-btn-primary[disabled] {
-    border-left-color: #d9d9d9;
-  }
+  transform: translate(-2px, 0);
 }
 .otter-btn-group {
 	// position: relative;
@@ -302,10 +277,10 @@ a.otter-btn-icon-only {
     position: relative;
   }
   > .otter-btn:hover,
-  > span > .otter-btn:hover,
   > .otter-btn:focus,
-  > span > .otter-btn:focus,
   > .otter-btn:active,
+  > span > .otter-btn:hover,
+  > span > .otter-btn:focus,
   > span > .otter-btn:active {
     z-index: 2;
   }
@@ -313,100 +288,124 @@ a.otter-btn-icon-only {
   > span >.otter-btn[disabled] {
     z-index: 0;
   }
-  .otter-btn-icon-only {
-    font-size: 14px;
-  }
 }
 .otter-btn-group {
-  .otter-btn-primary + .otter-btn:not(.otter-btn-primary):not([disabled]) {
-    border-left-color: transparent
-  }
   .otter-btn {
-    border-radius: 0
+    border-radius: 0;
   }
   > .otter-btn:first-child,
   > span:first-child > .otter-btn {
-    margin-left: 0
+    margin-left: 0;
   }
   > .otter-btn:only-child {
-    border-radius: 2px
+    border-radius: 2px;
   }
   > span:only-child > .otter-btn {
-    border-radius: 2px
+    border-radius: 2px;
   }
   > .otter-btn:first-child:not(:last-child),
   > span:first-child:not(:last-child) > .otter-btn {
     border-top-left-radius: 2px;
-    border-bottom-left-radius: 2px
+    border-bottom-left-radius: 2px;
   }
   > .otter-btn:last-child:not(:first-child),
   > span:last-child:not(:first-child) > .otter-btn {
     border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px
+    border-bottom-right-radius: 2px;
+  }
+}
+.otter-btn-group {
+  .otter-btn-primary {
+    &:not(:first-child) {
+      &:not(:last-child) {
+        border-right-color: var(--otter-btn-group-otter-btn-primary-not-first-child-not-last-child-border-right);
+        border-left-color: var(--otter-btn-group-otter-btn-primary-not-first-child-not-last-child-border-left);
+        &:disabled {
+          border-color: var(--otter-btn-group-otter-btn-primary-not-first-child-not-last-child-border-disabled);
+        }
+      }
+    }
+    &:first-child {
+      &:not(:last-child) {
+        border-right-color: var(--otter-btn-group-otter-btn-primary-first-child-not-last-child-border-right);
+        &[disabled] {
+          border-right-color: var(--otter-btn-group-otter-btn-primary-first-child-not-last-child-border-disabled);
+        }
+      }
+    }
+    &:last-child:not(:first-child),
+    & + .otter-btn-primary {
+      border-left-color: var(--otter-btn-group-otter-btn-primary-last-child-not-first-child-border-left);
+      &[disabled]{
+        border-left-color: var(--otter-btn-group-otter-btn-primary-otter-btn-primary-disabled-border-left);
+      }
+    }
+    & + .otter-btn:not(.otter-btn-primary):not([disabled]) {
+      border-left-color: var(--otter-btn-group-otter-btn-primary-last-child-not-first-child-disabled-border-left);
+    }
+  }
+  .otter-btn-icon-only {
+    font-size: 14px;
   }
 }
 .otter-btn-group {
   > .otter-btn-group {
     float: left;
     &:not(:first-child):not(:last-child) > .otter-btn {
-      border-radius: 0
+      border-radius: 0;
     }
     &:first-child:not(:last-child) > .otter-btn:last-child {
       padding-right: 8px;
       border-top-right-radius: 0;
-      border-bottom-right-radius: 0
+      border-bottom-right-radius: 0;
     }
     &:last-child:not(:first-child) > .otter-btn:first-child {
       padding-left: 8px;
       border-top-left-radius: 0;
-      border-bottom-left-radius: 0
+      border-bottom-left-radius: 0;
     }
   }
 }
-
-
 .otter-btn-group-lg {
   > .otter-btn,
   > span > .otter-btn {
     height: 40px;
     padding: 6.4px 15px;
     font-size: 16px;
-    border-radius: 0
+    border-radius: 0;
   }
   .otter-btn.otter-btn-icon-only {
     width: 40px;
     height: 40px;
     padding-right: 0;
-    padding-left: 0
+    padding-left: 0;
   }
 }
-
-
 .otter-btn-group-sm {
   > .otter-btn,
   > span >.otter-btn {
     height: 24px;
     padding: 0 7px;
     font-size: 14px;
-    border-radius: 0
+    border-radius: 0;
   }
   > .otter-btn >.ottericon,
   > span > .otter-btn > .ottericon {
-    font-size: 14px
+    font-size: 14px;
   }
   .otter-btn.otter-btn-icon-only {
     width: 24px;
     height: 24px;
     padding-right: 0;
-    padding-left: 0
+    padding-left: 0;
   }
 }
 .otter-btn-group-sm {
   > .otter-btn:only-child {
-    border-radius: 2px
+    border-radius: 2px;
   }
   > span:only-child > .otter-btn {
-    border-radius: 2px
+    border-radius: 2px;
   }
   > .otter-btn:first-child:not(:last-child),
   > span:first-child:not(:last-child) > .otter-btn {
@@ -416,7 +415,7 @@ a.otter-btn-icon-only {
   > .otter-btn:last-child:not(:first-child),
   > span:last-child:not(:first-child) > .otter-btn {
     border-top-right-radius: 2px;
-    border-bottom-right-radius: 2px
+    border-bottom-right-radius: 2px;
   }
 }
 .otter-btn-group .otter-btn + .otter-btn,
@@ -426,11 +425,8 @@ a.otter-btn-icon-only {
 .otter-btn-group > span + span,
 .otter-btn-group + .otter-btn,
 .otter-btn-group + .otter-btn-group {
-	margin-left: -1px
+	margin-left: -1px;
 }
-
-
-
 .otter-btn-group {
   &.otter-btn-group-rtl {
     direction: rtl;
@@ -440,31 +436,31 @@ a.otter-btn-icon-only {
   &.otter-btn-group {
     .otter-btn-primary:last-child:not(:first-child),
     .otter-btn-primary + .otter-btn-primary {
-      border-right-color: var(--otter-primary-5);
-      border-left-color: #d9d9d9
+      border-right-color: var(--otter-btn-group-rtl-otter-btn-group-otter-btn-primary-last-child-not-first-child-border-right);
+      border-left-color: var(--otter-btn-group-rtl-otter-btn-group-otter-btn-primary-last-child-not-first-child-border-left);
     }
     .otter-btn-primary:last-child:not(:first-child)[disabled],
     .otter-btn-primary + .otter-btn-primary[disabled] {
-      border-right-color: #d9d9d9;
-      border-left-color: var(--ant-primary-5)
+      border-right-color: var(--otter-btn-group-rtl-otter-btn-group-otter-btn-primary-last-child-not-first-child-disabled-border-right);
+      border-left-color: var(--otter-btn-group-rtl-otter-btn-group-otter-btn-primary-last-child-not-first-child-disabled-border-left)
     }
     > .otter-btn:first-child:not(:last-child),
     > span:first-child:not(:last-child) > .otter-btn {
-      border-radius: 0 2px 2px 0
+      border-radius: 0 2px 2px 0;
     }
     > .otter-btn:last-child:not(:first-child),
     > span:last-child:not(:first-child) > .otter-btn {
-      border-radius: 2px 0 0 2px
+      border-radius: 2px 0 0 2px;
     }
   }
   &.otter-btn-group-sm {
     > .otter-btn:first-child:not(:last-child),
     > span:first-child:not(:last-child) > .otter-btn {
-      border-radius: 0 2px 2px 0
+      border-radius: 0 2px 2px 0;
     }
     > .otter-btn:last-child:not(:first-child),
     > span:last-child:not(:first-child) > .otter-btn {
-      border-radius: 2px 0 0 2px
+      border-radius: 2px 0 0 2px;
     }
   }
 }
@@ -483,10 +479,8 @@ a.otter-btn-icon-only {
 .otter-btn-group-rtl.otter-btn-group+.otter-btn,
 .otter-btn-group-rtl.otter-btn-group+.otter-btn-group {
 	margin-right: -1px;
-	margin-left: auto
+	margin-left: auto;
 }
-
-
 
 // @each문 자동생성 이후 후처리
 button[class*="otter-btn-link"], button[class*="otter-btn-text"] {
