@@ -1,0 +1,167 @@
+@charset "utf-8";
+
+$borders-data: (
+  dotted: dotted,
+  dashed: dashed,
+  solid: solid
+);
+$boxs-data: (
+  left: left,
+  right: right
+);
+%otter-divider-box {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+%otter-divider-font {
+  font-size: 14px;
+  font-variant: tabular-nums;
+  font-feature-settings: 'tnum';
+  color: var(--otter-divider);
+  line-height: 1.5715;
+}
+%otter-divider-horizontal-box {
+  display: flex;
+  clear: both;
+  width: 100%;
+  min-width: 100%;
+  margin: 24px 0;
+}
+%otter-divider-with-text-font {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--otter-divider-with-text);
+  white-space: nowrap;
+  text-align: center;
+}
+%otter-divider-vertical-box {
+  position: relative;
+  top: -0.06em;
+  display: inline-block;
+  height: 0.9em;
+  margin: 0 8px;
+}
+.otter-divider {
+  @extend %otter-divider-box;
+  @extend %otter-divider-font;
+  border-top: 1px solid var(--otter-divider-top);
+}
+// divider type
+@each $border, $style in $borders-data {
+  .otter-divider-#{$border} {
+    border-width: 1px 0 0;
+    border-style: #{$style};
+    border-color: var(--otter-divider-#{$style}-border);
+    background: none;
+  }
+}
+.otter-divider-horizontal {
+  @extend %otter-divider-horizontal-box;
+  &.otter-divider-with-text {
+    display: flex;
+    margin: 16px 0;
+    @extend %otter-divider-with-text-font;
+    border-top: 0;
+    border-top-color: var(--otter-divider-with-text-border-top);
+    @mixin box(
+      $t: 50%,
+      $w: 50%
+    ) {
+      top: $t;
+      width: $w;
+    }
+    &::before,
+    &::after {
+      position: relative;
+      @include box();
+      border-top: 1px solid transparent;
+      border-top-color: inherit;
+      border-bottom: 0;
+      transform: translateY(50%);
+      content: '';
+    }
+    &.otter-divider-with-text-left {
+      &::before { @include box($w: 5%); }
+      &::after { @include box($w: 95%); }
+    }
+    &.otter-divider-with-text-right {
+      &::before { @include box($w: 95%); }
+      &::after { @include box($w: 5%); }
+    }
+  }
+}
+.otter-divider-inner-text {
+  display: inline-block;
+  padding: 0 1em;
+}
+// specified: plain
+.otter-divider-plain.otter-divider-with-text {
+  font-weight: normal;
+  font-size: 14px;
+  color: var(--otter-divider-plain-otter-divider-with-text);
+}
+// horizontal: orientation
+.otter-divider-horizontal {
+  &.otter-divider-with-text {
+    @each $border, $style in $borders-data {
+      &.otter-divider-#{$border} {
+        &::before,
+        &::after { border-style: #{$style} none none; }
+      }
+    }
+  }
+  @each $box, $direction in $boxs-data {
+    &.otter-divider-with-text-#{$box} {
+      &.otter-divider-no-default-orientation-margin-#{$box} {
+        $box: #{$box};
+        &::before {
+          @if ( $box == left ) { width: 0; } 
+          @else if ( $box == right ) { width: 100%; }
+        }
+        &::after {
+          @if ( $box == left ) { width: 100%; } 
+          @else if ( $box == right ) { width: 0; }
+        }
+        & .otter-divider-inner-text {
+          @if ( $box == left ) { padding-left: 0; } 
+          @else if ( $box == right ) { padding-right: 0; }
+        }
+      }
+    }
+  }
+}
+// vertical
+.otter-divider-vertical {
+  @extend %otter-divider-vertical-box;
+  vertical-align: middle;
+  border-top: 0;
+  border-left: 1px solid var(--otter-divider-vertical-border-left);
+}
+.otter-divider-vertical {
+  @each $border, $style in $borders-data {
+    &.otter-divider-#{$border} {
+      border-width: 0 0 0 1px;
+    }
+  }
+}
+// rtl
+.otter-divider-rtl {
+  direction: rtl;
+  &.otter-divider-horizontal {
+    @each $box, $direction in $boxs-data {
+      &.otter-divider-with-text-#{$box} {
+        $box: #{$box};
+        &::before {
+          @if ( $box == left ) { width: 95%; } 
+          @else if ( $box == right ) { width: 5%; }
+        }
+        &::after {
+          @if ( $box == left ) { width: 5%; } 
+          @else if ( $box == right ) { width: 95%; }
+        }
+      }
+    }
+  }
+}
