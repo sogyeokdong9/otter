@@ -5,13 +5,10 @@ $borders-data: (
   dashed: dashed,
   solid: solid
 );
-%otter-divider-with-text-font {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--otter-divider-with-text);
-  white-space: nowrap;
-  text-align: center;
-}
+$boxs-data: (
+  left: left,
+  right: right
+);
 %otter-divider-box {
   margin: 0;
   padding: 0;
@@ -25,10 +22,19 @@ $borders-data: (
   color: var(--otter-divider);
   line-height: 1.5715;
 }
-.otter-divider {
-  @extend %otter-divider-box;
-  @extend %otter-divider-font;
-  border-top: 1px solid var(--otter-divider-top);
+%otter-divider-horizontal-box {
+  display: flex;
+  clear: both;
+  width: 100%;
+  min-width: 100%;
+  margin: 24px 0;
+}
+%otter-divider-with-text-font {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--otter-divider-with-text);
+  white-space: nowrap;
+  text-align: center;
 }
 %otter-divider-vertical-box {
   position: relative;
@@ -37,18 +43,19 @@ $borders-data: (
   height: 0.9em;
   margin: 0 8px;
 }
-.otter-divider-vertical {
-  @extend %otter-divider-vertical-box;
-  vertical-align: middle;
-  border-top: 0;
-  border-left: 1px solid var(--otter-divider-vertical-border-left);
+.otter-divider {
+  @extend %otter-divider-box;
+  @extend %otter-divider-font;
+  border-top: 1px solid var(--otter-divider-top);
 }
-%otter-divider-horizontal-box {
-  display: flex;
-  clear: both;
-  width: 100%;
-  min-width: 100%;
-  margin: 24px 0;
+// divider type
+@each $border, $style in $borders-data {
+  .otter-divider-#{$border} {
+    border-width: 1px 0 0;
+    border-style: #{$style};
+    border-color: var(--otter-divider-#{$style}-border);
+    background: none;
+  }
 }
 .otter-divider-horizontal {
   @extend %otter-divider-horizontal-box;
@@ -58,11 +65,17 @@ $borders-data: (
     @extend %otter-divider-with-text-font;
     border-top: 0;
     border-top-color: var(--otter-divider-with-text-border-top);
+    @mixin box(
+      $t: 50%,
+      $w: 50%
+    ) {
+      top: $t;
+      width: $w;
+    }
     &::before,
     &::after {
       position: relative;
-      top: 50%;
-      width: 50%;
+      @include box();
       border-top: 1px solid transparent;
       border-top-color: inherit;
       border-bottom: 0;
@@ -70,24 +83,12 @@ $borders-data: (
       content: '';
     }
     &.otter-divider-with-text-left {
-      &::before {
-        top: 50%;
-        width: 5%;
-      }
-      &::after {
-        top: 50%;
-        width: 95%;
-      }
+      &::before { @include box($w: 5%); }
+      &::after { @include box($w: 95%); }
     }
     &.otter-divider-with-text-right {
-      &::before {
-        top: 50%;
-        width: 95%;
-      }
-      &::after {
-        top: 50%;
-        width: 5%;
-      }
+      &::before { @include box($w: 95%); }
+      &::after { @include box($w: 5%); }
     }
   }
 }
@@ -95,13 +96,48 @@ $borders-data: (
   display: inline-block;
   padding: 0 1em;
 }
-@each $border, $style in $borders-data {
-  .otter-divider-#{$border} {
-    border-width: 1px 0 0;
-    border-style: #{$style};
-    border-color: var(--otter-divider-#{$style}-border);
-    background: none;
+// specified: plain
+.otter-divider-plain.otter-divider-with-text {
+  font-weight: normal;
+  font-size: 14px;
+  color: var(--otter-divider-plain-otter-divider-with-text);
+}
+// horizontal: orientation
+.otter-divider-horizontal {
+  &.otter-divider-with-text {
+    @each $border, $style in $borders-data {
+      &.otter-divider-#{$border} {
+        &::before,
+        &::after { border-style: #{$style} none none; }
+      }
+    }
   }
+  @each $box, $direction in $boxs-data {
+    &.otter-divider-with-text-#{$box} {
+      &.otter-divider-no-default-orientation-margin-#{$box} {
+        $box: #{$box};
+        &::before {
+          @if ( $box == left ) { width: 0; } 
+          @else if ( $box == right ) { width: 100%; }
+        }
+        &::after {
+          @if ( $box == left ) { width: 100%; } 
+          @else if ( $box == right ) { width: 0; }
+        }
+        & .otter-divider-inner-text {
+          @if ( $box == left ) { padding-left: 0; } 
+          @else if ( $box == right ) { padding-right: 0; }
+        }
+      }
+    }
+  }
+}
+// vertical
+.otter-divider-vertical {
+  @extend %otter-divider-vertical-box;
+  vertical-align: middle;
+  border-top: 0;
+  border-left: 1px solid var(--otter-divider-vertical-border-left);
 }
 .otter-divider-vertical {
   @each $border, $style in $borders-data {
@@ -110,66 +146,21 @@ $borders-data: (
     }
   }
 }
-.otter-divider-plain.otter-divider-with-text {
-  font-weight: normal;
-  font-size: 14px;
-  color: var(--otter-divider-plain-otter-divider-with-text);
-}
-.otter-divider-horizontal {
-  &.otter-divider-with-text {
-    @each $border, $style in $borders-data {
-      &.otter-divider-#{$border} {
-        &::before,
-        &::after {
-          border-style: #{$style} none none;
-        }
-      }
-    }
-  }
-  &.otter-divider-with-text-left {
-    &.otter-divider-no-default-orientation-margin-left {
-      &::before {
-        width: 0;
-      }
-      &::after {
-        width: 100%;
-      }
-      & .otter-divider-inner-text {
-        padding-left: 0;
-      }
-    }
-  }
-  &.otter-divider-with-text-right {
-    &.otter-divider-no-default-orientation-margin-right {
-      &::before {
-        width: 100%;
-      }
-      &::after {
-        width: 0;
-      }
-      & .otter-divider-inner-text {
-        padding-right: 0;
-      }
-    }
-  }
-}
+// rtl
 .otter-divider-rtl {
   direction: rtl;
   &.otter-divider-horizontal {
-    &.otter-divider-with-text-left {
-      &::before {
-        width: 95%;
-      }
-      &::after {
-        width: 5%;
-      }
-    }
-    &.otter-divider-with-text-right {
-      &::before {
-        width: 5%;
-      }
-      &::after {
-        width: 95%;
+    @each $box, $direction in $boxs-data {
+      &.otter-divider-with-text-#{$box} {
+        $box: #{$box};
+        &::before {
+          @if ( $box == left ) { width: 95%; } 
+          @else if ( $box == right ) { width: 5%; }
+        }
+        &::after {
+          @if ( $box == left ) { width: 5%; } 
+          @else if ( $box == right ) { width: 95%; }
+        }
       }
     }
   }
