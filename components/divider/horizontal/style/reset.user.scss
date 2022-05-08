@@ -23,7 +23,7 @@ a {
   transition: color 0.3s;
   cursor: pointer;
   &:hover {
-    color: var(--otter-primary-color-hover);  
+    color: var(--otter-primary-color-hover);
   }
   &:active {
     color: var(--otter-primary-color-activeive);
@@ -113,11 +113,14 @@ hr:after {
   margin-right: -3px;
   font-size: 0;
 }
-.wrap { 
+.wrap {
   margin: 1em;
   form {
     margin: 1em 0;
   }
+}
+.log-title-divider {
+  margin: 1em 0;
 }
 .event-log-title-dropdown,
 .event-log-title-loading,
@@ -125,13 +128,14 @@ hr:after {
   display: none;
   margin: 1em 0;
 }
+.event-log-divider,
 .event-log-dropdown,
 .event-log-tooltip,
 .event-log-loading,
 .event-log {
-  display: flex; 
-  flex-direction: column-reverse; 
-  flex-wrap: no-wrap; 
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: no-wrap;
   counter-reset: count;
   margin: 0;
   padding: 0;
@@ -149,6 +153,7 @@ hr:after {
   }
 }
 .log-item,
+.log-item-divider,
 .log-item-dropdown,
 .log-item-loading,
 .log-item-tooltip {
@@ -170,6 +175,10 @@ hr:after {
   & .dropdown-txt,
   & .trigger-idx,
   & .trigger-txt,
+  & .trigger-type,
+  & .trigger-style,
+  & .trigger-specified,
+  & .trigger-orientation,
   & .trigger-plc,
   & .trigger-cls,
   & .is-checked-danger,
@@ -194,10 +203,23 @@ hr:after {
   & .log-time {
     min-width: 150px;
   }
+  & .trigger-type {
+    min-width: 105px;
+  }
+  & .trigger-orientation,
+  & .trigger-specified,
+  & .trigger-style {
+    min-width: 80px;
+  }
+  & .trigger-orientation-margin {
+    min-width: 75px;
+    text-align: left;
+    color: var(--otter-ftbck-secondary-text);
+  }
   & .trigger-loading-delay {
     min-width: 75px;
     text-align: right;
-    color: var(--otter-ftbck-disable);    
+    color: var(--otter-ftbck-disable);
   }
   & .trigger-loading {
     min-width: 55px;

@@ -147,6 +147,10 @@ hr:after {
   margin: 1em 0;
 }
 
+.log-title-divider {
+  margin: 1em 0;
+}
+
 .event-log-title-dropdown,
 .event-log-title-loading,
 .event-log-title-tooltip {
@@ -154,6 +158,7 @@ hr:after {
   margin: 1em 0;
 }
 
+.event-log-divider,
 .event-log-dropdown,
 .event-log-tooltip,
 .event-log-loading,
@@ -172,6 +177,7 @@ hr:after {
   padding: 0;
 }
 
+.event-log-divider li,
 .event-log-dropdown li,
 .event-log-tooltip li,
 .event-log-loading li,
@@ -179,6 +185,7 @@ hr:after {
   counter-increment: count;
 }
 
+.event-log-divider li::before,
 .event-log-dropdown li::before,
 .event-log-tooltip li::before,
 .event-log-loading li::before,
@@ -189,6 +196,7 @@ hr:after {
   color: var(--otter-ftbck-disable);
 }
 
+.event-log-divider::after,
 .event-log-dropdown::after,
 .event-log-tooltip::after,
 .event-log-loading::after,
@@ -197,6 +205,7 @@ hr:after {
 }
 
 .log-item,
+.log-item-divider,
 .log-item-dropdown,
 .log-item-loading,
 .log-item-tooltip {
@@ -209,6 +218,8 @@ hr:after {
 
 .log-item .now-class,
 .log-item .specified,
+.log-item-divider .now-class,
+.log-item-divider .specified,
 .log-item-dropdown .now-class,
 .log-item-dropdown .specified,
 .log-item-loading .now-class,
@@ -220,6 +231,8 @@ hr:after {
 
 .log-item .dropdown-arrow,
 .log-item .log-time,
+.log-item-divider .dropdown-arrow,
+.log-item-divider .log-time,
 .log-item-dropdown .dropdown-arrow,
 .log-item-dropdown .log-time,
 .log-item-loading .dropdown-arrow,
@@ -237,12 +250,33 @@ hr:after {
 .log-item .dropdown-txt,
 .log-item .trigger-idx,
 .log-item .trigger-txt,
+.log-item .trigger-type,
+.log-item .trigger-style,
+.log-item .trigger-specified,
+.log-item .trigger-orientation,
 .log-item .trigger-plc,
 .log-item .trigger-cls,
 .log-item .is-checked-danger,
 .log-item .is-checked-disabled,
 .log-item .is-checked-block,
 .log-item .changed-class,
+.log-item-divider .tooltip-arrow,
+.log-item-divider .tooltip-txt,
+.log-item-divider .tooltip-idx,
+.log-item-divider .dropdown-idx,
+.log-item-divider .dropdown-txt,
+.log-item-divider .trigger-idx,
+.log-item-divider .trigger-txt,
+.log-item-divider .trigger-type,
+.log-item-divider .trigger-style,
+.log-item-divider .trigger-specified,
+.log-item-divider .trigger-orientation,
+.log-item-divider .trigger-plc,
+.log-item-divider .trigger-cls,
+.log-item-divider .is-checked-danger,
+.log-item-divider .is-checked-disabled,
+.log-item-divider .is-checked-block,
+.log-item-divider .changed-class,
 .log-item-dropdown .tooltip-arrow,
 .log-item-dropdown .tooltip-txt,
 .log-item-dropdown .tooltip-idx,
@@ -250,6 +284,10 @@ hr:after {
 .log-item-dropdown .dropdown-txt,
 .log-item-dropdown .trigger-idx,
 .log-item-dropdown .trigger-txt,
+.log-item-dropdown .trigger-type,
+.log-item-dropdown .trigger-style,
+.log-item-dropdown .trigger-specified,
+.log-item-dropdown .trigger-orientation,
 .log-item-dropdown .trigger-plc,
 .log-item-dropdown .trigger-cls,
 .log-item-dropdown .is-checked-danger,
@@ -263,6 +301,10 @@ hr:after {
 .log-item-loading .dropdown-txt,
 .log-item-loading .trigger-idx,
 .log-item-loading .trigger-txt,
+.log-item-loading .trigger-type,
+.log-item-loading .trigger-style,
+.log-item-loading .trigger-specified,
+.log-item-loading .trigger-orientation,
 .log-item-loading .trigger-plc,
 .log-item-loading .trigger-cls,
 .log-item-loading .is-checked-danger,
@@ -276,6 +318,10 @@ hr:after {
 .log-item-tooltip .dropdown-txt,
 .log-item-tooltip .trigger-idx,
 .log-item-tooltip .trigger-txt,
+.log-item-tooltip .trigger-type,
+.log-item-tooltip .trigger-style,
+.log-item-tooltip .trigger-specified,
+.log-item-tooltip .trigger-orientation,
 .log-item-tooltip .trigger-plc,
 .log-item-tooltip .trigger-cls,
 .log-item-tooltip .is-checked-danger,
@@ -286,6 +332,7 @@ hr:after {
 }
 
 .log-item .tooltip-arrow,
+.log-item-divider .tooltip-arrow,
 .log-item-dropdown .tooltip-arrow,
 .log-item-loading .tooltip-arrow,
 .log-item-tooltip .tooltip-arrow {
@@ -293,6 +340,7 @@ hr:after {
 }
 
 .log-item .dropdown-txt,
+.log-item-divider .dropdown-txt,
 .log-item-dropdown .dropdown-txt,
 .log-item-loading .dropdown-txt,
 .log-item-tooltip .dropdown-txt {
@@ -301,6 +349,8 @@ hr:after {
 
 .log-item .tooltip-txt,
 .log-item .trigger-txt,
+.log-item-divider .tooltip-txt,
+.log-item-divider .trigger-txt,
 .log-item-dropdown .tooltip-txt,
 .log-item-dropdown .trigger-txt,
 .log-item-loading .tooltip-txt,
@@ -311,6 +361,7 @@ hr:after {
 }
 
 .log-item .trigger-cls,
+.log-item-divider .trigger-cls,
 .log-item-dropdown .trigger-cls,
 .log-item-loading .trigger-cls,
 .log-item-tooltip .trigger-cls {
@@ -318,13 +369,51 @@ hr:after {
 }
 
 .log-item .log-time,
+.log-item-divider .log-time,
 .log-item-dropdown .log-time,
 .log-item-loading .log-time,
 .log-item-tooltip .log-time {
   min-width: 150px;
 }
 
+.log-item .trigger-type,
+.log-item-divider .trigger-type,
+.log-item-dropdown .trigger-type,
+.log-item-loading .trigger-type,
+.log-item-tooltip .trigger-type {
+  min-width: 105px;
+}
+
+.log-item .trigger-orientation,
+.log-item .trigger-specified,
+.log-item .trigger-style,
+.log-item-divider .trigger-orientation,
+.log-item-divider .trigger-specified,
+.log-item-divider .trigger-style,
+.log-item-dropdown .trigger-orientation,
+.log-item-dropdown .trigger-specified,
+.log-item-dropdown .trigger-style,
+.log-item-loading .trigger-orientation,
+.log-item-loading .trigger-specified,
+.log-item-loading .trigger-style,
+.log-item-tooltip .trigger-orientation,
+.log-item-tooltip .trigger-specified,
+.log-item-tooltip .trigger-style {
+  min-width: 80px;
+}
+
+.log-item .trigger-orientation-margin,
+.log-item-divider .trigger-orientation-margin,
+.log-item-dropdown .trigger-orientation-margin,
+.log-item-loading .trigger-orientation-margin,
+.log-item-tooltip .trigger-orientation-margin {
+  min-width: 75px;
+  text-align: left;
+  color: var(--otter-ftbck-secondary-text);
+}
+
 .log-item .trigger-loading-delay,
+.log-item-divider .trigger-loading-delay,
 .log-item-dropdown .trigger-loading-delay,
 .log-item-loading .trigger-loading-delay,
 .log-item-tooltip .trigger-loading-delay {
@@ -334,6 +423,7 @@ hr:after {
 }
 
 .log-item .trigger-loading,
+.log-item-divider .trigger-loading,
 .log-item-dropdown .trigger-loading,
 .log-item-loading .trigger-loading,
 .log-item-tooltip .trigger-loading {
@@ -345,6 +435,10 @@ hr:after {
 .log-item .previous-idx,
 .log-item .dropdown-idx,
 .log-item .trigger-idx,
+.log-item-divider .tooltip-idx,
+.log-item-divider .previous-idx,
+.log-item-divider .dropdown-idx,
+.log-item-divider .trigger-idx,
 .log-item-dropdown .tooltip-idx,
 .log-item-dropdown .previous-idx,
 .log-item-dropdown .dropdown-idx,
@@ -363,6 +457,7 @@ hr:after {
 }
 
 .log-item span,
+.log-item-divider span,
 .log-item-dropdown span,
 .log-item-loading span,
 .log-item-tooltip span {

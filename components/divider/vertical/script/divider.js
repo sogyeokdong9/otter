@@ -4,10 +4,12 @@
   const cntnrElmnt = document.querySelector('.wrap');
   const trgElmn = cntnrElmnt.querySelectorAll('.otter-divider');
   const txtDivider = cntnrElmnt.querySelectorAll('.otter-divider-inner-text');
+  const logElmnt = cntnrElmnt.querySelector('.event-log-divider');
 
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
     const txt = txtDivider[i];
+    logDivider('divider', i)
     // divider type
     if ( getDividerType(i) === null || getDividerType(i) === 'horizontal' ) {
       element.classList.add('otter-divider-horizontal');
@@ -65,6 +67,10 @@
       }
     }
   }
+  function returnCheckValue( val1, val2 = '-' ) {
+    const result = val1 || val2;
+    return result;
+  }
   function getDividerType(idx) {
     'use strict';
     const element = trgElmn[idx];
@@ -101,4 +107,54 @@
     const orientationMargin = element.getAttribute('data-orientation-margin');
     return orientationMargin;
   }
+  function getStringTime() {
+    'use strict';
+    const time = new Date();
+    const timeStr1 = time.toLocaleTimeString();
+    const timeStr2 = time.getUTCMilliseconds();
+    const result = `${timeStr1}:${timeStr2}`;
+    return result;
+  }
+  function logDivider(info, idx) {
+    'use strict';
+    const loadDividerItemIdx = returnCheckValue( trgElmn[idx].getAttribute('data-index-number'), 0 );
+    const loadDividerItemType = returnCheckValue( getDividerType(idx), 'horizontal' );
+    const loadDividerItmeStyle = returnCheckValue( getDividerStyle(idx), 'solid' );
+    const loadDividerItemSpecified = returnCheckValue( getDividerSpecified(idx));
+    const loadDividerItemText = returnCheckValue( trgElmn[idx].outerText );
+    const loadDividerItemOrientation = returnCheckValue( getOrientation(idx), 'center');
+    const loadDividerItemOrientationMargin = returnCheckValue( getOrientationMargin(idx));
+
+    const makeHtmlElement = function (tagName, ...attr) {
+      const element = document.createElement(tagName);
+      for (let prop of attr) {
+        const [key, value] = Object.entries(prop)[0];
+        if (key == 'textContent' || key == 'innerText') {
+          element.textContent = value;
+        } else {
+          element.setAttribute(key, value);
+        }
+      }
+      return element;
+    };
+    const itemContainer = makeHtmlElement('li', { class: 'log-item-divider' });
+    const groopOfPairs = [
+      { id: 1, name: info, class: 'specified' },
+      { id: 2, name: getStringTime(), class: 'log-time' },
+      { id: 3, name: loadDividerItemIdx, class: 'trigger-idx' },
+      { id: 4, name: loadDividerItemType, class: 'trigger-type' },
+      { id: 5, name: loadDividerItmeStyle, class: 'trigger-style' },
+      { id: 6, name: loadDividerItemSpecified, class: 'trigger-specified' },
+      { id: 7, name: loadDividerItemOrientation, class: 'trigger-orientation' },
+      { id: 8, name: loadDividerItemOrientationMargin, class: 'trigger-orientation-margin' },
+      { id: 9, name: loadDividerItemText, class: 'trigger-txt' }
+    ]
+    const [item1, item2, item3, item4, item5, item6, item7, item8, item9] = groopOfPairs.map((item) =>
+      makeHtmlElement('span', { class: item.class }, { textContent: item.name })
+    );
+    itemContainer.append(item1, item2, item3, item4, item5, item6, item7, item8, item9);
+    logElmnt.append(itemContainer);
+  }
+
+  logElmnt.insertAdjacentHTML('beforebegin', '<p class="log-title-divider">Log: Divider</p>');
 })();
