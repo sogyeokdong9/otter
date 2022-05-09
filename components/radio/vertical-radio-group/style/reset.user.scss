@@ -1,5 +1,16 @@
 @charset "utf-8";
 
+body {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  background-color: #fff;
+  font-feature-settings: 'tnum';
+}
+
 a, area, button, [role='button'], input:not([type='range']), label, select, summary, textarea {
   touch-action: manipulation;
 }
@@ -12,7 +23,7 @@ a {
   transition: color 0.3s;
   cursor: pointer;
   &:hover {
-    color: var(--otter-primary-color-hover);  
+    color: var(--otter-primary-color-hover);
   }
   &:active {
     color: var(--otter-primary-color-activeive);
@@ -102,17 +113,32 @@ hr:after {
   margin-right: -3px;
   font-size: 0;
 }
-.wrap { 
+.wrap {
   margin: 1em;
   form {
     margin: 1em 0;
   }
 }
+.log-title-divider {
+  margin: 1em 0;
+}
+.event-log-title-dropdown,
+.event-log-title-loading,
+.event-log-title-tooltip {
+  display: none;
+  margin: 1em 0;
+}
+.event-log-divider,
+.event-log-dropdown,
+.event-log-tooltip,
+.event-log-loading,
 .event-log {
-  display: flex; 
-  flex-direction: column-reverse; 
-  flex-wrap: wrap; 
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: no-wrap;
   counter-reset: count;
+  margin: 0;
+  padding: 0;
   li {
     counter-increment: count;
     &::before {
@@ -123,11 +149,14 @@ hr:after {
     }
   }
   &::after {
-    content: "Event Log";
     margin-left: -40px;
   }
 }
-.log-item {
+.log-item,
+.log-item-divider,
+.log-item-dropdown,
+.log-item-loading,
+.log-item-tooltip {
   display: flex;
   flex-wrap: wrap;
   & .now-class,
@@ -146,6 +175,10 @@ hr:after {
   & .dropdown-txt,
   & .trigger-idx,
   & .trigger-txt,
+  & .trigger-type,
+  & .trigger-style,
+  & .trigger-specified,
+  & .trigger-orientation,
   & .trigger-plc,
   & .trigger-cls,
   & .is-checked-danger,
@@ -165,10 +198,32 @@ hr:after {
     min-width: 205px;
   }
   & .trigger-cls {
-    min-width: 155px;
+    min-width: 165px;
   }
   & .log-time {
     min-width: 150px;
+  }
+  & .trigger-type {
+    min-width: 105px;
+  }
+  & .trigger-orientation,
+  & .trigger-specified,
+  & .trigger-style {
+    min-width: 80px;
+  }
+  & .trigger-orientation-margin {
+    min-width: 75px;
+    text-align: left;
+    color: var(--otter-ftbck-secondary-text);
+  }
+  & .trigger-loading-delay {
+    min-width: 75px;
+    text-align: right;
+    color: var(--otter-ftbck-disable);
+  }
+  & .trigger-loading {
+    min-width: 55px;
+    color: var(--otter-ftbck-disable);
   }
   & .tooltip-idx,
   & .previous-idx,
