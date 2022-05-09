@@ -64,6 +64,16 @@
   --otter-primary-color-outline: rgba(24, 144, 255, 0.20);
   --otter-hr-background: rgba(240, 240, 240, 1);
   --otter-hr: rgba(187, 187, 187, 1);
+  --otter-divider: rgba(0, 0, 0, 0.85);
+  --otter-divider-with-text: rgba(0, 0, 0, 0.85);
+  --otter-divider-plain-otter-divider-with-text: rgba(0, 0, 0, 0.85);
+  --otter-divider-border: rgba(0, 0, 0, 0.06);
+  --otter-divider-top: var(--otter-divider-border);
+  --otter-divider-solid-border: var(--otter-divider-border);
+  --otter-divider-dotted-border: var(--otter-divider-border);
+  --otter-divider-dashed-border: var(--otter-divider-border);
+  --otter-divider-vertical-border-left: var(--otter-divider-border);
+  --otter-divider-with-text-border-top: var(--otter-divider-border);
   --otter-loader: rgba(24, 144, 255, 1);
   --otter-loader-background: rgba(255, 255, 255, 1);
   --otter-loader-disabled: rgba(0, 0, 0, 0.25);
