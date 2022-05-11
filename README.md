@@ -9,7 +9,7 @@
 
 ## Gerneral
 
-### Button
+### Button 🪴
 
 [/components/button](https://github.com/sogyeokdong9/otter/tree/main/components/button "Path")
 
@@ -18,7 +18,7 @@
 - [X] Size
 - [X] Disabled
 - [X] Loading
-- [ ] Multiple Buttons
+- [X] Multiple Buttons
 - [X] Ghost Button
 - [X] Danger Buttons
 - [X] Block Button
@@ -49,11 +49,21 @@ To trigger an operation.
 
 
 
-<!-- ## Layout -->
+## Layout
+
+### Divider 🪴
+
+[/components/divider](https://github.com/sogyeokdong9/otter/tree/main/components/divider "Path")
+
+- [X] Horizontal
+- [X] Divider with title
+- [X] Text without heading style
+- [X] Vertical
+
 
 ## Navigation
 
-### Dropdown
+### Dropdown 🌱
 
 [/components/dropdown](https://github.com/sogyeokdong9/otter/tree/main/components/dropdown "Path")
 - [X] Basic
@@ -65,7 +75,7 @@ To trigger an operation.
 
 ## Data Entry
 
-### Radio
+### Radio 🌱
 
 [/components/radio](https://github.com/sogyeokdong9/otter/tree/main/components/radio "Path")
 
@@ -79,7 +89,7 @@ To trigger an operation.
 
 ## Data Display
 
-### Tooltip
+### Tooltip 🪴
 
 [/components/tooltip](https://github.com/sogyeokdong9/otter/tree/main/components/tooltip "tooltip")
 
@@ -88,6 +98,20 @@ To trigger an operation.
 - [X] Arrow pointing at the center
 - [X] Colourful tooltip
 
-<!-- ## Feedback -->
+## Feedback
+
+### Message 🌱
+
+[/components/message](https://github.com/sogyeokdong9/otter/tree/main/components/message/ "message")
+
+- [X] Normal Prompt
+- [ ] Other types of message
+- [ ] Customize duration
+- [ ] Customize duration
+- [ ] Message with loading indicator
+- [ ] Promise interface
+- [ ] Update Message Content
+- [ ] Customized style
+- [ ] Get context with hooks (4.5.0+)
 
 <!-- ## Other -->
