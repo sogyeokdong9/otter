@@ -1,0 +1,98 @@
+@import url("https://css.gg/info.css");
+@import url("https://css.gg/check-o.css");
+@import url("https://css.gg/close-o.css");
+@import url("https://css.gg/danger.css");
+@import url("https://css.gg/spinner.css");
+@import url("https://css.gg/bell.css");
+.gg-bell,
+.gg-spinner,
+.gg-danger,
+.gg-close-o,
+.gg-check-o,
+.gg-info {
+  /* This value will multiple the actual size  */
+  display: inline-block;
+  vertical-align: top;
+  --ggs: 0.8;
+}
+
+.otter-message {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--otter-message);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5715;
+  list-style: none;
+  -webkit-font-feature-settings: 'tnum';
+          font-feature-settings: 'tnum';
+  position: fixed;
+  top: 8px;
+  left: 0;
+  z-index: 1010;
+  width: 100%;
+  pointer-events: none;
+}
+
+.otter-message-notice {
+  padding: 8px;
+  text-align: center;
+}
+
+.otter-message-notice-content {
+  display: inline-block;
+  padding: 10px 16px;
+  background: var(--otter-message-background);
+  border-radius: 2px;
+  -webkit-box-shadow: 0 3px 6px -4px var(--otter-message-notice-content-box-shadow-primary), 0 6px 16px 0 var(--otter-message-notice-content-box-shadow-secondary), 0 9px 28px 8px var(--otter-message-notice-content-box-shadow-tertiary);
+          box-shadow: 0 3px 6px -4px var(--otter-message-notice-content-box-shadow-primary), 0 6px 16px 0 var(--otter-message-notice-content-box-shadow-secondary), 0 9px 28px 8px var(--otter-message-notice-content-box-shadow-tertiary);
+  pointer-events: all;
+}
+
+.otter-message-success .ottericon {
+  color: #52c41a;
+}
+
+.otter-message-error .ottericon {
+  color: #ff4d4f;
+}
+
+.otter-message-warning .ottericon {
+  color: #faad14;
+}
+
+.otter-message-default .ottericon,
+.otter-message-info .ottericon,
+.otter-message-loading .ottericon {
+  color: #1890ff;
+}
+
+.otter-message .ottericon {
+  position: relative;
+  top: 1px;
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.otter-message-rtl {
+  direction: rtl;
+}
+
+.otter-message-rtl span {
+  direction: rtl;
+}
+
+.otter-message-rtl .ottericon {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+.otter-message-notice.otter-move-up-leave.otter-move-up-leave-active {
+  -webkit-animation-name: MessageMoveOut;
+          animation-name: MessageMoveOut;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+}
+/*# sourceMappingURL=message.css.map */
