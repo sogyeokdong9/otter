@@ -1,44 +1,81 @@
-@import url("https://css.gg/info.css");
-@import url("https://css.gg/check-o.css");
-@import url("https://css.gg/close-o.css");
-@import url("https://css.gg/danger.css");
-@import url("https://css.gg/spinner.css");
-@import url("https://css.gg/bell.css");
-.gg-bell,
-.gg-spinner,
-.gg-danger,
-.gg-close-o,
-.gg-check-o,
-.gg-info {
-  /* This value will multiple the actual size  */
+.otter-message-trigger .spacial-letter-down {
+  position: relative;
   display: inline-block;
-  vertical-align: top;
-  --ggs: 0.8;
+  color: currentcolor;
+  -webkit-transition: top 0.3s, -webkit-transform 0.3s;
+  transition: top 0.3s, -webkit-transform 0.3s;
+  transition: top 0.3s, transform 0.3s;
+  transition: top 0.3s, transform 0.3s, -webkit-transform 0.3s;
+}
+
+.otter-message-trigger.otter-message-open .spacial-letter-down {
+  -webkit-transform: rotate(0.5turn);
+          transform: rotate(0.5turn);
 }
 
 .otter-message {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  bottom: 14px;
+  right: 14px;
+  width: calc(100% - 28px);
+  height: calc(100% - 28px);
   margin: 0;
   padding: 0;
-  color: var(--otter-message);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none;
+}
+
+.otter-message {
   font-size: 14px;
   font-variant: tabular-nums;
-  line-height: 1.5715;
-  list-style: none;
   -webkit-font-feature-settings: 'tnum';
           font-feature-settings: 'tnum';
-  position: fixed;
-  top: 8px;
-  left: 0;
+  color: var(--otter-message);
+  line-height: 1.5715;
+}
+
+.otter-message {
   z-index: 1010;
-  width: 100%;
   pointer-events: none;
 }
 
 .otter-message-notice {
   padding: 8px;
+}
+
+.otter-message-placement-default .otter-message-notice, .otter-message-placement-bottom .otter-message-notice, .otter-message-placement-top .otter-message-notice {
   text-align: center;
+}
+
+.otter-message-placement-bottomLeft .otter-message-notice, .otter-message-placement-topLeft .otter-message-notice {
+  text-align: left;
+}
+
+.otter-message-placement-bottomRight .otter-message-notice, .otter-message-placement-topRight .otter-message-notice {
+  text-align: right;
+}
+
+.otter-message .top-basisi {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.otter-message .btm-basis {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 100%;
 }
 
 .otter-message-notice-content {
@@ -52,21 +89,21 @@
 }
 
 .otter-message-success .ottericon {
-  color: #52c41a;
+  color: var(--otter-message-success-ottericon);
 }
 
 .otter-message-error .ottericon {
-  color: #ff4d4f;
+  color: var(--otter-message-error-ottericon);
 }
 
 .otter-message-warning .ottericon {
-  color: #faad14;
+  color: var(--otter-message-warning-ottericon);
 }
 
 .otter-message-default .ottericon,
 .otter-message-info .ottericon,
 .otter-message-loading .ottericon {
-  color: #1890ff;
+  color: var(--otter-message-default-ottericon);
 }
 
 .otter-message .ottericon {

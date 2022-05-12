@@ -1,43 +1,82 @@
 @charset "utf-8";
 
-@import url('https://css.gg/info.css');
-@import url('https://css.gg/check-o.css');
-@import url('https://css.gg/close-o.css');
-@import url('https://css.gg/danger.css');
-@import url('https://css.gg/spinner.css');
-@import url('https://css.gg/bell.css');
-
-.gg-bell,
-.gg-spinner,
-.gg-danger,
-.gg-close-o,
-.gg-check-o,
-.gg-info {
-  /* This value will multiple the actual size  */
-  display: inline-block;
-  vertical-align: top;
-  --ggs: 0.8;
+.otter-message-trigger {
+  & .spacial-letter-down {
+    position: relative;
+    display: inline-block;
+    color: currentcolor;
+    transition: top 0.3s, transform 0.3s;
+  }
+  &.otter-message-open .spacial-letter-down {
+    transform: rotate(0.5turn);
+  }
 }
-.otter-message {
-  box-sizing: border-box;
+
+%otter-message-box {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  bottom: 14px;
+  right: 14px;
+  width: calc(100% - 28px);
+  height: calc(100% - 28px);
   margin: 0;
   padding: 0;
-  color: var(--otter-message);
+  box-sizing: border-box;
+  list-style: none;
+}
+%otter-message-font {
   font-size: 14px;
   font-variant: tabular-nums;
-  line-height: 1.5715;
-  list-style: none;
   font-feature-settings: 'tnum';
-  position: fixed;
-  top: 8px;
-  left: 0;
+  color: var(--otter-message);
+  line-height: 1.5715;
+}
+
+.otter-message {
+  @extend %otter-message-box;
+  @extend %otter-message-font;
   z-index: 1010;
-  width: 100%;
+  // background: rgba(0,0,0,0.25);
   pointer-events: none;
 }
+
 .otter-message-notice {
   padding: 8px;
-  text-align: center;
+}
+
+.otter-message-placement {
+  &-default,
+  &-bottom,
+  &-top {
+    .otter-message-notice {
+      text-align: center;
+    }
+  }
+  &-bottomLeft,
+  &-topLeft {
+    .otter-message-notice {
+      text-align: left;
+    }
+  }
+  &-bottomRight,
+  &-topRight {
+    .otter-message-notice {
+      text-align: right;
+    }
+  }
+}
+
+.otter-message {
+  .top-basisi {
+    height: fit-content;
+  }
+  .btm-basis {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;  
+  }
 }
 .otter-message-notice-content {
   display: inline-block;
@@ -50,18 +89,18 @@
   pointer-events: all;
 }
 .otter-message-success .ottericon {
-  color: #52c41a;
+  color: var(--otter-message-success-ottericon);
 }
 .otter-message-error .ottericon {
-  color: #ff4d4f;
+  color: var(--otter-message-error-ottericon);
 }
 .otter-message-warning .ottericon {
-  color: #faad14;
+  color: var(--otter-message-warning-ottericon);
 }
 .otter-message-default .ottericon,
 .otter-message-info .ottericon,
 .otter-message-loading .ottericon {
-  color: #1890ff;
+  color: var(--otter-message-default-ottericon);
 }
 .otter-message .ottericon {
   position: relative;
@@ -83,7 +122,3 @@
   animation-name: MessageMoveOut;
   animation-duration: 0.3s;
 }
-// .otter-message-notice.otter-move-up-enter.otter-move-up-enter-active {
-// 	transform-origin: 50% 0;
-// 	animation: MessageMoveIn .3s linear;
-// }

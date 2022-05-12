@@ -206,17 +206,6 @@
     opacity: 1;
   }
 }
-// message
-// @keyframes MessageMoveIn {
-// 	0% {
-// 		transform: scaleY(0) translateY(200%);
-// 		opacity: 0;
-// 	}
-// 	100% {
-// 		transform: scaleY(1) translateY(0);;
-// 		opacity: 1;
-// 	}
-// }
 @keyframes MessageMoveOut {
   0% {
     max-height: 150px;
@@ -225,7 +214,19 @@
   }
   100% {
     max-height: 0;
-    padding: 0;
+    padding: 0 8px;
     opacity: 0;
+  }
+}
+@keyframes otterMoveDownIn {
+  0% {
+    transform: translateY(100%);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    transform-origin: 0 0;
+    opacity: 1;
   }
 }

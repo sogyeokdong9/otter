@@ -1,4 +1,24 @@
 @charset "UTF-8";
+@import url("https://css.gg/info.css");
+@import url("https://css.gg/check-o.css");
+@import url("https://css.gg/close-o.css");
+@import url("https://css.gg/danger.css");
+@import url("https://css.gg/spinner.css");
+@import url("https://css.gg/bell.css");
+@import url("https://css.gg/chevron-down.css");
+.gg-chevron-down,
+.gg-bell,
+.gg-spinner,
+.gg-danger,
+.gg-close-o,
+.gg-check-o,
+.gg-info {
+  /* This value will multiple the actual size  */
+  display: inline-block;
+  vertical-align: top;
+  --ggs: 0.8;
+}
+
 body {
   margin: 0;
   color: rgba(0, 0, 0, 0.85);
