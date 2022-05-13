@@ -21,15 +21,19 @@
   --ggs: 0.8;
 }
 
-body {
-  margin: 0;
-  color: rgba(0, 0, 0, 0.85);
+%otter-body-font {
   font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-variant: tabular-nums;
-  line-height: 1.5715;
-  background-color: #fff;
   font-feature-settings: 'tnum';
+  color: var(--otter-body-font);
+  line-height: 1.5715;
+}
+
+body {
+  margin: 0;
+  @extend %otter-body-font;
+  background-color: var(--otter-body-background);
 }
 
 a, area, button, [role='button'], input:not([type='range']), label, select, summary, textarea {
@@ -187,15 +191,8 @@ hr:after {
   & .specified {
     color: var(--otter-ftbck-primary-text);
   }
-  & .message-arrow,
-  & .dropdown-arrow,
-  & .log-time {
-    min-width: 150px;
-    color: var(--otter-ftbck-disable);
-  }
   & .tooltip-arrow,
   & .tooltip-txt,
-  & .tooltip-idx,
   & .message-idx,
   & .message-txt,
   & .dropdown-idx,
@@ -206,13 +203,42 @@ hr:after {
   & .trigger-style,
   & .trigger-specified,
   & .trigger-orientation,
-  & .trigger-plc,
-  & .trigger-cls,
+  & .trigger-orientation-margin,
   & .is-checked-danger,
   & .is-checked-disabled,
   & .is-checked-block,
   & .changed-class {
     color: var(--otter-ftbck-secondary-text);
+  }
+  & .tooltip-idx,
+  & .previous-idx,
+  & .message-idx,
+  & .message-cls,
+  & .message-delay,
+  & .message-theme,
+  & .dropdown-idx,
+  & .dropdown-arrow,
+  & .trigger-idx,
+  & .trigger-cls,
+  & .trigger-plc,
+  & .trigger-loading-delay,
+  & .trigger-loading,
+  & .log-time {
+    color: var(--otter-ftbck-disable);
+  }
+  & .trigger-orientation-margin {
+    text-align: left;
+  }
+  & .message-delay,
+  & .trigger-loading-delay {
+    text-align: right;
+  }
+  & .tooltip-idx,
+  & .previous-idx,
+  & .message-idx,
+  & .dropdown-idx,
+  & .trigger-idx {
+    text-align: center;
   }
   & .tooltip-arrow {
     min-width: 270px;
@@ -221,15 +247,22 @@ hr:after {
   & .dropdown-txt {
     min-width: 385px;
   }
+  & .message-theme {
+    min-width: 215px;    
+  }
   & .tooltip-txt,
   & .trigger-txt {
     min-width: 205px;
   }
+  & .message-cls,
   & .trigger-cls {
     min-width: 165px;
   }
+  & .dropdown-arrow {
+    min-width: 150x;
+  }
   & .log-time {
-    min-width: 150px;
+    min-width: 140px;
   }
   & .trigger-type {
     min-width: 105px;
@@ -239,19 +272,13 @@ hr:after {
   & .trigger-style {
     min-width: 80px;
   }
-  & .trigger-orientation-margin {
+  & .trigger-orientation-margin,
+  & .trigger-loading-delay,
+  & .message-delay {
     min-width: 75px;
-    text-align: left;
-    color: var(--otter-ftbck-secondary-text);
-  }
-  & .trigger-loading-delay {
-    min-width: 75px;
-    text-align: right;
-    color: var(--otter-ftbck-disable);
   }
   & .trigger-loading {
     min-width: 55px;
-    color: var(--otter-ftbck-disable);
   }
   & .tooltip-idx,
   & .previous-idx,
@@ -259,8 +286,6 @@ hr:after {
   & .dropdown-idx,
   & .trigger-idx {
     min-width: 40px;
-    color: var(--otter-ftbck-disable);
-    text-align: center;
   }
   span {
     padding-right: 20px;

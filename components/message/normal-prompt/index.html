@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./style/reset.css">
-  <link rel="stylesheet" href="./style/reset.user.css">
   <link rel="stylesheet" href="./style/color.css">
+  <link rel="stylesheet" href="./style/reset.user.css">
   <link rel="stylesheet" href="./style/button.css">
   <link rel="stylesheet" href="./style/animation.css">
   <link rel="stylesheet" href="./style/message.css">
@@ -15,10 +15,12 @@
 </head>
 <body>
   <div class="wrap">
-    <button type="button" class="otter-btn otter-btn-primary otter-message-trigger otter-message-link otter-message-close" data-index-number="1" data-placement="top" data-message-theme="light" data-message-type="success">
-      <span data-message="I'm message. Zero">Display normal message</span>
-      <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of message state that open or close" aria-expanded="false"><i class="ottericon gg-chevron-down"></i></span>
-    </button>
+    <div style="padding: 80px 0">
+      <button type="button" class="otter-btn otter-btn-primary otter-message-trigger otter-message-link otter-message-close" data-index-number="1">
+        <span data-message="This is a normal message.">Display normal message</span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of message state that open or close" aria-expanded="false"><i class="ottericon gg-chevron-down"></i></span>
+      </button>
+    </div>
 		<ol class="event-log-message">
 			<!-- <li>log</li> -->
 		</ol>

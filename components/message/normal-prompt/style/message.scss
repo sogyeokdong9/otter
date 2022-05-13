@@ -1,5 +1,148 @@
 @charset "utf-8";
 
+$messages-data: (
+  light: light, // rgba(255, 255, 255, 1);
+  black: black, // rgba(0, 0, 0, 1);
+  silver: silver, // rgba(192, 192, 192, 1);
+  gray: gray, // rgba(128, 128, 128, 1);
+  white: white, // rgba(255, 255, 255, 1);
+  maroon: maroon,  // rgba(128, 0, 0, 1);
+  red: red, // rgba(255, 0, 0, 1);
+  purple: purple, // rgba(128, 0, 128, 1);
+  fuchsia: fuchsia, // rgba(255, 0, 255, 1);
+  green: green, // rgba(0, 128, 0, 1);
+  lime: lime, // rgba(0, 255, 0, 1);
+  olive: olive,  // rgba(128, 128, 0, 1);
+  yellow: yellow // rgba(255, 255, 0, 1);
+  // navy: navy,
+  // blue: blue,
+  // teal: teal,
+  // aqua: aqua,
+  // orange: orange,
+  // aliceblue: aliceblue,
+  // antiquewhite: antiquewhite,
+  // aquamarine: aquamarine,
+  // azure: azure,
+  // beige: beige,
+  // bisque: bisque,
+  // blanchedalmond: blanchedalmond,
+  // blueviolet: blueviolet,
+  // brown: brown,
+  // burlywood: burlywood,
+  // cadetblue: cadetblue,
+  // chartreuse: chartreuse,
+  // chocolate: chocolate,
+  // coral: coral,
+  // cornflowerblue: cornflowerblue,
+  // cornsilk: cornsilk,
+  // crimson: crimson,
+  // darkblue: darkblue,
+  // darkcyan: darkcyan,
+  // darkgoldenrod: darkgoldenrod,
+  // darkgray: darkgray,
+  // darkgreen: darkgreen,
+  // darkkhaki: darkkhaki,
+  // darkmagenta: darkmagenta,
+  // darkolivegreen: darkolivegreen,
+  // darkorange: darkorange,
+  // darkorchid: darkorchid,
+  // darkred: darkred,
+  // darksalmon: darksalmon,
+  // darkseagreen: darkseagreen,
+  // darkslateblue: darkslateblue,
+  // darkslategray: darkslategray,
+  // darkturquoise: darkturquoise,
+  // darkviolet: darkviolet,
+  // deeppink: deeppink,
+  // deepskyblue: deepskyblue,
+  // dimgray: dimgray,
+  // dodgerblue: dodgerblue,
+  // firebrick: firebrick,
+  // floralwhite: floralwhite,
+  // forestgreen: forestgreen,
+  // gainsboro: gainsboro,
+  // ghostwhite: ghostwhite,
+  // gold: gold,
+  // goldenrod: goldenrod,
+  // greenyellow: greenyellow,
+  // honeydew: honeydew,
+  // hotpink: hotpink,
+  // indianred: indianred,
+  // indigo: indigo,
+  // ivory: ivory,
+  // khaki: khaki,
+  // lavender: lavender,
+  // lavenderblush: lavenderblush,
+  // lawngreen: lawngreen,
+  // lemonchiffon: lemonchiffon,
+  // lightblue: lightblue,
+  // lightcoral: lightcoral,
+  // lightcyan: lightcyan,
+  // lightgoldenrodyellow: lightgoldenrodyellow,
+  // lightgray: lightgray,
+  // lightgreen: lightgreen,
+  // lightpink: lightpink,
+  // lightsalmon: lightsalmon,
+  // lightseagreen: lightseagreen,
+  // lightskyblue: lightskyblue,
+  // lightslategray: lightslategray,
+  // lightsteelblue: lightsteelblue,
+  // lightyellow: lightyellow,
+  // limegreen: limegreen,
+  // linen: linen,
+  // magent: magent,
+  // mediumaquamarine: mediumaquamarine,
+  // mediumblue: mediumblue,
+  // mediumorchid: mediumorchid,
+  // mediumpurple: mediumpurple,
+  // mediumseagreen: mediumseagreen,
+  // mediumslateblue: mediumslateblue,
+  // mediumspringgreen: mediumspringgreen,
+  // mediumturquoise: mediumturquoise,
+  // mediumvioletred: mediumvioletred,
+  // midnightblue: midnightblue,
+  // mintcream: mintcream,
+  // mistyrose: mistyrose,
+  // moccasin: moccasin,
+  // navajowhite: navajowhite,
+  // oldlace: oldlace,
+  // olivedrab: olivedrab,
+  // orangered: orangered,
+  // orchid: orchid,
+  // palegoldenrod: palegoldenrod,
+  // palegreen: palegreen,
+  // paleturquoise: paleturquoise,
+  // palevioletred: palevioletred,
+  // papayawhip: papayawhip,
+  // peachpuff: peachpuff,
+  // peru: peru,
+  // pink: pink,
+  // plum: plum,
+  // powderblue: powderblue,
+  // rosybrown: rosybrown,
+  // royalblue: royalblue,
+  // saddlebrown: saddlebrown,
+  // salmon: salmon,
+  // sandybrown: sandybrown,
+  // seagreen: seagreen,
+  // seashell: seashell,
+  // sienna: sienna,
+  // skyblue: skyblue,
+  // slateblue: slateblue,
+  // slategray: slategray,
+  // snow: snow,
+  // springgreen: springgreen,
+  // steelblue: steelblue,
+  // tan: tan,
+  // thistle: thistle,
+  // tomato: tomato,
+  // turquoise: turquoise,
+  // violet: violet,
+  // wheat: wheat,
+  // whitesmoke: whitesmoke,
+  // yellowgreen: yellowgreen,
+  // rebeccapurple: rebeccapurple
+);
 .otter-message-trigger {
   & .spacial-letter-down {
     position: relative;
@@ -11,7 +154,6 @@
     transform: rotate(0.5turn);
   }
 }
-
 %otter-message-box {
   position: fixed;
   top: 14px;
@@ -108,6 +250,17 @@
   margin-right: 8px;
   font-size: 16px;
 }
+// otter-message-notice-black
+// otter-message-notice-${items[order].dataTheme}
+@each $message, $label in $messages-data {
+  .otter-message-notice-#{$message} {
+    background-color: var(--otter-message-#{$label}-background);
+    & .otter-message-custom-content {
+      color: var(--otter-message-#{$label}-item);
+    }
+  }
+}
+
 .otter-message-rtl {
   direction: rtl;
 }

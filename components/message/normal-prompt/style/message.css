@@ -113,6 +113,110 @@
   font-size: 16px;
 }
 
+.otter-message-notice-light {
+  background-color: var(--otter-message-light-background);
+}
+
+.otter-message-notice-light .otter-message-custom-content {
+  color: var(--otter-message-light-item);
+}
+
+.otter-message-notice-black {
+  background-color: var(--otter-message-black-background);
+}
+
+.otter-message-notice-black .otter-message-custom-content {
+  color: var(--otter-message-black-item);
+}
+
+.otter-message-notice-silver {
+  background-color: var(--otter-message-silver-background);
+}
+
+.otter-message-notice-silver .otter-message-custom-content {
+  color: var(--otter-message-silver-item);
+}
+
+.otter-message-notice-gray {
+  background-color: var(--otter-message-gray-background);
+}
+
+.otter-message-notice-gray .otter-message-custom-content {
+  color: var(--otter-message-gray-item);
+}
+
+.otter-message-notice-white {
+  background-color: var(--otter-message-white-background);
+}
+
+.otter-message-notice-white .otter-message-custom-content {
+  color: var(--otter-message-white-item);
+}
+
+.otter-message-notice-maroon {
+  background-color: var(--otter-message-maroon-background);
+}
+
+.otter-message-notice-maroon .otter-message-custom-content {
+  color: var(--otter-message-maroon-item);
+}
+
+.otter-message-notice-red {
+  background-color: var(--otter-message-red-background);
+}
+
+.otter-message-notice-red .otter-message-custom-content {
+  color: var(--otter-message-red-item);
+}
+
+.otter-message-notice-purple {
+  background-color: var(--otter-message-purple-background);
+}
+
+.otter-message-notice-purple .otter-message-custom-content {
+  color: var(--otter-message-purple-item);
+}
+
+.otter-message-notice-fuchsia {
+  background-color: var(--otter-message-fuchsia-background);
+}
+
+.otter-message-notice-fuchsia .otter-message-custom-content {
+  color: var(--otter-message-fuchsia-item);
+}
+
+.otter-message-notice-green {
+  background-color: var(--otter-message-green-background);
+}
+
+.otter-message-notice-green .otter-message-custom-content {
+  color: var(--otter-message-green-item);
+}
+
+.otter-message-notice-lime {
+  background-color: var(--otter-message-lime-background);
+}
+
+.otter-message-notice-lime .otter-message-custom-content {
+  color: var(--otter-message-lime-item);
+}
+
+.otter-message-notice-olive {
+  background-color: var(--otter-message-olive-background);
+}
+
+.otter-message-notice-olive .otter-message-custom-content {
+  color: var(--otter-message-olive-item);
+}
+
+.otter-message-notice-yellow {
+  background-color: var(--otter-message-yellow-background);
+}
+
+.otter-message-notice-yellow .otter-message-custom-content {
+  color: var(--otter-message-yellow-item);
+}
+
 .otter-message-rtl {
   direction: rtl;
 }

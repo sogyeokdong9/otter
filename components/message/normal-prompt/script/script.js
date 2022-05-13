@@ -4,12 +4,20 @@
   const cntnrElmnt = document.querySelector('.wrap');
   const trgElmn = cntnrElmnt.querySelectorAll('.otter-message-trigger');
   const message = document.querySelectorAll('.otter-message');
+  const loadBtn = cntnrElmnt.querySelectorAll('button[data-loading="true"]');
+  const logElmnt = cntnrElmnt.querySelector('.event-log-message');
+  const orizinElmn = [];
+  for (let i = 0; i < loadBtn.length; i++) {
+    const element = loadBtn[i];
+    orizinElmn.push(element);
+  }
   document.querySelector(".otter-btn").addEventListener('click', function() {
     const items = [
       {
         "id":"1",
         "name":"Message",
         "dataTheme":"light",
+        "dataColor":"",
         "placement":"top",
         "notice":[
           {
@@ -31,6 +39,7 @@
       const element = trgElmn[i];
       getDataMessage(i);
       getDataMessageTheme(i);
+      getDataMessageColor(i);
       getDataMessageType(i);
       getDataMessagePlacement(i);
       for (let j = 0; j < items[i].notice.length; j++) {
@@ -38,6 +47,8 @@
         items[i].notice[j].id = `${prefixTooltipId}-${i}-${j}`;
         if (j === items[i].notice.length - 1) { createMessage(i, j + 1); }
       }
+      eventLog('click', i);
+      setPrivousElmn();
     }
     function getDataMessage(idx) {
       'use strict';
@@ -70,6 +81,11 @@
       const element = trgElmn[idx];
       items[idx].notice[0].type = returnCheckValue(element.dataset.messageType, items[idx].notice[0].type);
     }
+    function getDataMessageColor(idx) {
+      'use strict';
+      const element = trgElmn[idx];
+      items[idx].dataColor = returnCheckValue( element.dataset.messageColor , items[idx].dataColor );
+    }
     function createMessage(order,count) {
       'use strict';
       message[order].classList.add(items[order].placement);
@@ -92,11 +108,12 @@
       container.setAttribute('data-index-number', items[order].id);
       function getMessageTopOrBottom() {
         'use strict';
-        if ( getDataMessagePlacement(order).indexOf('top') === -1 ) {
-          const messagePlacement = 'bottom';
+        if ( 
+          getDataMessagePlacement(order).indexOf('bottom') === -1 ) {
+          const messagePlacement = 'top';
           return messagePlacement;
         } else {
-          const messagePlacement = 'top';
+          const messagePlacement = 'bottom';
           return messagePlacement;
         }
       }
@@ -109,10 +126,19 @@
       }
       const wrapper = makeHtmlElement(
         'div',
-        { class: 'otter-message-notice-content' },
+        { class: `otter-message-notice-content` },
         { role: 'noticeitem' }
       );
       wrapper.setAttribute('data-notice', true);
+
+      if ( items[order].dataTheme !== ''  ) {
+        wrapper.classList.add(`otter-message-notice-${items[order].dataTheme}`)
+      }
+
+      if ( items[order].dataColor !== items[order].dataTheme ) {
+        wrapper.style.backgroundColor = items[order].dataColor;
+      }
+
       const itemContainer = makeHtmlElement(
         'div',
         { class: 'otter-message-custom-content' }
@@ -165,13 +191,33 @@
       itemContainer.append(spanContext);
       wrapper.append(itemContainer);
       container.append(wrapper);
+
+      function checkDataColorDataThemeSame() {
+        'use strict';
+        const result = Boolean(items[order].dataColor === items[order].dataTheme);
+        return result;
+      }
+      function checkDataColorUndefined() {
+        'use strict';
+        const result = Boolean(items[order].dataColor === undefined)
+        return result;
+      }
+      if ( checkDataColorDataThemeSame() || checkDataColorUndefined() ) {
+        wrapper.removeAttribute('data-message-color')
+        wrapper.removeAttribute('style')
+      }
       document.querySelector(".otter-message div").appendChild(container);
-      setTimeout(() => { closeMessage() }, 3000);
+      const element = trgElmn[order];
+      const MESSAGE_DELAY = element.dataset.loadingDelay ?? 3000;
+
+      setTimeout(() => { closeMessage() }, MESSAGE_DELAY);
       function closeMessage() {
         'use strict';
         container.classList.replace('otter-move-up-enter', 'otter-move-up-leave');
         container.classList.replace('otter-move-up-enter-active', 'otter-move-up-leave-active');
         setTimeout(() => { removeMessage(container) }, 300);
+        eventLog('timeout');
+        setPrivousElmn();
       }
       function removeMessage( target ) {
         'use strict'
@@ -183,5 +229,106 @@
         }
       }
     }
+
+
+
+
+    function getPrivousElmnArray() {
+      'use strict';
+      const logAllArray = [];
+      const logCurrentArray = [];
+      const logPreviousArray = [];
+      const getLogItem = cntnrElmnt.querySelectorAll('.log-item-message');
+      logAllArray.push(getLogItem);
+      for (let i = 0; i < getLogItem.length; i++) {
+        const element = getLogItem[i];
+        logCurrentArray.push(element.childNodes[2].outerText);
+      }
+      for (let i = 0; i < logCurrentArray.length; i++) {
+        const element = logCurrentArray[i];
+        logPreviousArray[i] = element;
+      }
+      if (logAllArray.length > 0) { 
+        document.querySelector('.event-log-title-message').style.display = 'block';
+      }
+      logPreviousArray.unshift( '-' );
+      logPreviousArray.pop();
+      const result = logPreviousArray;
+      return result;
+    }
+    function setPrivousElmn() {
+      'use strict';
+      const getLogItem = cntnrElmnt.querySelectorAll('.log-item-message');
+      for (let i = 0; i < getLogItem.length; i++) {
+        const element = getLogItem[i];
+        element.lastChild.textContent = getPrivousElmnArray()[i];
+      }
+    }
+    function getStringTime() {
+      'use strict';
+      const time = new Date();
+      const timeStr1 = time.toLocaleTimeString();
+      const timeStr2 = time.getUTCMilliseconds();
+      const result = `${timeStr1}:${timeStr2}`;
+      return result;
+    }
+    function getActiveBtnElmn() {
+      'use strict';
+      const activeElmn = cntnrElmnt.querySelector('.otter-message-open');
+      const result = activeElmn;
+      return result;
+    }
+    function getActiveMessage() {
+      'use strict';
+      const activeElmn = document.querySelector('.otter-message-notice');
+      const result = activeElmn;
+      return result;
+    }
+    function eventLog(mouseState, i) {
+      'use strict';
+      const loadBtnItemIdx = returnCheckValue(getActiveBtnElmn().getAttribute('data-index-number'), 0);
+      const loadBtnItemText = returnCheckValue(getActiveBtnElmn().outerText);
+      const loadBtnItemAttr = returnCheckValue(getActiveBtnElmn().getAttribute('data-placement'), 'default');
+      const loadBtnItemCls = returnCheckValue(getActiveBtnElmn().classList[2]);
+      const loadMessageItemIdx = returnCheckValue(getActiveMessage().getAttribute('data-index-number'), 0);
+      const loadMessageItemTheme = returnCheckValue(getActiveMessage().firstElementChild.classList[1], 'default');
+      const loadMessageItemText = returnCheckValue(getActiveMessage().innerText.replace(/\n\r?/g, '/'));
+      const loadMessageItemCls = returnCheckValue(getActiveMessage().classList[1]);
+      const COUNT_LOADNING_DELAY = Number(returnCheckValue(getActiveBtnElmn().getAttribute('data-loading-delay'), 3000));
+      const loadMessageItemLoadingDelay = COUNT_LOADNING_DELAY.toLocaleString('en-US') || '3,000';
+      const makeHtmlElement = function (tagName, ...attr) {
+        const element = document.createElement(tagName);
+        for (let prop of attr) {
+          const [key, value] = Object.entries(prop)[0];
+          if (key == 'textContent' || key == 'innerText') {
+            element.textContent = value;
+          } else {
+            element.setAttribute(key, value);
+          }
+        }
+        return element;
+      };
+      const itemContainer = makeHtmlElement('li', { class: 'log-item-message' });
+      const groopOfPairs = [
+        { id: 1, name: mouseState, class: 'trigger-specified' },
+        { id: 2, name: getStringTime(), class: 'log-time' },
+        { id: 3, name: loadBtnItemIdx, class: 'trigger-idx' },
+        { id: 4, name: loadBtnItemText, class: 'trigger-txt' },
+        { id: 5, name: loadBtnItemAttr, class: 'trigger-plc' },
+        { id: 6, name: loadBtnItemCls, class: 'trigger-cls' },
+        { id: 7, name: loadMessageItemIdx, class: 'message-idx' },
+        { id: 8, name: loadMessageItemTheme, class: 'message-theme' },
+        { id: 9, name: loadMessageItemText, class: 'message-txt' },
+        { id: 10, name: loadMessageItemCls, class: 'message-cls' },
+        { id: 11, name: loadMessageItemLoadingDelay, class: 'message-delay' },
+        { id: 12, name: 'Data is from recordLog()', class: 'previous-idx' }
+      ]
+      const [item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12] = groopOfPairs.map((item) =>
+        makeHtmlElement('span', { class: item.class }, { textContent: item.name })
+      );
+      itemContainer.append(item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12);
+      logElmnt.append(itemContainer);
+    }
   })
+  logElmnt.insertAdjacentHTML('beforebegin', '<p class="event-log-title-message">Event Log: Message</p>');
 })();
