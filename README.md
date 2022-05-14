@@ -105,10 +105,9 @@ To trigger an operation.
 [/components/message](https://github.com/sogyeokdong9/otter/tree/main/components/message/ "message")
 
 - [X] Normal Prompt
-- [ ] Other types of message
-- [ ] Customize duration
-- [ ] Customize duration
-- [ ] Message with loading indicator
+- [X] Other types of message
+- [X] Customize duration
+- [X] Message with loading indicator
 - [ ] Promise interface
 - [ ] Update Message Content
 - [ ] Customized style
