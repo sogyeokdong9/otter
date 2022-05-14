@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style/reset.css">
+  <link rel="stylesheet" href="./style/color.css">
+  <link rel="stylesheet" href="./style/reset.user.css">
+  <link rel="stylesheet" href="./style/button.css">
+  <link rel="stylesheet" href="./style/animation.css">
+  <link rel="stylesheet" href="./style/message.css">
+  <link rel="stylesheet" href="./style/style.css">
+  <title>Other type of message</title>
+</head>
+<body>
+  <div class="wrap">
+    <div style="padding: 80px 0">
+      <button type="button" class="otter-btn otter-btn-default otter-message-trigger otter-message-link otter-message-close" data-index-number="1" data-message-type="success">
+        <span data-message="This is a success message.">Success</span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of message state that open or close" aria-expanded="false"><i class="ottericon gg-chevron-down"></i></span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-default otter-message-trigger otter-message-link otter-message-close" data-index-number="2" data-message-type="error">
+        <span data-message="This is a error message.">Error</span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of message state that open or close" aria-expanded="false"><i class="ottericon gg-chevron-down"></i></span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-default otter-message-trigger otter-message-link otter-message-close" data-index-number="3" data-message-type="warning">
+        <span data-message="This is a warning message.">Warning</span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of message state that open or close" aria-expanded="false"><i class="ottericon gg-chevron-down"></i></span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-default otter-message-trigger otter-message-link otter-message-close" data-index-number="4" data-message-type="loading">
+        <span data-message="This is a loading message.">Loading</span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of message state that open or close" aria-expanded="false"><i class="ottericon gg-chevron-down"></i></span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-default otter-message-trigger otter-message-link otter-message-close" data-index-number="5" data-message-type="info">
+        <span data-message="This is a info message.">Info</span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of message state that open or close" aria-expanded="false"><i class="ottericon gg-chevron-down"></i></span>
+      </button>
+      <button type="button" class="otter-btn otter-btn-default otter-message-trigger otter-message-link otter-message-close" data-index-number="6">
+        <span data-message="This is a default message.">Default</span>
+        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of message state that open or close" aria-expanded="false"><i class="ottericon gg-chevron-down"></i></span>
+      </button>
+    </div>
+		<ol class="event-log-message">
+			<!-- <li>log</li> -->
+		</ol>
+  </div>
+  <div class="otter-message">
+    <div>
+      <!-- message -->
+    </div>
+  </div>
+  <script src="./script/message.js"></script>
+</body>
+</html>
