@@ -1,0 +1,243 @@
+.otter-message-trigger .spacial-letter-down {
+  position: relative;
+  display: inline-block;
+  color: currentcolor;
+  -webkit-transition: top 0.3s, -webkit-transform 0.3s;
+  transition: top 0.3s, -webkit-transform 0.3s;
+  transition: top 0.3s, transform 0.3s;
+  transition: top 0.3s, transform 0.3s, -webkit-transform 0.3s;
+}
+
+.otter-message-trigger.otter-message-open .spacial-letter-down {
+  -webkit-transform: rotate(0.5turn);
+          transform: rotate(0.5turn);
+}
+
+.otter-message {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  bottom: 14px;
+  right: 14px;
+  width: calc(100% - 28px);
+  height: calc(100% - 28px);
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  list-style: none;
+}
+
+.otter-message {
+  font-size: 14px;
+  font-variant: tabular-nums;
+  -webkit-font-feature-settings: 'tnum';
+          font-feature-settings: 'tnum';
+  color: var(--otter-message);
+  line-height: 1.5715;
+}
+
+.otter-message {
+  z-index: 1010;
+  pointer-events: none;
+}
+
+.otter-message-notice {
+  padding: 8px;
+}
+
+.otter-message-placement-default .otter-message-notice, .otter-message-placement-bottom .otter-message-notice, .otter-message-placement-top .otter-message-notice {
+  text-align: center;
+}
+
+.otter-message-placement-bottomLeft .otter-message-notice, .otter-message-placement-topLeft .otter-message-notice {
+  text-align: left;
+}
+
+.otter-message-placement-bottomRight .otter-message-notice, .otter-message-placement-topRight .otter-message-notice {
+  text-align: right;
+}
+
+.otter-message > div {
+  text-align: center;
+}
+
+.otter-message .top-basisi {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.otter-message .btm-basis {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 100%;
+}
+
+.otter-message-notice-content {
+  display: inline-block;
+  padding: 10px 16px;
+  background: var(--otter-message-background);
+  border-radius: 2px;
+  -webkit-box-shadow: 0 3px 6px -4px var(--otter-message-notice-content-box-shadow-primary), 0 6px 16px 0 var(--otter-message-notice-content-box-shadow-secondary), 0 9px 28px 8px var(--otter-message-notice-content-box-shadow-tertiary);
+          box-shadow: 0 3px 6px -4px var(--otter-message-notice-content-box-shadow-primary), 0 6px 16px 0 var(--otter-message-notice-content-box-shadow-secondary), 0 9px 28px 8px var(--otter-message-notice-content-box-shadow-tertiary);
+  pointer-events: all;
+}
+
+.otter-message-success .ottericon {
+  color: var(--otter-message-success-ottericon);
+}
+
+.otter-message-error .ottericon {
+  color: var(--otter-message-error-ottericon);
+}
+
+.otter-message-warning .ottericon {
+  color: var(--otter-message-warning-ottericon);
+}
+
+.otter-message-default .ottericon,
+.otter-message-info .ottericon,
+.otter-message-loading .ottericon {
+  color: var(--otter-message-default-ottericon);
+}
+
+.otter-message .ottericon {
+  position: relative;
+  top: 1px;
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.otter-message-notice-light {
+  background-color: var(--otter-message-light-background);
+}
+
+.otter-message-notice-light .otter-message-custom-content {
+  color: var(--otter-message-light-item);
+}
+
+.otter-message-notice-black {
+  background-color: var(--otter-message-black-background);
+}
+
+.otter-message-notice-black .otter-message-custom-content {
+  color: var(--otter-message-black-item);
+}
+
+.otter-message-notice-silver {
+  background-color: var(--otter-message-silver-background);
+}
+
+.otter-message-notice-silver .otter-message-custom-content {
+  color: var(--otter-message-silver-item);
+}
+
+.otter-message-notice-gray {
+  background-color: var(--otter-message-gray-background);
+}
+
+.otter-message-notice-gray .otter-message-custom-content {
+  color: var(--otter-message-gray-item);
+}
+
+.otter-message-notice-white {
+  background-color: var(--otter-message-white-background);
+}
+
+.otter-message-notice-white .otter-message-custom-content {
+  color: var(--otter-message-white-item);
+}
+
+.otter-message-notice-maroon {
+  background-color: var(--otter-message-maroon-background);
+}
+
+.otter-message-notice-maroon .otter-message-custom-content {
+  color: var(--otter-message-maroon-item);
+}
+
+.otter-message-notice-red {
+  background-color: var(--otter-message-red-background);
+}
+
+.otter-message-notice-red .otter-message-custom-content {
+  color: var(--otter-message-red-item);
+}
+
+.otter-message-notice-purple {
+  background-color: var(--otter-message-purple-background);
+}
+
+.otter-message-notice-purple .otter-message-custom-content {
+  color: var(--otter-message-purple-item);
+}
+
+.otter-message-notice-fuchsia {
+  background-color: var(--otter-message-fuchsia-background);
+}
+
+.otter-message-notice-fuchsia .otter-message-custom-content {
+  color: var(--otter-message-fuchsia-item);
+}
+
+.otter-message-notice-green {
+  background-color: var(--otter-message-green-background);
+}
+
+.otter-message-notice-green .otter-message-custom-content {
+  color: var(--otter-message-green-item);
+}
+
+.otter-message-notice-lime {
+  background-color: var(--otter-message-lime-background);
+}
+
+.otter-message-notice-lime .otter-message-custom-content {
+  color: var(--otter-message-lime-item);
+}
+
+.otter-message-notice-olive {
+  background-color: var(--otter-message-olive-background);
+}
+
+.otter-message-notice-olive .otter-message-custom-content {
+  color: var(--otter-message-olive-item);
+}
+
+.otter-message-notice-yellow {
+  background-color: var(--otter-message-yellow-background);
+}
+
+.otter-message-notice-yellow .otter-message-custom-content {
+  color: var(--otter-message-yellow-item);
+}
+
+.otter-message-rtl {
+  direction: rtl;
+}
+
+.otter-message-rtl span {
+  direction: rtl;
+}
+
+.otter-message-rtl .ottericon {
+  margin-right: 0;
+  margin-left: 8px;
+}
+
+.otter-message-notice.otter-move-up-leave.otter-move-up-leave-active {
+  -webkit-animation-name: MessageMoveOut;
+          animation-name: MessageMoveOut;
+  -webkit-animation-duration: 0.3s;
+          animation-duration: 0.3s;
+}
+/*# sourceMappingURL=message.css.map */

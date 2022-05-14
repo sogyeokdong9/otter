@@ -1,0 +1,280 @@
+@charset "utf-8";
+
+$messages-data: (
+  light: light, // rgba(255, 255, 255, 1);
+  black: black, // rgba(0, 0, 0, 1);
+  silver: silver, // rgba(192, 192, 192, 1);
+  gray: gray, // rgba(128, 128, 128, 1);
+  white: white, // rgba(255, 255, 255, 1);
+  maroon: maroon,  // rgba(128, 0, 0, 1);
+  red: red, // rgba(255, 0, 0, 1);
+  purple: purple, // rgba(128, 0, 128, 1);
+  fuchsia: fuchsia, // rgba(255, 0, 255, 1);
+  green: green, // rgba(0, 128, 0, 1);
+  lime: lime, // rgba(0, 255, 0, 1);
+  olive: olive,  // rgba(128, 128, 0, 1);
+  yellow: yellow // rgba(255, 255, 0, 1);
+  // navy: navy,
+  // blue: blue,
+  // teal: teal,
+  // aqua: aqua,
+  // orange: orange,
+  // aliceblue: aliceblue,
+  // antiquewhite: antiquewhite,
+  // aquamarine: aquamarine,
+  // azure: azure,
+  // beige: beige,
+  // bisque: bisque,
+  // blanchedalmond: blanchedalmond,
+  // blueviolet: blueviolet,
+  // brown: brown,
+  // burlywood: burlywood,
+  // cadetblue: cadetblue,
+  // chartreuse: chartreuse,
+  // chocolate: chocolate,
+  // coral: coral,
+  // cornflowerblue: cornflowerblue,
+  // cornsilk: cornsilk,
+  // crimson: crimson,
+  // darkblue: darkblue,
+  // darkcyan: darkcyan,
+  // darkgoldenrod: darkgoldenrod,
+  // darkgray: darkgray,
+  // darkgreen: darkgreen,
+  // darkkhaki: darkkhaki,
+  // darkmagenta: darkmagenta,
+  // darkolivegreen: darkolivegreen,
+  // darkorange: darkorange,
+  // darkorchid: darkorchid,
+  // darkred: darkred,
+  // darksalmon: darksalmon,
+  // darkseagreen: darkseagreen,
+  // darkslateblue: darkslateblue,
+  // darkslategray: darkslategray,
+  // darkturquoise: darkturquoise,
+  // darkviolet: darkviolet,
+  // deeppink: deeppink,
+  // deepskyblue: deepskyblue,
+  // dimgray: dimgray,
+  // dodgerblue: dodgerblue,
+  // firebrick: firebrick,
+  // floralwhite: floralwhite,
+  // forestgreen: forestgreen,
+  // gainsboro: gainsboro,
+  // ghostwhite: ghostwhite,
+  // gold: gold,
+  // goldenrod: goldenrod,
+  // greenyellow: greenyellow,
+  // honeydew: honeydew,
+  // hotpink: hotpink,
+  // indianred: indianred,
+  // indigo: indigo,
+  // ivory: ivory,
+  // khaki: khaki,
+  // lavender: lavender,
+  // lavenderblush: lavenderblush,
+  // lawngreen: lawngreen,
+  // lemonchiffon: lemonchiffon,
+  // lightblue: lightblue,
+  // lightcoral: lightcoral,
+  // lightcyan: lightcyan,
+  // lightgoldenrodyellow: lightgoldenrodyellow,
+  // lightgray: lightgray,
+  // lightgreen: lightgreen,
+  // lightpink: lightpink,
+  // lightsalmon: lightsalmon,
+  // lightseagreen: lightseagreen,
+  // lightskyblue: lightskyblue,
+  // lightslategray: lightslategray,
+  // lightsteelblue: lightsteelblue,
+  // lightyellow: lightyellow,
+  // limegreen: limegreen,
+  // linen: linen,
+  // magent: magent,
+  // mediumaquamarine: mediumaquamarine,
+  // mediumblue: mediumblue,
+  // mediumorchid: mediumorchid,
+  // mediumpurple: mediumpurple,
+  // mediumseagreen: mediumseagreen,
+  // mediumslateblue: mediumslateblue,
+  // mediumspringgreen: mediumspringgreen,
+  // mediumturquoise: mediumturquoise,
+  // mediumvioletred: mediumvioletred,
+  // midnightblue: midnightblue,
+  // mintcream: mintcream,
+  // mistyrose: mistyrose,
+  // moccasin: moccasin,
+  // navajowhite: navajowhite,
+  // oldlace: oldlace,
+  // olivedrab: olivedrab,
+  // orangered: orangered,
+  // orchid: orchid,
+  // palegoldenrod: palegoldenrod,
+  // palegreen: palegreen,
+  // paleturquoise: paleturquoise,
+  // palevioletred: palevioletred,
+  // papayawhip: papayawhip,
+  // peachpuff: peachpuff,
+  // peru: peru,
+  // pink: pink,
+  // plum: plum,
+  // powderblue: powderblue,
+  // rosybrown: rosybrown,
+  // royalblue: royalblue,
+  // saddlebrown: saddlebrown,
+  // salmon: salmon,
+  // sandybrown: sandybrown,
+  // seagreen: seagreen,
+  // seashell: seashell,
+  // sienna: sienna,
+  // skyblue: skyblue,
+  // slateblue: slateblue,
+  // slategray: slategray,
+  // snow: snow,
+  // springgreen: springgreen,
+  // steelblue: steelblue,
+  // tan: tan,
+  // thistle: thistle,
+  // tomato: tomato,
+  // turquoise: turquoise,
+  // violet: violet,
+  // wheat: wheat,
+  // whitesmoke: whitesmoke,
+  // yellowgreen: yellowgreen,
+  // rebeccapurple: rebeccapurple
+);
+.otter-message-trigger {
+  & .spacial-letter-down {
+    position: relative;
+    display: inline-block;
+    color: currentcolor;
+    transition: top 0.3s, transform 0.3s;
+  }
+  &.otter-message-open .spacial-letter-down {
+    transform: rotate(0.5turn);
+  }
+}
+%otter-message-box {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  bottom: 14px;
+  right: 14px;
+  width: calc(100% - 28px);
+  height: calc(100% - 28px);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+%otter-message-font {
+  font-size: 14px;
+  font-variant: tabular-nums;
+  font-feature-settings: 'tnum';
+  color: var(--otter-message);
+  line-height: 1.5715;
+}
+
+.otter-message {
+  @extend %otter-message-box;
+  @extend %otter-message-font;
+  z-index: 1010;
+  // background: rgba(0,0,0,0.25);
+  pointer-events: none;
+}
+
+.otter-message-notice {
+  padding: 8px;
+}
+
+.otter-message-placement {
+  &-default,
+  &-bottom,
+  &-top {
+    .otter-message-notice {
+      text-align: center;
+    }
+  }
+  &-bottomLeft,
+  &-topLeft {
+    .otter-message-notice {
+      text-align: left;
+    }
+  }
+  &-bottomRight,
+  &-topRight {
+    .otter-message-notice {
+      text-align: right;
+    }
+  }
+}
+
+.otter-message {
+  & > div {
+    text-align: center;
+  }
+  .top-basisi {
+    height: fit-content;
+  }
+  .btm-basis {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;  
+  }
+}
+.otter-message-notice-content {
+  display: inline-block;
+  padding: 10px 16px;
+  background: var(--otter-message-background);
+  border-radius: 2px;
+  box-shadow: 0 3px 6px -4px var(--otter-message-notice-content-box-shadow-primary), 
+              0 6px 16px 0 var(--otter-message-notice-content-box-shadow-secondary), 
+              0 9px 28px 8px var(--otter-message-notice-content-box-shadow-tertiary);
+  pointer-events: all;
+}
+.otter-message-success .ottericon {
+  color: var(--otter-message-success-ottericon);
+}
+.otter-message-error .ottericon {
+  color: var(--otter-message-error-ottericon);
+}
+.otter-message-warning .ottericon {
+  color: var(--otter-message-warning-ottericon);
+}
+.otter-message-default .ottericon,
+.otter-message-info .ottericon,
+.otter-message-loading .ottericon {
+  color: var(--otter-message-default-ottericon);
+}
+.otter-message .ottericon {
+  position: relative;
+  top: 1px;
+  margin-right: 8px;
+  font-size: 16px;
+}
+// otter-message-notice-black
+// otter-message-notice-${items[order].dataTheme}
+@each $message, $label in $messages-data {
+  .otter-message-notice-#{$message} {
+    background-color: var(--otter-message-#{$label}-background);
+    & .otter-message-custom-content {
+      color: var(--otter-message-#{$label}-item);
+    }
+  }
+}
+
+.otter-message-rtl {
+  direction: rtl;
+}
+.otter-message-rtl span {
+  direction: rtl;
+}
+.otter-message-rtl .ottericon {
+  margin-right: 0;
+  margin-left: 8px;
+}
+.otter-message-notice.otter-move-up-leave.otter-move-up-leave-active {
+  animation-name: MessageMoveOut;
+  animation-duration: 0.3s;
+}
