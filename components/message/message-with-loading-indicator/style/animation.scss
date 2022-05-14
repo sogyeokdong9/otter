@@ -1,0 +1,232 @@
+@charset "utf-8";
+
+.otter-slide-up-in {
+  animation: otterSlideUpIn  .3s linear;
+}
+.otter-slide-up-out {
+  animation: otterSlideUpOut  .3s linear;
+}
+.otter-slide-down-in {
+  animation: otterSlideDownIn  .3s linear;
+}
+.otter-slide-down-out {
+  animation: otterSlideDownOut  .3s linear;
+}
+.otter-slide-left-in {
+  animation: otterSlideLeftIn  .3s linear;
+}
+.otter-slide-left-out {
+  animation: otterSlideLeftOut  .3s linear;
+}
+.otter-slide-right-in {
+  animation: otterSlideRightIn  .3s linear;
+}
+.otter-slide-right-out {
+  animation: otterSlideRightOut  .3s linear;
+}
+@keyframes otterSlideUpIn {
+  0% {
+    transform: scaleY(0.8);
+    transform-origin: 0% 0%;
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: 0% 0%;
+    opacity: 1;
+  }
+}
+@keyframes otterSlideUpOut {
+  0% {
+    transform: scaleY(1);
+    transform-origin: 0% 0%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(0.8);
+    transform-origin: 0% 0%;
+    opacity: 0;
+  }
+}
+@keyframes otterSlideDownIn {
+  0% {
+    transform: scaleY(0.8);
+    transform-origin: 100% 100%;
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+}
+@keyframes otterSlideDownOut {
+  0% {
+    transform: scaleY(1);
+    transform-origin: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(0.8);
+    transform-origin: 100% 100%;
+    opacity: 0;
+  }
+}
+@keyframes otterSlideLeftIn {
+  0% {
+    transform: scaleX(0.8);
+    transform-origin: 0% 0%;
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: 0% 0%;
+    opacity: 1;
+  }
+}
+@keyframes otterSlideLeftOut {
+  0% {
+    transform: scaleX(1);
+    transform-origin: 0% 0%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0.8);
+    transform-origin: 0% 0%;
+    opacity: 0;
+  }
+}
+@keyframes otterSlideRightIn {
+  0% {
+    transform: scaleX(0.8);
+    transform-origin: 100% 0%;
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+}
+@keyframes otterSlideRightOut {
+  0% {
+    transform: scaleX(1);
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0.8);
+    transform-origin: 100% 0%;
+    opacity: 0;
+  }
+}
+
+
+
+.otter-move-up-enter,
+.otter-move-up-appear {
+          animation-duration: 0.2s;
+          animation-fill-mode: both;
+          animation-play-state: paused;
+}
+.otter-move-up-leave {
+          animation-duration: 0.2s;
+          animation-fill-mode: both;
+          animation-play-state: paused;
+}
+.otter-move-up-enter.otter-move-up-enter-active,
+.otter-move-up-appear.otter-move-up-appear-active {
+          animation-name: otterMoveUpIn;
+          animation-play-state: running;
+}
+.otter-move-up-leave.otter-move-up-leave-active {
+          animation-name: otterMoveUpOut;
+          animation-play-state: running;
+  pointer-events: none;
+}
+.otter-move-up-enter,
+.otter-move-up-appear {
+  opacity: 0;
+          animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+.otter-move-up-leave {
+          animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+}
+.otter-move-down-enter,
+.otter-move-down-appear {
+          animation-duration: 0.2s;
+          animation-fill-mode: both;
+          animation-play-state: paused;
+}
+.otter-move-down-leave {
+          animation-duration: 0.2s;
+          animation-fill-mode: both;
+          animation-play-state: paused;
+}
+.otter-move-down-enter.otter-move-down-enter-active,
+.otter-move-down-appear.otter-move-down-appear-active {
+          animation-name: otterMoveDownIn;
+          animation-play-state: running;
+}
+.otter-move-down-leave.otter-move-down-leave-active {
+          animation-name: otterMoveDownOut;
+          animation-play-state: running;
+  pointer-events: none;
+}
+.otter-move-down-enter,
+.otter-move-down-appear {
+  opacity: 0;
+          animation-timing-function: cubic-bezier(0.08, 0.82, 0.17, 1);
+}
+.otter-move-down-leave {
+          animation-timing-function: cubic-bezier(0.6, 0.04, 0.98, 0.34);
+}
+
+@keyframes otterMoveRightOut {
+  0% {
+    transform: translateX(0%);
+    transform-origin: 0 0;
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+}
+@keyframes otterMoveUpIn {
+  0% {
+    transform: translateY(-100%);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    transform-origin: 0 0;
+    opacity: 1;
+  }
+}
+@keyframes MessageMoveOut {
+  0% {
+    max-height: 150px;
+    padding: 8px;
+    opacity: 1;
+  }
+  100% {
+    max-height: 0;
+    padding: 0 8px;
+    opacity: 0;
+  }
+}
+@keyframes otterMoveDownIn {
+  0% {
+    transform: translateY(100%);
+    transform-origin: 0 0;
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    transform-origin: 0 0;
+    opacity: 1;
+  }
+}
