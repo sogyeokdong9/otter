@@ -7,12 +7,21 @@
   const loadBtn = cntnrElmnt.querySelectorAll('button[data-loading="true"]');
   const logElmnt = cntnrElmnt.querySelector('.event-log-message');
   const orizinElmn = [];
+  const makeHtmlElement = function (tagName, ...attr) {
+    const element = document.createElement(tagName);
+    for (let prop of attr) {
+      const [key, value] = Object.entries(prop)[0];
+      if (key == 'textContent' || key == 'innerText') {
+        element.textContent = value;
+      } else {
+        element.setAttribute(key, value);
+      }
+    }
+    return element;
+  };
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
     orizinElmn.push(element);
-  }
-  for (let i = 0; i < trgElmn.length; i++) {
-    const element = trgElmn[i];
     element.addEventListener('click', function() {
       const items = [
         {
@@ -102,6 +111,7 @@
       ];
       const currentActiveTrigger = {
         "index": this.getAttribute('data-index-number'),
+        "class": this.classList[2],
         "type": this.getAttribute('data-message-type'),
         "placement": this.getAttribute('data-placement'),
         "theme": this.getAttribute('data-message-theme'),
@@ -114,12 +124,13 @@
       this.lastChild.previousElementSibling.ariaExpanded = true;
       this.classList.replace('otter-message-close', 'otter-message-open');
       for (let i = 0; i < items.length; i++) {
-        const element = items[i];
-        console.log(element);
-        this.getAttribute('data-index-number') === `${i+1}` ? messageBox(`${i}`) : null;
+        this.getAttribute('data-index-number') === 
+          `${i+1}` 
+          ? messageBox(`${i}`) 
+          : null;
       }
       function messageBox(i) {
-        console.log(i);
+        'use strict';
         const prefixTooltipId = 'message-notice-div-tmp-key';
         getDataMessage(i);
         getDataMessageTheme(i);
@@ -127,71 +138,66 @@
         getDataMessageType(i);
         getDataMessagePlacement(i);
         for (let j = 0; j < items[i].notice.length; j++) {
-          const element = items[i].notice[j];
           items[i].notice[j].id = `${prefixTooltipId}-${i}-${j}`;
           createMessage(i, j + 1);
-          console.log(i, j + 1);
         }
         eventLog('click');
         setPrivousElmn();
       }
-      // 0
+      // meta
       function returnCheckValue( val1, val2 = '-' ) {
-        const result = val1 || val2;
-        return result;
+        return val1 || val2;
       }
       function getDataMessage(idx) {
         'use strict';
-        const element = trgElmn[idx];
-        return items[idx].notice[0].name = returnCheckValue(element.firstElementChild.dataset.message, items[idx].notice[0].name);
+        return items[idx].notice[0].name = returnCheckValue( 
+          trgElmn[idx].firstElementChild.dataset.message, 
+          items[idx].notice[0].name 
+        );
       }
       function getDataMessageTheme(idx) {
         'use strict';
-        const element = trgElmn[idx];
-        return items[idx].dataTheme = returnCheckValue(element.dataset.messageTheme, items[idx].dataTheme);
+        return items[idx].dataTheme = returnCheckValue( 
+          trgElmn[idx].dataset.messageTheme, 
+          items[idx].dataTheme 
+        );
       }
       function getDataMessageColor(idx) {
         'use strict';
-        const element = trgElmn[idx];
-        return items[idx].dataColor = returnCheckValue( element.dataset.messageColor , items[idx].dataColor );
+        return items[idx].dataColor = returnCheckValue( 
+          trgElmn[idx].dataset.messageColor, 
+          items[idx].dataColor 
+        );
       }
       function getDataMessageType(idx) {
         'use strict';
-        const element = trgElmn[idx];
-        return items[idx].notice[0].type = returnCheckValue(element.dataset.messageType, items[idx].notice[0].type);
+        return items[idx].notice[0].type = returnCheckValue( 
+          trgElmn[idx].dataset.messageType, 
+          items[idx].notice[0].type 
+        );
       }
       function getDataMessagePlacement(idx) {
         'use strict';
-        return items[idx].placement = returnCheckValue(createPlcmntClsNm(idx), items[idx].placement);
+        return items[idx].placement = returnCheckValue( 
+          createPlcmntClsNm(idx), 
+          items[idx].placement 
+        );
       }
       function createPlcmntClsNm(idx) {
         'use strict';
-        const prefixPlcmnt = 'otter-message-placement-';
-        const makePlcmntCls = prefixPlcmnt + getTrgAttrPlcmnt(idx);
-        return makePlcmntCls;
+        return 'otter-message-placement-' + getTrgAttrPlcmnt(idx);
       }
       function getTrgAttrPlcmnt(idx) {
         'use strict';
-        const element = trgElmn[idx];
-        const result = returnCheckValue(element.getAttribute('data-placement'), 'default');
-        return result;
+        return returnCheckValue( 
+          trgElmn[idx].getAttribute('data-placement'), 
+          'default' 
+        );
       }
-      // 1
+      // message
       function createMessage(order, count) {
         'use strict';
         message.classList.add(items[order].placement);
-        const makeHtmlElement = function (tagName, ...attr) {
-          const element = document.createElement(tagName);
-          for (let prop of attr) {
-            const [key, value] = Object.entries(prop)[0];
-            if (key == 'textContent' || key == 'innerText') {
-              element.textContent = value;
-            } else {
-              element.setAttribute(key, value);
-            }
-          }
-          return element;
-        };
         const container = makeHtmlElement(
           'div',
           { class: `otter-message-notice` }
@@ -199,21 +205,21 @@
         container.setAttribute('data-index-number', items[order].id);
         function getMessageTopOrBottom() {
           'use strict';
-          if ( 
-            getDataMessagePlacement(order).indexOf('bottom') === -1 ) {
-            const messagePlacement = 'top';
-            return messagePlacement;
-          } else {
-            const messagePlacement = 'bottom';
-            return messagePlacement;
-          }
+          return ( getDataMessagePlacement(order).indexOf('bottom') === 
+            -1 
+            ? 'top' 
+            : 'bottom' 
+          );
         }
-        if ( getMessageTopOrBottom() === "bottom") {
-          message.firstElementChild.classList.add('btm-basis');
-          container.classList.add('otter-move-down-enter', 'otter-move-down-enter-active')
-        } else {
-          message.firstElementChild.classList.add('top-basis');
-          container.classList.add('otter-move-up-enter', 'otter-move-up-enter-active')
+        getMessageTopOrBottom() === 
+          "bottom" 
+          ? setLocationBasisToAddClass( 'btm-basis', 'otter-move-down-enter', 'otter-move-down-enter-active' ) 
+          : setLocationBasisToAddClass( 'top-basis', 'otter-move-up-enter', 'otter-move-up-enter-active' );
+
+        function setLocationBasisToAddClass( basis, direction, state ) {
+          'use strict';
+          message.firstElementChild.classList.add( basis );
+          container.classList.add( direction, state )
         }
         const wrapper = makeHtmlElement(
           'div',
@@ -244,39 +250,28 @@
         const expr = items[order].notice[0].type;
         switch (expr) {
           case 'info':
-            icon.classList.add("gg-info");
-            icon.setAttribute('aria-label', 'Information icon');
-            itemContainer.classList.add("otter-message-info");
+            setItemsNoticeTypeToAddClassSetAttr( "gg-info", 'Information icon', "otter-message-info" );
             break;
           case 'success':
-            icon.classList.add("gg-check-o");
-            icon.setAttribute('aria-label', 'Success icon');
-            itemContainer.classList.add("otter-message-success");
+            setItemsNoticeTypeToAddClassSetAttr( "gg-check-o", 'Success icon', "otter-message-success" );
             break;
           case 'error':
-            icon.classList.add("gg-close-o");
-            icon.setAttribute('aria-label', 'Error icon');
-            itemContainer.classList.add("otter-message-error");
+            setItemsNoticeTypeToAddClassSetAttr( "gg-close-o", 'Error icon', "otter-message-error" );
             break;
           case 'warning':
-            icon.classList.add("gg-danger");
-            icon.setAttribute('aria-label', 'Warning icon');
-            itemContainer.classList.add("otter-message-warning");
+            setItemsNoticeTypeToAddClassSetAttr( "gg-danger", 'Warning icon', "otter-message-warning" );
             break;
           case 'loading':
-            icon.classList.add("gg-spinner");
-            icon.setAttribute('aria-label', 'Loading icon');
-            itemContainer.classList.add("otter-message-loading");
-            break;
-          case 'default':
-            icon.classList.add("gg-bell");
-            icon.setAttribute('aria-label', 'Bell icon');
-            itemContainer.classList.add("otter-message-default");
+            setItemsNoticeTypeToAddClassSetAttr( "gg-spinner", 'Loading icon', "otter-message-loading" );
             break;
           default:
-            icon.classList.add("gg-bell");
-            icon.setAttribute('aria-label', 'Bell icon');
-            itemContainer.classList.add("otter-message-default");
+            setItemsNoticeTypeToAddClassSetAttr( "gg-bell", 'Bell icon', "otter-message-default" );
+        }
+        function setItemsNoticeTypeToAddClassSetAttr( cls, desc, type ) {
+          'use strict';
+          icon.classList.add( cls );
+          icon.setAttribute( 'aria-label', desc );
+          itemContainer.classList.add( type );
         }
         const spanContext = makeHtmlElement(
           'span',
@@ -289,22 +284,19 @@
         container.append(wrapper);
         function checkDataColorDataThemeSame() {
           'use strict';
-          const result = Boolean(items[order].dataColor === items[order].dataTheme);
-          return result;
+          return Boolean(items[order].dataColor === items[order].dataTheme);
         }
         function checkDataColorUndefined() {
           'use strict';
-          const result = Boolean(items[order].dataColor === undefined)
-          return result;
+          return Boolean(items[order].dataColor === undefined);
         }
         if ( checkDataColorDataThemeSame() || checkDataColorUndefined() ) {
-          wrapper.removeAttribute('data-message-color')
-          wrapper.removeAttribute('style')
+          wrapper.removeAttribute('data-message-color');
+          wrapper.removeAttribute('style');
         }
         document.querySelector(".otter-message div").appendChild(container);
         const element = trgElmn[order];
         const MESSAGE_DELAY = element.dataset.loadingDelay ?? 3000;
-            
         setTimeout(() => { closeMessage() }, MESSAGE_DELAY);
         function closeMessage() {
           'use strict';
@@ -324,7 +316,7 @@
           }
         }
       }
-      // 2
+      // log
       function getPrivousElmnArray() {
         'use strict';
         const logAllArray = [];
@@ -345,8 +337,7 @@
         }
         logPreviousArray.unshift( '-' );
         logPreviousArray.pop();
-        const result = logPreviousArray;
-        return result;
+        return logPreviousArray;
       }
       function setPrivousElmn() {
         'use strict';
@@ -361,45 +352,30 @@
         const time = new Date();
         const timeStr1 = time.toLocaleTimeString();
         const timeStr2 = time.getUTCMilliseconds();
-        const result = `${timeStr1}:${timeStr2}`;
-        return result;
+        return `${timeStr1}:${timeStr2}`;
       }
       function getActiveBtnElmn() {
         'use strict';
-        const activeElmn = cntnrElmnt.querySelector('.otter-message-open');
-        const result = activeElmn;
-        return result;
+        return cntnrElmnt.querySelector('.otter-message-open');
       }
       function getActiveMessage() {
         'use strict';
         const activeElmn = document.querySelectorAll('.otter-message-notice');
-        const result = activeElmn[activeElmn.length - 1];
-        return result;
+        return activeElmn[activeElmn.length - 1];
       }
       function eventLog(mouseState, i) {
         'use strict';
         const loadBtnItemIdx = returnCheckValue(currentActiveTrigger.index);
         const loadBtnItemText = returnCheckValue(currentActiveTrigger.name);
         const loadBtnItemAttr = returnCheckValue(currentActiveTrigger.placement, 'default');
-        const loadBtnItemCls = returnCheckValue(getActiveBtnElmn().classList[2]);
+        const loadBtnItemCls = returnCheckValue(currentActiveTrigger.class);
         const loadMessageItemIdx = returnCheckValue(currentActiveTrigger.index);
         const loadMessageItemTheme = returnCheckValue(currentActiveTrigger.theme, 'light');
         const loadMessageItemText = returnCheckValue(currentActiveTrigger.message, '-');
         const loadMessageItemCls = ( mouseState === 'timeout' ) ? 'otter-move-up-leave' : 'otter-move-up-enter';
         const COUNT_LOADNING_DELAY = Number(returnCheckValue(currentActiveTrigger.delay, 3000));
         const loadMessageItemLoadingDelay = COUNT_LOADNING_DELAY.toLocaleString('en-US') || '3,000';
-        const makeHtmlElement = function (tagName, ...attr) {
-          const element = document.createElement(tagName);
-          for (let prop of attr) {
-            const [key, value] = Object.entries(prop)[0];
-            if (key == 'textContent' || key == 'innerText') {
-              element.textContent = value;
-            } else {
-              element.setAttribute(key, value);
-            }
-          }
-          return element;
-        };
+        
         const itemContainer = makeHtmlElement('li', { class: 'log-item-message' });
         const groopOfPairs = [
           { id: 1, name: mouseState, class: 'trigger-specified' },
