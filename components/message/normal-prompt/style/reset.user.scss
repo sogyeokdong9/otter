@@ -247,9 +247,6 @@ hr:after {
   & .dropdown-txt {
     min-width: 385px;
   }
-  & .message-theme {
-    min-width: 215px;    
-  }
   & .tooltip-txt,
   & .trigger-txt {
     min-width: 205px;
@@ -267,6 +264,7 @@ hr:after {
   & .trigger-type {
     min-width: 105px;
   }
+  & .message-theme,
   & .trigger-orientation,
   & .trigger-specified,
   & .trigger-style {

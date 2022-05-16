@@ -533,15 +533,6 @@ hr:after {
   min-width: 385px;
 }
 
-.log-item .message-theme,
-.log-item-message .message-theme,
-.log-item-divider .message-theme,
-.log-item-dropdown .message-theme,
-.log-item-loading .message-theme,
-.log-item-tooltip .message-theme {
-  min-width: 215px;
-}
-
 .log-item .tooltip-txt,
 .log-item .trigger-txt,
 .log-item-message .tooltip-txt,
@@ -599,21 +590,27 @@ hr:after {
   min-width: 105px;
 }
 
+.log-item .message-theme,
 .log-item .trigger-orientation,
 .log-item .trigger-specified,
 .log-item .trigger-style,
+.log-item-message .message-theme,
 .log-item-message .trigger-orientation,
 .log-item-message .trigger-specified,
 .log-item-message .trigger-style,
+.log-item-divider .message-theme,
 .log-item-divider .trigger-orientation,
 .log-item-divider .trigger-specified,
 .log-item-divider .trigger-style,
+.log-item-dropdown .message-theme,
 .log-item-dropdown .trigger-orientation,
 .log-item-dropdown .trigger-specified,
 .log-item-dropdown .trigger-style,
+.log-item-loading .message-theme,
 .log-item-loading .trigger-orientation,
 .log-item-loading .trigger-specified,
 .log-item-loading .trigger-style,
+.log-item-tooltip .message-theme,
 .log-item-tooltip .trigger-orientation,
 .log-item-tooltip .trigger-specified,
 .log-item-tooltip .trigger-style {

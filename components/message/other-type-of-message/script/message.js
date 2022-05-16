@@ -4,7 +4,6 @@
   const cntnrElmnt = document.querySelector('.wrap');
   const trgElmn = cntnrElmnt.querySelectorAll('.otter-message-trigger');
   const message = document.querySelector('.otter-message');
-  const loadBtn = cntnrElmnt.querySelectorAll('button[data-loading="true"]');
   const logElmnt = cntnrElmnt.querySelector('.event-log-message');
   const orizinElmn = [];
   const makeHtmlElement = function (tagName, ...attr) {
@@ -124,6 +123,7 @@
       this.lastChild.previousElementSibling.ariaExpanded = true;
       this.classList.replace('otter-message-close', 'otter-message-open');
       for (let i = 0; i < items.length; i++) {
+        const element = items[i];
         this.getAttribute('data-index-number') === 
           `${i+1}` 
           ? messageBox(`${i}`) 
@@ -138,7 +138,8 @@
         getDataMessageType(i);
         getDataMessagePlacement(i);
         for (let j = 0; j < items[i].notice.length; j++) {
-          items[i].notice[j].id = `${prefixTooltipId}-${i}-${j}`;
+          const element = items[i].notice;
+          element[j].id = `${prefixTooltipId}-${i}-${j}`;
           createMessage(i, j + 1);
         }
         eventLog('click');
@@ -215,7 +216,6 @@
           "bottom" 
           ? setLocationBasisToAddClass( 'btm-basis', 'otter-move-down-enter', 'otter-move-down-enter-active' ) 
           : setLocationBasisToAddClass( 'top-basis', 'otter-move-up-enter', 'otter-move-up-enter-active' );
-
         function setLocationBasisToAddClass( basis, direction, state ) {
           'use strict';
           message.firstElementChild.classList.add( basis );
@@ -227,15 +227,12 @@
           { role: 'noticeitem' }
         );
         wrapper.setAttribute('data-notice', true);
-  
         if ( items[order].dataTheme !== ''  ) {
           wrapper.classList.add(`otter-message-notice-${items[order].dataTheme}`)
         }
-  
-        if ( items[order].dataColor !== items[order].dataTheme ) {
+        if ( items[order].dataTheme !== items[order].dataColor ) {
           wrapper.style.backgroundColor = items[order].dataColor;
-        }
-  
+        }  
         const itemContainer = makeHtmlElement(
           'div',
           { class: 'otter-message-custom-content' }
@@ -250,24 +247,24 @@
         const expr = items[order].notice[0].type;
         switch (expr) {
           case 'info':
-            setItemsNoticeTypeToAddClassSetAttr( "gg-info", 'Information icon', "otter-message-info" );
+            setItemsNoticeType( "gg-info", 'Information icon', "otter-message-info" );
             break;
           case 'success':
-            setItemsNoticeTypeToAddClassSetAttr( "gg-check-o", 'Success icon', "otter-message-success" );
+            setItemsNoticeType( "gg-check-o", 'Success icon', "otter-message-success" );
             break;
           case 'error':
-            setItemsNoticeTypeToAddClassSetAttr( "gg-close-o", 'Error icon', "otter-message-error" );
+            setItemsNoticeType( "gg-close-o", 'Error icon', "otter-message-error" );
             break;
           case 'warning':
-            setItemsNoticeTypeToAddClassSetAttr( "gg-danger", 'Warning icon', "otter-message-warning" );
+            setItemsNoticeType( "gg-danger", 'Warning icon', "otter-message-warning" );
             break;
           case 'loading':
-            setItemsNoticeTypeToAddClassSetAttr( "gg-spinner", 'Loading icon', "otter-message-loading" );
+            setItemsNoticeType( "gg-spinner", 'Loading icon', "otter-message-loading" );
             break;
           default:
-            setItemsNoticeTypeToAddClassSetAttr( "gg-bell", 'Bell icon', "otter-message-default" );
+            setItemsNoticeType( "gg-bell", 'Bell icon', "otter-message-default" );
         }
-        function setItemsNoticeTypeToAddClassSetAttr( cls, desc, type ) {
+        function setItemsNoticeType( cls, desc, type ) {
           'use strict';
           icon.classList.add( cls );
           icon.setAttribute( 'aria-label', desc );
@@ -282,21 +279,21 @@
         itemContainer.append(spanContext);
         wrapper.append(itemContainer);
         container.append(wrapper);
-        function checkDataColorDataThemeSame() {
+        function checkColorThemeSame() {
           'use strict';
           return Boolean(items[order].dataColor === items[order].dataTheme);
         }
-        function checkDataColorUndefined() {
+        function checkColorUndefined() {
           'use strict';
           return Boolean(items[order].dataColor === undefined);
         }
-        if ( checkDataColorDataThemeSame() || checkDataColorUndefined() ) {
+        if ( checkColorThemeSame() || checkColorUndefined() ) {
           wrapper.removeAttribute('data-message-color');
           wrapper.removeAttribute('style');
         }
         document.querySelector(".otter-message div").appendChild(container);
         const element = trgElmn[order];
-        const MESSAGE_DELAY = element.dataset.loadingDelay ?? 3000;
+        const MESSAGE_DELAY = element.dataset.loadingDelay || 3000;
         setTimeout(() => { closeMessage() }, MESSAGE_DELAY);
         function closeMessage() {
           'use strict';
@@ -354,15 +351,6 @@
         const timeStr2 = time.getUTCMilliseconds();
         return `${timeStr1}:${timeStr2}`;
       }
-      function getActiveBtnElmn() {
-        'use strict';
-        return cntnrElmnt.querySelector('.otter-message-open');
-      }
-      function getActiveMessage() {
-        'use strict';
-        const activeElmn = document.querySelectorAll('.otter-message-notice');
-        return activeElmn[activeElmn.length - 1];
-      }
       function eventLog(mouseState, i) {
         'use strict';
         const loadBtnItemIdx = returnCheckValue(currentActiveTrigger.index);
@@ -375,9 +363,8 @@
         const loadMessageItemCls = ( mouseState === 'timeout' ) ? 'otter-move-up-leave' : 'otter-move-up-enter';
         const COUNT_LOADNING_DELAY = Number(returnCheckValue(currentActiveTrigger.delay, 3000));
         const loadMessageItemLoadingDelay = COUNT_LOADNING_DELAY.toLocaleString('en-US') || '3,000';
-        
         const itemContainer = makeHtmlElement('li', { class: 'log-item-message' });
-        const groopOfPairs = [
+        const groupOfPairs = [
           { id: 1, name: mouseState, class: 'trigger-specified' },
           { id: 2, name: getStringTime(), class: 'log-time' },
           { id: 3, name: loadBtnItemIdx, class: 'trigger-idx' },
@@ -391,7 +378,7 @@
           { id: 11, name: loadMessageItemLoadingDelay, class: 'message-delay' },
           { id: 12, name: 'Data is from recordLog()', class: 'previous-idx' }
         ]
-        const [item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12] = groopOfPairs.map((item) =>
+        const [item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12] = groupOfPairs.map((item) =>
           makeHtmlElement('span', { class: item.class }, { textContent: item.name })
         );
         itemContainer.append(item1, item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12);
