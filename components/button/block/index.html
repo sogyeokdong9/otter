@@ -7,50 +7,83 @@
   <link rel="stylesheet" href="./style/reset.css">
   <link rel="stylesheet" href="./style/reset.user.css">
   <link rel="stylesheet" href="./style/color.css">
+  <link rel="stylesheet" href="./style/space.css">
   <link rel="stylesheet" href="./style/button.css">
   <link rel="stylesheet" href="./style/style.css">
   <title>Block Button</title>
 </head>
 <body>
   <div class="wrap">
-    <button type="button" class="otter-btn otter-btn-block">
-      <span>Button</span>
-    </button>
-    <button type="button" class="otter-btn otter-btn-default otter-btn-block">
-      <span>Default Button</span>
-    </button>
-    <button type="button" class="otter-btn otter-btn-primary otter-btn-block">
-      <span>Primary Button</span>
-    </button>
-    <button type="button" class="otter-btn otter-btn-dashed otter-btn-block">
-      <span>Dashed Button</span>
-    </button>
-    <button type="button" class="otter-btn otter-btn-text otter-btn-block">
-      <span>Text Button</span>
-    </button>
-    <button type="button" class="otter-btn otter-btn-link otter-btn-block">
-      <span>Link Button</span>
-    </button>
+    <div style="padding: 40px 0;">
+      <div class="otter-space otter-space-block">
+        <div class="otter-space-item">
+          <button type="button" data-button-properties="block">
+            <span>Button</span>
+          </button>
+        </div>
+        <div class="otter-space-item">
+          <button type="button" data-button-type="default" data-button-properties="block">
+            <span>Default Button</span>
+          </button>
+        </div>
+        <div class="otter-space-item">
+          <button type="button" data-button-type="primary" data-button-properties="block">
+            <span>Primary Button</span>
+          </button>
+        </div>
+        <div class="otter-space-item">
+          <button type="button" data-button-type="dashed" data-button-properties="block">
+            <span>Dashed Button</span>
+          </button>
+        </div>
+        <div class="otter-space-item">
+          <button type="button" data-button-type="text" data-button-properties="block">
+            <span>Text Button</span>
+          </button>
+        </div>
+        <div class="otter-space-item">
+          <button type="button" data-button-type="link" data-button-properties="block">
+            <span>Link Button</span>
+          </button>
+        </div>
+        <!-- disabled: Process with a script. -->
+        <div class="otter-space-item">
+          <button type="button" data-button-properties="block">
+            <span>Button</span>
+          </button>
+        </div>
+        <div class="otter-space-item">
+          <button type="button" data-button-type="default" data-button-properties="block">
+            <span>Default Button</span>
+          </button>
+        </div>
+        <div class="otter-space-item">
+          <button type="button" data-button-type="primary" data-button-properties="block">
+            <span>Primary Button</span>
+          </button>
+        </div>
+        <div class="otter-space-item">
+          <button type="button" data-button-type="dashed" data-button-properties="block">
+            <span>Dashed Button</span>
+          </button>
+        </div>
+        <div class="otter-space-item">
+          <button type="button" data-button-type="text" data-button-properties="block">
+            <span>Text Button</span>
+          </button>
+        </div>
+        <div class="otter-space-item">
+          <button type="button" data-button-type="link" data-button-properties="block">
+            <span>Link Button</span>
+          </button>
+        </div>
+        <!-- //disabled -->
+      </div>
+    </div>
+    <ol class="event-log-button">
+      <!-- <li>log</li> -->
+    </ol>
   </div>
-  <div class="wrap">
-    <button type="button" class="otter-btn otter-btn-block" disabled>
-      <span>Button</span>
-    </button>
-    <button type="button" class="otter-btn otter-btn-default otter-btn-block" disabled>
-      <span>Default Button</span>
-    </button>
-    <button type="button" class="otter-btn otter-btn-primary otter-btn-block" disabled>
-      <span>Primary Button</span>
-    </button>
-    <button type="button" class="otter-btn otter-btn-dashed otter-btn-block" disabled>
-      <span>Dashed Button</span>
-    </button>
-    <button type="button" class="otter-btn otter-btn-text otter-btn-block" disabled>
-      <span>Text Button</span>
-    </button>
-    <button type="button" class="otter-btn otter-btn-link otter-btn-block" disabled>
-      <span>Link Button</span>
-    </button>
-  </div>
+  <script src="./script/button.js"></script>
 </body>
 </html>
