@@ -44,6 +44,8 @@
     function setClassToButtonType( trgt, cls, ...theArgs ) {
       trgt.classList.add( 'otter-btn', cls , ...theArgs );
     }
+    element.setAttribute('data-index-number', i + 1);
+    i > 5 ? element.setAttribute('disabled', '') : null;
     function returnCheckValue( val1, val2 = '-' ) {
       return val1 || val2;
     }
@@ -55,15 +57,15 @@
       const result = `${timeStr1}:${timeStr2}`;
       return result;
     }
-    function isButtonDisabled( obj ) {
-      return obj.hasAttribute('disabled') ? 'disabled' : '-';
-    }
+    // function isButtonDisabled( obj ) {
+    //   return obj.hasAttribute('disabled') ? 'disabled' : '-';
+    // }
     function logButton(info, idx) {
       'use strict';
-      const loadButtonItmeIdx = returnCheckValue( trgElmn[idx].getAttribute('data-index-number'), 0 );
-      const loadButtonItmeType = returnCheckValue( trgElmn[idx].getAttribute('data-button-type'), '-' );
-      const loadButtonItmeText = returnCheckValue( trgElmn[idx].innerText, '-' );
-      const loadButtonItmeDisabled = returnCheckValue( isButtonDisabled(trgElmn[idx]) );
+      const loadButtonItmeIdx = returnCheckValue( i + 1 );
+      const loadButtonItmeType = returnCheckValue( trgElmn[idx].getAttribute('data-button-type') );
+      const loadButtonItmeText = returnCheckValue( trgElmn[idx].innerText );
+      const loadButtonItmeDisabled = returnCheckValue( i > 5 ? 'disabled' : null );
       const groupOfPairs = [
         { id: 1, name: info, class: 'specified' },
         { id: 2, name: getStringTime(), class: 'log-time' },
@@ -81,6 +83,6 @@
       orizinElmn.push(element);
     }
   }
-  logElmnt.insertAdjacentHTML('beforebegin', '<p class="log-title-divider">Log: Button</p>');
+  logElmnt.insertAdjacentHTML('beforebegin', '<p class="log-title-button">Log: Button</p>');
   console.log(orizinElmn);
 })();
