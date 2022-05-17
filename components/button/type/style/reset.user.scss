@@ -222,6 +222,7 @@ hr:after {
   & .message-theme,
   & .dropdown-idx,
   & .dropdown-arrow,
+  & .trigger-blocked,
   & .trigger-disabled,
   & .trigger-idx,
   & .trigger-cls,
@@ -238,6 +239,8 @@ hr:after {
   & .trigger-loading-delay {
     text-align: right;
   }
+  & .trigger-blocked,
+  & .trigger-disabled,
   & .tooltip-idx,
   & .previous-idx,
   & .message-idx,
@@ -294,4 +297,8 @@ hr:after {
     padding-right: 20px;
     min-width: 115px;
   }
+}
+
+.event-log-button {
+  flex-direction: column;
 }

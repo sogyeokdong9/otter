@@ -21,27 +21,30 @@
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
     logButton('button', i);
-    const expr = element.dataset.buttonType;
-    switch (expr) {
+    const type = element.dataset.buttonType;
+    switch (type) {
       case 'default':
-        setClassToButtonType( element, 'otter-btn-default' );
+        setClassToButton( element, 'otter-btn-default' );
         break;
       case 'primary':
-        setClassToButtonType( element, 'otter-btn-primary' );
+        setClassToButton( element, 'otter-btn-primary' );
         break;
       case 'dashed':
-        setClassToButtonType( element, 'otter-btn-dashed' );
+        setClassToButton( element, 'otter-btn-dashed' );
         break;
       case 'text':
-        setClassToButtonType( element, 'otter-btn-text' );
+        setClassToButton( element, 'otter-btn-text' );
         break;
       case 'link':
-        setClassToButtonType( element, 'otter-btn-link' );
+        setClassToButton( element, 'otter-btn-link' );
         break;
       default:
-        setClassToButtonType( element, 'otter-btn-default' );
+        setClassToButton( element, 'otter-btn-default' );
     }
-    function setClassToButtonType( trgt, cls, ...theArgs ) {
+    if ( element.dataset.buttonBlock === 'true' ) {
+      setClassToButton( element, 'otter-btn-block' );
+    }
+    function setClassToButton( trgt, cls, ...theArgs ) {
       trgt.classList.add( 'otter-btn', cls , ...theArgs );
     }
     element.setAttribute('data-index-number', i + 1);
@@ -60,29 +63,33 @@
     // function isButtonDisabled( obj ) {
     //   return obj.hasAttribute('disabled') ? 'disabled' : '-';
     // }
+    function isButtonBlock( obj ) {
+      return obj.getAttribute('data-button-block') === 'true' ? 'block' : '(block)';
+    }
     function logButton(info, idx) {
       'use strict';
       const loadButtonItmeIdx = returnCheckValue( i + 1 );
-      const loadButtonItmeType = returnCheckValue( trgElmn[idx].getAttribute('data-button-type') );
-      const loadButtonItmeText = returnCheckValue( trgElmn[idx].innerText );
-      const loadButtonItmeDisabled = returnCheckValue( i > 5 ? 'disabled' : null );
+      const loadButtonItmeType = returnCheckValue( trgElmn[idx].getAttribute('data-button-type'), '(type)' );
+      const loadButtonItmeText = returnCheckValue( trgElmn[idx].innerText, '(context)' );
+      const loadButtonItmeDisabled = returnCheckValue( i > 5 ? 'disabled' : '(disabled)' );
+      const loadButtonItmeProperties = returnCheckValue( isButtonBlock( trgElmn[idx] ) );
       const groupOfPairs = [
         { id: 1, name: info, class: 'specified' },
         { id: 2, name: getStringTime(), class: 'log-time' },
         { id: 3, name: loadButtonItmeIdx, class: 'trigger-idx' },
         { id: 4, name: loadButtonItmeType, class: 'trigger-type' },
         { id: 5, name: loadButtonItmeText, class: 'trigger-cls' },
-        { id: 6, name: loadButtonItmeDisabled, class: 'trigger-disabled' }
+        { id: 6, name: loadButtonItmeDisabled, class: 'trigger-disabled' },
+        { id: 7, name: loadButtonItmeProperties, class: 'trigger-blocked' }
       ]
       const itemContainer = makeHtmlElement('li', { class: 'log-item-button' });
-      const [item1, item2, item3, item4, item5, item6] = groupOfPairs.map((item) =>
+      const [item1, item2, item3, item4, item5, item6, item7] = groupOfPairs.map((item) =>
         makeHtmlElement('span', { class: item.class }, { textContent: item.name })
       );
-      itemContainer.append(item1, item2, item3, item4, item5, item6);
+      itemContainer.append(item1, item2, item3, item4, item5, item6, item7);
       logElmnt.append(itemContainer);
       orizinElmn.push(element);
     }
   }
   logElmnt.insertAdjacentHTML('beforebegin', '<p class="log-title-button">Log: Button</p>');
-  console.log(orizinElmn);
 })();

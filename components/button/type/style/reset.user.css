@@ -399,6 +399,7 @@ hr:after {
 .log-item .message-theme,
 .log-item .dropdown-idx,
 .log-item .dropdown-arrow,
+.log-item .trigger-blocked,
 .log-item .trigger-disabled,
 .log-item .trigger-idx,
 .log-item .trigger-cls,
@@ -414,6 +415,7 @@ hr:after {
 .log-item-button .message-theme,
 .log-item-button .dropdown-idx,
 .log-item-button .dropdown-arrow,
+.log-item-button .trigger-blocked,
 .log-item-button .trigger-disabled,
 .log-item-button .trigger-idx,
 .log-item-button .trigger-cls,
@@ -429,6 +431,7 @@ hr:after {
 .log-item-message .message-theme,
 .log-item-message .dropdown-idx,
 .log-item-message .dropdown-arrow,
+.log-item-message .trigger-blocked,
 .log-item-message .trigger-disabled,
 .log-item-message .trigger-idx,
 .log-item-message .trigger-cls,
@@ -444,6 +447,7 @@ hr:after {
 .log-item-divider .message-theme,
 .log-item-divider .dropdown-idx,
 .log-item-divider .dropdown-arrow,
+.log-item-divider .trigger-blocked,
 .log-item-divider .trigger-disabled,
 .log-item-divider .trigger-idx,
 .log-item-divider .trigger-cls,
@@ -459,6 +463,7 @@ hr:after {
 .log-item-dropdown .message-theme,
 .log-item-dropdown .dropdown-idx,
 .log-item-dropdown .dropdown-arrow,
+.log-item-dropdown .trigger-blocked,
 .log-item-dropdown .trigger-disabled,
 .log-item-dropdown .trigger-idx,
 .log-item-dropdown .trigger-cls,
@@ -474,6 +479,7 @@ hr:after {
 .log-item-loading .message-theme,
 .log-item-loading .dropdown-idx,
 .log-item-loading .dropdown-arrow,
+.log-item-loading .trigger-blocked,
 .log-item-loading .trigger-disabled,
 .log-item-loading .trigger-idx,
 .log-item-loading .trigger-cls,
@@ -489,6 +495,7 @@ hr:after {
 .log-item-tooltip .message-theme,
 .log-item-tooltip .dropdown-idx,
 .log-item-tooltip .dropdown-arrow,
+.log-item-tooltip .trigger-blocked,
 .log-item-tooltip .trigger-disabled,
 .log-item-tooltip .trigger-idx,
 .log-item-tooltip .trigger-cls,
@@ -526,36 +533,50 @@ hr:after {
   text-align: right;
 }
 
+.log-item .trigger-blocked,
+.log-item .trigger-disabled,
 .log-item .tooltip-idx,
 .log-item .previous-idx,
 .log-item .message-idx,
 .log-item .dropdown-idx,
 .log-item .trigger-idx,
+.log-item-button .trigger-blocked,
+.log-item-button .trigger-disabled,
 .log-item-button .tooltip-idx,
 .log-item-button .previous-idx,
 .log-item-button .message-idx,
 .log-item-button .dropdown-idx,
 .log-item-button .trigger-idx,
+.log-item-message .trigger-blocked,
+.log-item-message .trigger-disabled,
 .log-item-message .tooltip-idx,
 .log-item-message .previous-idx,
 .log-item-message .message-idx,
 .log-item-message .dropdown-idx,
 .log-item-message .trigger-idx,
+.log-item-divider .trigger-blocked,
+.log-item-divider .trigger-disabled,
 .log-item-divider .tooltip-idx,
 .log-item-divider .previous-idx,
 .log-item-divider .message-idx,
 .log-item-divider .dropdown-idx,
 .log-item-divider .trigger-idx,
+.log-item-dropdown .trigger-blocked,
+.log-item-dropdown .trigger-disabled,
 .log-item-dropdown .tooltip-idx,
 .log-item-dropdown .previous-idx,
 .log-item-dropdown .message-idx,
 .log-item-dropdown .dropdown-idx,
 .log-item-dropdown .trigger-idx,
+.log-item-loading .trigger-blocked,
+.log-item-loading .trigger-disabled,
 .log-item-loading .tooltip-idx,
 .log-item-loading .previous-idx,
 .log-item-loading .message-idx,
 .log-item-loading .dropdown-idx,
 .log-item-loading .trigger-idx,
+.log-item-tooltip .trigger-blocked,
+.log-item-tooltip .trigger-disabled,
 .log-item-tooltip .tooltip-idx,
 .log-item-tooltip .previous-idx,
 .log-item-tooltip .message-idx,
@@ -767,5 +788,12 @@ hr:after {
 .log-item-tooltip span {
   padding-right: 20px;
   min-width: 115px;
+}
+
+.event-log-button {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 /*# sourceMappingURL=reset.user.css.map */
