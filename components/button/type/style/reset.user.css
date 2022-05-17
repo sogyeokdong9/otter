@@ -1,14 +1,37 @@
 @charset "UTF-8";
+@import url("https://css.gg/info.css");
+@import url("https://css.gg/check-o.css");
+@import url("https://css.gg/close-o.css");
+@import url("https://css.gg/danger.css");
+@import url("https://css.gg/spinner.css");
+@import url("https://css.gg/bell.css");
+@import url("https://css.gg/chevron-down.css");
+.gg-chevron-down,
+.gg-bell,
+.gg-spinner,
+.gg-danger,
+.gg-close-o,
+.gg-check-o,
+.gg-info {
+  /* This value will multiple the actual size  */
+  display: inline-block;
+  vertical-align: top;
+  --ggs: 0.8;
+}
+
 body {
-  margin: 0;
-  color: rgba(0, 0, 0, 0.85);
   font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-variant: tabular-nums;
-  line-height: 1.5715;
-  background-color: #fff;
   -webkit-font-feature-settings: 'tnum';
           font-feature-settings: 'tnum';
+  color: var(--otter-body-font);
+  line-height: 1.5715;
+}
+
+body {
+  margin: 0;
+  background-color: var(--otter-body-background);
 }
 
 a, area, button, [role='button'], input:not([type='range']), label, select, summary, textarea {
@@ -151,6 +174,8 @@ hr:after {
   margin: 1em 0;
 }
 
+.event-log-title-button,
+.event-log-title-message,
 .event-log-title-dropdown,
 .event-log-title-loading,
 .event-log-title-tooltip {
@@ -158,6 +183,8 @@ hr:after {
   margin: 1em 0;
 }
 
+.event-log-button,
+.event-log-message,
 .event-log-divider,
 .event-log-dropdown,
 .event-log-tooltip,
@@ -177,6 +204,8 @@ hr:after {
   padding: 0;
 }
 
+.event-log-button li,
+.event-log-message li,
 .event-log-divider li,
 .event-log-dropdown li,
 .event-log-tooltip li,
@@ -185,6 +214,8 @@ hr:after {
   counter-increment: count;
 }
 
+.event-log-button li::before,
+.event-log-message li::before,
 .event-log-divider li::before,
 .event-log-dropdown li::before,
 .event-log-tooltip li::before,
@@ -196,6 +227,8 @@ hr:after {
   color: var(--otter-ftbck-disable);
 }
 
+.event-log-button::after,
+.event-log-message::after,
 .event-log-divider::after,
 .event-log-dropdown::after,
 .event-log-tooltip::after,
@@ -205,6 +238,8 @@ hr:after {
 }
 
 .log-item,
+.log-item-button,
+.log-item-message,
 .log-item-divider,
 .log-item-dropdown,
 .log-item-loading,
@@ -218,6 +253,10 @@ hr:after {
 
 .log-item .now-class,
 .log-item .specified,
+.log-item-button .now-class,
+.log-item-button .specified,
+.log-item-message .now-class,
+.log-item-message .specified,
 .log-item-divider .now-class,
 .log-item-divider .specified,
 .log-item-dropdown .now-class,
@@ -229,23 +268,10 @@ hr:after {
   color: var(--otter-ftbck-primary-text);
 }
 
-.log-item .dropdown-arrow,
-.log-item .log-time,
-.log-item-divider .dropdown-arrow,
-.log-item-divider .log-time,
-.log-item-dropdown .dropdown-arrow,
-.log-item-dropdown .log-time,
-.log-item-loading .dropdown-arrow,
-.log-item-loading .log-time,
-.log-item-tooltip .dropdown-arrow,
-.log-item-tooltip .log-time {
-  min-width: 150px;
-  color: var(--otter-ftbck-disable);
-}
-
 .log-item .tooltip-arrow,
 .log-item .tooltip-txt,
-.log-item .tooltip-idx,
+.log-item .message-idx,
+.log-item .message-txt,
 .log-item .dropdown-idx,
 .log-item .dropdown-txt,
 .log-item .trigger-idx,
@@ -254,15 +280,49 @@ hr:after {
 .log-item .trigger-style,
 .log-item .trigger-specified,
 .log-item .trigger-orientation,
-.log-item .trigger-plc,
-.log-item .trigger-cls,
+.log-item .trigger-orientation-margin,
 .log-item .is-checked-danger,
 .log-item .is-checked-disabled,
 .log-item .is-checked-block,
 .log-item .changed-class,
+.log-item-button .tooltip-arrow,
+.log-item-button .tooltip-txt,
+.log-item-button .message-idx,
+.log-item-button .message-txt,
+.log-item-button .dropdown-idx,
+.log-item-button .dropdown-txt,
+.log-item-button .trigger-idx,
+.log-item-button .trigger-txt,
+.log-item-button .trigger-type,
+.log-item-button .trigger-style,
+.log-item-button .trigger-specified,
+.log-item-button .trigger-orientation,
+.log-item-button .trigger-orientation-margin,
+.log-item-button .is-checked-danger,
+.log-item-button .is-checked-disabled,
+.log-item-button .is-checked-block,
+.log-item-button .changed-class,
+.log-item-message .tooltip-arrow,
+.log-item-message .tooltip-txt,
+.log-item-message .message-idx,
+.log-item-message .message-txt,
+.log-item-message .dropdown-idx,
+.log-item-message .dropdown-txt,
+.log-item-message .trigger-idx,
+.log-item-message .trigger-txt,
+.log-item-message .trigger-type,
+.log-item-message .trigger-style,
+.log-item-message .trigger-specified,
+.log-item-message .trigger-orientation,
+.log-item-message .trigger-orientation-margin,
+.log-item-message .is-checked-danger,
+.log-item-message .is-checked-disabled,
+.log-item-message .is-checked-block,
+.log-item-message .changed-class,
 .log-item-divider .tooltip-arrow,
 .log-item-divider .tooltip-txt,
-.log-item-divider .tooltip-idx,
+.log-item-divider .message-idx,
+.log-item-divider .message-txt,
 .log-item-divider .dropdown-idx,
 .log-item-divider .dropdown-txt,
 .log-item-divider .trigger-idx,
@@ -271,15 +331,15 @@ hr:after {
 .log-item-divider .trigger-style,
 .log-item-divider .trigger-specified,
 .log-item-divider .trigger-orientation,
-.log-item-divider .trigger-plc,
-.log-item-divider .trigger-cls,
+.log-item-divider .trigger-orientation-margin,
 .log-item-divider .is-checked-danger,
 .log-item-divider .is-checked-disabled,
 .log-item-divider .is-checked-block,
 .log-item-divider .changed-class,
 .log-item-dropdown .tooltip-arrow,
 .log-item-dropdown .tooltip-txt,
-.log-item-dropdown .tooltip-idx,
+.log-item-dropdown .message-idx,
+.log-item-dropdown .message-txt,
 .log-item-dropdown .dropdown-idx,
 .log-item-dropdown .dropdown-txt,
 .log-item-dropdown .trigger-idx,
@@ -288,15 +348,15 @@ hr:after {
 .log-item-dropdown .trigger-style,
 .log-item-dropdown .trigger-specified,
 .log-item-dropdown .trigger-orientation,
-.log-item-dropdown .trigger-plc,
-.log-item-dropdown .trigger-cls,
+.log-item-dropdown .trigger-orientation-margin,
 .log-item-dropdown .is-checked-danger,
 .log-item-dropdown .is-checked-disabled,
 .log-item-dropdown .is-checked-block,
 .log-item-dropdown .changed-class,
 .log-item-loading .tooltip-arrow,
 .log-item-loading .tooltip-txt,
-.log-item-loading .tooltip-idx,
+.log-item-loading .message-idx,
+.log-item-loading .message-txt,
 .log-item-loading .dropdown-idx,
 .log-item-loading .dropdown-txt,
 .log-item-loading .trigger-idx,
@@ -305,15 +365,15 @@ hr:after {
 .log-item-loading .trigger-style,
 .log-item-loading .trigger-specified,
 .log-item-loading .trigger-orientation,
-.log-item-loading .trigger-plc,
-.log-item-loading .trigger-cls,
+.log-item-loading .trigger-orientation-margin,
 .log-item-loading .is-checked-danger,
 .log-item-loading .is-checked-disabled,
 .log-item-loading .is-checked-block,
 .log-item-loading .changed-class,
 .log-item-tooltip .tooltip-arrow,
 .log-item-tooltip .tooltip-txt,
-.log-item-tooltip .tooltip-idx,
+.log-item-tooltip .message-idx,
+.log-item-tooltip .message-txt,
 .log-item-tooltip .dropdown-idx,
 .log-item-tooltip .dropdown-txt,
 .log-item-tooltip .trigger-idx,
@@ -322,8 +382,7 @@ hr:after {
 .log-item-tooltip .trigger-style,
 .log-item-tooltip .trigger-specified,
 .log-item-tooltip .trigger-orientation,
-.log-item-tooltip .trigger-plc,
-.log-item-tooltip .trigger-cls,
+.log-item-tooltip .trigger-orientation-margin,
 .log-item-tooltip .is-checked-danger,
 .log-item-tooltip .is-checked-disabled,
 .log-item-tooltip .is-checked-block,
@@ -331,7 +390,182 @@ hr:after {
   color: var(--otter-ftbck-secondary-text);
 }
 
+.log-item .tooltip-idx,
+.log-item .previous-idx,
+.log-item .message-idx,
+.log-item .message-cls,
+.log-item .message-delay,
+.log-item .message-theme,
+.log-item .dropdown-idx,
+.log-item .dropdown-arrow,
+.log-item .trigger-disabled,
+.log-item .trigger-idx,
+.log-item .trigger-cls,
+.log-item .trigger-plc,
+.log-item .trigger-loading-delay,
+.log-item .trigger-loading,
+.log-item .log-time,
+.log-item-button .tooltip-idx,
+.log-item-button .previous-idx,
+.log-item-button .message-idx,
+.log-item-button .message-cls,
+.log-item-button .message-delay,
+.log-item-button .message-theme,
+.log-item-button .dropdown-idx,
+.log-item-button .dropdown-arrow,
+.log-item-button .trigger-disabled,
+.log-item-button .trigger-idx,
+.log-item-button .trigger-cls,
+.log-item-button .trigger-plc,
+.log-item-button .trigger-loading-delay,
+.log-item-button .trigger-loading,
+.log-item-button .log-time,
+.log-item-message .tooltip-idx,
+.log-item-message .previous-idx,
+.log-item-message .message-idx,
+.log-item-message .message-cls,
+.log-item-message .message-delay,
+.log-item-message .message-theme,
+.log-item-message .dropdown-idx,
+.log-item-message .dropdown-arrow,
+.log-item-message .trigger-disabled,
+.log-item-message .trigger-idx,
+.log-item-message .trigger-cls,
+.log-item-message .trigger-plc,
+.log-item-message .trigger-loading-delay,
+.log-item-message .trigger-loading,
+.log-item-message .log-time,
+.log-item-divider .tooltip-idx,
+.log-item-divider .previous-idx,
+.log-item-divider .message-idx,
+.log-item-divider .message-cls,
+.log-item-divider .message-delay,
+.log-item-divider .message-theme,
+.log-item-divider .dropdown-idx,
+.log-item-divider .dropdown-arrow,
+.log-item-divider .trigger-disabled,
+.log-item-divider .trigger-idx,
+.log-item-divider .trigger-cls,
+.log-item-divider .trigger-plc,
+.log-item-divider .trigger-loading-delay,
+.log-item-divider .trigger-loading,
+.log-item-divider .log-time,
+.log-item-dropdown .tooltip-idx,
+.log-item-dropdown .previous-idx,
+.log-item-dropdown .message-idx,
+.log-item-dropdown .message-cls,
+.log-item-dropdown .message-delay,
+.log-item-dropdown .message-theme,
+.log-item-dropdown .dropdown-idx,
+.log-item-dropdown .dropdown-arrow,
+.log-item-dropdown .trigger-disabled,
+.log-item-dropdown .trigger-idx,
+.log-item-dropdown .trigger-cls,
+.log-item-dropdown .trigger-plc,
+.log-item-dropdown .trigger-loading-delay,
+.log-item-dropdown .trigger-loading,
+.log-item-dropdown .log-time,
+.log-item-loading .tooltip-idx,
+.log-item-loading .previous-idx,
+.log-item-loading .message-idx,
+.log-item-loading .message-cls,
+.log-item-loading .message-delay,
+.log-item-loading .message-theme,
+.log-item-loading .dropdown-idx,
+.log-item-loading .dropdown-arrow,
+.log-item-loading .trigger-disabled,
+.log-item-loading .trigger-idx,
+.log-item-loading .trigger-cls,
+.log-item-loading .trigger-plc,
+.log-item-loading .trigger-loading-delay,
+.log-item-loading .trigger-loading,
+.log-item-loading .log-time,
+.log-item-tooltip .tooltip-idx,
+.log-item-tooltip .previous-idx,
+.log-item-tooltip .message-idx,
+.log-item-tooltip .message-cls,
+.log-item-tooltip .message-delay,
+.log-item-tooltip .message-theme,
+.log-item-tooltip .dropdown-idx,
+.log-item-tooltip .dropdown-arrow,
+.log-item-tooltip .trigger-disabled,
+.log-item-tooltip .trigger-idx,
+.log-item-tooltip .trigger-cls,
+.log-item-tooltip .trigger-plc,
+.log-item-tooltip .trigger-loading-delay,
+.log-item-tooltip .trigger-loading,
+.log-item-tooltip .log-time {
+  color: var(--otter-ftbck-disable);
+}
+
+.log-item .trigger-orientation-margin,
+.log-item-button .trigger-orientation-margin,
+.log-item-message .trigger-orientation-margin,
+.log-item-divider .trigger-orientation-margin,
+.log-item-dropdown .trigger-orientation-margin,
+.log-item-loading .trigger-orientation-margin,
+.log-item-tooltip .trigger-orientation-margin {
+  text-align: left;
+}
+
+.log-item .message-delay,
+.log-item .trigger-loading-delay,
+.log-item-button .message-delay,
+.log-item-button .trigger-loading-delay,
+.log-item-message .message-delay,
+.log-item-message .trigger-loading-delay,
+.log-item-divider .message-delay,
+.log-item-divider .trigger-loading-delay,
+.log-item-dropdown .message-delay,
+.log-item-dropdown .trigger-loading-delay,
+.log-item-loading .message-delay,
+.log-item-loading .trigger-loading-delay,
+.log-item-tooltip .message-delay,
+.log-item-tooltip .trigger-loading-delay {
+  text-align: right;
+}
+
+.log-item .tooltip-idx,
+.log-item .previous-idx,
+.log-item .message-idx,
+.log-item .dropdown-idx,
+.log-item .trigger-idx,
+.log-item-button .tooltip-idx,
+.log-item-button .previous-idx,
+.log-item-button .message-idx,
+.log-item-button .dropdown-idx,
+.log-item-button .trigger-idx,
+.log-item-message .tooltip-idx,
+.log-item-message .previous-idx,
+.log-item-message .message-idx,
+.log-item-message .dropdown-idx,
+.log-item-message .trigger-idx,
+.log-item-divider .tooltip-idx,
+.log-item-divider .previous-idx,
+.log-item-divider .message-idx,
+.log-item-divider .dropdown-idx,
+.log-item-divider .trigger-idx,
+.log-item-dropdown .tooltip-idx,
+.log-item-dropdown .previous-idx,
+.log-item-dropdown .message-idx,
+.log-item-dropdown .dropdown-idx,
+.log-item-dropdown .trigger-idx,
+.log-item-loading .tooltip-idx,
+.log-item-loading .previous-idx,
+.log-item-loading .message-idx,
+.log-item-loading .dropdown-idx,
+.log-item-loading .trigger-idx,
+.log-item-tooltip .tooltip-idx,
+.log-item-tooltip .previous-idx,
+.log-item-tooltip .message-idx,
+.log-item-tooltip .dropdown-idx,
+.log-item-tooltip .trigger-idx {
+  text-align: center;
+}
+
 .log-item .tooltip-arrow,
+.log-item-button .tooltip-arrow,
+.log-item-message .tooltip-arrow,
 .log-item-divider .tooltip-arrow,
 .log-item-dropdown .tooltip-arrow,
 .log-item-loading .tooltip-arrow,
@@ -339,16 +573,29 @@ hr:after {
   min-width: 270px;
 }
 
+.log-item .message-txt,
 .log-item .dropdown-txt,
+.log-item-button .message-txt,
+.log-item-button .dropdown-txt,
+.log-item-message .message-txt,
+.log-item-message .dropdown-txt,
+.log-item-divider .message-txt,
 .log-item-divider .dropdown-txt,
+.log-item-dropdown .message-txt,
 .log-item-dropdown .dropdown-txt,
+.log-item-loading .message-txt,
 .log-item-loading .dropdown-txt,
+.log-item-tooltip .message-txt,
 .log-item-tooltip .dropdown-txt {
   min-width: 385px;
 }
 
 .log-item .tooltip-txt,
 .log-item .trigger-txt,
+.log-item-button .tooltip-txt,
+.log-item-button .trigger-txt,
+.log-item-message .tooltip-txt,
+.log-item-message .trigger-txt,
 .log-item-divider .tooltip-txt,
 .log-item-divider .trigger-txt,
 .log-item-dropdown .tooltip-txt,
@@ -360,23 +607,46 @@ hr:after {
   min-width: 205px;
 }
 
+.log-item .message-cls,
 .log-item .trigger-cls,
+.log-item-button .message-cls,
+.log-item-button .trigger-cls,
+.log-item-message .message-cls,
+.log-item-message .trigger-cls,
+.log-item-divider .message-cls,
 .log-item-divider .trigger-cls,
+.log-item-dropdown .message-cls,
 .log-item-dropdown .trigger-cls,
+.log-item-loading .message-cls,
 .log-item-loading .trigger-cls,
+.log-item-tooltip .message-cls,
 .log-item-tooltip .trigger-cls {
   min-width: 165px;
 }
 
+.log-item .dropdown-arrow,
+.log-item-button .dropdown-arrow,
+.log-item-message .dropdown-arrow,
+.log-item-divider .dropdown-arrow,
+.log-item-dropdown .dropdown-arrow,
+.log-item-loading .dropdown-arrow,
+.log-item-tooltip .dropdown-arrow {
+  min-width: 150x;
+}
+
 .log-item .log-time,
+.log-item-button .log-time,
+.log-item-message .log-time,
 .log-item-divider .log-time,
 .log-item-dropdown .log-time,
 .log-item-loading .log-time,
 .log-item-tooltip .log-time {
-  min-width: 150px;
+  min-width: 140px;
 }
 
 .log-item .trigger-type,
+.log-item-button .trigger-type,
+.log-item-message .trigger-type,
 .log-item-divider .trigger-type,
 .log-item-dropdown .trigger-type,
 .log-item-loading .trigger-type,
@@ -384,18 +654,31 @@ hr:after {
   min-width: 105px;
 }
 
+.log-item .message-theme,
 .log-item .trigger-orientation,
 .log-item .trigger-specified,
 .log-item .trigger-style,
+.log-item-button .message-theme,
+.log-item-button .trigger-orientation,
+.log-item-button .trigger-specified,
+.log-item-button .trigger-style,
+.log-item-message .message-theme,
+.log-item-message .trigger-orientation,
+.log-item-message .trigger-specified,
+.log-item-message .trigger-style,
+.log-item-divider .message-theme,
 .log-item-divider .trigger-orientation,
 .log-item-divider .trigger-specified,
 .log-item-divider .trigger-style,
+.log-item-dropdown .message-theme,
 .log-item-dropdown .trigger-orientation,
 .log-item-dropdown .trigger-specified,
 .log-item-dropdown .trigger-style,
+.log-item-loading .message-theme,
 .log-item-loading .trigger-orientation,
 .log-item-loading .trigger-specified,
 .log-item-loading .trigger-style,
+.log-item-tooltip .message-theme,
 .log-item-tooltip .trigger-orientation,
 .log-item-tooltip .trigger-specified,
 .log-item-tooltip .trigger-style {
@@ -403,60 +686,80 @@ hr:after {
 }
 
 .log-item .trigger-orientation-margin,
-.log-item-divider .trigger-orientation-margin,
-.log-item-dropdown .trigger-orientation-margin,
-.log-item-loading .trigger-orientation-margin,
-.log-item-tooltip .trigger-orientation-margin {
-  min-width: 75px;
-  text-align: left;
-  color: var(--otter-ftbck-secondary-text);
-}
-
 .log-item .trigger-loading-delay,
+.log-item .message-delay,
+.log-item-button .trigger-orientation-margin,
+.log-item-button .trigger-loading-delay,
+.log-item-button .message-delay,
+.log-item-message .trigger-orientation-margin,
+.log-item-message .trigger-loading-delay,
+.log-item-message .message-delay,
+.log-item-divider .trigger-orientation-margin,
 .log-item-divider .trigger-loading-delay,
+.log-item-divider .message-delay,
+.log-item-dropdown .trigger-orientation-margin,
 .log-item-dropdown .trigger-loading-delay,
+.log-item-dropdown .message-delay,
+.log-item-loading .trigger-orientation-margin,
 .log-item-loading .trigger-loading-delay,
-.log-item-tooltip .trigger-loading-delay {
+.log-item-loading .message-delay,
+.log-item-tooltip .trigger-orientation-margin,
+.log-item-tooltip .trigger-loading-delay,
+.log-item-tooltip .message-delay {
   min-width: 75px;
-  text-align: right;
-  color: var(--otter-ftbck-disable);
 }
 
 .log-item .trigger-loading,
+.log-item-button .trigger-loading,
+.log-item-message .trigger-loading,
 .log-item-divider .trigger-loading,
 .log-item-dropdown .trigger-loading,
 .log-item-loading .trigger-loading,
 .log-item-tooltip .trigger-loading {
   min-width: 55px;
-  color: var(--otter-ftbck-disable);
 }
 
 .log-item .tooltip-idx,
 .log-item .previous-idx,
+.log-item .message-idx,
 .log-item .dropdown-idx,
 .log-item .trigger-idx,
+.log-item-button .tooltip-idx,
+.log-item-button .previous-idx,
+.log-item-button .message-idx,
+.log-item-button .dropdown-idx,
+.log-item-button .trigger-idx,
+.log-item-message .tooltip-idx,
+.log-item-message .previous-idx,
+.log-item-message .message-idx,
+.log-item-message .dropdown-idx,
+.log-item-message .trigger-idx,
 .log-item-divider .tooltip-idx,
 .log-item-divider .previous-idx,
+.log-item-divider .message-idx,
 .log-item-divider .dropdown-idx,
 .log-item-divider .trigger-idx,
 .log-item-dropdown .tooltip-idx,
 .log-item-dropdown .previous-idx,
+.log-item-dropdown .message-idx,
 .log-item-dropdown .dropdown-idx,
 .log-item-dropdown .trigger-idx,
 .log-item-loading .tooltip-idx,
 .log-item-loading .previous-idx,
+.log-item-loading .message-idx,
 .log-item-loading .dropdown-idx,
 .log-item-loading .trigger-idx,
 .log-item-tooltip .tooltip-idx,
 .log-item-tooltip .previous-idx,
+.log-item-tooltip .message-idx,
 .log-item-tooltip .dropdown-idx,
 .log-item-tooltip .trigger-idx {
   min-width: 40px;
-  color: var(--otter-ftbck-disable);
-  text-align: center;
 }
 
 .log-item span,
+.log-item-button span,
+.log-item-message span,
 .log-item-divider span,
 .log-item-dropdown span,
 .log-item-loading span,

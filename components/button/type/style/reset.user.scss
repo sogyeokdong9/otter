@@ -1,14 +1,39 @@
 @charset "utf-8";
 
-body {
-  margin: 0;
-  color: rgba(0, 0, 0, 0.85);
+@import url('https://css.gg/info.css');
+@import url('https://css.gg/check-o.css');
+@import url('https://css.gg/close-o.css');
+@import url('https://css.gg/danger.css');
+@import url('https://css.gg/spinner.css');
+@import url('https://css.gg/bell.css');
+@import url('https://css.gg/chevron-down.css');
+
+.gg-chevron-down,
+.gg-bell,
+.gg-spinner,
+.gg-danger,
+.gg-close-o,
+.gg-check-o,
+.gg-info {
+  /* This value will multiple the actual size  */
+  display: inline-block;
+  vertical-align: top;
+  --ggs: 0.8;
+}
+
+%otter-body-font {
   font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   font-variant: tabular-nums;
-  line-height: 1.5715;
-  background-color: #fff;
   font-feature-settings: 'tnum';
+  color: var(--otter-body-font);
+  line-height: 1.5715;
+}
+
+body {
+  margin: 0;
+  @extend %otter-body-font;
+  background-color: var(--otter-body-background);
 }
 
 a, area, button, [role='button'], input:not([type='range']), label, select, summary, textarea {
@@ -122,12 +147,16 @@ hr:after {
 .log-title-divider {
   margin: 1em 0;
 }
+.event-log-title-button,
+.event-log-title-message,
 .event-log-title-dropdown,
 .event-log-title-loading,
 .event-log-title-tooltip {
   display: none;
   margin: 1em 0;
 }
+.event-log-button,
+.event-log-message,
 .event-log-divider,
 .event-log-dropdown,
 .event-log-tooltip,
@@ -153,6 +182,8 @@ hr:after {
   }
 }
 .log-item,
+.log-item-button,
+.log-item-message,
 .log-item-divider,
 .log-item-dropdown,
 .log-item-loading,
@@ -163,14 +194,10 @@ hr:after {
   & .specified {
     color: var(--otter-ftbck-primary-text);
   }
-  & .dropdown-arrow,
-  & .log-time {
-    min-width: 150px;
-    color: var(--otter-ftbck-disable);
-  }
   & .tooltip-arrow,
   & .tooltip-txt,
-  & .tooltip-idx,
+  & .message-idx,
+  & .message-txt,
   & .dropdown-idx,
   & .dropdown-txt,
   & .trigger-idx,
@@ -179,17 +206,48 @@ hr:after {
   & .trigger-style,
   & .trigger-specified,
   & .trigger-orientation,
-  & .trigger-plc,
-  & .trigger-cls,
+  & .trigger-orientation-margin,
   & .is-checked-danger,
   & .is-checked-disabled,
   & .is-checked-block,
   & .changed-class {
     color: var(--otter-ftbck-secondary-text);
   }
+  & .tooltip-idx,
+  & .previous-idx,
+  & .message-idx,
+  & .message-cls,
+  & .message-delay,
+  & .message-theme,
+  & .dropdown-idx,
+  & .dropdown-arrow,
+  & .trigger-disabled,
+  & .trigger-idx,
+  & .trigger-cls,
+  & .trigger-plc,
+  & .trigger-loading-delay,
+  & .trigger-loading,
+  & .log-time {
+    color: var(--otter-ftbck-disable);
+  }
+  & .trigger-orientation-margin {
+    text-align: left;
+  }
+  & .message-delay,
+  & .trigger-loading-delay {
+    text-align: right;
+  }
+  & .tooltip-idx,
+  & .previous-idx,
+  & .message-idx,
+  & .dropdown-idx,
+  & .trigger-idx {
+    text-align: center;
+  }
   & .tooltip-arrow {
     min-width: 270px;
   }
+  & .message-txt,
   & .dropdown-txt {
     min-width: 385px;
   }
@@ -197,41 +255,39 @@ hr:after {
   & .trigger-txt {
     min-width: 205px;
   }
+  & .message-cls,
   & .trigger-cls {
     min-width: 165px;
   }
+  & .dropdown-arrow {
+    min-width: 150x;
+  }
   & .log-time {
-    min-width: 150px;
+    min-width: 140px;
   }
   & .trigger-type {
     min-width: 105px;
   }
+  & .message-theme,
   & .trigger-orientation,
   & .trigger-specified,
   & .trigger-style {
     min-width: 80px;
   }
-  & .trigger-orientation-margin {
+  & .trigger-orientation-margin,
+  & .trigger-loading-delay,
+  & .message-delay {
     min-width: 75px;
-    text-align: left;
-    color: var(--otter-ftbck-secondary-text);
-  }
-  & .trigger-loading-delay {
-    min-width: 75px;
-    text-align: right;
-    color: var(--otter-ftbck-disable);
   }
   & .trigger-loading {
     min-width: 55px;
-    color: var(--otter-ftbck-disable);
   }
   & .tooltip-idx,
   & .previous-idx,
+  & .message-idx,
   & .dropdown-idx,
   & .trigger-idx {
     min-width: 40px;
-    color: var(--otter-ftbck-disable);
-    text-align: center;
   }
   span {
     padding-right: 20px;

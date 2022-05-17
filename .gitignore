@@ -9,3 +9,17 @@ components/button/type/style/style.css.map
 components/dropdown/placement/script/createDropdownMenu_.js
 components/message/normal-prompt/script/message_.js
 components/message/normal-prompt/script/CreateMessage_.js
+components/message/promise-interface/style/style.scss
+components/message/promise-interface/style/style.css
+components/message/promise-interface/style/reset.user.scss
+components/message/promise-interface/style/reset.user.css
+components/message/promise-interface/style/reset.css
+components/message/promise-interface/style/message.scss
+components/message/promise-interface/style/message.css
+components/message/promise-interface/style/color.scss
+components/message/promise-interface/style/color.css
+components/message/promise-interface/style/button.css
+components/message/promise-interface/style/animation.scss
+components/message/promise-interface/style/animation.css
+components/message/promise-interface/script/message.js
+components/message/promise-interface/index.html
