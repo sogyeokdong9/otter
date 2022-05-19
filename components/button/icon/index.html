@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./style/reset.css">
   <link rel="stylesheet" href="./style/reset.user.css">
   <link rel="stylesheet" href="./style/color.css">
+  <link rel="stylesheet" href="./style/space.css">
   <link rel="stylesheet" href="./style/button.css">
   <link rel="stylesheet" href="./style/tooltip.css">
   <link rel="stylesheet" href="./style/animation.css">
@@ -15,90 +16,95 @@
 </head>
 <body>
   <div class="wrap">
-    <div style="margin: 0.5em">
-      <button type="button" class="otter-btn otter-btn-circle otter-btn-primary otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="1" data-placement="topLeft">
-        <span data-tooltip="Search. One"><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-circle otter-btn-primary"><span>A</span></button>
-      <button type="button" class="otter-btn otter-btn-primary">
-        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-        <span>Search</span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-circle otter-btn-default otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="2">
-        <span data-tooltip="Search. Two"><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-default">
-        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-        <span>Search</span>
-      </button>
+    <div style="padding: 80px 0;">
+      <div class="otter-space otter-space-flex otter-space-vertical otter-space-align-center otter-space-vertical-gap-8">
+        <div class="otter-space-item">
+          <div class="otter-space otter-space-horizontal otter-space-align-center otter-space-horizontal-gap-8">
+            <div class="otter-space-item">
+              <button type="button" data-button-type="primary" data-button-shape="circle" data-button-trigger="tooltip" data-tooltip-title="Search. One" data-button-icon="search"></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="primary" data-button-shape="circle"><span>A</span></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="primary" data-button-icon="search"><span>Search</span></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="default" data-button-shape="circle" data-button-trigger="tooltip" data-tooltip-title="Search. Two" data-button-icon="search"></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="default" data-button-icon="search"><span>Search</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="otter-space-item">
+          <div class="otter-space otter-space-horizontal otter-space-align-center otter-space-horizontal-gap-8">
+            <div class="otter-space-item">
+              <button type="button" data-button-type="primary" data-button-shape="circle" data-button-trigger="tooltip" data-tooltip-title="Search. Three" data-button-icon="search" disabled></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="primary" data-button-shape="circle" disabled><span>A</span></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="primary" data-button-icon="search" disabled><span>Search</span></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="default" data-button-shape="circle" data-button-trigger="tooltip" data-tooltip-title="Search. Four" data-button-icon="search" disabled></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="default" data-button-icon="search" disabled><span>Search</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="otter-space-item">
+          <div class="otter-space otter-space-horizontal otter-space-align-center otter-space-horizontal-gap-8">
+            <div class="otter-space-item">
+              <button type="button" data-button-type="primary" data-button-shape="circle" data-button-trigger="tooltip" data-tooltip-title="Search. Five" data-button-icon="search"></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="primary" data-button-icon="search"><span>Search</span></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="dashed" data-button-shape="circle" data-button-trigger="tooltip" data-tooltip-title="Search. Six" data-button-icon="search"></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="dashed" data-button-icon="search"><span>Search</span></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="default" data-button-trigger="tooltip" data-tooltip-title="Go to Google" data-button-icon="google" data-button-link="http://www.google.com/search"></button>
+            </div>
+          </div>
+        </div>
+        <div class="otter-space-item">
+          <div class="otter-space otter-space-horizontal otter-space-align-center otter-space-horizontal-gap-8">
+            <div class="otter-space-item">
+              <button type="button" data-button-type="default" data-button-shape="circle" data-button-trigger="tooltip" data-tooltip-title="Search. Eight" data-button-icon="search" disabled></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="default" data-button-icon="search" disabled><span>Search</span></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="dashed" data-button-shape="circle" data-button-trigger="tooltip" data-tooltip-title="Search. Nine" data-button-icon="search" disabled></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="dashed" data-button-icon="search" disabled><span>Search</span></button>
+            </div>
+            <div class="otter-space-item">
+              <button type="button" data-button-type="default" data-button-trigger="tooltip" data-tooltip-title="Search. Ten" data-button-icon="search" disabled></button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div style="margin: 0.5em">
-      <button type="button" class="otter-btn otter-btn-circle otter-btn-primary otter-btn-icon-only"  disabled>
-        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-circle otter-btn-primary" disabled>
-        <span>A</span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-primary" disabled>
-        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-        <span>Search</span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-circle otter-btn-default otter-btn-icon-only" disabled>
-        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-default" disabled>
-        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-        <span>Search</span>
-      </button>
-    </div>
-    <div style="margin: 0.5em">
-      <button type="button" class="otter-btn otter-btn-circle otter-btn-default otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="3" data-placement="topLeft">
-        <span data-tooltip="Search. Three"><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-default">
-        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-        <span>Search</span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-circle otter-btn-dashed otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="4" data-placement="top">
-        <span data-tooltip="Search. Four"><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-dashed">
-        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-        <span>Search</span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-default otter-btn-icon-only otter-tooltip-trigger otter-tooltip-link otter-tooltip-close" data-index-number="5" data-placement="topRight">
-        <span data-tooltip="Search. Five"><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-        <span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="display of tooltip state that open or close" aria-expanded="false">&#8744;</span>
-      </button>
-    </div>
-    <div style="margin: 0.5em">
-      <button type="button" class="otter-btn otter-btn-circle otter-btn-default otter-btn-icon-only" disabled>
-        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-default" disabled>
-        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-        <span>Search</span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-circle otter-btn-dashed otter-btn-icon-only" disabled>
-        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-dashed" disabled>
-        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-        <span>Search</span>
-      </button>
-      <button type="button" class="otter-btn otter-btn-default otter-btn-icon-only" disabled>
-        <span><i class="ottericon magnifying-glass" role="img" aria-label="Magnifier-shaped search icon"></i></span>
-      </button>
-    </div>
-    <ol class="event-log">
+    <ol class="event-log-tooltip">
+      <!-- <li>log</li> -->
+    </ol>
+    <ol class="event-log-button">
       <!-- <li>log</li> -->
     </ol>
   </div>
   <!-- Dynamically generate data -->
+  <script src="./script/button.js"></script>
   <script src="./script/createTooltip.js"></script>
   <script src="./script/script.js"></script>
 </body>

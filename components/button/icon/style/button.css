@@ -350,6 +350,10 @@
   border-radius: 50%;
 }
 
+.otter-btn span + span {
+  margin-left: 8px;
+}
+
 .magnifying-glass {
   position: relative;
   top: -0.0725em;

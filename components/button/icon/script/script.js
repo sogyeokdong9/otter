@@ -4,6 +4,7 @@
   const cntnrElmnt = document.querySelector('.wrap');
   const trgElmn = cntnrElmnt.querySelectorAll('.otter-tooltip-trigger');
   const tooltip = document.querySelectorAll('.otter-tooltip');
+  const logElmnt = cntnrElmnt.querySelector('.event-log-tooltip');
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
     element.addEventListener('mouseenter', function() {
@@ -275,6 +276,9 @@
       const element = logCurrentArray[i];
       logPreviousArray[i] = element;
     }
+    if (logAllArray.length > 0) { 
+      document.querySelector('.event-log-title-tooltip').style.display = 'block';
+    }
     logPreviousArray.unshift( '-' );
     logPreviousArray.pop();
     const result = logPreviousArray;
@@ -317,7 +321,6 @@
     const loadTooltipItemText = getActiveTooltip().innerText.replace(/\n\r?/g, '/');
     const loadTooltipItemIdx = getActiveTooltip().getAttribute('data-index-number');
     const loadTooltipArrow = getActiveTooltip().classList[1];
-    const logElmnt = cntnrElmnt.querySelector('.event-log');
     const makeHtmlElement = function (tagName, ...attr) {
       const element = document.createElement(tagName);
       for (let prop of attr) {
@@ -407,4 +410,5 @@
       }
     }
   });
+  logElmnt.insertAdjacentHTML('beforebegin', '<p class="event-log-title-tooltip">Log Event: Tooltip</p>');
 })();
