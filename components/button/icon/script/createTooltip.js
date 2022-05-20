@@ -198,18 +198,11 @@
     createArrow();
     function createArrow() {
       'use strict';
-      createHtmlElement('div', 'otter-tooltip-arrow-black', 'otter-tooltip-show-arrow-black', 'otter-tooltip-show-arrow');
-      createHtmlElement('div', 'otter-tooltip-arrow-silver', 'otter-tooltip-show-arrow-silver');
-      createHtmlElement('div', 'otter-tooltip-arrow-gray', 'otter-tooltip-show-arrow-gray');
-      createHtmlElement('div', 'otter-tooltip-arrow-white', 'otter-tooltip-show-arrow-white');
-      createHtmlElement('div', 'otter-tooltip-arrow-maroon', 'otter-tooltip-show-arrow-maroon');
-      createHtmlElement('div', 'otter-tooltip-arrow-red', 'otter-tooltip-show-arrow-red');
-      createHtmlElement('div', 'otter-tooltip-arrow-purple', 'otter-tooltip-show-arrow-purple');
-      createHtmlElement('div', 'otter-tooltip-arrow-fuchsia', 'otter-tooltip-show-arrow-fuchsia');
-      createHtmlElement('div', 'otter-tooltip-arrow-green', 'otter-tooltip-show-arrow-green');
-      createHtmlElement('div', 'otter-tooltip-arrow-lime', 'otter-tooltip-show-arrow-lime');
-      createHtmlElement('div', 'otter-tooltip-arrow-olive', 'otter-tooltip-show-arrow-olive');
-      createHtmlElement('div', 'otter-tooltip-arrow-yellow', 'otter-tooltip-show-arrow-yellow');
+      const tooltipTheme = ['black', 'silver', 'gray', 'white', 'maroon', 'red', 'purple', 'fuchsia', 'green', 'lime', 'olive', 'yellow'];
+
+      createHtmlElement('div', 'otter-tooltip-arrow-black', 'otter-tooltip-show-arrow');
+      tooltipTheme.forEach(element => createHtmlElement('div', `otter-tooltip-arrow-${element}`, `otter-tooltip-show-arrow-${element}`));
+
       function createHtmlElement(element, class1, param1, param2) {
         'use strict';
         if (wrapper.classList.contains(param1) || wrapper.classList.contains(param2)) {

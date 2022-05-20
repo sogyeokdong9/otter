@@ -46,6 +46,7 @@
     const element = trgElmn[idx];
     closeAllTooltip();
     element.lastElementChild.ariaExpanded = true;
+    element.lastElementChild.firstChild.ariaLabel = 'unfold';
     setTrgClsReplace(idx, 'otter-tooltip-close', 'otter-tooltip-open');
     setTooltipClsAdd(idx, createPlcmntClsNm(idx));
     const expr = getTrgAttrPlcmnt(idx);
@@ -87,6 +88,7 @@
     'use strict';
     const element = trgElmn[idx];
     element.lastElementChild.ariaExpanded = false;
+    element.lastElementChild.firstChild.ariaLabel = 'fold';
     setTrgClsReplace(idx, 'otter-tooltip-open', 'otter-tooltip-close');
     setTooltipClsReplace(idx, "otter-slide-up-in", "otter-slide-up-out");
     setTooltipClsReplace(idx, "otter-slide-down-in", "otter-slide-down-out");
@@ -312,11 +314,20 @@
     const result = activeElmn;
     return result;
   }
+  // console.log(p.replaceAll('dog', 'monkey'));
+
+  function getReplaceString() {
+    const element = String(getActiveBtnElmn().classList);
+    let newString = element.replaceAll(' otter-btn', '').replaceAll(' otter-tooltip-trigger otter-tooltip-link otter-tooltip-open', '');
+    return newString;
+    // return element
+  }
+
   function eventLog(mouseState) {
     'use strict';
     const loadBtnItemText = ( Boolean(getActiveBtnElmn().firstElementChild.innerText) ) ? getActiveBtnElmn().firstElementChild.innerText : 'null';
     const loadBtnItemAttr = getActiveBtnElmn().getAttribute('data-placement');
-    const loadBtnItemCls = getActiveBtnElmn().classList[2];
+    const loadBtnItemCls = getReplaceString();
     const loadBtnItemIdx = getActiveBtnElmn().getAttribute('data-index-number');
     const loadTooltipItemText = getActiveTooltip().innerText.replace(/\n\r?/g, '/');
     const loadTooltipItemIdx = getActiveTooltip().getAttribute('data-index-number');

@@ -196,6 +196,9 @@ $btns-data: (
       border-radius: 50%;
     }
   }
+}
+
+button:not(.otter-btn-icon-only) {
   span + span {
     margin-left: 8px;
   }

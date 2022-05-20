@@ -350,7 +350,7 @@
   border-radius: 50%;
 }
 
-.otter-btn span + span {
+button:not(.otter-btn-icon-only) span + span {
   margin-left: 8px;
 }
 

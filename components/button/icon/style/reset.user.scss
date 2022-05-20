@@ -24,9 +24,20 @@
   /* This value will multiple the actual size  */
   display: inline-block;
   vertical-align: middle;
-  --ggs: 0.7;
-
+  --ggs: 0.8;
 }
+
+.otter-btn-lg {
+  .gg-search {
+    --ggs: 1;
+  }
+}
+.otter-btn-sm {
+  .gg-search {
+    --ggs: 0.6;
+  }
+}
+
 
 %otter-body-font {
   font-size: 14px;
@@ -170,9 +181,10 @@ hr:after {
 .event-log-tooltip,
 .event-log-loading,
 .event-log {
-  display: flex;
-  flex-direction: column-reverse;
-  flex-wrap: no-wrap;
+  display: table;
+  // display: flex;
+  // flex-direction: column-reverse;
+  // flex-wrap: no-wrap;
   counter-reset: count;
   margin: 0;
   padding: 0;
@@ -180,8 +192,7 @@ hr:after {
     counter-increment: count;
     &::before {
       content: "[" counter(count, decimal-leading-zero) "] == [" counter(count, lower-alpha) "]";
-      min-width: 120px;
-      padding-right: 20px;
+      padding-right: 1.5em;
       color: var(--otter-ftbck-disable);
     }
   }
@@ -196,18 +207,21 @@ hr:after {
 .log-item-dropdown,
 .log-item-loading,
 .log-item-tooltip {
-  display: flex;
-  flex-wrap: wrap;
+  display: table-row;
+  // display: flex;
+  // flex-wrap: wrap;
   & .now-class,
   & .specified {
     color: var(--otter-ftbck-primary-text);
   }
+  & .tooltip-title,
   & .tooltip-arrow,
   & .tooltip-txt,
   & .message-idx,
   & .message-txt,
   & .dropdown-idx,
   & .dropdown-txt,
+  & .trigger-role,
   & .trigger-idx,
   & .trigger-txt,
   & .trigger-style,
@@ -220,6 +234,9 @@ hr:after {
   & .changed-class {
     color: var(--otter-ftbck-secondary-text);
   }
+  & .tooltip-placement,
+  & .tooltip-color,
+  & .tooltip-theme,
   & .tooltip-idx,
   & .previous-idx,
   & .message-idx,
@@ -228,10 +245,9 @@ hr:after {
   & .message-theme,
   & .dropdown-idx,
   & .dropdown-arrow,
+  & .trigger-target,
   & .trigger-link,
   & .trigger-icon,
-  & .tooltip-title,
-  & .trigger-role,
   & .trigger-size,
   & .trigger-blocked,
   & .trigger-disabled,
@@ -260,71 +276,8 @@ hr:after {
   & .trigger-idx {
     text-align: center;
   }
-  & .tooltip-arrow {
-    min-width: 270px;
-  }
-  & .message-txt,
-  & .dropdown-txt {
-    min-width: 385px;
-  }
-  & .tooltip-title,
-  & .tooltip-txt,
-  & .trigger-txt {
-    min-width: 205px;
-  }
-  & .message-cls,
-  & .trigger-cls {
-    min-width: 165px;
-  }
-  & .dropdown-arrow {
-    min-width: 150x;
-  }
-  & .log-time {
-    min-width: 140px;
-  }
-  & .trigger-trigger,
-  & .trigger-shape,
-  & .trigger-blocked {
-    min-width: 105px;
-  }
-  & .trigger-role,
-  & .trigger-size,
-  & .trigger-disabled,
-  & .trigger-shape,
-  & .trigger-dangerous,
-  & .trigger-type {
-    min-width: 95px;
-  }
-  & .trigger-icon,
-  & .trigger-size,
-  & .trigger-blocked,
-  & .message-theme,
-  & .trigger-orientation,
-  & .trigger-specified,
-  & .trigger-style {
-    min-width: 80px;
-  }
-  & .trigger-orientation-margin,
-  & .trigger-loading-delay,
-  & .message-delay {
-    min-width: 75px;
-  }
-  & .trigger-loading {
-    min-width: 55px;
-  }
-  & .tooltip-idx,
-  & .previous-idx,
-  & .message-idx,
-  & .dropdown-idx,
-  & .trigger-idx {
-    min-width: 40px;
-  }
   span {
-    padding-right: 20px;
-    min-width: 115px;
+    display:table-cell;
+    padding-right: 1.5em;
   }
-}
-
-.event-log-button {
-  flex-direction: column;
 }
