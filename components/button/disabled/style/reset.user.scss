@@ -7,7 +7,13 @@
 @import url('https://css.gg/spinner.css');
 @import url('https://css.gg/bell.css');
 @import url('https://css.gg/chevron-down.css');
+@import url('https://css.gg/search.css');
+@import url('https://css.gg/link.css');
+@import url('https://css.gg/google.css');
 
+.gg-google,
+.gg-link,
+.gg-search,
 .gg-chevron-down,
 .gg-bell,
 .gg-spinner,
@@ -17,9 +23,21 @@
 .gg-info {
   /* This value will multiple the actual size  */
   display: inline-block;
-  vertical-align: top;
+  vertical-align: middle;
   --ggs: 0.8;
 }
+
+.otter-btn-lg {
+  .gg-search {
+    --ggs: 1;
+  }
+}
+.otter-btn-sm {
+  .gg-search {
+    --ggs: 0.6;
+  }
+}
+
 
 %otter-body-font {
   font-size: 14px;
@@ -163,19 +181,26 @@ hr:after {
 .event-log-tooltip,
 .event-log-loading,
 .event-log {
-  display: flex;
-  flex-direction: column-reverse;
-  flex-wrap: no-wrap;
+  display: table;
+  // display: flex;
+  // flex-direction: column-reverse;
+  // flex-wrap: no-wrap;
   counter-reset: count;
-  margin: 0;
+  margin: 0 0 2em;
   padding: 0;
   li {
     counter-increment: count;
     &::before {
       content: "[" counter(count, decimal-leading-zero) "] == [" counter(count, lower-alpha) "]";
-      min-width: 120px;
-      padding-right: 20px;
+      padding-right: 1.5em;
       color: var(--otter-ftbck-disable);
+    }
+    &:nth-of-type(1) {
+      &::before { 
+        content: "No. \A [" counter(count, decimal-leading-zero) "] == [" counter(count, lower-alpha) "]";
+        display: block;
+        white-space: pre;
+      }
     }
   }
   &::after {
@@ -189,21 +214,23 @@ hr:after {
 .log-item-dropdown,
 .log-item-loading,
 .log-item-tooltip {
-  display: flex;
-  flex-wrap: wrap;
+  display: table-row;
+  // display: flex;
+  // flex-wrap: wrap;
   & .now-class,
   & .specified {
     color: var(--otter-ftbck-primary-text);
   }
+  & .tooltip-title,
   & .tooltip-arrow,
   & .tooltip-txt,
   & .message-idx,
   & .message-txt,
   & .dropdown-idx,
   & .dropdown-txt,
+  & .trigger-role,
   & .trigger-idx,
   & .trigger-txt,
-  & .trigger-type,
   & .trigger-style,
   & .trigger-specified,
   & .trigger-orientation,
@@ -214,7 +241,11 @@ hr:after {
   & .changed-class {
     color: var(--otter-ftbck-secondary-text);
   }
+  & .tooltip-placement,
+  & .tooltip-color,
+  & .tooltip-theme,
   & .tooltip-idx,
+  & .tooltip-plc,
   & .previous-idx,
   & .message-idx,
   & .message-cls,
@@ -222,10 +253,15 @@ hr:after {
   & .message-theme,
   & .dropdown-idx,
   & .dropdown-arrow,
+  & .trigger-target,
+  & .trigger-link,
+  & .trigger-icon,
   & .trigger-size,
-  & .trigger-dangerous,
   & .trigger-blocked,
   & .trigger-disabled,
+  & .trigger-shape,
+  & .trigger-dangerous,
+  & .trigger-type,
   & .trigger-idx,
   & .trigger-cls,
   & .trigger-plc,
@@ -241,10 +277,6 @@ hr:after {
   & .trigger-loading-delay {
     text-align: right;
   }
-  & .trigger-size,
-  & .trigger-dangerous,
-  & .trigger-blocked,
-  & .trigger-disabled,
   & .tooltip-idx,
   & .previous-idx,
   & .message-idx,
@@ -252,57 +284,106 @@ hr:after {
   & .trigger-idx {
     text-align: center;
   }
-  & .tooltip-arrow {
-    min-width: 270px;
-  }
-  & .message-txt,
-  & .dropdown-txt {
-    min-width: 385px;
-  }
-  & .tooltip-txt,
-  & .trigger-txt {
-    min-width: 205px;
-  }
-  & .message-cls,
-  & .trigger-cls {
-    min-width: 165px;
-  }
-  & .dropdown-arrow {
-    min-width: 150x;
-  }
-  & .log-time {
-    min-width: 140px;
-  }
-  & .trigger-type {
-    min-width: 105px;
-  }
-  & .message-theme,
-  & .trigger-orientation,
-  & .trigger-specified,
-  & .trigger-style {
-    min-width: 80px;
-  }
-  & .trigger-orientation-margin,
-  & .trigger-loading-delay,
-  & .message-delay {
-    min-width: 75px;
-  }
-  & .trigger-loading {
-    min-width: 55px;
-  }
-  & .tooltip-idx,
-  & .previous-idx,
-  & .message-idx,
-  & .dropdown-idx,
-  & .trigger-idx {
-    min-width: 40px;
-  }
   span {
-    padding-right: 20px;
-    min-width: 115px;
+    display:table-cell;
+    padding-right: 1.5em;
   }
-}
-
-.event-log-button {
-  flex-direction: column;
+  &:nth-of-type(1) {
+    .specified::before {
+      content: 'Specified';
+    }
+    .log-time::before {
+      content: 'Time';
+    }
+    .previous-idx::before,
+    .tooltip-idx::before,
+    .trigger-idx::before {
+      content: 'Index';
+    }
+    .trigger-txt::before {
+      content: 'Name';
+    }
+    .trigger-type::before {
+      content: 'Type';
+    }
+    .trigger-dangerous::before {
+      content: 'Danger';
+    }
+    .trigger-shape::before {
+      content: 'Shape';
+    }
+    .trigger-shape::before {
+      content: 'Shape';
+    }
+    .trigger-disabled::before {
+      content: 'Disabled';
+    }
+    .trigger-blocked::before {
+      content: 'Blocked';
+    }
+    .trigger-size::before {
+      content: 'Size';
+    }
+    .trigger-role::before {
+      content: 'Role';
+    }
+    .tooltip-theme::before {
+      content: 'Theme';
+    }
+    .tooltip-color::before {
+      content: 'Color';
+    }
+    .trigger-plc::before,
+    .tooltip-plc::before {
+      content: 'Placement';
+    }
+    .trigger-cls::before {
+      content: 'Class';
+    }
+    .tooltip-txt::before,
+    .tooltip-title::before {
+      content: 'Title';
+    }
+    .trigger-icon::before {
+      content: 'Icon';
+    }
+    .trigger-target::before {
+      content: 'Target';
+    }
+    .trigger-link::before {
+      content: 'Link';
+    }
+    .tooltip-arrow::before {
+      content: 'Arrow';
+    }
+    .specified::before,
+    .log-time::before,
+    .previous-idx::before,
+    .tooltip-idx::before,
+    .trigger-idx::before,
+    .trigger-txt::before,
+    .trigger-type::before,
+    .trigger-dangerous::before,
+    .trigger-shape::before,
+    .trigger-shape::before,
+    .trigger-disabled::before,
+    .trigger-blocked::before,
+    .trigger-size::before,
+    .trigger-role::before,
+    .tooltip-theme::before,
+    .tooltip-color::before,
+    .trigger-plc::before,
+    .tooltip-plc::before,
+    .trigger-cls::before,
+    .tooltip-txt::before,
+    .tooltip-title::before,
+    .trigger-icon::before,
+    .trigger-target::before,
+    .trigger-link::before,
+    .tooltip-arrow::before {
+      display: block;
+      font-weight: bold;
+      color: var(--otter-ftbck-primary-text);
+    }
+  }
 }
