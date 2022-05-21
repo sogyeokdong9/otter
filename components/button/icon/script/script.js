@@ -45,6 +45,7 @@
     'use strict';
     const element = trgElmn[idx];
     closeAllTooltip();
+    element.lastElementChild.ariaLabel = 'open';
     element.lastElementChild.ariaExpanded = true;
     element.lastElementChild.firstChild.ariaLabel = 'unfold';
     setTrgClsReplace(idx, 'otter-tooltip-close', 'otter-tooltip-open');
@@ -87,6 +88,7 @@
   function closeTooltip(idx) {
     'use strict';
     const element = trgElmn[idx];
+    element.lastElementChild.ariaLabel = 'close';
     element.lastElementChild.ariaExpanded = false;
     element.lastElementChild.firstChild.ariaLabel = 'fold';
     setTrgClsReplace(idx, 'otter-tooltip-open', 'otter-tooltip-close');
@@ -314,15 +316,11 @@
     const result = activeElmn;
     return result;
   }
-  // console.log(p.replaceAll('dog', 'monkey'));
-
   function getReplaceString() {
     const element = String(getActiveBtnElmn().classList);
     let newString = element.replaceAll(' otter-btn', '').replaceAll(' otter-tooltip-trigger otter-tooltip-link otter-tooltip-open', '');
     return newString;
-    // return element
   }
-
   function eventLog(mouseState) {
     'use strict';
     const loadBtnItemText = ( Boolean(getActiveBtnElmn().firstElementChild.innerText) ) ? getActiveBtnElmn().firstElementChild.innerText : 'null';
@@ -421,5 +419,5 @@
       }
     }
   });
-  logElmnt.insertAdjacentHTML('beforebegin', '<p class="event-log-title-tooltip">Log Event: Tooltip</p>');
+  logElmnt.insertAdjacentHTML('beforebegin', '<h4 class="event-log-title-tooltip">Log Event: Tooltip</h4>');
 })();

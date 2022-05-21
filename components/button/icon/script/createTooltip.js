@@ -3,13 +3,14 @@
   'use strict';
   const cntnrElmnt = document.querySelector('.wrap');
   const trgElmn = cntnrElmnt.querySelectorAll('.otter-tooltip-trigger');
+  // const trgElmn = cntnrElmnt.querySelectorAll('.otter-tooltip-trigger:not([disabled])');
   const items = [
     {
       "id":"1",
       "name":"Tooltip",
       "tooltip":[
         {
-          "id":"tooltip-tmp-key-0",
+          "id":"tooltip-tmp-key-1",
           "dataTheme":"black",
           "dataColor":"",
           "name":"tooltip1"
@@ -21,7 +22,7 @@
       "name":"Tooltip",
       "tooltip":[
         {
-          "id":"tooltip-tmp-key-1",
+          "id":"tooltip-tmp-key-2",
           "dataTheme":"black",
           "dataColor":"",
           "name":"tooltip2"
@@ -33,7 +34,7 @@
       "name":"Tooltip",
       "tooltip":[
         {
-          "id":"tooltip-tmp-key-2",
+          "id":"tooltip-tmp-key-3",
           "dataTheme":"black",
           "dataColor":"",
           "name":"tooltip3"
@@ -45,7 +46,7 @@
       "name":"Tooltip",
       "tooltip":[
         {
-          "id":"tooltip-tmp-key-3",
+          "id":"tooltip-tmp-key-4",
           "dataTheme":"black",
           "dataColor":"",
           "name":"tooltip4"
@@ -57,7 +58,7 @@
       "name":"Tooltip",
       "tooltip":[
         {
-          "id":"tooltip-tmp-key-4",
+          "id":"tooltip-tmp-key-5",
           "dataTheme":"black",
           "dataColor":"",
           "name":"tooltip5"
@@ -69,7 +70,7 @@
       "name":"Tooltip",
       "tooltip":[
         {
-          "id":"tooltip-tmp-key-5",
+          "id":"tooltip-tmp-key-6",
           "dataTheme":"black",
           "dataColor":"",
           "name":"tooltip5"
@@ -81,7 +82,7 @@
       "name":"Tooltip",
       "tooltip":[
         {
-          "id":"tooltip-tmp-key-6",
+          "id":"tooltip-tmp-key-7",
           "dataTheme":"black",
           "dataColor":"",
           "name":"tooltip5"
@@ -93,7 +94,7 @@
       "name":"Tooltip",
       "tooltip":[
         {
-          "id":"tooltip-tmp-key-7",
+          "id":"tooltip-tmp-key-8",
           "dataTheme":"black",
           "dataColor":"",
           "name":"tooltip5"
@@ -105,7 +106,7 @@
       "name":"Tooltip",
       "tooltip":[
         {
-          "id":"tooltip-tmp-key-8",
+          "id":"tooltip-tmp-key-9",
           "dataTheme":"black",
           "dataColor":"",
           "name":"tooltip5"
@@ -117,7 +118,7 @@
       "name":"Tooltip",
       "tooltip":[
         {
-          "id":"tooltip-tmp-key-9",
+          "id":"tooltip-tmp-key-10",
           "dataTheme":"black",
           "dataColor":"",
           "name":"tooltip5"
@@ -128,7 +129,7 @@
   const prefixTooltipId = 'tooltip-tmp-key-';
   for (let i = 0; i < trgElmn.length; i++) {
     const element = trgElmn[i];
-    items[i].tooltip[0].id = prefixTooltipId + [i];
+    items[i].tooltip[0].id = prefixTooltipId + [i + 1];
     items[i].tooltip[0].name = element.firstElementChild.dataset.tooltip;
     getDataTooltipTheme(i);
     getDataTooltipColor(i);
@@ -199,10 +200,8 @@
     function createArrow() {
       'use strict';
       const tooltipTheme = ['black', 'silver', 'gray', 'white', 'maroon', 'red', 'purple', 'fuchsia', 'green', 'lime', 'olive', 'yellow'];
-
       createHtmlElement('div', 'otter-tooltip-arrow-black', 'otter-tooltip-show-arrow');
       tooltipTheme.forEach(element => createHtmlElement('div', `otter-tooltip-arrow-${element}`, `otter-tooltip-show-arrow-${element}`));
-
       function createHtmlElement(element, class1, param1, param2) {
         'use strict';
         if (wrapper.classList.contains(param1) || wrapper.classList.contains(param2)) {
@@ -214,12 +213,10 @@
       }
     }
     function checkDataColorDataThemeSame() {
-      const result = Boolean(items[order].tooltip[0].dataColor === items[order].tooltip[0].dataTheme);
-      return result;
+      return Boolean(items[order].tooltip[0].dataColor === items[order].tooltip[0].dataTheme);
     }
     function checkDataColorUndefined() {
-      const result = Boolean(items[order].tooltip[0].dataColor === undefined)
-      return result;
+      return Boolean(items[order].tooltip[0].dataColor === undefined);
     }
     if ( checkDataColorDataThemeSame() || checkDataColorUndefined() ) {
       itemContainer.removeAttribute('data-tooltip-color')

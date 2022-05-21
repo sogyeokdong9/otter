@@ -22,150 +22,122 @@
     const element = trgElmn[i];
     // order
     // info(label)
-    // log time
-    // data-index-number
+    const logTime = getStringTime();
+    const INDEX_NUMBER = Number(element.dataset.indexNumber);
     const buttonInnerText = element.innerText;
     const buttonType = element.dataset.buttonType;
     const buttonDanger = element.dataset.buttonDanger;
     const buttonShape = element.dataset.buttonShape;
-    // disabled
+    const disabled = element.hasAttribute('disabled');
     const buttonBlock = element.dataset.buttonBlock;
     const buttonSize = element.dataset.buttonSize;
     const buttonTrigger = element.dataset.buttonTrigger;
-    // data-tooltip-theme
-    // data-tooltip-color
-    // data-placement
-    // data-tooltip-title
-    // data-button-icon
-    // data-link-target
-    // data-button-link
-    
-    logButton('button', i);
-
+    const tooltipTheme = element.dataset.tooltipTheme;
+    const tooltipColor = element.dataset.tooltipColor;
+    const placement =  element.dataset.placement;
+    const tooltipTitle = element.dataset.tooltipTitle;
+    const buttonIcon = element.dataset.buttonIcon;
+    const linkTarget = element.dataset.linkTarget;
+    const buttonLink = element.dataset.buttonLink;
     function setClassToButton( trgt, cls, ...theArgs ) {
       trgt.classList.add( 'otter-btn', cls , ...theArgs );
     }
-    
-    buttonSize === 'large' ? setClassToButton( element, 'otter-btn-lg' ) 
-      : buttonSize === 'small' ? setClassToButton( element, 'otter-btn-sm' )
-      : null;
-
+    !buttonInnerText ? setClassToButton( element, 'otter-btn-icon-only' ) : null;
     buttonType === 'default' ? setClassToButton( element, 'otter-btn-default' )
       : buttonType === 'primary' ? setClassToButton( element, 'otter-btn-primary' )
       : buttonType === 'dashed' ? setClassToButton( element, 'otter-btn-dashed' )
       : buttonType === 'text' ? setClassToButton( element, 'otter-btn-text' )
       : buttonType === 'link' ? setClassToButton( element, 'otter-btn-link' )
       : null;
-
-    buttonBlock === 'true' ? setClassToButton( element, 'otter-btn-block' ) : null;
-
     buttonDanger === 'true' ? setClassToButton( element, 'otter-btn-dangerous' ) : null;
-
-    !buttonInnerText ? setClassToButton( element, 'otter-btn-icon-only' ) : null;
-
     buttonShape === 'circle' ? setClassToButton( element, 'otter-btn-circle' )
       : buttonShape === 'round' ? setClassToButton( element, 'otter-btn-round' )
       : null;
-
+    buttonBlock === 'true' ? setClassToButton( element, 'otter-btn-block' ) : null;
+    buttonSize === 'large' ? setClassToButton( element, 'otter-btn-lg' ) 
+      : buttonSize === 'small' ? setClassToButton( element, 'otter-btn-sm' )
+      : null;
     buttonTrigger === 'tooltip' ? setClassToButton( element, 'otter-tooltip-trigger', 'otter-tooltip-link', 'otter-tooltip-close' )
       : buttonTrigger === 'message' ? setClassToButton( element, 'otter-message-trigger', 'otter-message-link', 'otter-message-close' )
-      : null
-
-    function setButtonIcon(icon, role, label) {
+      : null;
+    linkTarget === '_blank' ? element.setAttribute('rel', 'external noopener noreferrer') : null;
+    function setButtonIcon(icon, roles, labels) {
       'use strict';
-      if ( element.dataset.buttonIcon === icon ) {
-        if ( element.dataset.buttonTrigger === role) {
-          element.insertAdjacentHTML('afterbegin', `<span data-tooltip="${getTooltipTitle( element )}"><i class="ottericon gg-${icon}" role="img" aria-label=${label}></i></span>`);
-          element.insertAdjacentHTML('beforeend', `<span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="close" aria-expanded="false"><i class="ottericon gg-chevron-down" role="img" aria-label="fold"></i></span>`)
+      if ( buttonIcon === icon ) {
+        if ( buttonTrigger === roles && !buttonInnerText ) {
+          const tooltip = makeHtmlElement( 'span' );
+          tooltip.setAttribute('data-tooltip', tooltipTitle);
+          const item = makeHtmlElement(
+            'i',
+            { class: `ottericon gg-${icon}` },
+            { role: 'img' },
+          )
+          item.setAttribute('aria-label', labels);
+          tooltip.append(item);
+          element.append(tooltip);
+          const span = makeHtmlElement(
+            'span', 
+            { class: 'spacial-letter-down a11y-hidden'},
+            { focusable: 'false'},
+            { role: 'img'}
+          );
+          span.setAttribute('aria-label', 'close');
+          span.setAttribute('aria-expanded', 'false');
+          const i = makeHtmlElement(
+            'i',
+            { class: `ottericon gg-chevron-down` },
+            { role: 'img' }
+          )
+          i.setAttribute('aria-label', 'fold');
+          span.append(i);
+          element.append(span);
         } else {
-          element.insertAdjacentHTML('afterbegin', `<span><i class="ottericon gg-${icon}" role="img" aria-label=${label}></i></span>`);
+          const container = makeHtmlElement( 'span' );
+          const item = makeHtmlElement(
+            'i',
+            { class: `ottericon gg-${icon}` },
+            { role: 'img' },
+          )
+          item.setAttribute('aria-label', labels);
+          container.append(item);
+          element.prepend(container);
         }
       } 
     }
     setButtonIcon('search', 'tooltip', 'search');
     setButtonIcon('google', 'tooltip', 'link');
-
+    if ( buttonLink ) {
+      element.addEventListener('click', function() {
+        ( linkTarget === '_blank' ) ? visitPage( buttonLink, linkTarget ) 
+          : visitPage( buttonLink );
+      });
+    }
     function returnCheckValue( val1, val2 = '-' ) {
       return val1 || val2;
     }
-    function getTooltipTitle( obj ) {
-      'use strict';
-      return obj.getAttribute('data-tooltip-title');
-    } 
-    function isButtonDisabled( obj ) {
-      const element = obj.hasAttribute('disabled');
-      return element ? 'disabled' : null;
-    }
-    function isButtonBlock( obj ) {
-      'use strict';
-      const element = obj.getAttribute('data-button-block');
-      return element ? 'block' : null;
-    }
-    function isButtonDanger( obj ) {
-      'use strict';
-      const element = obj.getAttribute('data-button-danger')
-      return element ? 'danger' : null;
-    }
-    function getButtonSize( obj ) {
-      'use strict';
-      return obj.getAttribute(`data-button-size`);
-    }
-    function getButtonShape( obj ) {
-      'use strict';
-      return obj.getAttribute(`data-button-shape`);
-    }
-    function getButtonTrigger( obj ) {
-      'use strict';
-      return obj.getAttribute(`data-button-trigger`);
-    }
-    function getTooltipTheme( obj ) {
-      'use strict';
-      return obj.getAttribute(`data-tooltip-theme`);
-    }
-    function getTooltipColor( obj ) {
-      'use strict';
-      return obj.getAttribute(`data-tooltip-color`);
-    }
-    function getTooltipPlacement( obj ) {
-      'use strict';
-      return obj.getAttribute(`data-placement`);
-    }
-    function getButtonIcon( obj ) {
-      'use strict';
-      return obj.getAttribute(`data-button-icon`);
-    }
-    function getButtonLink( obj ) {
-      'use strict';
-      return obj.getAttribute('data-button-link');
-    }
-    function getLinkTarget( obj ) {
-      'use strict';
-      return obj.getAttribute('data-link-target');
-    }
-
     element.setAttribute('data-index-number', i + 1);
-
+    logButton('button', i);
     function logButton(info, idx) {
       'use strict';
       const loadButtonItmeIdx = returnCheckValue( i + 1 );
-      const loadButtonItmeText = returnCheckValue( trgElmn[idx].innerText, '(context)' );
-      const loadButtonItmeType = returnCheckValue( trgElmn[idx].getAttribute('data-button-type'), '(type)' );
-      const loadButtonItmeDanger = returnCheckValue( isButtonDanger( trgElmn[idx] ) , '(danger)');
-      const loadButtonItmeShape = returnCheckValue( getButtonShape( trgElmn[idx] ), '(shape)' );
-      const loadButtonItmeDisabled = returnCheckValue( isButtonDisabled( trgElmn[idx] ), '(disabled)' );
-      const loadButtonItmeBlock = returnCheckValue( isButtonBlock( trgElmn[idx] ), '(block)' );
-      const loadButtonItmeSize = returnCheckValue( getButtonSize( trgElmn[idx] ), '(size)' );
-      const loadButtonItmeTrigger = returnCheckValue( getButtonTrigger( trgElmn[idx] ), '(trigger)' );
-      const loadTooltipTheme = returnCheckValue( getTooltipTheme( trgElmn[idx] ), '(theme)' );
-      const loadTooltipColor = returnCheckValue( getTooltipColor( trgElmn[idx] ), '(color)' );
-      const loadTooltipPlacment = returnCheckValue( getTooltipPlacement( trgElmn[idx] ), '(Placement)' );
-      const loadTooltipTitle = returnCheckValue( getTooltipTitle( trgElmn[idx] ), '(context)' );
-      const loadButtonIcon = returnCheckValue( getButtonIcon( trgElmn[idx] ), '(icon)' );
-      const loadLinkTarget = returnCheckValue( getLinkTarget( trgElmn[idx] ), '(target)' );
-      const loadButtonLink = returnCheckValue( getButtonLink( trgElmn[idx] ), '(url)' );
+      const loadButtonItmeText = returnCheckValue( buttonInnerText, '(context)' );
+      const loadButtonItmeType = returnCheckValue( buttonType, '(type)' );
+      const loadButtonItmeDanger = returnCheckValue( buttonDanger , '(danger)' );
+      const loadButtonItmeShape = returnCheckValue( buttonShape, '(shape)' );
+      const loadButtonItmeDisabled = returnCheckValue( disabled, '(disabled)' );
+      const loadButtonItmeBlock = returnCheckValue( buttonBlock, '(block)' );
+      const loadButtonItmeSize = returnCheckValue( buttonSize, 'middle' );
+      const loadButtonItmeTrigger = returnCheckValue( buttonTrigger, '(trigger)' );
+      const loadTooltipTheme = returnCheckValue( tooltipTheme, 'black' );
+      const loadTooltipColor = returnCheckValue( tooltipColor, '(color)' );
+      const loadTooltipPlacment = returnCheckValue( placement, 'default' );
+      const loadTooltipTitle = returnCheckValue( tooltipTitle, '(context)' );
+      const loadButtonIcon = returnCheckValue( buttonIcon, '(icon)' );
+      const loadLinkTarget = returnCheckValue( linkTarget, '(target)' );
+      const loadButtonLink = returnCheckValue( buttonLink, '(url)' );
       const groupOfPairs = [
         { id: 1, name: info, class: 'specified' },
-        { id: 2, name: getStringTime(), class: 'log-time' },
+        { id: 2, name: logTime, class: 'log-time' },
         { id: 3, name: loadButtonItmeIdx, class: 'trigger-idx' },
         { id: 4, name: loadButtonItmeText, class: 'trigger-txt' },
         { id: 5, name: loadButtonItmeType, class: 'trigger-type' },
@@ -177,7 +149,7 @@
         { id: 11, name: loadButtonItmeTrigger, class: 'trigger-role' },
         { id: 12, name: loadTooltipTheme, class: 'tooltip-theme' },
         { id: 13, name: loadTooltipColor, class: 'tooltip-color' },
-        { id: 14, name: loadTooltipPlacment, class: 'tooltip-placement' },
+        { id: 14, name: loadTooltipPlacment, class: 'tooltip-plc' },
         { id: 15, name: loadTooltipTitle, class: 'tooltip-title' },
         { id: 16, name: loadButtonIcon, class: 'trigger-icon' },
         { id: 17, name: loadLinkTarget, class: 'trigger-target' },
@@ -213,12 +185,8 @@
     const result = `${timeStr1}:${timeStr2}`;
     return result;
   } 
-  trgElmn[14].addEventListener('click', function() {
-    'use strict';
-    visitPage( this.dataset.buttonLink, this.dataset.linkTarget )
-  })
   function visitPage(url, target = '_self'){
     return window.open(url, target);
   }
-  logElmnt.insertAdjacentHTML('beforebegin', '<p class="log-title-button">Log: Button</p>');
+  logElmnt.insertAdjacentHTML('beforebegin', '<h4 class="log-title-button">Log: Button</h4>');
 })();
