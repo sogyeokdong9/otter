@@ -186,7 +186,7 @@ hr:after {
   // flex-direction: column-reverse;
   // flex-wrap: no-wrap;
   counter-reset: count;
-  margin: 0;
+  margin: 0 0 2em;
   padding: 0;
   li {
     counter-increment: count;
@@ -194,6 +194,13 @@ hr:after {
       content: "[" counter(count, decimal-leading-zero) "] == [" counter(count, lower-alpha) "]";
       padding-right: 1.5em;
       color: var(--otter-ftbck-disable);
+    }
+    &:nth-of-type(1) {
+      &::before { 
+        content: "No. \A [" counter(count, decimal-leading-zero) "] == [" counter(count, lower-alpha) "]";
+        display: block;
+        white-space: pre;
+      }
     }
   }
   &::after {
@@ -238,6 +245,7 @@ hr:after {
   & .tooltip-color,
   & .tooltip-theme,
   & .tooltip-idx,
+  & .tooltip-plc,
   & .previous-idx,
   & .message-idx,
   & .message-cls,
@@ -279,5 +287,103 @@ hr:after {
   span {
     display:table-cell;
     padding-right: 1.5em;
+  }
+  &:nth-of-type(1) {
+    .specified::before {
+      content: 'Specified';
+    }
+    .log-time::before {
+      content: 'Time';
+    }
+    .previous-idx::before,
+    .tooltip-idx::before,
+    .trigger-idx::before {
+      content: 'Index';
+    }
+    .trigger-txt::before {
+      content: 'Name';
+    }
+    .trigger-type::before {
+      content: 'Type';
+    }
+    .trigger-dangerous::before {
+      content: 'Danger';
+    }
+    .trigger-shape::before {
+      content: 'Shape';
+    }
+    .trigger-shape::before {
+      content: 'Shape';
+    }
+    .trigger-disabled::before {
+      content: 'Disabled';
+    }
+    .trigger-blocked::before {
+      content: 'Blocked';
+    }
+    .trigger-size::before {
+      content: 'Size';
+    }
+    .trigger-role::before {
+      content: 'Role';
+    }
+    .tooltip-theme::before {
+      content: 'Theme';
+    }
+    .tooltip-color::before {
+      content: 'Color';
+    }
+    .trigger-plc::before,
+    .tooltip-plc::before {
+      content: 'Placement';
+    }
+    .trigger-cls::before {
+      content: 'Class';
+    }
+    .tooltip-txt::before,
+    .tooltip-title::before {
+      content: 'Title';
+    }
+    .trigger-icon::before {
+      content: 'Icon';
+    }
+    .trigger-target::before {
+      content: 'Target';
+    }
+    .trigger-link::before {
+      content: 'Link';
+    }
+    .tooltip-arrow::before {
+      content: 'Arrow';
+    }
+    .specified::before,
+    .log-time::before,
+    .previous-idx::before,
+    .tooltip-idx::before,
+    .trigger-idx::before,
+    .trigger-txt::before,
+    .trigger-type::before,
+    .trigger-dangerous::before,
+    .trigger-shape::before,
+    .trigger-shape::before,
+    .trigger-disabled::before,
+    .trigger-blocked::before,
+    .trigger-size::before,
+    .trigger-role::before,
+    .tooltip-theme::before,
+    .tooltip-color::before,
+    .trigger-plc::before,
+    .tooltip-plc::before,
+    .trigger-cls::before,
+    .tooltip-txt::before,
+    .tooltip-title::before,
+    .trigger-icon::before,
+    .trigger-target::before,
+    .trigger-link::before,
+    .tooltip-arrow::before {
+      display: block;
+      font-weight: bold;
+      color: var(--otter-ftbck-primary-text);
+    }
   }
 }
