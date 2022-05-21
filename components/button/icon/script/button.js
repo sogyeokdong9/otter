@@ -48,7 +48,7 @@
       : buttonType === 'dashed' ? setClassToButton( element, 'otter-btn-dashed' )
       : buttonType === 'text' ? setClassToButton( element, 'otter-btn-text' )
       : buttonType === 'link' ? setClassToButton( element, 'otter-btn-link' )
-      : null;
+      : setClassToButton( element, 'otter-btn-default' );
     buttonDanger === 'true' ? setClassToButton( element, 'otter-btn-dangerous' ) : null;
     buttonShape === 'circle' ? setClassToButton( element, 'otter-btn-circle' )
       : buttonShape === 'round' ? setClassToButton( element, 'otter-btn-round' )
@@ -65,6 +65,7 @@
       'use strict';
       if ( buttonIcon === icon ) {
         if ( buttonTrigger === roles && !buttonInnerText ) {
+          // element.insertAdjacentHTML('afterbegin', `<span data-tooltip="${getTooltipTitle( element )}"><i class="ottericon gg-${icon}" role="img" aria-label=${label}></i></span>`);
           const tooltip = makeHtmlElement( 'span' );
           tooltip.setAttribute('data-tooltip', tooltipTitle);
           const item = makeHtmlElement(
@@ -75,6 +76,7 @@
           item.setAttribute('aria-label', labels);
           tooltip.append(item);
           element.append(tooltip);
+          // element.insertAdjacentHTML('beforeend', `<span class="spacial-letter-down a11y-hidden" focusable="false" role="img" aria-label="close" aria-expanded="false"><i class="ottericon gg-chevron-down" role="img" aria-label="fold"></i></span>`)
           const span = makeHtmlElement(
             'span', 
             { class: 'spacial-letter-down a11y-hidden'},
@@ -92,6 +94,7 @@
           span.append(i);
           element.append(span);
         } else {
+          // element.insertAdjacentHTML('afterbegin', `<span><i class="ottericon gg-${icon}" role="img" aria-label=${label}></i></span>`);
           const container = makeHtmlElement( 'span' );
           const item = makeHtmlElement(
             'i',
